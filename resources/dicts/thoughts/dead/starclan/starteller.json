@@ -1,0 +1,17 @@
+[
+    {
+        "id": "dead_starteller_to_alive_starteller_app",
+        "thoughts": [
+            "Walks in the dreams of r_c, sharing information to help the Clan",
+            "Hopes r_c knows how proud {PRONOUN/m_c/subject} {VERB/m_c/are/is} of {PRONOUN/r_c/object}",
+            "Wishes {PRONOUN/m_c/subject} could tell r_c exactly what an omen means"
+        ],
+        "random_status_constraint": [
+            "starteller apprentice"
+        ],
+        "random_living_status": [
+            "living",
+            "starclan"
+        ]
+    }
+]

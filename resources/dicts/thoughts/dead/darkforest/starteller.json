@@ -1,0 +1,31 @@
+[    
+      { 
+        "id": "dark_forest_starteller_to_living_other_starteller",
+        "thoughts": [
+            "Is encouraging r_c to betray the Clan",
+            "Is deliberately whispering contradicting prophesies to r_c so {PRONOUN/r_c/subject} will make a fatal mistake",
+            "Wants to give a bad omen about someone so that r_c will distrust them"
+            ],  
+        "random_status_constraint": [
+                "starteller",
+                "starteller apprentice"
+            ],
+         "random_living_status": [
+                "living"
+            ]
+     
+       },
+       {
+         "id": "dark_forest_starteller_to_living_starteller_apprentice",
+         "thoughts": [
+               "Hopes r_c will follow the path {PRONOUN/m_c/subject} took",
+               "Is trying to tell r_c lies about a certain cat"
+            ],
+        "random_status_constraint": [
+              "starteller apprrentice"
+            ],
+        "random_living_status" : [
+              "living"
+            ]
+       }
+]
