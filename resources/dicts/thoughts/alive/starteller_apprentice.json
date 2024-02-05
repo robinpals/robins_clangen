@@ -1,0 +1,265 @@
+[
+    {
+        "id": "general_starteller_app_to_dead_starclan_newborn1",
+        "thoughts": [
+            "Wonders if {PRONOUN/m_c/subject} could have warned r_c before-hand",
+            "Can still hear the clan's wails as Starclan took the newborn into their clutches",
+            "Thought {PRONOUN/m_c/subject} heard r_c's mewls from Starclan in a dream",
+            "Contemplates why Starclan took r_c so young",
+            "Is questioning if r_c would grow up in StarClan or stay a newborn",
+            "Prays that r_c is healthy and receives the strength {PRONOUN/r_c/subject} need to grow in StarClan",
+            "Is finally accepting that r_c was transported to Starclan for a reason",
+            "Is pondering which role r_c would have been",
+            "Ponders how StarClan would deal with r_c",
+            "Thought {PRONOUN/m_c/subject} saw r_c's spirit in the camp, but {PRONOUN/m_c/subject} only saw mist",
+            "Is listening to the reason behind r_c's name with a gentle smile",
+            "Wonders if newborn kits grow up to be adults or stay young forever in StarClan",
+            "Is asking StarClan why they take newborns to Silverpelt",
+            "Prays that all the newborn kits in StarClan get enough food to stay strong",
+            "Is contemplating StarClan and why they would allow newborns to pass",
+            "Is reflecting on r_c's pelt, and wonders how it will look under Silverpelt with a bittersweet smile",
+            "Was startled to see r_c in a dream this night",
+            "Was spooked when {PRONOUN/m_c/subject} encountered a ghostly newborn while collecting herbs, which disappeared when noticed",
+            "Is asking {PRONOUN/m_c/poss} mentor why StarClan allows newborns to join Silverpelt",
+            "Is vowing to make sure Starclan takes care of r_c well"
+        ],
+        "random_status_constraint": [
+            "newborn"
+        ],
+        "random_living_status": [
+            "starclan"
+        ]
+    },
+    {
+        "id": "plain_starteller_app_to_dead_starclan_newborn",
+        "thoughts": [
+            "Is wondering if r_c was a part of the stars last night",
+            "Thought {PRONOUN/m_c/subject} heard r_c's mewls in a dream last night, but it was just the wind",
+            "Is questioning who would provide for r_c in StarClan",
+            "Wonders if r_c will get to eat their first meal in Starclan",
+            "Questions if r_c's spirit exists in the tall grasses",
+            "Thought {PRONOUN/m_c/subject} saw r_c's spirit hanging around the nursery tunnel",
+            "Wonders if r_c gets to venture out of the tunnels in StarClan",
+            "Thought {PRONOUN/m_c/subject} saw r_c playing with the roots of the tree, but sadly shakes off the thought",
+            "Was surprised to find r_c's spot in the nursery warm, despite {PRONOUN/r_c/object} being with the stars now",
+            "Is pondering if r_c would stay in tunnels or go out an explore the territory in StarClan",
+            "Wonders if the newborns in StarClan will ever get to play and run across open fields",
+            "Prays to StarClan that the passed newborn kits get to feel the wind across their pelt"
+        ],
+        "biome":[
+            "Plains"
+        ],
+        "random_living_status": [
+            "starclan"
+        ]
+    },
+    {
+        "id": "med_cat_app_dead_app",
+        "thoughts": [
+            "Is wondering if r_c would have been {PRONOUN/m_c/poss} friend",
+            "Wonders if {PRONOUN/m_c/subject} would have swapped secrets with r_c"
+        ],
+        "random_status_constraint": [
+            "apprentice",
+            "mediator apprentice",
+            "medicine cat apprentice",
+	    "starteller apprentice"
+        ],
+        "random_living_status": [
+            "starclan"
+        ]
+    },
+    {
+        "id": "starteller_app_gen",
+        "thoughts": [
+            "Is wondering if {PRONOUN/m_c/subject} {VERB/m_c/are/is} good enough to become an elder Starteller one day",
+            "Helps decode an omen from Starclan",
+            "Is enjoying learning all of the clan's history!",
+            "Is memorizing the legends of Starclan",
+            "Is practicing analyzing the world around them to find omens",
+            "Is talking with their mentor about Starclan",
+            "Makes sure the leader knows of a new prophesy",
+            "Is ready to tell their mentor about a recent prophesy",
+            "Is a bit overwhelmed at everything there is to learn about Starclan and its ways",
+            "Is learning the best way to talk to their warrior ancestors",
+            "Is learning how to find omens in nature",
+            "Is learning how to politely speak of Starclan",
+            "Is taking {PRONOUN/m_c/poss} training very seriously",
+            "Is learning the signs of a wandering spirit",
+            "Is memorizing all the sacred places in {PRONOUN/m_c/poss} territory",
+            "Wonders if StarClan will send {PRONOUN/m_c/object} a practice sign before a real one",
+            "Is preparing themselves for the responsibilities of an elder Starteller"
+        ]
+    },
+    {
+        "id": "starteller_app_to_dead_SC_kit",
+        "thoughts": [
+            "Is wondering if r_c would have bothered {PRONOUN/m_c/object} while {PRONOUN/m_c/subject} {VERB/m_c/were/was} was talking to their mentor",
+            "Wonders if r_c would have been part of a prophesy one day",
+            "Wonders if r_c would have wanted to be a Starteller too"
+        ],
+        "random_status_constraint": [
+            "kitten"
+        ],
+        "random_living_status": [
+            "starclan"
+        ]
+    },
+    {
+        "id": "starteller_alive_apprentice",
+        "thoughts": [
+            "Wonders if r_c would have been a better Starteller",
+            "Wishes the other apprentices could understand how {PRONOUN/m_c/subject} feel",
+            "Wishes {PRONOUN/m_c/subject} understood the apprentice's inside jokes",
+            "Wishes r_c understood Starclan like {PRONOUN/m_c/subject} does",
+            "Is assuring r_c that everything will be okay okay",
+            "Is wondering if StarClan is visiting r_c's dreams",
+            "Is realizing how lonely it can be to be a Starteller apprentice",
+            "Is watching other apprentices train"
+        ],
+        "random_status_constraint": [
+            "apprentice",
+            "mediator apprentice",
+            "medicine cat apprentice",
+            "starteller apprentice"
+        ]
+    },
+    {
+        "id": "starteller_apprentice_alive_elder",
+        "thoughts": [
+            "Was asked to gather fresh moss for the elders' bedding",
+            "Plans to visit the elders soon",
+            "Is checking in on the elder's den",
+            "Plans to listen to the elders tales",
+            "Is helping to repair the elder's den",
+            "Is talking to r_c about Starclan in hopes to learn more",
+            "Is hoping to make r_c feel younger today",
+            "Is learning the stories of their ancestors from r_c",
+            "Is studying how Starclan speaks to elders with the help of r_c"
+        ],
+        "random_status_constraint": [
+            "elder"
+        ]
+    },
+    {
+        "id": "starteller_apprentice_to_starteller1",
+        "thoughts": [
+            "Wants to help r_c with a new prophesy",
+            "Is watching r_c talk to the leader",
+            "Asks r_c about the best way to tell someone about them being in a prophesy",
+            "Is asking r_c for guidance about a recent dream",
+            "Asks r_c how to tell something is a sign from StarClan",
+            "Hopes to learn from r_c's expertise and seniority",
+            "Asks r_c how to tell the difference between an omen, ghost, and prophesy"
+        ],
+        "random_status_constraint": [
+            "medicine cat"
+        ]
+    },
+    {
+        "id": "insecure_medicine_cat_apprentice",
+        "thoughts": [
+            "Is wondering if {PRONOUN/m_c/subject} {VERB/m_c/are/is} a good enough Starteller apprentice",
+            "Is always worrying about {PRONOUN/m_c/poss} worth as a Starteller",
+            "Is worried about a new prophesy from their mentor",
+            "Is terrified of misreading an omen and dooming the clan",
+            "Isn't sure if {PRONOUN/m_c/subject} can handle the stress of Starclan's knowledge",
+            "Is holding back tears after {PRONOUN/m_c/subject} got a prophesy from Starclan and forgot to tell {PRONOUN/m_c/poss} mentor",
+            "Is upset after {PRONOUN/m_c/subject} froze at an omen from Starclan"
+        ],
+        "main_trait_constraint": [
+            "insecure",
+            "nervous"
+        ]
+    },
+    {
+        "id": "bloodthirsty_and_cold_starteller_apprentice",
+        "thoughts": [
+            "Is hoping {PRONOUN/m_c/subject} will get a bad omen, just to see what its like",
+            "Wants to learn some battle moves... just in case",
+            "Is keeping something hidden from the leader",
+            "Is wondering if StarClan kills weaker members of the clan on purpose",
+            "Doesn't understand the point of telling anyone a prophesy when it's going to happen anyway",
+            "Is seen secretly leaving camp to wash {PRONOUN/m_c/poss} paws in a creek",
+            "Is curious about previous Startellers lying to their leaders",
+"Is wondering about why Starclan has utmost authority if the Place of No Stars is stronger"
+        ],
+        "main_trait_constraint": [
+            "bloodthirsty",
+            "cold",
+            "vengeful",
+            "fierce"
+        ]
+    },
+    {
+        "id": "nice_starteller_apprentice",
+        "thoughts": [
+            "Is vowing to trust in Starclan, always",
+            "Is looking to StarClan for guidance in a difficult decision",
+            "Is thinking about how to keep the Clan safe from a bad omen",
+            "Is dreaming with Starclan tonight",
+            "Is arguing that their mentor HAS to tell the leader every detail of the prophesy, even if it's unimportant"
+        ],
+        "main_trait_constraint": [
+            "thoughtful",
+            "righteous",
+            "loving",
+            "compassionate",
+            "sincere"
+        ]
+    },
+    {
+        "id": "nice_medicine_cat_apprentice_to_meanie_med",
+        "thoughts": [
+            "Is unsure of r_c's belief in Starclan",
+            "Is wondering why r_c was chosen as a Starteller",
+            "Is worried r_c is lying to their leader with no reason",
+            "Is skeptical of StarClan's choice of r_c as a Starteller",
+            "Is startled to find r_c witnessed a bad omen and told nobody, not even {PRONOUN/m_c/poss}"
+        ],
+        "main_trait_constraint": [
+            "thoughtful",
+            "righteous",
+            "loving",
+            "compassionate",
+            "sincere"
+        ],
+        "random_trait_constraint": [
+            "bloodthirsty",
+            "cold",
+            "vengeful",
+            "fierce"
+        ],
+        "random_status_constraint": [
+            "starteller"
+        ]
+    },
+    {
+        "id": "starteller_apprentice_meanie_to_meanie_starteller",
+        "thoughts": [
+            "Is plotting the downfall of c_n with r_c",
+            "Is meeting secretly with r_c to discuss what to tell the leader--and what to 'leave out'.",
+            "Is helping r_c secretly lie about an omen",
+            "Is delighted to find r_c feels the same way about weak cats",
+            "Is glad r_c is against sharing life saving herbs with enemy Clans",
+            "Is standing with r_c, both glaring at the leader, knowing that they know things they shouldn't",
+            "Is learning the best way to 'misjudge' Starclan's prophesies from r_c",
+            "Is discussing attacking other Startellers at the next half moon with r_c"
+        ],
+        "random_trait_constraint": [
+            "bloodthirsty",
+            "cold",
+            "vengeful",
+            "fierce"
+        ],
+        "random_status_constraint": [
+            "starteller"
+        ],
+        "main_trait_constraint": [
+            "bloodthirsty",
+            "cold",
+            "vengeful",
+            "fierce"
+        ]
+    }
+]

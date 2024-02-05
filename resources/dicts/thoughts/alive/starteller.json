@@ -1,0 +1,433 @@
+[
+    {
+        "id": "adventurous_starteller",
+        "thoughts": [
+            "Goes out to ponder over a new prophesy",
+            "Purposefully made their prophesy report hard to follow, just to make it an adventure",
+            "Purposefully made their omen seem more cryptic, just to make it an adventure",
+            "Is exploring unclaimed lands to find out more about their ancestor's ways",
+            "Went to sleep with hopes of discovering a new prophesy",
+            "Thinks about visiting StarClan, just to explore their hunting grounds",
+            "Hopes that they will be part of a major prophesy soon",
+            "Hopes that their chosen apprentice will be interested in clan history",
+            "Is showing the kits StarClan's power by taking them on adventures in the territory",
+            "Helps the leader with their duties while the deputy is on patrol",
+            "Offers to help the queens with badger rides for the kits",
+            "Considers making up a prophesy as a high-tale for the kits"
+        ],
+        "main_trait_constraint": [
+            "adventurous"
+        ]
+    },
+    {
+        "id": "ambitious_starteller",
+        "thoughts": [
+            "Insists on taking on more tasks",
+            "Spends all day trying to form a deeper bond with StarClan",
+            "Can't wait until StarClan sends an omen"
+        ],
+        "main_trait_constraint": [
+            "ambitious"
+        ]
+    },
+    {
+        "id": "bloodthirsty_starteller",
+        "thoughts": [
+            "Is part of a major prophesy, but not in the way some weak cats would hope.",
+            "Has been disappearing a lot lately",
+            "Insists that they don't need to explain their actions as a Starteller",
+            "Is ripping some leaves to shreds",
+            "Debates whether a prophesy is including weak cats or not",
+            "Gives a biased omen to the leader on purpose",
+            "Wishes {PRONOUN/m_c/subject} {VERB/m_c/weren't/wasn't} confined to this life",
+            "Is attempting to hide an omen",
+            "Is attempting to hide a prophesy",
+            "Is attempting to chase off a wandering spirit with good intentions",
+            "Is ignoring a prophesy relating to a clanmate's death",
+            "Tells the kits terrifying stories of fake omens",
+            "Refused to tell the leader about a major prophesy",
+            "Is upset that {PRONOUN/m_c/subject} can't fight alongside the warriors",
+            "Wishes to fight alongside the warriors",
+            "Thinks {PRONOUN/m_c/subject}'d be an amazing leader",
+            "Talks to the leader and deputy about war",
+            "Ignores the lack of StarClan's messages recently"
+        ],
+        "main_trait_constraint": [
+            "bloodthirsty"
+        ]
+    },
+    {
+        "id": "bold_starteller",
+        "thoughts": [
+            "Decides to see if {PRONOUNS/m_c/subject} can fix a problem without consulting the leader",
+            "Wants to tell someone that they'll die soon, according to an omen"
+        ],
+        "main_trait_constraint": [
+            "bold"
+        ]
+    },
+    {
+        "id": "calm_starteller",
+        "thoughts": [
+            "Stays composed when hearing of a deadly prophesy",
+            "Keeps calm as the leader panics about a new prophesy",
+            "Is composed as they see a threatening omen",
+            "Helps calm down a nervous queen"
+        ],
+        "main_trait_constraint": [
+            "calm"
+        ]
+    },
+    {
+        "id": "careful_starteller",
+        "thoughts": [
+            "Contemplates a new prophesy carefully",
+            "Makes sure that the leader is aware of any omens recently"
+        ],
+        "main_trait_constraint": [
+            "careful"
+        ]
+    },
+    {
+        "id": "charismatic_starteller",
+        "thoughts": [
+            "Is talking with the elders about recent good omens",
+            "Refuses to be 'solemn' and 'detached' from the clan",
+            "Tells a high-tale of an ancient prophesy to a kit"
+        ],
+        "main_trait_constraint": [
+            "charismatic"
+        ]
+    },
+    {
+        "id": "childish_starteller",
+        "thoughts": [
+            "Bounces excitedly at the half-moon meeting",
+	   "Is confused by a new omen",
+            "Can't understand why StarClan would take any cats at all",
+            "Watches the stars with childish glee",
+            "Plays with some wind-swept catmint"
+        ],
+        "main_trait_constraint": [
+            "childish"
+        ]
+    },
+    {
+        "id": "cold_starteller",
+        "thoughts": [
+            "Grumbles as a warrior asks if there's been any bad omens recently",
+            "Is completely unfazed as a brutal prophesy plays out before them in a dream",
+            "Stays completely neutral as the leader worries over a new omen, seeming not to care",
+            "Is distancing {PRONOUNS/m_c/self} from {PRONOUNS/m_c/poss} clan"
+        ],
+        "main_trait_constraint": [
+            "cold"
+        ]
+    },
+    {
+        "id": "compassionate_starteller",
+        "thoughts": [
+            "Visits StarClan purely to comfort recently lost cats",
+            "Helps the leader think through a recent prophesy gently",
+            "Declines to eat when prey is low",
+            "Listens to the apprentices complain about their training with a deep fondness"
+        ],
+        "main_trait_constraint": [
+            "compassionate"
+        ]
+    },
+    {
+        "id": "confident_starteller",
+        "thoughts": [
+            "Is proud of {PRONOUN/m_c/poss} ability to understand omens",
+            "Is confident as a Starteller",
+            "Is certain that they completely understand StarClan",
+            "Believes that they don't need an apprentice",
+            "Does not doubt {PRONOUN/m_c/self} while talking to the leader about a new prophesy"
+        ],
+        "main_trait_constraint": [
+            "confident"
+        ]
+    },
+    {
+        "id": "daring_starteller",
+        "thoughts": [
+            "Outwardly tells the clan of a new prophesy, with no hesitance",
+            "Goes out into the wilderness alone to become closer with StarClan"
+        ],
+        "main_trait_constraint": [
+            "daring"
+        ]
+    },  
+    {
+        "id": "faithful_starteller",
+        "thoughts": [
+            "Has been hearing the voices of StarClan cats much clearer recently",
+            "Has full faith in StarClan, no matter what",
+            "Wonders if StarClan has plans for them",
+            "Tells the leader of a new prophesy immediately after hearing of it"
+        ],
+        "main_trait_constraint": [
+            "faithful"
+        ]
+    },
+    {
+        "id": "fierce_starteller",
+        "thoughts": [
+            "Insists on joining battle training once a moon",
+            "Insists on taking immediate action to an unclear omen"
+        ],
+        "main_trait_constraint": [
+            "fierce"
+        ]
+    },
+    {
+        "id": "insecure_medicine_cat",
+        "thoughts": [
+            "Is saying that {PRONOUN/m_c/subject} {VERB/m_c/don't/doesn't} deserve {PRONOUN/m_c/poss} full name",
+"Believes that StarClan picked the wrong cat to be a Starteller",
+"Regrets accepting StarClan's wishes"
+        ],
+        "main_trait_constraint": [
+            "insecure"
+        ]
+    },
+    {
+        "id": "lonesome_medicine_cat",
+        "thoughts": [
+            "Is wishing {PRONOUN/m_c/subject} could have a mate and kits without shaming",
+            "Wishes {PRONOUN/m_c/poss} Clanmates could understand {PRONOUN/m_c/poss} struggles",
+            "Wishes there were more Startellers in the Clan",
+            "Wonders why the warriors won't share prey with {PRONOUN/m_c/object}",
+            "Wishes {PRONOUN/m_c/subject} could make friends with someone",
+            "Wishes the warriors shared more interest in StarClan",
+            "Wants to talk to the leader about having a new apprentice",
+            "Wishes for an apprentice, as {PRONOUN/m_c/subject}{VERB/m_c/'re/'s} a bit lonely",
+            "Hasn't talked to any warriors for a few days"
+        ],
+        "main_trait_constraint": [
+            "lonesome"
+        ]
+    },
+    {
+        "id": "loving_medicine_cat",
+        "thoughts": [
+            "Watches over some newborn kits",
+	   "Cares for {PRONOUNS/m_c/poss} leader deeply, and wishes them the best"
+          
+        ],
+        "main_trait_constraint": [
+            "loving"
+        ],
+        "random_status_constraint":[
+            "newborn"
+        ]
+    },
+    {
+        "id": "loyal_starteller",
+        "thoughts": [
+            "Refuses to share gossip at the half-moon meeting",
+            "Refuses to tell another Clan's Starteller about a new prophesy",
+	   "Assures {PRONOUNS/m_c/poss} leader that the Clan is their highest priority"
+        ],
+        "main_trait_constraint": [
+            "loyal"
+        ]
+    },
+    {
+        "id": "nervous_starteller",
+        "thoughts": [
+            "Rethinks an omen over and over again",
+            "Worries over the fate of the Clan"
+        ],
+        "main_trait_constraint": [
+            "nervous"
+        ]
+    },
+    {
+        "id": "playful_starteller",
+        "thoughts": [
+            "Excitedly teaches the kits about Starclan",
+            "Indulges the kits as they play hide and seek around the camp",
+            "Teases their leader about a new romantic prophesy"
+        ],
+        "main_trait_constraint": [
+            "playful"
+        ]
+    },
+    {
+        "id": "responsible_starteller",
+        "thoughts": [
+            "Ensures that all of {PRONOUN/m_c/poss} duties are taken care of",
+            "Ignores the rumbling in {PRONOUN/m_c/poss} stomach in favor of visiting Starclan",
+            "Considers omen-decoding tactics carefully"
+        ],
+        "main_trait_constraint": [
+            "responsible"
+        ]
+    },
+    {
+        "id": "righteous_medicine_cat",
+        "thoughts": [
+            "Refuses to hide a prophesy from anybody, even other Clans",
+            "Helps a loner find their true purpose with StarClan"
+        ],
+        "main_trait_constraint": [
+            "righteous"
+        ]
+    },
+    {
+        "id": "shameless_startelller",
+        "thoughts": [
+            "Refuses to groom {PRONOUN/m_c/self}",
+            "Blatantly repeats a embarrassing mistake of another cat without skipping a beat"
+        ],
+        "main_trait_constraint": [
+            "shameless"
+        ]
+    },
+    {
+        "id": "sneaky_starteller",
+        "thoughts": [
+            "Seems to be hiding something in the about {PRONOUNS/m_c/poss} vision from the leader"
+        ],
+        "main_trait_constraint": [
+            "sneaky"
+        ]
+    },
+    {
+        "id": "strange_starteller",
+        "thoughts": [
+            "Insists that everyone must pray to Starclan at sunhigh, even though no vigil is being held",
+            "Sleeps in the middle of the clearing",
+            "Looks dazed",
+            "Hisses at the kits randomly"
+        ],
+        "main_trait_constraint": [
+            "strange"
+        ]
+    },
+    {
+        "id": "strict_starteller",
+        "thoughts": [
+            "Forbids anyone from disturbing {PRONOUN/m_c/object} when working"
+        ],
+        "main_trait_constraint": [
+            "strict"
+        ]
+    },
+    {
+        "id": "thoughtful_starteller",
+        "thoughts": [
+            "Contemplates an omen thoughtfully",
+"Considers whether it's best to follow a new prophesy through",
+"Wonders about what StarClan has in store for them"
+        ],
+        "main_trait_constraint": [
+            "thoughtful"
+        ]
+    },
+    {
+        "id": "troublesome_starteller",
+        "thoughts": [
+            "Conflates omens for no reason"
+        ],
+        "main_trait_constraint": [
+            "troublesome"
+        ]
+    },
+    {
+        "id": "vengeful_starteller",
+        "thoughts": [
+            "Sees a bad omen about someone that used to bully {PRONOUN/m_c/object}, and smiles"
+        ],
+        "main_trait_constraint": [
+            "vengeful"
+        ]
+    },
+    {
+        "id": "wise_starteller",
+        "thoughts": [
+            "Tells an ancient tale about StarClan",
+"Listens to the elders thoughtfully about ancient legends"
+        ],
+        "main_trait_constraint": [
+            "wise"
+        ]
+    },
+    {
+        "id": "starteller_dead_SC_gen",
+        "thoughts": [
+            "Wishes {PRONOUN/m_c/subject} could visit r_c in StarClan",
+            "Was given a prophecy by r_c",
+            "Was sent an omen by r_c",
+            "Is dreaming about r_c who gives {PRONOUN/m_c/object} a message",
+            "Is visited by r_c",
+            "Senses r_c is nearby",
+            "Saw r_c in a dream, warning {PRONOUN/m_c/object} about... something",
+            "Is asking for guidance from r_c",
+            "Is wondering desperately why r_c wasn't there when {PRONOUN/m_c/subject} needed {PRONOUN/r_c/object}",
+            "Is sure that {PRONOUN/m_c/subject} saw r_c appear in the forest today... why?"
+        ],
+        "main_status_constraint": [
+            "starteller",
+            "starteller apprentice"
+        ],
+        "random_living_status": [
+            "starclan"
+        ]
+    },
+    {
+        "id": "starteller_dead_DF_gen",
+        "thoughts": [
+            "Is visited by r_c",
+            "Senses r_c is nearby",
+            "Thought {PRONOUN/m_c/subject} heard a low rumbling behind {PRONOUN/m_c/object}, but nothing was there",
+            "Received an ominous and dark message from r_c",
+            "Has been hearing the voices of Dark Forest cats...",
+            "Debates whether or not to ask r_c for guidance, knowing where {PRONOUN/r_c/subject} {VERB/r_c/are/is}",
+"Worries over a Starteller being sent to the Dark Forest"
+        ],
+        "random_living_status": [
+            "darkforest"
+        ]
+    },
+    {
+        "id": "starteller_gen",
+        "thoughts": [
+            "Is thinking about a recent omen",
+            "Is talking to the leader about a new prophesy",
+            "Is considering what the dark sky means tonight",
+            "Is interpreting an omen",
+            "Is interpreting a prophecy",
+            "Hopes for a message from StarClan soon",
+            "Is feeling stressed taking care of the Clan",
+            "Is making a journey to gain a closer connection to StarClan",
+            "Is traveling to a sacred place in {PRONOUNS/m_c/poss} territory",
+            "Wishes {PRONOUN/m_c/subject} understood StarClan more deeply",
+            "Is getting a strong vision from StarClan",
+            "Was startled awake in the wee hours by a vivid dream",
+            "Is wondering why StarClan chose them idly",
+            "Plans to go out with the leader to discuss a bad omen",
+            "Is looking forward to the half-moon meeting",
+            "Is struggling to talk to StarClan",
+            "Is assuring a queen that their kits will be fine",
+            "Had a horrible nightmare and is wondering what it means for the Clan",
+            "Has been hearing the voices of StarClan cats, but can't understand them...",
+            "Has the foul taste of blood from a dream in {PRONOUNS/m_c/poss} mouth",
+            "Is wondering if {PRONOUN/m_c/subject} could visit another clan early",
+            "Is happy that {PRONOUN/m_c/subject} was chosen as a Starteller",
+            "Is proud of {PRONOUN/m_c/poss} ability to understand StarClan"
+        ]
+    },
+    {
+        "id": "med_cat_alive_apprentice",
+        "thoughts": [
+            "Is thinking about taking on a new apprentice"
+        ],
+        "random_status_constraint": [
+            "apprentice",
+            "kitten"
+        ]
+    }     
+]
