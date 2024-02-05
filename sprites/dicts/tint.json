@@ -22,10 +22,10 @@
     "CHOCOLATE": "brown"
   },
   "possible_tints": {
-    "basic": ["pink", "gray", "red", "orange", "none"],
+    "basic": ["pink", "gray", "red", "orange", "none", "green"],
     "warm": ["yellow", "purple"],
     "cool": ["blue", "purple", "black"],
-    "white": ["yellow"],
+    "white": ["yellow", "green"],
     "monochrome": ["blue", "black"],
     "brown": ["yellow", "purple", "black"]
   },
@@ -39,6 +39,7 @@
     "yellow": [250, 248, 225],
     "purple": [235, 225, 244],
     "blue": [218, 237, 245],
+    "green": [245, 255, 237],
     "none": null
   }
 }
