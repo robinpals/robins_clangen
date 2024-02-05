@@ -418,5 +418,25 @@
     "default": "indigo nylon collar",
     "plural": "indigo nylon collars",
     "singular": "indigo nylon collar"
+  },
+   "SUNFLOWER": {
+    "default": "sunflower",
+    "plural": "sunflowers",
+    "singular": "sunflower"
+  },
+  "DAHLIA": {
+    "default": "dahlia",
+    "plural": "dahlias",
+    "singular": "dahlia"
+  },
+  "DANDELION": {
+    "default": "dandelion",
+    "plural": "dandelions",
+    "singular": "dandelion"
+  },
+  "TAILVINES": {
+    "default": "vines",
+    "plural": "vines",
+    "singular": "vine"
   }
 }
