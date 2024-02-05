@@ -116,8 +116,9 @@ class Sprites():
             'mackerelcolours', 'classiccolours', 'sokokecolours', 'agouticolours', 'singlestripecolours',
             'maskedcolours', 
             'shadersnewwhite', 'lineartdead', 'tortiepatchesmasks', 
+            'newherbs',
             'medcatherbs', 'lineartdf', 'lightingnew', 'fademask',
-            'fadestarclan', 'fadedarkforest'
+            'fadestarclan', 'fadedarkforest', 'neweyes', 'neweyes2'
 
         ]:
             if 'lineart' in x and game.config['fun']['april_fools']:
@@ -140,15 +141,20 @@ class Sprites():
             self.make_group('fadedarkforest', (i, 0), f'fadedf{i}')
 
         for a, i in enumerate(
-                ['YELLOW', 'AMBER', 'HAZEL', 'PALEGREEN', 'GREEN', 'BLUE', 
-                'DARKBLUE', 'GREY', 'CYAN', 'EMERALD', 'HEATHERBLUE', 'SUNLITICE']):
-            self.make_group('eyes', (a, 0), f'eyes{i}')
-            self.make_group('eyes2', (a, 0), f'eyes2{i}')
+                ['ORANGE', 'DARKCYAN', 'PALECYAN', 'PALEBROWN', 'YELLOWBROWN', 'RED', 
+                'DEEPYELLOW', 'YELLOWHAZEL', 'BABYBLUE', 'STRAWBERRYICE', 'DARKSUNLITICE']):
+            self.make_group('neweyes', (a, 0), f'eyes{i}')
+            self.make_group('neweyes2', (a, 0), f'eyes2{i}')
         for a, i in enumerate(
                 ['COPPER', 'SAGE', 'COBALT', 'PALEBLUE', 'BRONZE', 'SILVER',
                 'PALEYELLOW', 'GOLD', 'GREENYELLOW']):
             self.make_group('eyes', (a, 1), f'eyes{i}')
             self.make_group('eyes2', (a, 1), f'eyes2{i}')
+        for a, i in enumerate(
+                ['YELLOW', 'AMBER', 'HAZEL', 'PALEGREEN', 'GREEN', 'BLUE', 
+                'DARKBLUE', 'GREY', 'CYAN', 'EMERALD', 'HEATHERBLUE', 'SUNLITICE']):
+            self.make_group('eyes', (a, 0), f'eyes{i}')
+            self.make_group('eyes2', (a, 0), f'eyes2{i}')
 
         # white patches
         for a, i in enumerate(['FULLWHITE', 'ANY', 'TUXEDO', 'LITTLE', 'COLOURPOINT', 'VAN', 'ANYTWO',
@@ -323,9 +329,6 @@ class Sprites():
                 ["TAILSCAR", "SNOUT", "CHEEK", "SIDE", "THROAT", "TAILBASE", "BELLY", "TOETRAP", "SNAKE",
                  "LEGBITE", "NECKBITE", "FACE"]):
             self.make_group('scars', (a, 2), f'scars{i}')
-        for a, i in enumerate(
-                ["HINDLEG", "BACK", "QUILLSIDE", "SCRATCHSIDE", "TOE", "BEAKSIDE", "CATBITETWO", "SNAKETWO", "FOUR"]):
-            self.make_group('scars', (a, 3), f'scars{i}')
         # missing parts
         for a, i in enumerate(
                 ["LEFTEAR", "RIGHTEAR", "NOTAIL", "NOLEFTEAR", "NORIGHTEAR", "NOEAR", "HALFTAIL", "NOPAW"]):
@@ -346,6 +349,17 @@ class Sprites():
         for a, i in enumerate([
             "RED FEATHERS", "BLUE FEATHERS", "JAY FEATHERS", "MOTH WINGS", "CICADA WINGS"]):
             self.make_group('medcatherbs', (a, 2), f'acc_wild{i}')
+
+
+        # NEW HERB ACCESSORIES vvv
+            
+        for a, i in enumerate([
+            "SUNFLOWER", "DAHLIA", "DANDELION", "TAILVINES"]):
+            self.make_group('newherbs', (a, 0), f'acc_new{i}')
+
+        # COLLARS vvv
+
+
         for a, i in enumerate(["CRIMSON", "BLUE", "YELLOW", "CYAN", "RED", "LIME"]):
             self.make_group('collars', (a, 0), f'collars{i}')
         for a, i in enumerate(["GREEN", "RAINBOW", "BLACK", "SPIKES", "WHITE"]):

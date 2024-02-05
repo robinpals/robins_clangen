@@ -267,10 +267,22 @@ class Thoughts():
 
         if status == "medicine cat apprentice":
             status = "medicine_cat_apprentice"
+        elif status == "starteller apprentice":
+            status = "starteller_apprentice"
         elif status == "mediator apprentice":
             status = "mediator_apprentice"
         elif status == "medicine cat":
             status = "medicine_cat"
+        elif status == "starteller":
+            status = "starteller"
+        elif status == "defense":
+            status = "defense"
+        elif status == "attack":
+            status = "attack"
+        elif status == "queen":
+            status = "queen"
+        elif status == "guide":
+            status = "guide"
         elif status == 'former Clancat':
             status = 'former_Clancat'
 
@@ -291,17 +303,15 @@ class Thoughts():
             spec_dir = ""
 
         THOUGHTS = []
+        with open(f"{base_path}{life_dir}{spec_dir}/{status}.json", 'r') as read_file:
+            THOUGHTS = ujson.loads(read_file.read())
+        GENTHOUGHTS = []
+        with open(f"{base_path}{life_dir}{spec_dir}/general.json", 'r') as read_file:
+            GENTHOUGHTS = ujson.loads(read_file.read())
         # newborns only pull from their status thoughts. this is done for convenience
         if main_cat.age == 'newborn':
-            with open(f"{base_path}{life_dir}{spec_dir}/newborn.json", 'r') as read_file:
-                THOUGHTS = ujson.loads(read_file.read())
             loaded_thoughts = THOUGHTS
         else:
-            with open(f"{base_path}{life_dir}{spec_dir}/{status}.json", 'r') as read_file:
-                THOUGHTS = ujson.loads(read_file.read())
-            GENTHOUGHTS = []
-            with open(f"{base_path}{life_dir}{spec_dir}/general.json", 'r') as read_file:
-                GENTHOUGHTS = ujson.loads(read_file.read())
             loaded_thoughts = THOUGHTS 
             loaded_thoughts += GENTHOUGHTS
         final_thoughts = Thoughts.create_thoughts(loaded_thoughts, main_cat, other_cat, game_mode, biome, season, camp)

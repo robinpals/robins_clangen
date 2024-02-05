@@ -102,7 +102,7 @@ class SkillPath(Enum):
     )
     STAR = (
         "curious about StarClan",
-        "connection to StarClan",
+        "connection to Starclan",
         "deep StarClan bond",
         "unshakable StarClan link",
     )
@@ -143,6 +143,58 @@ class SkillPath(Enum):
         "ghost speaker"
     )
     
+    # NEW SKILLS ---
+    
+    NAVIGATOR = (
+        "good with directions",
+        "good navigator",
+        "expert navigator",
+        "pathfinder"
+        )
+    GUARD = (
+        "protective of the nursery",
+        "watchful",
+        "guard",
+        "protector"
+        )
+    STRATEGY = (
+        "makes up battle plans",
+        "strategist",
+        "quality strategist",
+        "trusted strategy consultant"
+        )
+    NIMBLE = (
+        "always lands on their feet",
+        "nimble",
+        "agile",
+        "masterful coordination"
+        )
+    FINDER = (
+        "finder instincts",
+        "great finder",
+        "excellent finder",
+        "masterful finder"
+        )
+    EXPLORER = (
+        "explores the camp",
+        "knowledgable explorer",
+        "finder of territory",
+        "wise wandering soul"
+        )
+    COMFORTER = (
+        "gentle voice",
+        "gentle soul",
+        "loving presence",
+        "comforting companion"
+        )
+    FISHER = (
+        "bats at rivers", 
+        "grazes fish", 
+        "fish-catcher", 
+        "gold star fishercat"
+    )
+    
+    
     @staticmethod
     def get_random(exclude:list=()):
         """Get a random path, with more uncommon paths being less common"""
@@ -161,6 +213,7 @@ class SkillPath(Enum):
                            i not in exclude and i not in uncommon_paths]
             return random.choice(common_paths)
 
+    
 class HiddenSkillEnum(Enum):
     ROGUE = "rogue's knowledge"
     LONER = "loner's knowledge"
@@ -203,7 +256,15 @@ class Skill():
         SkillPath.CLAIRVOYANT: "predicting",
         SkillPath.PROPHET: "prophesying",
         SkillPath.GHOST: "ghosts",
-        SkillPath.DARK: "dark forest"
+        SkillPath.DARK: "dark forest",
+        SkillPath.NAVIGATOR: "navigating",
+        SkillPath.GUARD: "guarding",
+        SkillPath.STRATEGY: "strategizing",
+        SkillPath.NIMBLE: "nimble",
+        SkillPath.FINDER: "finder",
+        SkillPath.EXPLORER: "explorer",
+        SkillPath.COMFORTER: "comforting",
+        SkillPath.FISHER: "fishing"
     }
     
     
@@ -340,7 +401,15 @@ class CatSkills:
         SkillPath.CLAIRVOYANT: SkillTypeFlag.SUPERNATURAL | SkillTypeFlag.OBSERVANT,
         SkillPath.PROPHET: SkillTypeFlag.SUPERNATURAL,
         SkillPath.GHOST: SkillTypeFlag.SUPERNATURAL,
-        SkillPath.DARK: SkillTypeFlag.SUPERNATURAL
+        SkillPath.DARK: SkillTypeFlag.SUPERNATURAL,
+        SkillPath.NAVIGATOR: SkillTypeFlag.SMART | SkillTypeFlag.OBSERVANT,
+        SkillPath.GUARD: SkillTypeFlag.STRONG | SkillTypeFlag.OBSERVANT,
+        SkillPath.STRATEGY: SkillTypeFlag.SMART,
+        SkillPath.NIMBLE: SkillTypeFlag.AGILE,
+        SkillPath.FINDER: SkillTypeFlag.OBSERVANT | SkillTypeFlag.SUPERNATURAL,
+        SkillPath.EXPLORER: SkillTypeFlag.AGILE | SkillTypeFlag.OBSERVANT,
+        SkillPath.COMFORTER: SkillTypeFlag.SOCIAL | SkillTypeFlag.OBSERVANT,
+        SkillPath.FISHER: SkillTypeFlag.AGILE
     }
     # pylint: enable=unsupported-binary-operation
     

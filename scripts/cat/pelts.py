@@ -55,19 +55,18 @@ class Pelt():
 
     pelt_length = ["short", "medium", "long"]
     eye_colours = ['YELLOW', 'AMBER', 'HAZEL', 'PALEGREEN', 'GREEN', 'BLUE', 'DARKBLUE', 'GREY', 'CYAN', 'EMERALD', 'PALEBLUE', 
-        'PALEYELLOW', 'GOLD', 'HEATHERBLUE', 'COPPER', 'SAGE', 'COBALT', 'SUNLITICE', 'GREENYELLOW', 'BRONZE', 'SILVER']
-    yellow_eyes = ['YELLOW', 'AMBER', 'PALEYELLOW', 'GOLD', 'COPPER', 'GREENYELLOW', 'BRONZE', 'SILVER']
-    blue_eyes = ['BLUE', 'DARKBLUE', 'CYAN', 'PALEBLUE', 'HEATHERBLUE', 'COBALT', 'SUNLITICE', 'GREY']
+        'PALEYELLOW', 'GOLD', 'HEATHERBLUE', 'COPPER', 'SAGE', 'COBALT', 'SUNLITICE', 'GREENYELLOW', 'BRONZE', 'SILVER', 'ORANGE', 'DARKCYAN', 'PALECYAN', 'PALEBROWN', 'YELLOWBROWN', 'RED', 'DEEPYELLOW', 'YELLOWHAZEL', 'BABYBLUE', 'STRAWBERRYICE', 'DARKSUNLITICE']
+    yellow_eyes = ['YELLOW', 'AMBER', 'PALEYELLOW', 'GOLD', 'COPPER', 'GREENYELLOW', 'BRONZE', 'SILVER', 'ORANGE', 'PALEBROWN', 'YELLOWBROWN', 'RED', 'DEEPYELLOW','YELLOWHAZEL']
+    blue_eyes = ['BLUE', 'DARKBLUE', 'CYAN', 'PALEBLUE', 'HEATHERBLUE', 'COBALT', 'SUNLITICE', 'GREY', 'DARKCYAN', 'PALECYAN', 'BABYBLUE', 'DARKSUNLITICE', 'STRAWBERRYICE']
     green_eyes = ['PALEGREEN', 'GREEN', 'EMERALD', 'SAGE', 'HAZEL']
     # scars1 is scars from other cats, other animals - scars2 is missing parts - scars3 is "special" scars that could only happen in a special event
     # bite scars by @wood pank on discord
     scars1 = ["ONE", "TWO", "THREE", "TAILSCAR", "SNOUT", "CHEEK", "SIDE", "THROAT", "TAILBASE", "BELLY",
             "LEGBITE", "NECKBITE", "FACE", "MANLEG", "BRIGHTHEART", "MANTAIL", "BRIDGE", "RIGHTBLIND", "LEFTBLIND",
-            "BOTHBLIND", "BEAKCHEEK", "BEAKLOWER", "CATBITE", "RATBITE", "QUILLCHUNK", "QUILLSCRATCH", "HINDLEG",
-            "BACK", "QUILLSIDE", "SCRATCHSIDE", "BEAKSIDE", "CATBITETWO", "FOUR"]
+            "BOTHBLIND", "BEAKCHEEK", "BEAKLOWER", "CATBITE", "RATBITE", "QUILLCHUNK", "QUILLSCRATCH"]
     scars2 = ["LEFTEAR", "RIGHTEAR", "NOTAIL", "HALFTAIL", "NOPAW", "NOLEFTEAR", "NORIGHTEAR", "NOEAR"]
     scars3 = ["SNAKE", "TOETRAP", "BURNPAWS", "BURNTAIL", "BURNBELLY", "BURNRUMP", "FROSTFACE", "FROSTTAIL", "FROSTMITT",
-            "FROSTSOCK", "TOE", "SNAKETWO"]
+            "FROSTSOCK"]
 
     # make sure to add plural and singular forms of new accs to acc_display.json so that they will display nicely
     plant_accessories = ["MAPLE LEAF", "HOLLY", "BLUE BERRIES", "FORGET ME NOTS", "RYE STALK", "LAUREL",
@@ -77,6 +76,9 @@ class Pelt():
     wild_accessories = ["RED FEATHERS", "BLUE FEATHERS", "JAY FEATHERS", "MOTH WINGS", "CICADA WINGS"
                         ]
     tail_accessories = ["RED FEATHERS", "BLUE FEATHERS", "JAY FEATHERS"]
+    
+    new_accessories = ["SUNFLOWER","DAHLIA","DANDELION","TAILVINES"]
+    
     collars = [
         "CRIMSON", "BLUE", "YELLOW", "CYAN", "RED", "LIME", "GREEN", "RAINBOW",
         "BLACK", "SPIKES", "WHITE", "PINK", "PURPLE", "MULTI", "INDIGO", "CRIMSONBELL", "BLUEBELL",
@@ -134,17 +136,57 @@ class Pelt():
     skin_sprites = ['BLACK',  'PINK', 'DARKBROWN', 'BROWN', 'LIGHTBROWN', 'DARK', 'DARKGREY', 'GREY', 'DARKSALMON',
                     'SALMON', 'PEACH', 'DARKMARBLED', 'MARBLED', 'LIGHTMARBLED', 'DARKBLUE', 'BLUE', 'LIGHTBLUE', 'RED']
 
+    fun_scents = ["pine", "lavender", "rosemary", "thyme", "wet dog", "rain", "grass", "roses", "charcoal", "ash", "maple syrup", "dry leaves", "fresh leaves", "lake",
+                  "pond", "fish", "wheat", "peach", "apricot", "apples", "blueberry", "raspberry", "strawberry", "blackberry", "frog", "seabreeze", "salt", "moor", "fern",
+                  "mint", "marshland", "seagull", "orchid", "pumpkin", "yam", "squash", "cranberry", "daisy", "marigold", "dandelion", "kittypet food",
+                  "milk", "sunflower", "honey","mud", "jasmine", "lily", "ginger", "hyacinth", "orange", "grapefruit", "lemon",
+                  "lime","citrus", "clementine", "jam", "sap", "acorn", "pinecone", "bark", "walnut", "pistachio", "peanut",
+                  "catmint", "holly", "juniper", "gardenia", "moose","metal", "denim", "peony", "lilac", "phlox", "crabapple",
+                 "oyster", "fox", "lynx", "extra cat-y", "wisteria", "basil", "tomato", "fresh dew", "bayberry", "new-leaf", "green-leaf", "leaf-fall",
+                  "leaf-bare", "turkey", "hemlock","garlic","twoleg", "sage", "tansy", "wormwood", "spruce", "clover", "grasslands", "deep forest", "alpine flowers",
+                  "cherry", "kiwi", "fresh bread", "cookies", "peanut butter", "new leaves", "cool air", "warm air", "popcorn", "pizza", "bear", "soap", "beans", "honeydew", "cantalope",
+                  "chicken", "rabbit","sulphur", "copper", "acrid", "starch", "smoke",
+                  "coconut","tangy", "minerals", "sugar", "maple"]
+    fun_physical = ["tall", "short", "tiny", "large", "huge", "uneven", "thin", "lanky", "burly", "muscular", "slim", "sleek", "softcoat", "plushcoat", "roughcoat",
+                    "lynx-like", "dusty", "clean", "oily", "silkycoat", "wirecoat", "curlycoat", "woolycoat", "warm", "cold", "giant", "runt", "flimsy",
+                    "strong", "kinked tail", "snaggle tooth", "crooked tooth", "no fangs", "no dewclaws", "many whiskers", "large nose", "short tail", "extra toe",
+                    "piercing gaze", "soft gaze", "sharp features", "soft features"]
+    fun_random = ["terrified of spiders", "extremely loud", "loves the rain", "loves the snow" , "loves the sun", 
+                  "loves the taste of kittypet food", "loves the taste of berries", "collects seashells", "collects feathers", "collects rocks", "collects gems", "collects flowers",
+                  "collects leaves", "has a silly smile", "not scared of bears", "not scared of twolegs", "terrified of mice", "running from the past", "easily amused", 
+                  "loves to sleep", "always sleepy", "always anxious", "over confident", "avid jogger", "frequent moonbather", "frequent sunbather", "watches cars", "watches birds",
+                  "cloudwatcher", "finds herbs delicious", "collects cat toys", "likes to sing", "meows a lot", "loves to swim", "very quiet", "mews a lot", "has raspy meows",
+                  "chatterbox", "collects fabric scraps", "takes long walks at night", "often steals", "pot-stirrer", "huge gossip", "very dramatic", "hates authority", "wants to live alone",
+                  "takes city walks", "harasses kittypets", "loves family", "extremely loyal", "takes frequent baths", "rolls in leaves", "storm chaser", "storm watcher",
+                  "finds beauty in all things", "always watches the sunset", "always watches the sunrise", "slow to wake up", "goes to bed early", "early bird", "night owl", "clumsy",
+                  "likes to have many friends", "likes to run", "has a favorite spot", "has a favorite color", "has a favorite snack", "always snacking", "likes to give gifts", "likes to get gifts",
+                  "collects shiny metal", "friends with ravens", "friends with crows", "friends with pigeons", "strong moral compass", "morally flexible", "sneezes a lot", "has seasonal allergies",
+                  "a little awkward", "very lovable", "likes to decorate", "lost in thought", "asks a lot of questions", "sits on hills", "relaxes on beaches", "meows like birds sing",
+                  "collects snake skins", "has a fast heartbeat", "has a slow heartbeat", "prefers nicknames", "steals twoleg food", "gets up to no good", "always plotting", "wants to overthrow power",
+                  "chases petals", "chases leaves", "chases cars", "would live on a boat", "hates summer", "hates winter", "thinks frogs are cool", "watchful eye", "doesn't like working",
+                  "loves their job", "likes their reflection", "collects bugs", "stargazer", "often annoying", "predicts the weather", "a bean", "often licks ice", "snow eater", "appreciates art",
+                  "often steals honey", "collects pine needles", "very cute", "very pretty", "very charming", "very fast", "loves the moon", "has cold toes",
+                  "often alone", "never alone", "steals kittypet treats", "always bored", "speaks slowly", "speaks too quickly", "easily entertained", "loves a good conversation",
+                  "has a deep voice", "has a high-pitched voice", "loves to make jokes", "friend to bees", "loves to scent", "tracks the seasons", "makes comfy nests", "believes in luck", 
+                  "doesn't understand jokes", "likes to bark", "rips up leaves", "hopeless romantic", "very optimistic", "very pessimistic", "has a lazy eye", "very emotional", "affectionate",
+                  "likes having personal space", "likes to wrestle", "jumps off docks", "listens to twoleg music", "supportive friend", "very silly", "very serious", "can't sit still", "energetic",
+                  "passionate", "opinionated", "sneezes at the sun", "likes to be alone", "likes large groups", "always comfy", "always a little uncomfortable", "walks silently", "often stomps around",
+                  "afraid of the dark", "collects antlers", "often covered in glitter", "map maker", "terrified of geese", "terrified of moose", "hates being bothered", "likes to spend time in silence",
+                  "hates silence", "drawn to others", "drawn to flowers", "likes to dig", "excellent nose", "falls a lot", "drawn to fire", "really mean", "really rude", "good vibes", "always positive",
+                  "always negative", "a little offputting", "tends to obsess", "hates getting dirty", "hides from rain", "hides from sun", "ignores problems", "thinks out loud", "largely disinterested",
+                  "way too invested", "always lucky", "complains a lot", "giver of compliments", "not very empathetic", "bleeding heart", "never angry", "frequently annoyed", "won't swim",
+                  "chirps at birds", "has a long tongue", "abrasive", "likes to chew", "collects sticks", "firestarter", "startles easily", "rarely phased", "always in a phase", "tracks the moon"]
     """Holds all appearence information for a cat. """
     def __init__(self,
                  name:str="SingleColour",
                  length:str="short",
                  colour:str="WHITE",
-                 white_patches:str=None,
+                 white_patches:list=None,
                  eye_color:str="BLUE",
                  eye_colour2:str=None,
                  tortiebase:str=None,
                  tortiecolour:str=None,
-                 pattern:str=None,
+                 pattern:list=None,
                  tortiepattern:str=None,
                  vitiligo:str=None,
                  points:str=None,
@@ -154,6 +196,7 @@ class Pelt():
                  scars:list=None,
                  tint:str="none",
                  skin:str="BLACK",
+                 fun_traits:list=["o", "o", "o"],
                  white_patches_tint:str="none",
                  kitten_sprite:int=None,
                  adol_sprite:int=None,
@@ -179,6 +222,7 @@ class Pelt():
         self.opacity = opacity
         self.scars = scars if isinstance(scars, list) else []
         self.tint = tint
+        self.fun_traits = fun_traits
         self.white_patches_tint = white_patches_tint
         self.cat_sprites =  {
             "kitten": kitten_sprite if kitten_sprite is not None else 0,
@@ -209,9 +253,14 @@ class Pelt():
         new_pelt.init_eyes(parents)
         new_pelt.init_pattern()
         new_pelt.init_tint()
-        
+        new_pelt.fun_traits = ["o", "o", "o"]
+        new_pelt.fun_traits[0] = random.choice(Pelt.fun_scents)
+        new_pelt.fun_traits[1] = random.choice(Pelt.fun_physical)
+        new_pelt.fun_traits[2] = random.choice(Pelt.fun_random)
+
+
         return new_pelt
-    
+
     def check_and_convert(self, convert_dict):
         """Checks for old-type properties for the apperence-related properties
         that are stored in Pelt, and converts them. To be run when loading a cat in. """
@@ -242,12 +291,6 @@ class Pelt():
             self.tortiepattern = sub("tortie", "", self.tortiepattern.lower())
             if self.tortiepattern == "solid":
                 self.tortiepattern = "single"
-                
-        if self.white_patches in convert_dict["old_creamy_patches"]:
-            self.white_patches = convert_dict["old_creamy_patches"][self.white_patches]
-            self.white_patches_tint = "darkcream"
-        elif self.white_patches in ['SEPIAPOINT', 'MINKPOINT', 'SEALPOINT']:
-            self.white_patches_tint = "none"
         
         # Eye Color Convert Stuff
         if self.eye_colour == "BLUE2":
@@ -282,26 +325,7 @@ class Pelt():
                 self.cat_sprites['senior'] = 13
             elif self.cat_sprites['senior'] == 5:
                 self.cat_sprites['senior'] = 14
-        
-        if self.pattern in convert_dict["old_tortie_patches"]:
-            old_pattern = self.pattern
-            self.pattern = convert_dict["old_tortie_patches"][old_pattern][1]
             
-            # If the pattern is old, there is also a change the base color is stored in
-            # tortiecolour, and that may be different from the pelt color (main for torties
-            # generated before the "ginger-on-ginger" update. If it was generated after that update,
-            # tortiecolour and pelt_colour will be the same. Therefore, lets also re-set the pelt color
-            self.colour = self.tortiecolour
-            self.tortiecolour = convert_dict["old_tortie_patches"][old_pattern][0]
-            
-        if self.pattern == "MINIMAL1":
-            self.pattern = "MINIMALONE"
-        elif self.pattern == "MINIMAL2":
-            self.pattern = "MINIMALTWO"
-        elif self.pattern == "MINIMAL3":
-            self.pattern = "MINIMALTHREE"
-        elif self.pattern == "MINIMAL4":
-            self.pattern = "MINIMALFOUR"
         
     def init_eyes(self, parents):
         if not parents:
@@ -311,10 +335,11 @@ class Pelt():
         
         #White patches must be initalized before eye color. 
         num = game.config["cat_generation"]["base_heterochromia"]
-        if self.white_patches in [Pelt.high_white, Pelt.mostly_white, 'FULLWHITE'] or self.colour == 'WHITE':
-            num = num - 90
-        if self.white_patches == 'FULLWHITE' or self.colour == 'WHITE':
-            num -= 10
+        if self.white_patches:
+            if any(white in [Pelt.high_white, Pelt.mostly_white, 'FULLWHITE'] for white in self.white_patches) or self.colour == 'WHITE':
+                num = num - 90
+            if any(white in 'FULLWHITE' for white in self.white_patches) or self.colour == 'WHITE':
+                num -= 10
         for _par in parents:
             if _par.pelt.eye_colour2:
                 num -= 10
@@ -666,7 +691,8 @@ class Pelt():
         if acc_display_choice == 1:
             self.accessory = choice([
                 choice(Pelt.plant_accessories),
-                choice(Pelt.wild_accessories)
+                choice(Pelt.wild_accessories),
+                choice(Pelt.new_accessories)
             ])
         else:
             self.accessory = None
@@ -676,7 +702,21 @@ class Pelt():
             if not self.tortiebase:
                 self.tortiebase = choice(Pelt.tortiebases)
             if not self.pattern:
-                self.pattern = choice(Pelt.tortiepatterns)
+                chosen_pattern = set()
+                chosen_pattern.add(choice(Pelt.tortiepatterns))
+
+                num = game.config["cat_generation"]["base_extra_tortie"]
+
+                for x in range(game.config["cat_generation"]["max_tortie_amount"] - 1):
+                    if not random.randint(0, num):
+
+                        chosen_pattern.add(choice(Pelt.tortiepatterns))
+                        num += 3
+
+                if len(chosen_pattern) >= 2:
+                    print("DoublePatch: "+str(len(chosen_pattern))+" tortie patches!")
+
+                self.pattern = list(chosen_pattern)
 
             wildcard_chance = game.config["cat_generation"]["wildcard_tortie"]
             if self.colour:
@@ -736,7 +776,7 @@ class Pelt():
         for p in parents:
             if p:
                 if p.pelt.white_patches:
-                    par_whitepatches.add(p.pelt.white_patches)
+                    par_whitepatches.add(choice(p.pelt.white_patches))
                 if p.pelt.points:
                     par_points.append(p.pelt.points)
 
@@ -746,7 +786,7 @@ class Pelt():
             return
 
         # Direct inheritance. Will only work if at least one parent has white patches, otherwise continue on.
-        if par_whitepatches and not random.randint(0, game.config["cat_generation"]["direct_inheritance"]):
+        '''if par_whitepatches and not random.randint(0, game.config["cat_generation"]["direct_inheritance"]):
             # This ensures Torties and Calicos won't get direct inheritance of incorrect white patch types
             _temp = par_whitepatches.copy()
             if self.name == "Tortie":
@@ -768,7 +808,7 @@ class Pelt():
                 else:
                     self.points = None
 
-                return
+                return'''
 
         # dealing with points
         if par_points:
@@ -825,11 +865,41 @@ class Pelt():
             if not any(weights):
                 weights = [2, 1, 0, 0, 0]
 
-        chosen_white_patches = choice(
+        chosen_white_patches = set()
+        chosen_white_patches.add(choice(
             random.choices(white_list, weights=weights, k=1)[0]
-        )
+        ))
 
-        self.white_patches = chosen_white_patches
+        num = game.config["cat_generation"]["base_extra_white"]
+        
+        if any(white in Pelt.high_white for white in chosen_white_patches):
+            num -= 2
+        elif any(white in Pelt.little_white for white in chosen_white_patches) or any(white in Pelt.mid_white for white in chosen_white_patches):
+            num -= 5
+
+        for p in parents:
+            if p:
+                if not p.pelt.white_patches:
+                    num += 1
+                elif len(p.pelt.white_patches) >= 2:
+                    num -= 1
+
+        if num < 0:
+            num = 1
+
+        for x in range(game.config["cat_generation"]["max_white_amount"] - 1):
+            if not random.randint(0, num):
+
+                weights = (12, 10, 3, 0, 0)
+                chosen_white_patches.add(choice(
+                    random.choices(white_list, weights=weights, k=1)[0]
+                ))
+                num += 1
+                
+        if len(chosen_white_patches) >= 2:
+            print("DoublePatch: "+str(len(chosen_white_patches))+" white patches!")
+
+        self.white_patches = list(chosen_white_patches)
         if self.points and self.white_patches in [Pelt.high_white, Pelt.mostly_white, 'FULLWHITE']:
             self.points = None
 
@@ -850,15 +920,39 @@ class Pelt():
         else:
             weights = (10, 10, 10, 10, 1)
 
+        chosen_white_patches = set()
         white_list = [Pelt.little_white, Pelt.mid_white, Pelt.high_white, Pelt.mostly_white, ['FULLWHITE']]
-        chosen_white_patches = choice(
+        chosen_white_patches.add(choice(
             random.choices(white_list, weights=weights, k=1)[0]
-        )
+        ))
 
-        self.white_patches = chosen_white_patches
+        num = game.config["cat_generation"]["base_extra_white"]
+        
+        if any(white in Pelt.high_white for white in chosen_white_patches):
+            num -= 2
+        elif any(white in Pelt.little_white for white in chosen_white_patches) or any(white in Pelt.mid_white for white in chosen_white_patches):
+            num -= 5
+
+        if num < 0:
+            num = 1
+
+        for x in range(game.config["cat_generation"]["max_white_amount"] - 1):
+            if not random.randint(0, num):
+
+                weights = (12, 10, 3, 0, 0)
+                chosen_white_patches.add(choice(
+                    random.choices(white_list, weights=weights, k=1)[0]
+                ))
+                num += 1
+
+        if len(chosen_white_patches) >= 2:
+            print("DoublePatch: "+str(len(chosen_white_patches))+" white patches!")
+
+        self.white_patches = list(chosen_white_patches)
         if self.points and self.white_patches in [Pelt.high_white, Pelt.mostly_white, 'FULLWHITE']:
             self.points = None
-
+            
+    
     def init_white_patches(self, pelt_white, parents:tuple):
         # Vit can roll for anyone, not just cats who rolled to have white in their pelt. 
         par_vit = []
@@ -1022,7 +1116,7 @@ class Pelt():
             if cat.pelt.white_patches == "FULLWHITE":
                 # If the cat is fullwhite, discard all other information. They are just white
                 color_name = "white"
-            if cat.pelt.white_patches in Pelt.mostly_white and cat.pelt.name != "Calico":
+            if any(white in Pelt.mostly_white for white in cat.pelt.white_patches) and cat.pelt.name != "Calico":
                 color_name = f"white and {color_name}"
             elif cat.pelt.name != "Calico":
                 color_name = f"{color_name} and white"
