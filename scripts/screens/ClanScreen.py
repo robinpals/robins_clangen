@@ -74,10 +74,6 @@ class ClanScreen(Screens):
                 self.change_screen('med den screen')
             else:
                 self.menu_button_pressed(event)
-            if event.ui_element == self.clearing_label:
-                self.change_screen('clearing screen')
-            else:
-                self.menu_button_pressed(event)
         
         elif event.type == pygame.KEYDOWN and game.settings['keybinds']:
             if event.key == pygame.K_RIGHT:
@@ -162,19 +158,11 @@ class ClanScreen(Screens):
                                                          pygame.transform.scale(
                                                              image_cache.load_image('resources/images/nursery_den.png'),
                                                              (160, 56)))
-        if game.clan.game_mode == 'classic':
-            self.clearing_label = pygame_gui.elements.UIImage(
-                scale(pygame.Rect(self.layout['clearing'], (162, 56))),
-                pygame.transform.scale(
-                    image_cache.load_image('resources/images/buttons/clearing.png'),
-                    (162, 56)))
-        else:
-            self.clearing_label = UIImageButton(scale(pygame.Rect(
-                self.layout['clearing'], (162, 56))),
-                "",
-                object_id="#clearing_button",
-                starting_height=2
-            )
+        self.clearing_label = pygame_gui.elements.UIImage(
+            scale(pygame.Rect(self.layout['clearing'], (162, 56))),
+            pygame.transform.scale(
+                image_cache.load_image('resources/images/clearing.png'),
+                (162, 56)))
         self.app_den_label = pygame_gui.elements.UIImage(
             scale(pygame.Rect(self.layout['apprentice den'], (294, 56))),
             pygame.transform.scale(
@@ -345,7 +333,7 @@ class ClanScreen(Screens):
                 else:
                     continue
  
-            if Cat.all_cats[x].status in ['apprentice', 'mediator apprentice']:
+            if Cat.all_cats[x].status in ['apprentice', 'mediator apprentice', 'starteller apprentice']:
                 Cat.all_cats[x].placement = self.choose_nonoverlapping_positions(first_choices, all_dens,
                                                                                  [1, 50, 1, 1, 100, 100, 1])
             elif Cat.all_cats[x].status == 'deputy':
@@ -363,7 +351,7 @@ class ClanScreen(Screens):
             ]:
                 Cat.all_cats[x].placement = self.choose_nonoverlapping_positions(first_choices, all_dens,
                                                                                  [20, 20, 20, 400, 1, 1, 1])
-            elif Cat.all_cats[x].status in ['warrior', 'mediator']:
+            elif Cat.all_cats[x].status in ['warrior', 'mediator', 'starteller']:
                 Cat.all_cats[x].placement = self.choose_nonoverlapping_positions(first_choices, all_dens,
                                                                                  [1, 1, 1, 1, 1, 60, 60])
             elif Cat.all_cats[x].status == "leader":
