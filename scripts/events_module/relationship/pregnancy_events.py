@@ -195,74 +195,43 @@ class Pregnancy_Events():
         if (cat and cat.no_kits) or (other_cat and other_cat.no_kits):
             return
 
-        if clan.clan_settings['same sex birth']:
-            # 50/50 for single cats to get pregnant or just bring a litter back
-            if not other_cat and random.randint(0,1):
-                amount = Pregnancy_Events.get_amount_of_kits(cat)
-                kits = Pregnancy_Events.get_kits(amount, cat, None, clan)
-                insert = 'this should not display'
-                if amount == 1:
-                    insert = 'a single kitten'
-                if amount > 1:
-                    insert = f'a litter of {amount} kits'
-                print_event = f"{cat.name} brought {insert} back to camp, but refused to talk about their origin."
-                cats_involved = [cat.ID]
-                for kit in kits:
-                    cats_involved.append(kit.ID)
-                game.cur_events_list.append(Single_Event(print_event, "birth_death", cats_involved))
-                return
-            
-            # same sex birth enables all cats to get pregnant,
-            # therefore the main cat will be used, regarding of gender
-            clan.pregnancy_data[cat.ID] = {
-                "second_parent": str(other_cat.ID) if other_cat else None,
-                "moons": 0,
-                "amount": 0
-            }
+        # even with no_gendered_breeding on a male cat with no second parent should not be count as pregnant
+        # instead, the cat should get the kit instantly
+        if not other_cat and cat.gender == 'male':
+            amount = Pregnancy_Events.get_amount_of_kits(cat)
+            kits = Pregnancy_Events.get_kits(amount, cat, None, clan)
+            insert = 'this should not display'
+            if amount == 1:
+                insert = 'a single kitten'
+            if amount > 1:
+                insert = f'a litter of {amount} kits'
+            print_event = f"{cat.name} brought {insert} back to camp, but refused to talk about their origin."
+            cats_involved = [cat.ID]
+            for kit in kits:
+                cats_involved.append(kit.ID)
+            game.cur_events_list.append(Single_Event(print_event, "birth_death", cats_involved))
+            return
 
-            text = choice(Pregnancy_Events.PREGNANT_STRINGS["announcement"])
-            if clan.game_mode != 'classic':
-                severity = random.choices(["minor", "major"], [3, 1], k=1)
-                cat.get_injured("pregnant", severity=severity[0])
-                text += choice(Pregnancy_Events.PREGNANT_STRINGS[f"{severity[0]}_severity"])
-            text = event_text_adjust(Cat, text, cat, clan=clan)
-            game.cur_events_list.append(Single_Event(text, "birth_death", cat.ID))
-        else:
-            if not other_cat and cat.gender == 'male':
-                amount = Pregnancy_Events.get_amount_of_kits(cat)
-                kits = Pregnancy_Events.get_kits(amount, cat, None, clan)
-                insert = 'this should not display'
-                if amount == 1:
-                    insert = 'a single kitten'
-                if amount > 1:
-                    insert = f'a litter of {amount} kits'
-                print_event = f"{cat.name} brought {insert} back to camp, but refused to talk about their origin."
-                cats_involved = [cat.ID]
-                for kit in kits:
-                    cats_involved.append(kit.ID)
-                game.cur_events_list.append(Single_Event(print_event, "birth_death", cats_involved))
-                return
+        # if the other cat is a female and the current cat is a male, make the female cat pregnant
+        pregnant_cat = cat
+        second_parent = other_cat
+        if cat.gender == 'male' and other_cat is not None and other_cat.gender == 'female':
+            pregnant_cat = other_cat
+            second_parent = cat
 
-            # if the other cat is a female and the current cat is a male, make the female cat pregnant
-            pregnant_cat = cat
-            second_parent = other_cat
-            if cat.gender == 'male' and other_cat is not None and other_cat.gender == 'female':
-                pregnant_cat = other_cat
-                second_parent = cat
+        clan.pregnancy_data[pregnant_cat.ID] = {
+            "second_parent": str(second_parent.ID) if second_parent else None,
+            "moons": 0,
+            "amount": 0
+        }
 
-            clan.pregnancy_data[pregnant_cat.ID] = {
-                "second_parent": str(second_parent.ID) if second_parent else None,
-                "moons": 0,
-                "amount": 0
-            }
-
-            text = choice(Pregnancy_Events.PREGNANT_STRINGS["announcement"])
-            if clan.game_mode != 'classic':
-                severity = random.choices(["minor", "major"], [3, 1], k=1)
-                pregnant_cat.get_injured("pregnant", severity=severity[0])
-                text += choice(Pregnancy_Events.PREGNANT_STRINGS[f"{severity[0]}_severity"])
-            text = event_text_adjust(Cat, text, pregnant_cat, clan=clan)
-            game.cur_events_list.append(Single_Event(text, "birth_death", pregnant_cat.ID))
+        text = choice(Pregnancy_Events.PREGNANT_STRINGS["announcement"])
+        if clan.game_mode != 'classic':
+            severity = random.choices(["minor", "major"], [3, 1], k=1)
+            pregnant_cat.get_injured("pregnant", severity=severity[0])
+            text += choice(Pregnancy_Events.PREGNANT_STRINGS[f"{severity[0]}_severity"])
+        text = event_text_adjust(Cat, text, pregnant_cat, clan=clan)
+        game.cur_events_list.append(Single_Event(text, "birth_death", pregnant_cat.ID))
 
     @staticmethod
     def handle_one_moon_pregnant(cat: Cat, clan=game.clan):
@@ -505,7 +474,14 @@ class Pregnancy_Events():
             return False, False
 
         # Check to see if the pair can have kits.
-        if cat.gender == second_parent.gender:
+        if cat.gender == 'intersex' or second_parent.gender == 'intersex':
+            if same_sex_birth:
+                return True, False
+            elif not same_sex_adoption:
+                return False, False
+            else:
+                return True, True
+        elif cat.gender == second_parent.gender:
             if same_sex_birth:
                 return True, False
             elif not same_sex_adoption:
@@ -796,8 +772,14 @@ class Pregnancy_Events():
         three_kits = [min_kits + 2] * game.config["pregnancy"]["three_kit_possibility"][cat.age]
         four_kits = [min_kits + 3] * game.config["pregnancy"]["four_kit_possibility"][cat.age]
         five_kits = [min_kits + 4] * game.config["pregnancy"]["five_kit_possibility"][cat.age]
+        six_kits = [min_kits + 5] * game.config["pregnancy"]["six_kit_possibility"] [cat.age]
+        seven_kits = [min_kits + 6] * game.config["pregnancy"]["seven_kit_possibility"] [cat.age]
+        eight_kits = [min_kits + 7] * game.config["pregnancy"]["eight_kit_possibility"] [cat.age]
+        nine_kits = [min_kits + 8] * game.config["pregnancy"]["nine_kit_possibility"] [cat.age]
+        ten_kits = [min_kits + 9] * game.config["pregnancy"]["ten_kit_possibility"] [cat.age]
+        eleven_kits = [min_kits + 10] * game.config["pregnancy"]["eleven_kit_possibility"] [cat.age]
         max_kits = [game.config["pregnancy"]["max_kits"]] * game.config["pregnancy"]["max_kit_possibility"][cat.age]
-        amount = choice(min_kit + two_kits + three_kits + four_kits + five_kits + max_kits)
+        amount = choice(min_kit + two_kits + three_kits + four_kits + five_kits + six_kits + seven_kits + eight_kits + nine_kits + ten_kits + eleven_kits + max_kits)
 
         return amount
 

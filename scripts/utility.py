@@ -9,18 +9,21 @@ TODO: Docs
 from random import choice, choices, randint, random, sample
 import re
 import pygame
-import ujson
-import logging
-from sys import exit as sys_exit
-from typing import Dict
 
-
-logger = logging.getLogger(__name__)
-from scripts.game_structure import image_cache
 from scripts.cat.history import History
 from scripts.cat.names import names
 from scripts.cat.pelts import Pelt
+
+import ujson
+import logging
+
+logger = logging.getLogger(__name__)
+from scripts.game_structure import image_cache
+
+from sys import exit as sys_exit
+
 from scripts.cat.sprites import sprites
+
 from scripts.game_structure.game_essentials import game, screen_x, screen_y
 
 
@@ -28,34 +31,34 @@ from scripts.game_structure.game_essentials import game, screen_x, screen_y
 #                              Counting Cats                                   #
 # ---------------------------------------------------------------------------- #
 
-def get_alive_clan_queens(living_cats):
-    living_kits = [cat for cat in living_cats if not (cat.dead or cat.outside) and cat.status in ["kitten", "newborn"]]
-
-    queen_dict = {}
-    for cat in living_kits.copy():
-        parents = cat.get_parents()
-        #Fetch parent object, only alive and not outside. 
-        parents = [cat.fetch_cat(i) for i in parents if cat.fetch_cat(i) and not(cat.fetch_cat(i).dead or cat.fetch_cat(i).outside)]
-        if not parents:
+def get_alive_clan_queens(cat_cls):
+    """
+    Returns a list with all cats with the 'status' queen.
+    """
+    queens = []
+    for inter_cat in cat_cls.all_cats.values():
+        if inter_cat.dead or inter_cat.outside:
             continue
+        if str(inter_cat.status) != 'kitten' or inter_cat.parent1 is None:
+            continue
+
         
-        if len(parents) == 1 or len(parents) > 2 or\
-            all(i.gender == "male" for i in parents) or\
-            parents[0].gender == "female":
-            if parents[0].ID in queen_dict:
-                queen_dict[parents[0].ID].append(cat)
-                living_kits.remove(cat)
+        alive_parents = [cat_cls.fetch_cat(i) for i in inter_cat.get_parents() if 
+                   isinstance(cat_cls.fetch_cat(i), cat_cls) and not 
+                   (cat_cls.fetch_cat(i).dead or cat_cls.fetch_cat(i).outside)]
+
+        if len(alive_parents) == 1:
+            queens.append(alive_parents[0])
+        elif len(alive_parents) == 2:
+            if alive_parents[0].gender == "female":
+                queens.append(alive_parents[0])
+            elif alive_parents[1].gender == "female":
+                queens.append(alive_parents[1])
             else:
-                queen_dict[parents[0].ID] = [cat]
-                living_kits.remove(cat)
-        elif len(parents) == 2:
-            if parents[1].ID in queen_dict:
-                queen_dict[parents[1].ID].append(cat)
-                living_kits.remove(cat)
-            else:
-                queen_dict[parents[1].ID] = [cat]
-                living_kits.remove(cat)
-    return queen_dict, living_kits
+                queens.append(alive_parents[0])
+                
+    return queens
+
 
 def get_alive_kits(Cat):
     """
@@ -222,7 +225,7 @@ def create_new_cat(Cat,
                    outside:bool=False,
                    parent1:str=None,
                    parent2:str=None
-    ) -> list:
+	) -> list:
     """
     This function creates new cats and then returns a list of those cats
     :param Cat: pass the Cat class
@@ -659,20 +662,16 @@ def change_relationship_values(cats_to: list,
         changed = True"""
 
     # pick out the correct cats
-    for single_cat_from in cats_from:
-        for single_cat_to_ID in cats_to:
-            single_cat_to = single_cat_from.fetch_cat(single_cat_to_ID)
+    for kitty in cats_from:
+        relationships = [i for i in kitty.relationships.values() if i.cat_to.ID in cats_to]
 
-            if single_cat_from == single_cat_to:
+        # make sure that cats don't gain rel with themselves
+        for rel in relationships:
+            if kitty.ID == rel.cat_to.ID:
                 continue
-            
-            if single_cat_to_ID not in single_cat_from.relationships:
-                single_cat_from.create_one_relationship(single_cat_to)
-
-            rel = single_cat_from.relationships[single_cat_to_ID]
 
             # here we just double-check that the cats are allowed to be romantic with each other
-            if single_cat_from.is_potential_mate(single_cat_to, for_love_interest=True) or single_cat_to.ID in single_cat_from.mate:
+            if kitty.is_potential_mate(rel.cat_to, for_love_interest=True) or rel.cat_to.ID in kitty.mate:
                 # if cat already has romantic feelings then automatically increase romantic feelings
                 # when platonic feelings would increase
                 if rel.romantic_love > 0 and auto_romance:
@@ -995,10 +994,7 @@ def event_text_adjust(Cat,
         text = text.replace("acc_singular", str(ACC_DISPLAY[cat.pelt.accessory]["singular"]))
 
     if other_cat:
-        if other_cat.pronouns:
-            cat_dict["r_c"] = (str(other_cat.name), choice(other_cat.pronouns))
-        else:
-            cat_dict["r_c"] = (str(other_cat.name))
+        cat_dict["r_c"] = (str(other_cat.name), choice(other_cat.pronouns))
 
     if new_cat:
         cat_dict["n_c_pre"] = (str(new_cat.name.prefix), None)
@@ -1018,7 +1014,7 @@ def event_text_adjust(Cat,
 
     if murder_reveal and victim:
         victim_cat = Cat.fetch_cat(victim)
-        cat_dict["mur_c"] = (str(victim_cat.name), choice(victim_cat.pronouns))
+        text = text.replace("mur_c", str(victim_cat.name))
 
     # Dreams and Omens
     text, senses, list_type = find_special_list_types(text)
@@ -1248,13 +1244,13 @@ def generate_sprite(cat, life_state=None, scars_hidden=False, acc_hidden=False, 
             else:
                 tortie_pattern = cat.pelt.tortiepattern
 
-            patches = sprites.sprites[
-                tortie_pattern + cat.pelt.tortiecolour + cat_sprite].copy()
-            patches.blit(sprites.sprites["tortiemask" + cat.pelt.pattern + cat_sprite], (0, 0),
-                         special_flags=pygame.BLEND_RGBA_MULT)
-
-            # Add patches onto cat.
-            new_sprite.blit(patches, (0, 0))
+            for pattern in cat.pelt.pattern:
+                patches = sprites.sprites[
+                    tortie_pattern + cat.pelt.tortiecolour + cat_sprite].copy()
+                patches.blit(sprites.sprites["tortiemask" + pattern + cat_sprite], (0, 0),
+                             special_flags=pygame.BLEND_RGBA_MULT)
+                # Add patches onto cat.
+                new_sprite.blit(patches, (0, 0))
 
         # TINTS
         if cat.pelt.tint != "none" and cat.pelt.tint in sprites.cat_tints["tint_colours"]:
@@ -1266,17 +1262,16 @@ def generate_sprite(cat, life_state=None, scars_hidden=False, acc_hidden=False, 
             new_sprite.blit(tint, (0, 0), special_flags=pygame.BLEND_RGB_MULT)
 
         # draw white patches
-        if cat.pelt.white_patches is not None:
-            white_patches = sprites.sprites['white' + cat.pelt.white_patches + cat_sprite].copy()
-
-            # Apply tint to white patches.
-            if cat.pelt.white_patches_tint != "none" and cat.pelt.white_patches_tint in sprites.white_patches_tints[
-                "tint_colours"]:
-                tint = pygame.Surface((sprites.size, sprites.size)).convert_alpha()
-                tint.fill(tuple(sprites.white_patches_tints["tint_colours"][cat.pelt.white_patches_tint]))
-                white_patches.blit(tint, (0, 0), special_flags=pygame.BLEND_RGB_MULT)
-
-            new_sprite.blit(white_patches, (0, 0))
+        if cat.pelt.white_patches:
+            for white in cat.pelt.white_patches:
+                if cat.pelt.white_patches_tint != "none" and cat.pelt.white_patches_tint in sprites.white_patches_tints["tint_colours"]:
+                    white_patch = sprites.sprites['white' + white + cat_sprite].copy()
+                    tint = pygame.Surface((sprites.size, sprites.size)).convert_alpha()
+                    tint.fill(tuple(sprites.white_patches_tints["tint_colours"][cat.pelt.white_patches_tint]))
+                    white_patch.blit(tint, (0, 0), special_flags=pygame.BLEND_RGB_MULT)
+                    new_sprite.blit(white_patch, (0, 0))
+                else:
+                    new_sprite.blit(sprites.sprites['white' + white + cat_sprite], (0, 0))
 
         # draw vit & points
 
@@ -1333,6 +1328,9 @@ def generate_sprite(cat, life_state=None, scars_hidden=False, acc_hidden=False, 
                 new_sprite.blit(sprites.sprites['acc_wild' + cat.pelt.accessory + cat_sprite], (0, 0))
             elif cat.pelt.accessory in cat.pelt.collars:
                 new_sprite.blit(sprites.sprites['collars' + cat.pelt.accessory + cat_sprite], (0, 0))
+            elif cat.pelt.accessory in cat.pelt.new_accessories:
+                new_sprite.blit(sprites.sprites['acc_new' + cat.pelt.accessory + cat_sprite], (0, 0))
+                
 
         # Apply fading fog
         if cat.pelt.opacity <= 97 and not cat.prevent_fading and game.clan.clan_settings["fading"] and dead:

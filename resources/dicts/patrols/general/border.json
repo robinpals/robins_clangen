@@ -811,6 +811,82 @@
         ]
     },
     {
+        "patrol_id": "gen_bord_factory1_factory4",
+        "biome": ["Any"],
+        "season": ["Any"],
+        "types": ["border"],
+        "tags": ["new_cat"],
+        "patrol_art": "bord_general_intro",
+        "min_cats": 2,
+        "max_cats": 6,
+        "min_max_status": {
+            "normal adult": [1, 6]
+        },
+        "weight": 20,
+        "intro_text": "p_l sees a cat with oddly ruffled fur and an awfully dirty pelt cautiously sniffing around the border, looking back and forth as if something was following them.",
+        "decline_text": "p_l decides it's none of {PRONOUN/p_l/poss} business, and resumes {PRONOUN/p_l/poss} patrol.",
+        "chance_of_success": 30,
+        "success_outcomes": [
+            {
+                "text": "p_l approaches the cat, asking what's wrong. The cat practically jumps out of their skin, but tentatively explains where they were. Although p_l has trouble believing the horrid story the loner tells, of a collective of Twolegs who confined hundreds of cats in a single room, {PRONOUN/p_//subject} {VERB/p_l/agree/agrees} to bring them back to the Clan where no Twolegs will ever hurt them again.",
+                "exp": 15,
+                "weight": 20,
+                "relationships": [
+                    {
+                        "cats_to": ["patrol"],
+                        "cats_from": ["patrol"],
+                        "mutual": false,
+                        "values": ["respect"],
+                        "amount": 5
+                    },
+                    {
+                        "cats_from": ["n_c:0"],
+                        "cats_to": ["patrol"],
+                        "values": ["platonic", "trust", "comfort"],
+                        "amount": 10
+                    }
+                ],
+                "new_cat": [
+                    ["factory"]
+                ],
+                "outsider_rep": 1
+            }
+        ],
+        "fail_outcomes": [
+            {
+                "text": "p_l approaches the cat, but just as {PRONOUN/m_c/subject} do so, the cat bolts and runs into the depth of the forest. p_l doesn't have the time to follow them, but distantly wonders why the cat was so dirty.",
+                "exp": 0,
+                "weight": 20,
+                "outsider_rep": -1,
+                "relationships": [
+                    {
+                        "cats_to": ["patrol"],
+                        "cats_from": ["patrol"],
+                        "mutual": false,
+                        "values": ["respect"],
+                        "amount": -5
+                    }
+                ]
+            }
+        ],
+        "antag_fail_outcomes": [
+            {
+                "text": "The kittypet tries to make a run for it, when suddenly they collapse! When p_l comes closer, {PRONOUN/p_l/subject} can smell the sickness coming off the kittypet's pelt. {PRONOUN/p_l/subject/CAP} {VERB/p_l/decide/decides} to resume the border patrol - it's not {PRONOUN/p_l/poss} problem anymore.",
+                "exp": 0,
+                "weight": 20,
+                "outsider_rep": -1
+            }
+        ],
+        "antag_success_outcomes": [
+            {
+                "text": "{PRONOUN/p_l/subject/CAP} {VERB/p_l/tell/tells} the kittypet that they aren't welcome here, but after {PRONOUN/p_l/subject} {VERB/p_l/hear/hears} that the kittypet is ill, {PRONOUN/p_l/subject} {VERB/p_l/agree/agrees} to carry them to a nearby Twoleg den to find help.",
+                "exp": 15,
+                "weight": 20,
+                "outsider_rep": -2
+            }
+        ]
+    },
+    {
         "patrol_id": "gen_bord_otherclankits1",
         "biome": ["Any"],
         "season": ["Any"],
@@ -961,7 +1037,7 @@
         },
         "weight": 20,
         "intro_text": "The patrol spots a badger making a den on o_c_n territory.",
-        "decline_text": "It's not c_n's problem, but {PRONOUN/p_l/subject} {VERB/p_l/make/makes} a mental note to mention the badger to {PRONOUN/p_l/poss} leader later.",
+        "decline_text": "It's not c_n's problem, but {PRONOUN/p_l/subject}  {VERB/p_l/make/makes} a mental note to mention the badger to {PRONOUN/p_l/poss} leader later.",
         "chance_of_success": 50,
         "success_outcomes": [
             {
@@ -1038,7 +1114,7 @@
         ],
         "antag_success_outcomes": [
             {
-                "text": "{PRONOUN/p_l/subject/CAP} {VERB/p_l/continue/continues} {PRONOUN/p_l/poss} patrol and sometime later a patrol from o_c_n calls out and asks if they have seen anything suspicious. p_l tells them coldly that {PRONOUN/p_l/poss} Clan doesn't owe them anything and continues {PRONOUN/p_l/poss} patrol.",
+                "text": "{PRONOUN/p_l/subject/CAP} {VERB/p_l/continue/continues} {PRONOUN/p_l/object} patrol and sometime later an o_c_n patrol calls out to their patrol and asks if they have seen anything suspicious. p_l tells them coldly that {PRONOUN/p_l/poss} Clan doesn't owe them anything and continues {PRONOUN/p_l/poss} patrol.",
                 "exp": 10,
                 "weight": 20,
                 "other_clan_rep": -2
@@ -1161,59 +1237,6 @@
                 "weight": 5
             },
             {
-                "text": "p_l noses forward, half hidden, only stepping out when n_c0's scent hits {PRONOUN/p_l/object}. They've been planning this for moons - tonight is the night. n_c0 is ready to join c_n, to join p_l, and damn anyone who gossips to the dark forest. Tonight is the first night of the rest of their lives together, nothing is going to stop them.",
-                "exp": 5,
-                "weight": 5,
-                "new_cat": [
-                    ["age:mate", "backstory:otherclan2", "mate:p_l"]
-                ],
-                "relationships": [
-                    {
-                        "cats_from": ["n_c:0"],
-                        "cats_to": ["p_l"],
-                        "mutual": true,
-                        "values": ["platonic", "romantic"],
-                        "amount": 55
-                    },
-                    {
-                        "cats_from": ["n_c:0"],
-                        "cats_to": ["p_l"],
-                        "mutual": true,
-                        "values": ["trust", "comfort"],
-                        "amount": 30
-                    },
-                    {
-                        "cats_from": ["n_c:0"],
-                        "cats_to": ["p_l"],
-                        "mutual": true,
-                        "values": ["respect"],
-                        "amount": 15
-                    },
-                    {
-                        "cats_from": ["clan"],
-                        "cats_to": ["p_l"],
-                        "mutual": false,
-                        "values": ["respect", "trust"],
-                        "amount": -30
-                    },
-                    {
-                        "cats_from": ["clan"],
-                        "cats_to": ["p_l"],
-                        "mutual": false,
-                        "values": ["comfort"],
-                        "amount": -15
-                    },
-                    {
-                        "cats_from": ["clan"],
-                        "cats_to": ["p_l"],
-                        "mutual": false,
-                        "values": ["dislike"],
-                        "amount": 5
-                    }
-                ],
-                "other_clan_rep": -4
-            },
-            {
                 "text": "p_l just about walks right into o_c_n's camp, {PRONOUN/p_l/poss} steps so practiced and quiet {PRONOUN/p_l/subject} may as well not be there at all. A cat from o_c_n ducks out and twines their tails together, pressing their side to p_l's with a purr. They slowly walk to the border, murmuring to each other about this and that, where they part ways with a gentle brush of their noses.",
                 "exp": 5,
                 "weight": 20,
@@ -1265,13 +1288,13 @@
                 "weight": 10,
                 "injury": [
                     {
-                        "cats": ["p_l"],
+                        "cats": ["r_c"],
                         "injuries": ["claw-wound"],
                         "scars": ["ONE"]
                     }
                 ],
                 "history_text": {
-                    "scar": "p_l was scarred when {PRONOUN/p_l/subject} tried to sneak across the o_c_n border."
+                    "scar": "r_c was scarred when {PRONOUN/r_c/subject} tried to sneak across the o_c_n border."
                 },
                 "relationships": [
                     {
@@ -1298,13 +1321,13 @@
                 ],
                 "injury": [
                     {
-                        "cats": ["p_l"],
+                        "cats": ["s_c"],
                         "injuries": ["claw-wound"],
                         "scars": ["ONE"]
                     }
                 ],
                 "history_text": {
-                    "scar": "p_l was scarred when {PRONOUN/p_l/subject} tried to sneak across the o_c_n border."
+                    "scar": "r_c was scarred when {PRONOUN/r_c/subject} tried to sneak across the o_c_n border."
                 },
                 "relationships": [
                     {
@@ -1404,7 +1427,7 @@
         "chance_of_success": 50,
         "success_outcomes": [
             {
-                "text": "The patrol cautiously heads in the direction of the strange, unmoving eyes. The cats see a strange face with glowing eyes in the distance, baring its fangs and smelling of smoke. p_l creeps up to the face to find that it belongs to a pumpkin! Startled and somewhat scared, r_c suggests heading back to camp to report this bizarre finding to the Clan. p_l agrees, not wanting to be near this... thing... any longer.",
+                "text": "The patrol cautiously heads in the direction of the strange, unmoving eyes. The cats see a strange face with glowing eyes in the distance, baring its fangs and smelling of smoke. p_l creeps up to the face to find it that it belongs to a pumpkin! Startled and somewhat scared, r_c suggests heading back to camp to report this bizarre finding to the Clan. p_l agrees, not wanting to be near this... thing... any longer.",
                 "exp": 10,
                 "weight": 20
             },
@@ -1536,7 +1559,7 @@
         "chance_of_success": 50,
         "success_outcomes": [
             {
-                "text": "r_c hesitantly approaches the Twoleg, fur bristling and on guard. It doesn't appear to notice {PRONOUN/r_c/object} yet. Paw by paw, r_c inches forward, but realizes something seems off. Is this Twoleg... even alive? After a quick investigation, r_c finds hay sticking out of the Twoleg's pelt. How odd. r_c reports back with {PRONOUN/r_c/poss} findings.",
+                "text": "r_c hesitantly approaches the Twoleg, fur bristling and on guard. It doesn't appear to notice {PRONOUN/r_c/object} yet. Paw by paw, r_c inches forward, but realizes something seems off. Is this Twoleg... even alive? With some more investigation, r_c finds hay sticking out of the Twoleg's pelt. How odd. r_c reports back with {PRONOUN/r_c/poss} findings.",
                 "exp": 10,
                 "weight": 20
             },

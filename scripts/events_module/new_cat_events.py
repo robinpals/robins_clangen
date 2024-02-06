@@ -265,10 +265,7 @@ class NewCatEvents:
     @staticmethod
     def update_cat_properties(cat):
         if cat.backstory in BACKSTORIES["backstory_categories"]['healer_backstories']:
-            cat.status = 'medicine cat'
-        elif cat.age == 'adolescent':
-            cat.status = "apprentice"
-            cat.update_mentor()
+                cat.status = 'medicine cat'
         else:
             cat.status = "warrior"
         cat.outside = False

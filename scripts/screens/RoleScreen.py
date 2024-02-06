@@ -763,10 +763,10 @@ class RoleScreen(Screens):
                      f"Clanmates and disputes between Clans. Some mediators train as apprentices to serve their Clan, " \
                      f"while others may choose to become mediators later in life. "
         elif self.the_cat.status == "guide":
-            output = f"{self.the_cat.name} is a <b>guide</b>. Here you write the blurb about your role " \
-                 	f"using the slash f to create a new line as needed" \
-                 	f"to make a new line. For a good idea on size, look at" \
-		            f"the other role blurbs already in the code" 
+            output = f"{self.the_cat.name} is a <b>guide</b>. Guides know the territory of both their Clan and others in and out, " \
+                 	f"and can help patrols avoid dangerous areas or find particularly good hunting grounds. " \
+                 	f"In general, they are key to the entire Clan being able to feel safe in their own territory. " \
+		            f"Guides have full permission to be anywhere, even other Clan's territories." 
         elif self.the_cat.status == "elder":
             output = f"{self.the_cat.name} is an <b>elder</b>. They have spent many moons serving their Clan, " \
                      f"and have earned " \
