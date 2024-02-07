@@ -23,6 +23,7 @@ class RoleScreen(Screens):
     next_cat = None
     previous_cat = None
     warrior_options_visible = True
+    apprentice_options_visible = True
     
 
     def handle_event(self, event):
@@ -85,7 +86,10 @@ class RoleScreen(Screens):
                 self.the_cat.status_change("mediator", resort=True)
                 self.update_selected_cat()
             elif event.ui_element == self.switch_warrior_app:
-                self.the_cat.status_change("apprentice", resort=True)
+                self.update_apprentice_buttons()
+            elif event.ui_element == self.switch_defense_app:
+                self.apprentice_options_visible = True
+                self.the_cat.status_change("defense apprentice", resort=True)
                 self.update_selected_cat()
             elif event.ui_element == self.switch_starteller_app:
                 self.the_cat.status_change("starteller apprentice", resort=True)
@@ -201,6 +205,12 @@ class RoleScreen(Screens):
         self.switch_mediator_app = UIImageButton(scale(pygame.Rect((1159, 928), (344, 104))), "",
                                                  object_id="#switch_mediator_app_button",
                                                  manager=MANAGER)
+        # APP DROPDOWN STUFF
+        self.switch_defense_app = UIImageButton(scale(pygame.Rect((1159, 824), (344, 72))), "",
+                                         	object_id="#switch_defense_button",
+                                         	manager=MANAGER)
+        self.update_apprentice_buttons()
+
 
         self.update_selected_cat()
 
@@ -215,8 +225,6 @@ class RoleScreen(Screens):
                                     object_id="#retire_button",
                                     manager=MANAGER)
             self.retire.show()
-
-                
         else: # show the dropdown when its already hidden
             self.warrior_options_visible = True 
             self.switch_defense.show()
@@ -227,6 +235,57 @@ class RoleScreen(Screens):
                                     object_id="#retire_button",
                                     manager=MANAGER)
             self.retire.show()
+
+
+    # APPRENTICE DROPDOWN VVVVVVV. DONT EDIT THE ABOVE U DUMDUM
+
+    def update_apprentice_buttons(self):
+        if self.apprentice_options_visible: # hide the dropdown when its already shown
+            self.apprentice_options_visible = False
+            self.switch_defense_app.hide()
+
+
+
+            # handle moving other buttons when the dropdown closes
+
+            self.switch_starteller_app.hide()
+            self.switch_med_app.hide()
+            self.switch_mediator_app.hide()
+            self.switch_starteller_app = UIImageButton(scale(pygame.Rect((1159, 1032), (344, 104))), "",
+                                         	object_id="#switch_starteller_app_button",
+                                         	manager=MANAGER)
+            self.switch_med_app = UIImageButton(scale(pygame.Rect((1159, 824), (344, 104))), "",
+                                            object_id="#switch_med_app_button",
+                                            manager=MANAGER)
+            self.switch_mediator_app = UIImageButton(scale(pygame.Rect((1159, 928), (344, 104))), "",
+                                            object_id="#switch_mediator_app_button",
+                                            manager=MANAGER)
+            self.switch_starteller_app.show()
+            self.switch_med_app.show()
+            self.switch_mediator_app.show()
+        else: # show the dropdown when its already hidden
+            self.apprentice_options_visible = True 
+            self.switch_defense_app.show()
+
+
+
+            # handle moving other buttons when the dropdown opens
+
+            self.switch_starteller_app.hide()
+            self.switch_med_app.hide()
+            self.switch_mediator_app.hide()
+            self.switch_starteller_app = UIImageButton(scale(pygame.Rect((1159, 1136), (344, 104))), "",
+                                         	object_id="#switch_starteller_app_button",
+                                         	manager=MANAGER)
+            self.switch_med_app = UIImageButton(scale(pygame.Rect((1159, 928), (344, 104))), "",
+                                            object_id="#switch_med_app_button",
+                                            manager=MANAGER)
+            self.switch_mediator_app = UIImageButton(scale(pygame.Rect((1159, 1032), (344, 104))), "",
+                                            object_id="#switch_mediator_app_button",
+                                            manager=MANAGER)
+            self.switch_starteller_app.show()
+            self.switch_med_app.show()
+            self.switch_mediator_app.show()
 
     def update_selected_cat(self):
         for ele in self.selected_cat_elements:
@@ -305,6 +364,7 @@ class RoleScreen(Screens):
             "mediator apprentice": "mediator_app_icon.png",
             "warrior": "warrior_icon.png",
             "defense": "defense_icon.png",
+            "defense apprentice": "defense_icon.png",
             "attack": "attack_icon.png",
             "hunt": "hunt_icon.png",
             "apprentice": "warrior_app_icon.png",
@@ -371,7 +431,8 @@ class RoleScreen(Screens):
 
             # In-TRAINING ROLES:
             self.switch_med_app.enable()
-            self.switch_warrior_app.disable()
+            self.switch_warrior_app.enable()
+            self.switch_defense_app.enable()
             self.switch_mediator_app.enable()
             self.switch_starteller_app.enable()
         elif self.the_cat.status == "warrior":
@@ -401,6 +462,7 @@ class RoleScreen(Screens):
             # In-TRAINING ROLES:
             self.switch_med_app.disable()
             self.switch_warrior_app.disable()
+            self.switch_defense_app.disable()
             self.switch_mediator_app.disable()
             self.switch_starteller_app.disable()
         elif self.the_cat.status == "defense":
@@ -430,8 +492,31 @@ class RoleScreen(Screens):
             # In-TRAINING ROLES:
             self.switch_med_app.disable()
             self.switch_warrior_app.disable()
+            self.switch_defense_app.disable()
             self.switch_mediator_app.disable()
             self.switch_starteller_app.disable()
+        elif self.the_cat.status == "defense apprentice":
+            self.promote_leader.disable()
+            self.promote_deputy.disable()
+
+            # ADULT CAT ROLES
+            self.switch_warrior.disable()
+            self.switch_med_cat.disable()
+            self.switch_mediator.disable()
+            self.switch_starteller.disable()
+            self.switch_queen.disable()
+            self.switch_guide.disable()
+            self.switch_defense.disable()
+            self.switch_attack.disable()
+            self.switch_hunt.disable()
+            self.retire.disable()
+
+            # In-TRAINING ROLES:
+            self.switch_med_app.enable()
+            self.switch_warrior_app.enable()
+            self.switch_defense_app.disable()
+            self.switch_mediator_app.enable()
+            self.switch_starteller_app.enable()
         elif self.the_cat.status == "attack":
             # LEADERSHIP
             if leader_invalid:
@@ -459,6 +544,7 @@ class RoleScreen(Screens):
             # In-TRAINING ROLES:
             self.switch_med_app.disable()
             self.switch_warrior_app.disable()
+            self.switch_defense_app.disable()
             self.switch_mediator_app.disable()
             self.switch_starteller_app.disable()
         elif self.the_cat.status == "hunt":
@@ -488,6 +574,7 @@ class RoleScreen(Screens):
             # In-TRAINING ROLES:
             self.switch_med_app.disable()
             self.switch_warrior_app.disable()
+            self.switch_defense_app.disable()
             self.switch_mediator_app.disable()
             self.switch_starteller_app.disable()
         elif self.the_cat.status == "deputy":
@@ -513,6 +600,7 @@ class RoleScreen(Screens):
             # In-TRAINING ROLES:
             self.switch_med_app.disable()
             self.switch_warrior_app.disable()
+            self.switch_defense_app.disable()
             self.switch_mediator_app.disable()
             self.switch_starteller_app.disable()
             
@@ -534,6 +622,7 @@ class RoleScreen(Screens):
             # In-TRAINING ROLES:
             self.switch_med_app.disable()
             self.switch_warrior_app.disable()
+            self.switch_defense_app.disable()
             self.switch_mediator_app.disable()
             self.switch_starteller_app.disable()
 
@@ -555,6 +644,7 @@ class RoleScreen(Screens):
             # In-TRAINING ROLES:
             self.switch_med_app.disable()
             self.switch_warrior_app.disable()
+            self.switch_defense_app.disable()
             self.switch_mediator_app.disable()
             self.switch_starteller_app.disable()
         elif self.the_cat.status == "mediator":
@@ -582,6 +672,7 @@ class RoleScreen(Screens):
             # In-TRAINING ROLES:
             self.switch_med_app.disable()
             self.switch_warrior_app.disable()
+            self.switch_defense_app.disable()
             self.switch_mediator_app.disable()
             self.switch_starteller_app.disable()
             
@@ -610,6 +701,7 @@ class RoleScreen(Screens):
 # In-TRAINING ROLES:
             self.switch_med_app.disable()
             self.switch_warrior_app.disable()
+            self.switch_defense_app.disable()
             self.switch_mediator_app.disable()
             self.switch_starteller_app.disable()
         
@@ -638,6 +730,7 @@ class RoleScreen(Screens):
 # In-TRAINING ROLES:
             self.switch_med_app.disable()
             self.switch_warrior_app.disable()
+            self.switch_defense_app.disable()
             self.switch_mediator_app.disable()
             self.switch_starteller_app.disable()
         elif self.the_cat.status == "elder":
@@ -666,6 +759,7 @@ class RoleScreen(Screens):
             # In-TRAINING ROLES:
             self.switch_med_app.disable()
             self.switch_warrior_app.disable()
+            self.switch_defense_app.disable()
             self.switch_mediator_app.disable()
             self.switch_starteller_app.disable()
         elif self.the_cat.status == "starteller apprentice":
@@ -687,6 +781,7 @@ class RoleScreen(Screens):
             # In-TRAINING ROLES:
             self.switch_med_app.enable()
             self.switch_warrior_app.enable()
+            self.switch_defense_app.enable()
             self.switch_mediator_app.enable()
             self.switch_starteller_app.disable()
 
@@ -709,6 +804,7 @@ class RoleScreen(Screens):
             # In-TRAINING ROLES:
             self.switch_med_app.disable()
             self.switch_warrior_app.enable()
+            self.switch_defense_app.enable()
             self.switch_mediator_app.enable()
             self.switch_starteller_app.enable()
         elif self.the_cat.status == "mediator apprentice":
@@ -729,6 +825,7 @@ class RoleScreen(Screens):
             # In-TRAINING ROLES:
             self.switch_med_app.enable()
             self.switch_warrior_app.enable()
+            self.switch_defense_app.enable()
             self.switch_mediator_app.disable()
             self.switch_starteller_app.enable()
             
@@ -751,6 +848,7 @@ class RoleScreen(Screens):
             # In-TRAINING ROLES:
             self.switch_med_app.disable()
             self.switch_warrior_app.disable()
+            self.switch_defense_app.disable()
             self.switch_mediator_app.disable()
             self.switch_starteller_app.disable()
         else:
@@ -772,6 +870,7 @@ class RoleScreen(Screens):
             # In-TRAINING ROLES:
             self.switch_med_app.disable()
             self.switch_warrior_app.disable()
+            self.switch_defense_app.disable()
             self.switch_mediator_app.disable()
             self.switch_starteller_app.disable()
         
@@ -841,6 +940,13 @@ class RoleScreen(Screens):
                      f"before Warriors and Medicine Cats. "
         elif self.the_cat.status == "apprentice":
             output = f"{self.the_cat.name} is an <b>apprentice</b>, in training to become a warrior. " \
+                     f"Kits can be made warrior apprentices at six moons of age, where they will learn how " \
+                     f"to hunt and fight for their Clan. Typically, the training of an apprentice is entrusted " \
+                     f"to an single warrior - their mentor. To build character, apprentices are often assigned " \
+                     f"the unpleasant and grunt tasks of Clan life. Apprentices take the suffix \"paw\", " \
+                     f"to represent the path their paws take towards adulthood. "
+        elif self.the_cat.status == "defense apprentice":
+            output = f"{self.the_cat.name} is an <b>DEFENSE apprentice</b>, in training to become a warrior. " \
                      f"Kits can be made warrior apprentices at six moons of age, where they will learn how " \
                      f"to hunt and fight for their Clan. Typically, the training of an apprentice is entrusted " \
                      f"to an single warrior - their mentor. To build character, apprentices are often assigned " \

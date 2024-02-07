@@ -194,7 +194,7 @@ class Clan():
         created in the 'clan created' screen, not every time
         the program starts
         """
-        self.instructor = Cat(status=choice(["apprentice", "mediator apprentice", "medicine cat apprentice", "warrior", "defense", "attack", "hunt",
+        self.instructor = Cat(status=choice(["apprentice", "mediator apprentice", "medicine cat apprentice",  "defense apprentice", "warrior", "defense", "attack", "hunt", 
                                              "medicine cat", "leader", "mediator", "deputy", "starteller", "elder", "starteller apprentice", "queen"]),
                               )
         self.instructor.dead = True

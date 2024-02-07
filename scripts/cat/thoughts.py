@@ -271,6 +271,8 @@ class Thoughts():
             status = "starteller_apprentice"
         elif status == "mediator apprentice":
             status = "mediator_apprentice"
+        elif status == "defense apprentice":
+            status = "defense_apprentice"
         elif status == "medicine cat":
             status = "medicine_cat"
         elif status == "starteller":
@@ -279,6 +281,8 @@ class Thoughts():
             status = "defense"
         elif status == "attack":
             status = "attack"
+        elif status == "hunt":
+            status = "hunt"
         elif status == "queen":
             status = "queen"
         elif status == "guide":

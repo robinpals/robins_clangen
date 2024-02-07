@@ -53,6 +53,7 @@ class Cat():
         "elder",
         "queen",
         "apprentice",
+        "defense apprentice",
         "guide",
         "warrior",
         "defense",
@@ -740,7 +741,8 @@ class Cat():
         # updates mentors
         if self.status == 'apprentice':
             pass
-
+        elif self.status == 'defense apprentice':
+            pass
         elif self.status == 'medicine cat apprentice':
             pass
         
@@ -2063,6 +2065,8 @@ class Cat():
         if self.status == 'medicine cat apprentice' and potential_mentor.status != 'medicine cat':
             return False
         if self.status == 'starteller apprentice' and potential_mentor.status != 'starteller':
+            return False
+        if self.status == 'defense apprentice' and potential_mentor.status != 'defense':
             return False
         if self.status == 'apprentice' and potential_mentor.status not in [
             'leader', 'deputy', 'warrior', 'defense', 'attack', 'hunt'
