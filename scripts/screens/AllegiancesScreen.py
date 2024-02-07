@@ -73,18 +73,20 @@ class AllegiancesScreen(Screens):
     def generate_one_entry(self, cat, extra_details = ""):
             """ Extra Details will be placed after the cat description, but before the apprentice (if they have one. )"""
             output = f"{str(cat.name).upper()} - {cat.describe_cat()} {extra_details}"
+            if cat.status == "attack":
+                output += " <em>(specializes in attack)</em>"
+            elif cat.status == "defense":
+                output += " <em>(specializes in defense)</em>"
+            elif cat.status == "hunt":
+                output += " <em>(specializes in hunting)</em>"
+            else:
+                output += ""
             if len(cat.apprentice) > 0:
                 if len(cat.apprentice) == 1:
                     output += "\n      APPRENTICE: "
                 else:
                     output += "\n      APPRENTICES: "     
                 output += ", ".join([str(Cat.fetch_cat(i).name).upper() for i in cat.apprentice if Cat.fetch_cat(i)])
-            if cat.status == "attack":
-                output += "<em>(specializes in attack)</em>"
-            elif cat.status == "defense":
-                output += "<em>(specializes in defense)</em>"
-            elif cat.status == "hunt":
-                output += "<em>(specializes in hunting)</em>"
             return output
 
     def get_allegiances_text(self):
@@ -104,7 +106,7 @@ class AllegiancesScreen(Screens):
                 living_meds.append(cat)
             elif cat.status == "starteller":
                 living_startellers.append(cat)
-            elif cat.status == ["warrior", "attack", "defense", "hunt"]:
+            elif cat.status in ["warrior", "attack", "defense", "hunt"]:
                 living_warriors.append(cat)
             elif cat.status == "mediator":
                 living_mediators.append(cat)
