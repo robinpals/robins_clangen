@@ -73,8 +73,6 @@ class AllegiancesScreen(Screens):
     def generate_one_entry(self, cat, extra_details = ""):
             """ Extra Details will be placed after the cat description, but before the apprentice (if they have one. )"""
             output = f"{str(cat.name).upper()} - {cat.describe_cat()} {extra_details}"
-            if cat.status == "attack":
-                output = f"{str(cat.name).upper()} - {cat.describe_cat()} {extra_details}" 
             if len(cat.apprentice) > 0:
                 if len(cat.apprentice) == 1:
                     output += "\n      APPRENTICE: "
