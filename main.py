@@ -149,6 +149,7 @@ else:
 
 print("Version Name: ", VERSION_NAME)
 print("Running on commit " + get_version_info().version_number)
+print("Hello World!")
 
 # Load game
 from scripts.game_structure.load_cat import load_cats, version_convert
