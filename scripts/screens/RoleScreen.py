@@ -249,8 +249,14 @@ class RoleScreen(Screens):
         self.selected_cat_elements["cat_name"] = pygame_gui.elements.UILabel(scale(pygame.Rect((775, 140), (350, -1))),
                                                                              short_name,
                                                                              object_id=get_text_box_theme())
-
-        text = f"<b>{self.the_cat.status}</b>\n{self.the_cat.personality.trait}\n"
+        if self.the_cat.status == "attack":
+            text = f"<b>runner</b>\n{self.the_cat.personality.trait}\n"
+        elif self.the_cat.status == "defense":
+            text = f"<b>guard</b>\n{self.the_cat.personality.trait}\n"
+        elif self.the_cat.status == "hunt":
+            text = f"<b>stealth</b>\n{self.the_cat.personality.trait}\n"
+        else:
+            text = f"<b>{self.the_cat.status}</b>\n{self.the_cat.personality.trait}\n"
 
         text += f"{self.the_cat.moons} "
 
