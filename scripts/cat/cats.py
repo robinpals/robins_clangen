@@ -871,8 +871,7 @@ class Cat():
             output = Pelt.describe_appearance(self, short) + "(specializing in defense)"
         elif self.status == "hunt":
             output = Pelt.describe_appearance(self, short) + "(specializing in hunting)"
-        else:
-            return output
+        return output
 
     def describe_eyes(self):
         colour = str(self.pelt.eye_colour).lower()
