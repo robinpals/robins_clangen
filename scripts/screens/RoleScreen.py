@@ -786,7 +786,7 @@ class RoleScreen(Screens):
                      f"to protect the nursery, elders, or just the general camp. Either way, they aim to protect the Clan, even " \
                      f"above their own safety."
         elif self.the_cat.status == "attack":
-            output = f"{self.the_cat.name} is an <b>attack-class warrior/b>. Attack-class warriors, or runners, are adult cats who " \
+            output = f"{self.the_cat.name} is an <b>attack-class warrior</b>. Attack-class warriors, or runners, are adult cats who " \
                      f"will fight for their Clan. They usually go on border patrols, will seize territory if need be,  " \
                      f"and be the front-line for any attack. They specialize in their fighting more than anything else. "
         elif self.the_cat.status == "hunt":
