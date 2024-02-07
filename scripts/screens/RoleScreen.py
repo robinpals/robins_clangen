@@ -181,7 +181,7 @@ class RoleScreen(Screens):
         self.switch_attack = UIImageButton(scale(pygame.Rect((451, 864), (344, 72))), "",
                                          	object_id="#switch_attack_button",
                                          	manager=MANAGER)
-        self.switch_hunt = UIImageButton(scale(pygame.Rect((451, 864), (344, 72))), "",
+        self.switch_hunt = UIImageButton(scale(pygame.Rect((451, 936), (344, 72))), "",
                                          	object_id="#switch_hunt_button",
                                          	manager=MANAGER)
         
@@ -223,7 +223,7 @@ class RoleScreen(Screens):
             self.switch_attack.show()
             self.switch_hunt.show()
             self.retire.hide()
-            self.retire = UIImageButton(scale(pygame.Rect((451, 936), (334, 72))), "",
+            self.retire = UIImageButton(scale(pygame.Rect((451, 1008), (334, 72))), "",
                                     object_id="#retire_button",
                                     manager=MANAGER)
             self.retire.show()
