@@ -789,6 +789,12 @@ class ProfileScreen(Screens):
             output += "<font color='#FF0000'>lost</font>"
         elif the_cat.exiled:
             output += "<font color='#FF0000'>exiled</font>"
+        elif the_cat.status == "attack":
+            output += "runner"
+        elif the_cat.status == "defense":
+            output += "guard"
+        elif the_cat.status == "hunt":
+            output += "stealth"
         else:
             output += the_cat.status
 
