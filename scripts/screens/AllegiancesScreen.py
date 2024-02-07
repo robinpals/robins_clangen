@@ -79,7 +79,12 @@ class AllegiancesScreen(Screens):
                 else:
                     output += "\n      APPRENTICES: "     
                 output += ", ".join([str(Cat.fetch_cat(i).name).upper() for i in cat.apprentice if Cat.fetch_cat(i)])
-
+            if cat.status == "attack":
+                output += "<em>(specializes in attack)</em>"
+            elif cat.status == "defense":
+                output += "<em>(specializes in defense)</em>"
+            elif cat.status == "hunt":
+                output += "<em>(specializes in hunting)</em>"
             return output
 
     def get_allegiances_text(self):
