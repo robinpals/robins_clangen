@@ -2869,7 +2869,23 @@
             }
         }
     },
-
+    "#switch_hunt_button": {
+        "prototype": "#image_button",
+        "images": {
+            "normal_image": {
+                "path": "resources/images/buttons/switch_hunt.png"
+            },
+            "hovered_image": {
+                "path": "resources/images/buttons/switch_hunt_hover.png"
+            },
+            "selected_image": {
+                "path": "resources/images/buttons/switch_hunt_hover.png"
+            },
+            "disabled_image": {
+                "path": "resources/images/buttons/switch_hunt_unavailable.png"
+            }
+        }
+    },
     "#switch_med_cat_button": {
         "prototype": "#image_button",
         "images": {

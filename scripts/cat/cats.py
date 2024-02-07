@@ -57,6 +57,7 @@ class Cat():
         "warrior",
         "defense",
         "attack",
+        "hunt",
         "mediator apprentice",
         "mediator",
         "medicine cat apprentice",
@@ -767,6 +768,12 @@ class Cat():
                         game.clan.leader_predecessors += 1
 
         elif self.status == 'attack':
+            if old_status == 'leader':
+                if game.clan.leader:
+                    if game.clan.leader.ID == self.ID:
+                        game.clan.leader = None
+                        game.clan.leader_predecessors += 1
+        elif self.status == 'hunt':
             if old_status == 'leader':
                 if game.clan.leader:
                     if game.clan.leader.ID == self.ID:
@@ -2059,7 +2066,7 @@ class Cat():
         if self.status == 'starteller apprentice' and potential_mentor.status != 'starteller':
             return False
         if self.status == 'apprentice' and potential_mentor.status not in [
-            'leader', 'deputy', 'warrior', 'defense', 'attack'
+            'leader', 'deputy', 'warrior', 'defense', 'attack', 'hunt'
         ]:
             return False
         if self.status == 'mediator apprentice' and potential_mentor.status != 'mediator':

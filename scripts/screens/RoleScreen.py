@@ -66,6 +66,10 @@ class RoleScreen(Screens):
                 self.warrior_options_visible = True
                 self.the_cat.status_change("attack", resort=True)
                 self.update_selected_cat()
+            elif event.ui_element == self.switch_hunt:
+                self.warrior_options_visible = True
+                self.the_cat.status_change("hunt", resort=True)
+                self.update_selected_cat()
             elif event.ui_element == self.switch_med_cat:
                 self.the_cat.status_change("medicine cat", resort=True)
                 self.update_selected_cat()
@@ -177,6 +181,9 @@ class RoleScreen(Screens):
         self.switch_attack = UIImageButton(scale(pygame.Rect((451, 864), (344, 72))), "",
                                          	object_id="#switch_attack_button",
                                          	manager=MANAGER)
+        self.switch_hunt = UIImageButton(scale(pygame.Rect((451, 864), (344, 72))), "",
+                                         	object_id="#switch_hunt_button",
+                                         	manager=MANAGER)
         
         self.update_warrior_buttons()
 
@@ -202,6 +209,7 @@ class RoleScreen(Screens):
             self.warrior_options_visible = False
             self.switch_defense.hide()
             self.switch_attack.hide()
+            self.switch_hunt.hide()
             self.retire.hide()
             self.retire = UIImageButton(scale(pygame.Rect((451, 792), (334, 72))), "",
                                     object_id="#retire_button",
@@ -213,6 +221,7 @@ class RoleScreen(Screens):
             self.warrior_options_visible = True 
             self.switch_defense.show()
             self.switch_attack.show()
+            self.switch_hunt.show()
             self.retire.hide()
             self.retire = UIImageButton(scale(pygame.Rect((451, 936), (334, 72))), "",
                                     object_id="#retire_button",
@@ -291,6 +300,7 @@ class RoleScreen(Screens):
             "warrior": "warrior_icon.png",
             "defense": "defense_icon.png",
             "attack": "attack_icon.png",
+            "hunt": "hunt_icon.png",
             "apprentice": "warrior_app_icon.png",
             "queen": "queen_icon.png",
             "guide": "guide_icon.png",
@@ -350,6 +360,7 @@ class RoleScreen(Screens):
             self.switch_guide.disable()
             self.switch_defense.disable()
             self.switch_attack.disable()
+            self.switch_hunt.disable()
             self.retire.disable()
 
             # In-TRAINING ROLES:
@@ -378,6 +389,7 @@ class RoleScreen(Screens):
             self.switch_guide.enable()
             self.switch_defense.enable()
             self.switch_attack.enable()
+            self.switch_hunt.enable()
             self.retire.enable()
 
             # In-TRAINING ROLES:
@@ -406,6 +418,7 @@ class RoleScreen(Screens):
             self.switch_guide.enable()
             self.switch_defense.disable()
             self.switch_attack.enable()
+            self.switch_hunt.enable()
             self.retire.enable()
 
             # In-TRAINING ROLES:
@@ -434,6 +447,36 @@ class RoleScreen(Screens):
             self.switch_guide.enable()
             self.switch_defense.enable()
             self.switch_attack.disable()
+            self.switch_hunt.enable()
+            self.retire.enable()
+
+            # In-TRAINING ROLES:
+            self.switch_med_app.disable()
+            self.switch_warrior_app.disable()
+            self.switch_mediator_app.disable()
+            self.switch_starteller_app.disable()
+        elif self.the_cat.status == "hunt":
+            # LEADERSHIP
+            if leader_invalid:
+                self.promote_leader.enable()
+            else:
+                self.promote_leader.disable()
+
+            if deputy_invalid:
+                self.promote_deputy.enable()
+            else:
+                self.promote_deputy.disable()
+
+            # ADULT CAT ROLES
+            self.switch_warrior.enable()
+            self.switch_med_cat.enable()
+            self.switch_mediator.enable()
+            self.switch_starteller.enable()
+            self.switch_queen.enable()
+            self.switch_guide.enable()
+            self.switch_defense.enable()
+            self.switch_attack.enable()
+            self.switch_hunt.disable()
             self.retire.enable()
 
             # In-TRAINING ROLES:
@@ -458,6 +501,7 @@ class RoleScreen(Screens):
             self.switch_guide.disable()
             self.switch_defense.enable()
             self.switch_attack.enable()
+            self.switch_hunt.enable()
             self.retire.enable()
 
             # In-TRAINING ROLES:
@@ -478,6 +522,7 @@ class RoleScreen(Screens):
             self.switch_guide.enable()
             self.switch_defense.enable()
             self.switch_attack.enable()
+            self.switch_hunt.enable()
             self.retire.enable()
 
             # In-TRAINING ROLES:
@@ -498,6 +543,7 @@ class RoleScreen(Screens):
             self.switch_guide.enable()
             self.switch_defense.enable()
             self.switch_attack.enable()
+            self.switch_hunt.enable()
             self.retire.enable()
 
             # In-TRAINING ROLES:
@@ -524,6 +570,7 @@ class RoleScreen(Screens):
             self.switch_guide.enable()
             self.switch_defense.enable()
             self.switch_attack.enable()
+            self.switch_hunt.enable()
             self.retire.enable()
 
             # In-TRAINING ROLES:
@@ -551,6 +598,7 @@ class RoleScreen(Screens):
             self.switch_guide.enable()
             self.switch_defense.enable()
             self.switch_attack.enable()
+            self.switch_hunt.enable()
             self.retire.enable()
 
 # In-TRAINING ROLES:
@@ -578,6 +626,7 @@ class RoleScreen(Screens):
             self.switch_guide.disable()
             self.switch_defense.enable()
             self.switch_attack.enable()
+            self.switch_hunt.enable()
             self.retire.enable()
 
 # In-TRAINING ROLES:
@@ -605,6 +654,7 @@ class RoleScreen(Screens):
             self.switch_guide.disable()
             self.switch_defense.enable()
             self.switch_attack.enable()
+            self.switch_hunt.enable()
             self.retire.disable()
 
             # In-TRAINING ROLES:
@@ -625,6 +675,7 @@ class RoleScreen(Screens):
             self.switch_guide.disable()
             self.switch_defense.disable()
             self.switch_attack.disable()
+            self.switch_hunt.disable()
             self.retire.disable()
 
             # In-TRAINING ROLES:
@@ -646,6 +697,7 @@ class RoleScreen(Screens):
             self.switch_guide.disable()
             self.switch_defense.disable()
             self.switch_attack.disable()
+            self.switch_hunt.disable()
             self.retire.disable()
 
             # In-TRAINING ROLES:
@@ -665,6 +717,7 @@ class RoleScreen(Screens):
             self.switch_queen.disable()
             self.switch_guide.disable()
             self.switch_defense.disable()
+            self.switch_hunt.disable()
             self.retire.disable()
 
             # In-TRAINING ROLES:
@@ -686,6 +739,7 @@ class RoleScreen(Screens):
             self.switch_guide.disable()
             self.switch_defense.enable()
             self.switch_attack.enable()
+            self.switch_hunt.disable()
             self.retire.enable()
 
             # In-TRAINING ROLES:
@@ -706,6 +760,7 @@ class RoleScreen(Screens):
             self.switch_guide.disable()
             self.switch_defense.disable()
             self.switch_attack.disable()
+            self.switch_hunt.disable()
             self.retire.disable()
 
             # In-TRAINING ROLES:
@@ -728,6 +783,10 @@ class RoleScreen(Screens):
             output = f"{self.the_cat.name} is an <b>attack-class warrior/b>. Attack-class warriors, or runners, are adult cats who " \
                      f"will fight for their Clan. They usually go on border patrols, will seize territory if need be,  " \
                      f"and be the front-line for any attack. They specialize in their fighting more than anything else. "
+        elif self.the_cat.status == "hunt":
+            output = f"{self.the_cat.name} is a <b>HUNT WARRIOR</b>. Warriors are adult cats who feed and protect their " \
+                     f"Clan. They are trained to hunt and fight in addition to the ways of the warrior code. " \
+                     f"Warriors are essential to the survival of a Clan, and usually make up the bulk of it's members. "
         elif self.the_cat.status == "leader":
             output = f"{self.the_cat.name} is the <b>leader</b> of {game.clan.name}Clan. The guardianship of all " \
                      f"Clan cats has been entrusted to them by StarClan. The leader is the highest " \
@@ -904,6 +963,8 @@ class RoleScreen(Screens):
         del self.switch_defense
         self.switch_attack.kill()
         del self.switch_attack
+        self.switch_hunt.kill()
+        del self.switch_hunt
         for ele in self.selected_cat_elements:
             self.selected_cat_elements[ele].kill()
         self.selected_cat_elements = {}
