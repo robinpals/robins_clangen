@@ -48,6 +48,7 @@ class PatrolScreen(Screens):
         self.start_patrol_thread = None
         self.proceed_patrol_thread = None
         self.outcome_art = None
+        
 
     def handle_event(self, event):
         if game.switches["window_open"]:
@@ -84,6 +85,14 @@ class PatrolScreen(Screens):
                 self.current_patrol.remove(self.selected_cat)
             else:
                 self.current_patrol.append(self.selected_cat)
+            if ((self.selected_cat.status in ['attack'] for cat in self.current_patrol)):
+                self.patrol_type = 'border'
+            else:
+                self.patrol_type = 'general'
+            if ((self.selected_cat.status in ['hunt'] for cat in self.current_patrol)):
+                self.patrol_type = 'hunting'
+            else:
+                self.patrol_type = 'general'
             self.update_cat_images_buttons()
             self.update_button()
         elif event.ui_element == self.elements['add_one']:
@@ -153,6 +162,7 @@ class PatrolScreen(Screens):
         elif event.ui_element == self.elements["claws"]:
             if self.patrol_type == 'border':
                 self.patrol_type = 'general'
+            
             else:
                 self.patrol_type = 'border'
             self.update_button()
@@ -278,13 +288,18 @@ class PatrolScreen(Screens):
                         self.patrol_type = 'general'
                 if any((cat.status in ['attack'] for cat in self.current_patrol)):
                     self.elements['mouse'].disable()
-                    if self.patrol_type == 'hunting':
-                        self.patrol_type = 'border'
-                    elif self.patrol_type == 'med':
-                        self.patrol_type = 'border'
-                    elif self.patrol_type == 'general':
-                        self.patrol_type = 'border'
-
+                    self.elements['claws'].enable()
+                    self.elements['paw'].enable()
+                    self.elements['herb'].disable()
+                if any((cat.status in ['hunt'] for cat in self.current_patrol)):
+                    self.elements['mouse'].enable()
+                    self.elements['claws'].disable()
+                    self.elements['paw'].enable()
+                    self.elements['herb'].disable()
+                if self.patrol_type == 'general' and any((cat.status in ['attack'] for cat in self.current_patrol)):
+                    self.patrol_type = 'border'
+                if self.patrol_type == 'general' and any((cat.status in ['hunt'] for cat in self.current_patrol)):
+                    self.patrol_type = 'hunting'
                 if self.patrol_type == 'general':
                     text = 'random patrol type'
                 elif self.patrol_type == 'training':
