@@ -1795,7 +1795,7 @@ class ProfileScreen(Screens):
                 self.manage_roles.disable()
             else:
                 self.manage_roles.enable()
-            if self.the_cat.status not in ['apprentice', 'medicine cat apprentice', 'mediator apprentice', 'starteller apprentice'] \
+            if self.the_cat.status not in ['apprentice', 'medicine cat apprentice', 'mediator apprentice', 'starteller apprentice', 'defense apprentice'] \
                                             or self.the_cat.dead or self.the_cat.outside:
                 self.change_mentor_button.disable()
             else:

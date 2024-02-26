@@ -1063,6 +1063,8 @@ class RoleScreen(Screens):
         del self.switch_med_app
         self.switch_warrior_app.kill()
         del self.switch_warrior_app
+        self.switch_defense_app.kill()
+        del self.switch_defense_app
         self.switch_mediator_app.kill()
         del self.switch_mediator_app
         self.switch_queen.kill()
