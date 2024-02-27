@@ -168,12 +168,12 @@ class BetaRoleScreen(Screens):
 
         self.role_text_buttons[
             "main_scroll_container"] = pygame_gui.elements.UIScrollingContainer(
-            scale(pygame.Rect((0, 490), (1400, 600))), manager=MANAGER)
+            scale(pygame.Rect((500, 150), (311, 544))), manager=MANAGER)
 
         self.role_text_buttons[
             "main_scroll_container"].set_scrollable_area_dimensions(
             (311, 544))
-        self.switch_starteller = pygame_gui.elements.UIButton(scale(pygame.Rect((400, 500), (344, 72))), "Starteller",
+        self.switch_starteller = pygame_gui.elements.UIButton(scale(pygame.Rect((500, 150), (200, 72))), "Starteller",
                                             object_id="#saved_clan",
                                             container=self.role_text_buttons["main_scroll_container"],
                                             manager=MANAGER)
