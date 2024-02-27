@@ -21,6 +21,7 @@ from .FamilyTreeScreen import FamilyTreeScreen
 from .OutsideClanScreen import OutsideClanScreen
 from .MediationScreen import MediationScreen
 from .ClanSettingsScreen import ClanSettingsScreen
+from .BetaRoleScreen import BetaRoleScreen
 
 # ---------------------------------------------------------------------------- #
 #                                  UI RULES                                    #
@@ -52,7 +53,7 @@ profile_screen = ProfileScreen('profile screen')
 ceremony_screen = CeremonyScreen('ceremony screen')
 role_screen = RoleScreen('role screen')
 sprite_inspect_screen = SpriteInspectScreen("sprite inspect screen")
-
+beta_role_screen = BetaRoleScreen('beta role screen')
 
 make_clan_screen = MakeClanScreen('make clan screen')
 

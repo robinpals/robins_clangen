@@ -71,23 +71,23 @@ class AllegiancesScreen(Screens):
         del self.heading
     
     def generate_one_entry(self, cat, extra_details = ""):
-            """ Extra Details will be placed after the cat description, but before the apprentice (if they have one. )"""
-            output = f"{str(cat.name).upper()} - {cat.describe_cat()} {extra_details}"
-            if cat.status == "attack":
-                output += " <em>(specializes in attack)</em>"
-            elif cat.status == "defense":
-                output += " <em>(specializes in defense)</em>"
-            elif cat.status == "hunt":
-                output += " <em>(specializes in hunting)</em>"
+        """ Extra Details will be placed after the cat description, but before the apprentice (if they have one. )"""
+        output = f"{str(cat.name).upper()} - {cat.describe_cat()} {extra_details}"
+        if cat.status == "attack":
+            output += " <em>(specializes in attack)</em>"
+        elif cat.status == "defense":
+            output += " <em>(specializes in defense)</em>"
+        elif cat.status == "hunt":
+            output += " <em>(specializes in hunting)</em>"
+        else:
+            output += ""
+        if len(cat.apprentice) > 0:
+            if len(cat.apprentice) == 1:
+                output += "\n      APPRENTICE: "
             else:
-                output += ""
-            if len(cat.apprentice) > 0:
-                if len(cat.apprentice) == 1:
-                    output += "\n      APPRENTICE: "
-                else:
-                    output += "\n      APPRENTICES: "     
-                output += ", ".join([str(Cat.fetch_cat(i).name).upper() for i in cat.apprentice if Cat.fetch_cat(i)])
-            return output
+                output += "\n      APPRENTICES: "     
+            output += ", ".join([str(Cat.fetch_cat(i).name).upper() for i in cat.apprentice if Cat.fetch_cat(i)])
+        return output
 
     def get_allegiances_text(self):
         """Determine Text. Ouputs list of tuples. """

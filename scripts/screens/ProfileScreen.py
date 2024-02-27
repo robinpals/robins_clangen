@@ -250,6 +250,9 @@ class ProfileScreen(Screens):
         elif self.open_tab == 'roles':
             if event.ui_element == self.manage_roles:
                 self.change_screen('role screen')
+            elif event.ui_element == self.manage_beta_roles:
+                self.change_screen('beta role screen')
+                print("Went to beta role screen successfully")
             elif event.ui_element == self.change_mentor_button:
                 self.change_screen('choose mentor screen')
         # Personal Tab
@@ -1708,6 +1711,10 @@ class ProfileScreen(Screens):
                                               , manager=MANAGER)
             self.change_mentor_button = UIImageButton(scale(pygame.Rect((452, 972), (344, 72))), "",
                                                       starting_height=2, object_id="#change_mentor_button", manager=MANAGER)
+            self.manage_beta_roles = UIImageButton(scale(pygame.Rect((452, 1044), (344, 72))),
+                                              "", object_id="#manage_roles_button",
+                                              starting_height=2
+                                              , manager=MANAGER)
             self.update_disabled_buttons_and_text()
 
     def toggle_personal_tab(self):
@@ -1793,8 +1800,10 @@ class ProfileScreen(Screens):
         elif self.open_tab == 'roles':
             if self.the_cat.dead or self.the_cat.outside:
                 self.manage_roles.disable()
+                self.manage_beta_roles.disable()
             else:
                 self.manage_roles.enable()
+                self.manage_beta_roles.enable()
             if self.the_cat.status not in ['apprentice', 'medicine cat apprentice', 'mediator apprentice', 'starteller apprentice', 'defense apprentice'] \
                                             or self.the_cat.dead or self.the_cat.outside:
                 self.change_mentor_button.disable()
@@ -2002,6 +2011,7 @@ class ProfileScreen(Screens):
             self.change_adoptive_parent_button.kill()
         elif self.open_tab == 'roles':
             self.manage_roles.kill()
+            self.manage_beta_roles.kill()
             self.change_mentor_button.kill()
         elif self.open_tab == 'personal':
             self.change_name_button.kill()
