@@ -73,11 +73,14 @@ class BetaRoleScreen(Screens):
                 self.the_cat.status_change("hunt", resort=True)
                 self.update_selected_cat()
             elif event.ui_element == self.switch_med_cat:
+                self.warrior_options_visible = False
                 self.the_cat.status_change("medicine cat", resort=True)
                 self.update_selected_cat()
             elif event.ui_element == self.switch_starteller:
+                self.warrior_options_visible = False
                 self.the_cat.status_change("starteller", resort=True)
                 self.update_selected_cat()
+                self.update_warrior_buttons()
             elif event.ui_element == self.retire:
                 self.the_cat.status_change("elder", resort=True)
                 # Since you can't "unretire" a cat, apply the skill and trait change
@@ -180,10 +183,10 @@ class BetaRoleScreen(Screens):
                                             container=self.role_text_buttons["main_scroll_container"],
                                             manager=MANAGER)
         # LEADERSHIP
-        self.promote_leader = UIImageButton(scale(pygame.Rect((96, 720), (344, 72))), "",
+        self.promote_leader = UIImageButton(scale(pygame.Rect((775, 827), (320, 72))), "",
                                             object_id="#promote_leader_button",
                                             manager=MANAGER)
-        self.promote_deputy = UIImageButton(scale(pygame.Rect((96, 792), (344, 72))), "",
+        self.promote_deputy = UIImageButton(scale(pygame.Rect((1105, 827), (320, 72))), "",
                                             object_id="#promote_deputy_button",
                                             manager=MANAGER)
 
@@ -192,9 +195,11 @@ class BetaRoleScreen(Screens):
                                             object_id="#saved_clan",
                                             container=self.role_text_buttons["main_scroll_container"],
                                             manager=MANAGER)
-        self.retire = UIImageButton(scale(pygame.Rect((451, 792), (334, 72))), "",
+        self.retire = UIImageButton(scale(pygame.Rect((250, 1000), (334, 72))), "",
                                     object_id="#retire_button",
                                     manager=MANAGER)
+        
+        self.retire.hide()
         # difference of 70 per 'level' (FOR ABOVE & BELOW, not counting leader & dep)
         
         self.switch_med_cat = UIImageButton(scale(pygame.Rect((10, 140), (250, 72))), "medicine cat",
@@ -214,9 +219,7 @@ class BetaRoleScreen(Screens):
                                             container=self.role_text_buttons["main_scroll_container"],
                                          	manager=MANAGER)
 
-        self.retire.hide()
-        self.promote_leader.hide()
-        self.promote_deputy.hide()
+
         # WARRIOR DROPDOWN STUFF (difference of 70 per level)
 
         self.switch_defense = UIImageButton(scale(pygame.Rect((1130, 300), (250, 72))), "guard",
@@ -266,6 +269,7 @@ class BetaRoleScreen(Screens):
             self.switch_hunt.hide()
         else: # show the dropdown when its already hidden
             self.warrior_options_visible = True 
+            self.switch_warrior.selected_image
             self.switch_defense.show()
             self.switch_attack.show()
             self.switch_hunt.show()
@@ -646,31 +650,25 @@ class BetaRoleScreen(Screens):
                 self.promote_deputy.enable()
             else:
                 self.promote_deputy.disable()
-            if self.the_cat.age < 12:
-                self.switch_med_app.enable()
-                self.switch_warrior_app.enable()
-                self.switch_defense_app.enable()
-                self.switch_mediator_app.enable()
-                self.switch_starteller_app.enable()
-            else:
-                # ADULT CAT ROLES
-                self.switch_warrior. enable()
-                self.switch_med_cat.disable()
-                self.switch_mediator.disable()
-                self.switch_starteller.disable()
-                self.switch_queen.disable()
-                self.switch_guide.disable()
-                self.switch_defense.enable()
-                self.switch_attack.enable()
-                self.switch_hunt.enable()
-                self.retire.disable()
 
-                # In-TRAINING ROLES:
-                self.switch_med_app.disable()
-                self.switch_warrior_app.disable()
-                self.switch_defense_app.disable()
-                self.switch_mediator_app.disable()
-                self.switch_starteller_app.disable()
+            # ADULT CAT ROLES
+            self.switch_warrior. enable()
+            self.switch_med_cat.disable()
+            self.switch_mediator.disable()
+            self.switch_starteller.disable()
+            self.switch_queen.disable()
+            self.switch_guide.disable()
+            self.switch_defense.enable()
+            self.switch_attack.enable()
+            self.switch_hunt.enable()
+            self.retire.disable()
+
+            # In-TRAINING ROLES:
+            self.switch_med_app.disable()
+            self.switch_warrior_app.disable()
+            self.switch_defense_app.disable()
+            self.switch_mediator_app.disable()
+            self.switch_starteller_app.disable()
         elif self.the_cat.status == "starteller apprentice":
             self.promote_leader.disable()
             self.promote_deputy.disable()
