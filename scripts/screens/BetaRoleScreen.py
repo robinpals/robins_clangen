@@ -22,7 +22,7 @@ class BetaRoleScreen(Screens):
     buttons = {}
     next_cat = None
     previous_cat = None
-    warrior_options_visible = False
+    warrior_options_visible = True
     apprentice_options_visible = True
     role_text_buttons = {}
     
@@ -36,7 +36,9 @@ class BetaRoleScreen(Screens):
                     game.switches["cat"] = self.next_cat
                     self.update_selected_cat()
                     self.warrior_options_visible = True
+                    self.apprentice_options_visible = True
                     self.update_warrior_buttons()
+                    self.update_apprentice_buttons()
                 else:
                     print("invalid next cat", self.next_cat)
             elif event.ui_element == self.previous_cat_button:
@@ -44,7 +46,9 @@ class BetaRoleScreen(Screens):
                     game.switches["cat"] = self.previous_cat
                     self.update_selected_cat()
                     self.warrior_options_visible = True
+                    self.apprentice_options_visible = True
                     self.update_warrior_buttons()
+                    self.update_apprentice_buttons()
                 else:
                     print("invalid previous cat", self.previous_cat)
             elif event.ui_element == self.promote_leader:
@@ -116,15 +120,25 @@ class BetaRoleScreen(Screens):
                 self.apprentice_options_visible = True
                 self.the_cat.status_change("defense apprentice", resort=True)
                 self.update_selected_cat()
+                self.disable_other_buttons()
             elif event.ui_element == self.switch_starteller_app:
+                if self.apprentice_options_visible == False:
+                    self.switch_defense_app.hide()
                 self.the_cat.status_change("starteller apprentice", resort=True)
                 self.update_selected_cat()
+                self.switch_defense_app.hide()
             elif event.ui_element == self.switch_med_app:
+                if self.apprentice_options_visible == False:
+                    self.switch_defense_app.hide()
                 self.the_cat.status_change("medicine cat apprentice", resort=True)
                 self.update_selected_cat()
+                self.switch_defense_app.hide()
             elif event.ui_element == self.switch_mediator_app:
+                if self.apprentice_options_visible == False:
+                    self.switch_defense_app.hide()
                 self.the_cat.status_change("mediator apprentice", resort=True)
                 self.update_selected_cat()
+                self.switch_defense_app.hide()
             elif event.ui_element == self.switch_queen:
                 if self.warrior_options_visible == False:
                     self.switch_defense.hide()
@@ -161,6 +175,10 @@ class BetaRoleScreen(Screens):
 
     def screen_switches(self):
 
+        self.retire = UIImageButton(scale(pygame.Rect((250, 1300), (334, 72))), "",
+                                    object_id="#retire_button",
+                                    manager=MANAGER)
+
         self.next_cat_button = UIImageButton(scale(pygame.Rect((1244, 50), (306, 60))), "", object_id="#next_cat_button"
                                              , manager=MANAGER)
         self.previous_cat_button = UIImageButton(scale(pygame.Rect((50, 50), (306, 60))), "",
@@ -196,6 +214,13 @@ class BetaRoleScreen(Screens):
                                                                     "resources/images/role_section_labels.png").convert_alpha(),
                                                                 (800, 700))
                                                             )
+        self.kitten_disclaimer = pygame_gui.elements.UITextBox("This cat is either too young to change roles or their role is invalid.",
+                                                                                 scale(pygame.Rect((780, 40),
+                                                                                                   (600, 300))),
+                                                                                 object_id="#text_box_27_horizcenter_vertcenter_spacing95",
+                                                                                 starting_height=2,
+                                                                                 manager=MANAGER)
+        self.kitten_disclaimer.hide()
         scroll_pos = None
         if "main_scroll_container" in self.role_text_buttons and \
                             self.role_text_buttons["main_scroll_container"].vert_scroll_bar:
@@ -231,11 +256,8 @@ class BetaRoleScreen(Screens):
                                             object_id="#saved_clan",
                                             container=self.role_text_buttons["main_scroll_container"],
                                             manager=MANAGER)
-        self.retire = UIImageButton(scale(pygame.Rect((250, 1000), (334, 72))), "",
-                                    object_id="#retire_button",
-                                    manager=MANAGER)
         
-        self.retire.hide()
+        
         # difference of 70 per 'level' (FOR ABOVE & BELOW, not counting leader & dep)
         
         self.switch_med_cat = UIImageButton(scale(pygame.Rect((10, 140), (250, 72))), "medicine cat",
@@ -259,12 +281,15 @@ class BetaRoleScreen(Screens):
         # WARRIOR DROPDOWN STUFF (difference of 70 per level)
         self.switch_defense = UIImageButton(scale(pygame.Rect((1130, 300), (250, 72))), "guard",
                                          	object_id="#saved_clan",
+                                            starting_height=2,
                                          	manager=MANAGER)
         self.switch_attack = UIImageButton(scale(pygame.Rect((1130, 370), (250, 72))), "runner",
                                          	object_id="#saved_clan",
+                                            starting_height=2,
                                          	manager=MANAGER)
         self.switch_hunt = UIImageButton(scale(pygame.Rect((1130, 440), (250, 72))), "hunter",
                                          	object_id="#saved_clan",
+                                            starting_height=2,
                                          	manager=MANAGER)
         
         self.update_warrior_buttons()
@@ -301,6 +326,9 @@ class BetaRoleScreen(Screens):
         self.switch_mediator.disable()
         self.switch_guide.disable()
         self.switch_queen.disable()
+        self.switch_starteller_app.disable()
+        self.switch_med_app.disable()
+        self.switch_mediator_app.disable()
         print("disable other buttons activated")
 
 
@@ -313,6 +341,9 @@ class BetaRoleScreen(Screens):
             self.switch_starteller.enable()
             self.switch_med_cat.enable()
             self.switch_mediator.enable()
+            self.switch_guide.enable()
+            self.switch_queen.enable()
+            
             print("hide dropdown activated")
         else: # show the dropdown when its already hidden
             self.warrior_options_visible = True 
@@ -324,16 +355,22 @@ class BetaRoleScreen(Screens):
             self.switch_mediator.disable()
             self.switch_guide.disable()
             self.switch_queen.disable()
-            
+
             print("show dropdown activated")
 
     def update_apprentice_buttons(self):
         if self.apprentice_options_visible: # hide the dropdown when its already shown
             self.apprentice_options_visible = False
             self.switch_defense_app.hide()
+            self.switch_starteller_app.enable()
+            self.switch_med_app.enable()
+            self.switch_mediator_app.enable()
         else: # show the dropdown when its already hidden
             self.apprentice_options_visible = True 
             self.switch_defense_app.show()
+            self.switch_starteller_app.disable()
+            self.switch_med_app.disable()
+            self.switch_mediator_app.disable()
 
 
     def update_selected_cat(self):
@@ -346,7 +383,7 @@ class BetaRoleScreen(Screens):
             return
 
         self.selected_cat_elements["cat_image"] = pygame_gui.elements.UIImage(
-            scale(pygame.Rect((200, 250), (400, 400))),
+            scale(pygame.Rect((170, 250), (500, 500))),
             pygame.transform.scale(
                 self.the_cat.sprite, (200, 200)),
             manager=MANAGER
@@ -600,8 +637,15 @@ class BetaRoleScreen(Screens):
             self.switch_hunt.enable()
             self.retire.enable()
         elif self.the_cat.status == "starteller":
-            self.promote_leader.disable()
-            self.promote_deputy.disable()
+            if leader_invalid:
+                self.promote_leader.enable()
+            else:
+                self.promote_leader.disable()
+
+            if deputy_invalid:
+                self.promote_deputy.enable()
+            else:
+                self.promote_deputy.disable()
             self.update_available_roles()
             self.switch_warrior.enable()
             self.switch_med_cat.enable()
@@ -615,8 +659,15 @@ class BetaRoleScreen(Screens):
             self.retire.enable()
 
         elif self.the_cat.status == "medicine cat":
-            self.promote_leader.disable()
-            self.promote_deputy.disable()
+            if leader_invalid:
+                self.promote_leader.enable()
+            else:
+                self.promote_leader.disable()
+
+            if deputy_invalid:
+                self.promote_deputy.enable()
+            else:
+                self.promote_deputy.disable()
             self.update_available_roles()
             self.switch_warrior.enable()
             self.switch_med_cat.disable()
@@ -706,11 +757,11 @@ class BetaRoleScreen(Screens):
 
             # ADULT CAT ROLES
             self.switch_warrior. enable()
-            self.switch_med_cat.disable()
-            self.switch_mediator.disable()
-            self.switch_starteller.disable()
-            self.switch_queen.disable()
-            self.switch_guide.disable()
+            self.switch_med_cat.enable()
+            self.switch_mediator.enable()
+            self.switch_starteller.enable()
+            self.switch_queen.enable()
+            self.switch_guide.enable()
             self.switch_defense.enable()
             self.switch_attack.enable()
             self.switch_hunt.enable()
@@ -791,7 +842,6 @@ class BetaRoleScreen(Screens):
             self.switch_defense_app.disable()
             self.switch_mediator_app.disable()
             self.switch_starteller_app.disable()
-            print("This is a placeholder for text that will go underneath the list, reading: 'This cat is either too young to change roles or their role is invalid.' -- maybe as a tooltip instead.")
         
     def update_available_roles(self):
         self.update_apprentice_buttons()
@@ -805,11 +855,31 @@ class BetaRoleScreen(Screens):
             self.switch_defense.hide()
             self.switch_attack.hide()
             self.switch_hunt.hide()
+            self.retire.hide()
             self.switch_med_app.show()
             self.switch_warrior_app.show()
             self.switch_mediator_app.show()
             self.switch_starteller_app.show()
             self.switch_defense_app.show()
+        elif self.the_cat.status in ['newborn', 'kitten']:
+            self.switch_warrior.hide()
+            self.switch_med_cat.hide()
+            self.switch_mediator.hide()
+            self.switch_starteller.hide()
+            self.switch_queen.hide()
+            self.switch_guide.hide()
+            self.switch_defense.hide()
+            self.switch_attack.hide()
+            self.switch_hunt.hide()
+            self.switch_med_app.hide()
+            self.switch_warrior_app.hide()
+            self.switch_mediator_app.hide()
+            self.switch_starteller_app.hide()
+            self.switch_defense_app.hide()
+            self.role_text_buttons[
+                "main_scroll_container"].hide()
+            self.kitten_disclaimer.show()
+            
         else:
             self.switch_warrior.show()
             self.switch_med_cat.show()
@@ -820,6 +890,7 @@ class BetaRoleScreen(Screens):
             self.switch_defense.show()
             self.switch_attack.show()
             self.switch_hunt.show()
+            self.retire.show()
             self.switch_med_app.hide()
             self.switch_warrior_app.hide()
             self.switch_mediator_app.hide()
@@ -1038,6 +1109,8 @@ class BetaRoleScreen(Screens):
         del self.switch_defense
         self.switch_attack.kill()
         del self.switch_attack
+        self.kitten_disclaimer.kill()
+        del self.kitten_disclaimer
         self.switch_hunt.kill()
         del self.switch_hunt
         for ele in self.selected_cat_elements:
