@@ -39,6 +39,8 @@ class BetaRoleScreen(Screens):
                     self.apprentice_options_visible = True
                     self.update_warrior_buttons()
                     self.update_apprentice_buttons()
+                    self.kitten_disclaimer.hide()
+                    self.update_available_roles()
                 else:
                     print("invalid next cat", self.next_cat)
             elif event.ui_element == self.previous_cat_button:
@@ -49,6 +51,8 @@ class BetaRoleScreen(Screens):
                     self.apprentice_options_visible = True
                     self.update_warrior_buttons()
                     self.update_apprentice_buttons()
+                    self.kitten_disclaimer.hide()
+                    self.update_available_roles()
                 else:
                     print("invalid previous cat", self.previous_cat)
             elif event.ui_element == self.promote_leader:
