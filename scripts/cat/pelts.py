@@ -195,9 +195,10 @@ class Pelt():
                  opacity:int=100,
                  scars:list=None,
                  tint:str="none",
+                 tint_color:tuple=(0,0,0),
                  skin:str="BLACK",
                  fun_traits:list=["o", "o", "o"],
-                 white_patches_tint:str="none",
+                 # white_patches_tint:str="none",
                  kitten_sprite:int=None,
                  adol_sprite:int=None,
                  adult_sprite:int=None,
@@ -222,8 +223,9 @@ class Pelt():
         self.opacity = opacity
         self.scars = scars if isinstance(scars, list) else []
         self.tint = tint
+        self.tint_color = tint_color
         self.fun_traits = fun_traits
-        self.white_patches_tint = white_patches_tint
+        #self.white_patches_tint = white_patches_tint
         self.cat_sprites =  {
             "kitten": kitten_sprite if kitten_sprite is not None else 0,
             "adolescent": adol_sprite if adol_sprite is not None else 0,
@@ -253,6 +255,7 @@ class Pelt():
         new_pelt.init_eyes(parents)
         new_pelt.init_pattern()
         new_pelt.init_tint()
+        new_pelt.random_tint_gen()
         new_pelt.fun_traits = ["o", "o", "o"]
         new_pelt.fun_traits[0] = random.choice(Pelt.fun_scents)
         new_pelt.fun_traits[1] = random.choice(Pelt.fun_physical)
@@ -976,24 +979,48 @@ class Pelt():
             self.white_patches = None
             self.points = None
 
+    def random_tint_gen(self):
+        """generates rgb values for each tint type"""
+
+        if self.tint == "red_yellow":
+            r = 255
+            g = random.randint(217,255)
+            b = 217
+        elif self.tint == "yellow_green":
+            r = random.randint(217,255)
+            g = 255
+            b = 217
+        elif self.tint == "green_teal":
+            r = 217
+            g = 255
+            b = random.randint(217,255)
+        elif self.tint == "teal_blue":
+            r = 217
+            g = random.randint(217,255)
+            b = 255
+        elif self.tint == "blue_pink":
+            r = random.randint(217,255)
+            g = 217
+            b = 255
+        elif self.tint == "pink_red":
+            r = 255
+            g = 217
+            b = random.randint(217,255)
+        elif self.tint == "none":
+            r = 255
+            g = 255
+            b = 255
+        self.tint_color = (r,g,b)
+
     def init_tint(self):
         """Sets tint for pelt and white patches"""
 
         # PELT TINT
         # Basic tints as possible for all colors.
-        base_tints = sprites.cat_tints["possible_tints"]["basic"]
-        if self.colour in sprites.cat_tints["colour_groups"]:
-            color_group = sprites.cat_tints["colour_groups"].get(self.colour, "warm")
-            color_tints = sprites.cat_tints["possible_tints"][color_group]
-        else:
-            color_tints = []
-        
-        if base_tints or color_tints:
-            self.tint = choice(base_tints + color_tints)
-        else:
-            self.tint = "none"
+        possible_tints = sprites.cat_tints["possible_tints"]
+        self.tint = choice(possible_tints)
 
-        # WHITE PATCHES TINT
+        """# WHITE PATCHES TINT
         if self.white_patches or self.points:
             #Now for white patches
             base_tints = sprites.white_patches_tints["possible_tints"]["basic"]
@@ -1009,6 +1036,7 @@ class Pelt():
                 self.white_patches_tint = "none"    
         else:
             self.white_patches_tint = "none"
+            """
 
     @property
     def white(self):
