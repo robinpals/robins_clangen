@@ -95,7 +95,7 @@ def json_load():
                 reverse=cat["reverse"],
                 vitiligo=cat["vitiligo"] if "vitiligo" in cat else None,
                 points=cat["points"] if "points" in cat else None,
-                #white_patches_tint=cat["white_patches_tint"] if "white_patches_tint" in cat else "offwhite",
+                white_patches_tint=cat["white_patches_tint"] if "white_patches_tint" in cat else "offwhite",
                 white_patches=cat["white_patches"],
                 tortiebase=cat["tortie_base"],
                 tortiecolour=cat["tortie_color"],

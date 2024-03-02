@@ -3011,7 +3011,7 @@ class Cat():
                 "white_patches": self.pelt.white_patches,
                 "vitiligo": self.pelt.vitiligo,
                 "points": self.pelt.points,
-                #"white_patches_tint": self.pelt.white_patches_tint,
+                "white_patches_tint": self.pelt.white_patches_tint,
                 "pattern": self.pelt.pattern,
                 "tortie_base": self.pelt.tortiebase,
                 "tortie_color": self.pelt.tortiecolour,
