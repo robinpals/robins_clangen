@@ -3,7 +3,7 @@ from scripts.cat.sprites import sprites
 import random
 from re import sub
 from scripts.game_structure.game_essentials import game
-
+from .genotype import Genotype
 
     
 
@@ -181,6 +181,7 @@ class Pelt():
                  name:str="SingleColour",
                  length:str="short",
                  colour:str="WHITE",
+                 genotype:Genotype=None,
                  white_patches:list=None,
                  eye_color:str="BLUE",
                  eye_colour2:str=None,
@@ -207,6 +208,7 @@ class Pelt():
                  ) -> None:
         self.name = name
         self.colour = colour
+        self.genotype = genotype if genotype else Genotype()
         self.white_patches = white_patches
         self.eye_colour = eye_color
         self.eye_colour2 = eye_colour2
@@ -253,6 +255,7 @@ class Pelt():
         new_pelt.init_eyes(parents)
         new_pelt.init_pattern()
         new_pelt.init_tint()
+        new_pelt.genotype(gender)
         new_pelt.fun_traits = ["o", "o", "o"]
         new_pelt.fun_traits[0] = random.choice(Pelt.fun_scents)
         new_pelt.fun_traits[1] = random.choice(Pelt.fun_physical)
