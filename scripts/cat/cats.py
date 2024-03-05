@@ -335,7 +335,6 @@ class Cat():
 
             # APPEARANCE
             self.pelt = Pelt.generate_new_pelt(self.gender, [Cat.fetch_cat(i) for i in (self.parent1, self.parent2) if i], self.age)
-            
             #Personality
             self.personality = Personality(kit_trait=self.is_baby())
 
@@ -3018,8 +3017,8 @@ class Cat():
                 "tortie_pattern": self.pelt.tortiepattern,
                 "fun_traits": self.pelt.fun_traits,
                 "skin": self.pelt.skin,
-                "tint": self.pelt.tint,
-                "tint_color": self.pelt.tint_color,
+                "tint_category": self.pelt.tint_category,
+                "true_tint": self.pelt.true_tint,
                 "skill_dict": self.skills.get_skill_dict(),
                 "scars": self.pelt.scars if self.pelt.scars else [],
                 "accessory": self.pelt.accessory,

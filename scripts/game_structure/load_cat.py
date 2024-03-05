@@ -103,7 +103,8 @@ def json_load():
                 pattern=cat["pattern"],
                 skin=cat["skin"],
                 fun_traits=cat["fun_traits"] if "fun_traits" in cat else ["", "", ""],
-                tint=cat["tint"] if "tint" in cat else "none",
+                tint_category=cat["tint_category"] if "tint_category" in cat else "none",
+                true_tint=cat["true_tint"] if "true_tint" in cat else ["","","",""],
                 scars=cat["scars"] if "scars" in cat else [],
                 accessory=cat["accessory"],
                 opacity=cat["opacity"] if "opacity" in cat else 100
