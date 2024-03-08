@@ -79,6 +79,30 @@
             "shadow_width": "0"
         }
     },
+    "#tortie_info": {
+        "colours": {
+            "normal_bg": "#ac9d72",
+            "hovered_bg": "#ac9d72",
+            "selected_bg": "#ac9d72",
+            "active_bg": "#ac9d72",
+            "normal_text": "#000000",
+            "hovered_text": "#000000",
+            "selected_text": "#000000",
+            "disabled_text": "#000000",
+            "normal_border": "#ac9d72",
+            "normal_text_shadow": "#ac9d72"
+        },
+        "font": {
+            "name": "notosans",
+            "size": "15"
+        },
+        "misc": {
+            "border_width": "0",
+            "shadow_width": "0",
+            "text_horiz_alignment": "left",
+            "text_horiz_alignment_padding": "0"
+        }
+    },
     "#relation_bar": {
         "colours": {
             "normal_border": "#CEC2A8",

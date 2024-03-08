@@ -13,7 +13,7 @@ from scripts.game_structure.image_button import UIImageButton, UITextBoxTweaked
 from scripts.game_structure.game_essentials import game, MANAGER
 
 
-class SpriteInspectScreen(Screens):
+class BetaInspectScreen(Screens):
     cat_life_stages = ["newborn", "kitten", "adolescent", "adult", "senior"]
     
     def __init__(self, name=None):
@@ -26,16 +26,15 @@ class SpriteInspectScreen(Screens):
         self.cat_image = None
         self.cat_elements = {}
         self.checkboxes = {}
-        self.platform_shown_text = None
         self.code_info_shown_text = None
         self.scars_shown = None
         self.acc_shown_text = None
         self.override_dead_lineart_text = None
         self.override_not_working_text = None
-        self.save_image_button = None
+        self.sprite_elements = {}
+        self.tortie_toggle = True
         
         #Image Settings: 
-        self.platform_shown = None
         self.code_info_shown = None
         self.displayed_lifestage = None
         self.scars_shown = True
@@ -57,34 +56,32 @@ class SpriteInspectScreen(Screens):
                 if isinstance(Cat.fetch_cat(self.next_cat), Cat):
                     game.switches["cat"] = self.next_cat
                     self.cat_setup()
+                    self.get_sprite_number()
+                    self.update_column_text()
                 else:
                     print("invalid next cat", self.next_cat)
             elif event.ui_element == self.previous_cat_button:
                 if isinstance(Cat.fetch_cat(self.previous_cat), Cat):
                     game.switches["cat"] = self.previous_cat
                     self.cat_setup()
+                    self.get_sprite_number()
+                    self.update_column_text()
                 else:
                     print("invalid previous cat", self.previous_cat)
             elif event.ui_element == self.next_life_stage:
                 self.displayed_life_stage = min(self.displayed_life_stage + 1, 
                                                 len(self.valid_life_stages) - 1)
+                self.get_sprite_number()
                 self.update_disabled_buttons()
                 self.make_cat_image()
-            elif event.ui_element == self.save_image_button:
-                SaveAsImage(self.generate_image_to_save(), str(self.the_cat.name))
             elif event.ui_element == self.previous_life_stage:
                 self.displayed_life_stage = max(self.displayed_life_stage - 1, 
                                                 0)
+                self.get_sprite_number()
                 self.update_disabled_buttons()
                 self.make_cat_image()
-            elif event.ui_element == self.checkboxes["platform_shown"]:
-                if self.platform_shown:
-                    self.platform_shown = False
-                else:
-                    self.platform_shown = True
-                
-                self.set_background_visablity()
-                self.update_checkboxes()
+            elif event.ui_element == self.tortie_info_button:
+                self.update_column_text()
             elif event.ui_element == self.checkboxes["code_info_shown"]:
                 if self.code_info_shown:
                     self.code_info_shown = False
@@ -145,20 +142,29 @@ class SpriteInspectScreen(Screens):
                                                  , manager=MANAGER)
         self.back_button = UIImageButton(scale(pygame.Rect((50, 120), (210, 60))), "", object_id="#back_button"
                                          , manager=MANAGER)
-        
-        self.previous_life_stage = UIImageButton(scale(pygame.Rect((150, 550), (76, 100))), "", object_id="#arrow_right_fancy",
+        self.sprite_box = pygame_gui.elements.UIImage(scale(pygame.Rect
+                                                                  ((100, 250), (700, 900))),
+                                                            pygame.transform.scale(
+                                                                pygame.image.load(
+                                                                    "resources/images/relationship_details_frame.png").convert_alpha(),
+                                                                (800, 700))
+                                                            )
+        self.info_box = pygame_gui.elements.UIImage(scale(pygame.Rect
+                                                                  ((800, 200), (700, 1000))),
+                                                            pygame.transform.scale(
+                                                                pygame.image.load(
+                                                                    "resources/images/mediator_selected_frame.png").convert_alpha(),
+                                                                (800, 700))
+                                                            )
+        self.previous_life_stage = UIImageButton(scale(pygame.Rect((180, 1000), (76, 100))), "", object_id="#arrow_right_fancy",
                                                  starting_height=2)
         
-        self.next_life_stage = UIImageButton(scale(pygame.Rect((1374, 550), (76, 100))), "", object_id="#arrow_left_fancy",
+        self.next_life_stage = UIImageButton(scale(pygame.Rect((680, 1000), (76, 100))), "", object_id="#arrow_left_fancy",
                                              starting_height=2)
-        
-        self.save_image_button = UIImageButton(scale(pygame.Rect((50, 190),(270, 60))), "", object_id="#save_image_button")
-        
+        self.tortie_info_button =  pygame_gui.elements.UIButton(scale(pygame.Rect((1100, 315), (360, 60))), "(Click here for more info)", object_id="#tortie_info", 
+                                             starting_height=2,manager=MANAGER)
+
         # Toggle Text:
-        self.platform_shown_text = pygame_gui.elements.UITextBox("Show Platform", scale(pygame.Rect((310, 1160), (290, 100))),
-                                                                 object_id=get_text_box_theme(
-                                                                              "#text_box_34_horizcenter"), 
-                                                                 starting_height=2)
         self.scars_shown_text = pygame_gui.elements.UITextBox("Show Scar(s)", scale(pygame.Rect((710, 1160), (290, 100))),
                                                               object_id=get_text_box_theme(
                                                                               "#text_box_34_horizcenter"), 
@@ -179,14 +185,230 @@ class SpriteInspectScreen(Screens):
                                                                  object_id=get_text_box_theme(
                                                                               "#text_box_34_horizcenter"), 
                                                                  starting_height=2)
-        
-        if game.clan.clan_settings['backgrounds']:
-            self.platform_shown = True
-        else:
-            self.platform_shown = False
-        
         self.cat_setup()
+        self.get_sprite_number()
         return super().screen_switches()
+
+    def get_tortie_info(self):
+        self.the_cat = Cat.fetch_cat(game.switches['cat'])
+        tortie_info_string = ""
+        if self.the_cat.pelt.name not in ['Tortie', 'Calico']:
+            return ""
+        tortie_info_string += "<b>TORTIE INFO -- </b>" + "\n"
+        tortie_info_string += "   Pelt Base Type: " + str(self.the_cat.pelt.tortiebase) + "\n"
+        tortie_info_string += "   Pelt Base Color: " + str(self.the_cat.pelt.colour) + "\n"
+        tortie_count = len(self.the_cat.pelt.pattern)
+        if tortie_count == 1:
+            tortie_info_string += "   Tortie Patch: " + ', '.join(self.the_cat.pelt.pattern) + "\n"
+        elif tortie_count > 1:
+            tortie_info_string += "   Tortie Patches: " + ', '.join(self.the_cat.pelt.pattern) + "\n"
+        tortie_info_string += "   Tortie Patch Type: " + str(self.the_cat.pelt.tortiepattern) + "\n"
+        tortie_info_string += "   Tortie Patch Color: " + str(self.the_cat.pelt.tortiecolour) + "\n"
+        return tortie_info_string
+
+    def generate_tortie_column_info(self):
+        """generates the thing this screen was made for--to show code info not stated in profile screen"""
+        self.the_cat = Cat.fetch_cat(game.switches['cat'])
+        output = ""
+
+        # PELT + BASICS
+        output +="<b>Basic pelt info!</b>"+ "\n"
+        output += "Pelt Type: " + str(self.the_cat.pelt.name)
+        output += "\n"
+        if self.the_cat.pelt.name not in ['Tortie', 'Calico']:
+            output += "Pelt Color: " + str(self.the_cat.pelt.colour) + "\n"
+        output += self.get_tortie_info()
+        if self.the_cat.pelt.vitiligo:
+            output += "Vitiligo: " + str(self.the_cat.pelt.vitiligo)
+        else:
+            output += "Vitiligo: None"
+        output += "\n"
+        if self.the_cat.pelt.white_patches:
+            patch_count = len(self.the_cat.pelt.white_patches)
+            if patch_count == 1:
+                output += "White Patch: " + ', '.join(self.the_cat.pelt.white_patches) # this may seem unnecessary, but if you just make it str by using str(), it keeps in the brackets for some reason?
+            elif patch_count > 1:
+                output += "White Patches: " + ', '.join(self.the_cat.pelt.white_patches)
+        else:
+            output += "White Patches: None"
+        if self.the_cat.pelt.points:
+            output += "\n" + "Colorpoints: " + str(self.the_cat.pelt.points)
+        if not self.the_cat.pelt.eye_colour2:
+                output += "\n" + "Eye Color: " + str(self.the_cat.pelt.eye_colour) + "\n"
+        elif self.the_cat.pelt.eye_colour2:
+            output += "\n" + "Eye Colors: "+ str(self.the_cat.pelt.eye_colour) + "and" + str(self.the_cat.pelt.eye_colour2) + "\n"
+        output += "Skin: " + str(self.the_cat.pelt.skin) + "\n"
+
+
+        # TINTS, ACC, SCARS
+        output += "\n" + "<b>Extra info! (such as tints, scars, etc)</b>"+ "\n"
+        output += "Tint Category: " 
+        tint_category = self.the_cat.pelt.tint_category
+        if tint_category == "red_yellow":
+            output += "red-yellow"
+        elif tint_category == "yellow_green":
+            output += "yellow-green"
+        elif tint_category == "green_teal":
+            output += "green-teal"
+        elif tint_category == "teal_blue":
+            output += "teal-blue"
+        elif tint_category == "blue_pink":
+            output += "blue-pink"
+        elif tint_category == "pink_red":
+            output += "pink-red"
+        else:
+            output += "Hmm! Looks like this cat doesn't have a valid tint category. If their true tint also does not give a viable RGB code, please report as a bug!"
+        output += "\n"
+        output += "True Tint: " + str(self.the_cat.pelt.true_tint) + "\n"
+        output += "White Patches Tint: " + str(self.the_cat.pelt.white_patches_tint) + "\n"
+        output += "Accessory: " + str(self.the_cat.pelt.accessory) + "\n"
+        if self.the_cat.pelt.scars:
+            scar_count = len(self.the_cat.pelt.scars)
+            if scar_count == 1:
+                output += "Scar: " + ', '.join(self.the_cat.pelt.scars)
+            elif scar_count > 1:
+                output += "Scars: " + ', '.join(self.the_cat.pelt.scars)
+        else:
+            output += "Scars: None"
+        if self.the_cat.pelt.reverse:
+            output += "Reversed: True" + "\n"
+        else:
+            output += "Reversed: False" + "\n"
+
+
+        # FACETS + FADED STATUS IN THE FUTURE
+        output += "\n" + "<b>Miscellanous things you cannot view in game!</b>"+ "\n"
+        output += "Trait Facets: " + str(self.the_cat.personality.get_facet_string())
+        
+        return output
+    def generate_column_info(self):
+        """generates the thing this screen was made for--to show code info not stated in profile screen"""
+        self.the_cat = Cat.fetch_cat(game.switches['cat'])
+        output = ""
+
+        # PELT + BASICS
+        output +="<b>Basic pelt info!</b>"+ "\n"
+        output += "Pelt Type: " + str(self.the_cat.pelt.name)
+        output += "\n"
+        if self.the_cat.pelt.name not in ['Tortie', 'Calico']:
+            output += "Pelt Color: " + str(self.the_cat.pelt.colour) + "\n"
+        if self.tortie_toggle:
+            output += self.get_tortie_info()
+        else:
+            pass
+        if self.the_cat.pelt.vitiligo:
+            output += "Vitiligo: " + str(self.the_cat.pelt.vitiligo)
+        else:
+            output += "Vitiligo: None"
+        output += "\n"
+        if self.the_cat.pelt.white_patches:
+            patch_count = len(self.the_cat.pelt.white_patches)
+            if patch_count == 1:
+                output += "White Patch: " + ', '.join(self.the_cat.pelt.white_patches) # this may seem unnecessary, but if you just make it str by using str(), it keeps in the brackets for some reason?
+            elif patch_count > 1:
+                output += "White Patches: " + ', '.join(self.the_cat.pelt.white_patches)
+        else:
+            output += "White Patches: None"
+        if self.the_cat.pelt.points:
+            output += "\n" + "Colorpoints: " + str(self.the_cat.pelt.points)
+        if not self.the_cat.pelt.eye_colour2:
+                output += "\n" + "Eye Color: " + str(self.the_cat.pelt.eye_colour) + "\n"
+        elif self.the_cat.pelt.eye_colour2:
+            output += "\n" + "Eye Colors: "+ str(self.the_cat.pelt.eye_colour) + "and" + str(self.the_cat.pelt.eye_colour2) + "\n"
+        output += "Skin: " + str(self.the_cat.pelt.skin) + "\n"
+
+
+        # TINTS, ACC, SCARS
+        output += "\n" + "<b>Extra info! (such as tints, scars, etc)</b>"+ "\n"
+        output += "Tint Category: " 
+        tint_category = self.the_cat.pelt.tint_category
+        if tint_category == "red_yellow":
+            output += "red-yellow"
+        elif tint_category == "yellow_green":
+            output += "yellow-green"
+        elif tint_category == "green_teal":
+            output += "green-teal"
+        elif tint_category == "teal_blue":
+            output += "teal-blue"
+        elif tint_category == "blue_pink":
+            output += "blue-pink"
+        elif tint_category == "pink_red":
+            output += "pink-red"
+        else:
+            output += "Hmm! Looks like this cat doesn't have a valid tint category. If their true tint also does not give a viable RGB code, please report as a bug!"
+        output += "\n"
+        output += "True Tint: " + str(self.the_cat.pelt.true_tint) + "\n"
+        output += "White Patches Tint: " + str(self.the_cat.pelt.white_patches_tint) + "\n"
+        output += "Accessory: " + str(self.the_cat.pelt.accessory) + "\n"
+        if self.the_cat.pelt.scars:
+            scar_count = len(self.the_cat.pelt.scars)
+            if scar_count == 1:
+                output += "Scar: " + ', '.join(self.the_cat.pelt.scars)
+            elif scar_count > 1:
+                output += "Scars: " + ', '.join(self.the_cat.pelt.scars)
+        else:
+            output += "Scars: None"
+        if self.the_cat.pelt.reverse:
+            output += "Reversed: True" + "\n"
+        else:
+            output += "Reversed: False" + "\n"
+
+
+        # FACETS + FADED STATUS IN THE FUTURE
+        output += "\n" + "<b>Miscellanous things you cannot view in game!</b>"+ "\n"
+        output += "Trait Facets: " + str(self.the_cat.personality.get_facet_string())
+        
+        return output
+
+    def update_column_text(self):
+        if self.tortie_toggle:
+            self.tortie_toggle = False
+            self.cat_elements["info_column"].hide()
+            self.cat_elements["info_column"] = pygame_gui.elements.UITextBox(self.generate_column_info(),
+                                                                     scale(pygame.Rect((850, 250), (700, 900))),
+                                                                     object_id=get_text_box_theme(
+                                                                         "#text_box_30_horizleft"),
+                                                                        )
+            self.cat_elements["info_column"].show()
+        else:
+            self.tortie_toggle = True
+            self.cat_elements["info_column"].hide()
+            self.cat_elements["info_column"] = pygame_gui.elements.UITextBox(self.generate_tortie_column_info(),
+                                                                     scale(pygame.Rect((850, 250), (700, 900))),
+                                                                     object_id=get_text_box_theme(
+                                                                         "#text_box_30_horizleft"),
+                                                                        )
+            self.cat_elements["info_column"].show()
+    def get_sprite_number(self):
+        sprite_number = 0
+        for ele in self.sprite_elements:
+            self.sprite_elements[ele].kill()
+        self.sprite_elements = {}
+        if self.displayed_life_stage == 0:
+            sprite_number = 20
+        elif self.displayed_life_stage == 1:
+            sprite_number = self.the_cat.pelt.cat_sprites['kitten']
+        elif self.displayed_life_stage == 2:
+            sprite_number = self.the_cat.pelt.cat_sprites['adolescent']
+        elif self.displayed_life_stage == 3:
+            sprite_number = self.the_cat.pelt.cat_sprites['adult']
+        elif self.displayed_life_stage == 4:
+            sprite_number = self.the_cat.pelt.cat_sprites['senior']
+        elif self.the_cat.pelt.paralyzed:
+            sprite_number = self.the_cat.pelt.cat_sprites['para_adult']
+        elif self.the_cat.pelt.paralyzed and self.displayed_life_stage in [1, 2]:
+            sprite_number = 17
+        elif self.the_cat.not_working() and self.displayed_life_stage in [1, 2]:
+            sprite_number = 19
+        elif self.the_cat.not_working() and self.displayed_life_stage in [3, 4]:
+            sprite_number = 18 
+        self.sprite_elements["sprite_number_string"] = pygame_gui.elements.UITextBox("Sprite " + str(sprite_number),
+                                                                      scale(pygame.Rect(
+                                                                        (370, 1000),
+                                                                        (200, 80))),
+                                                                       object_id=get_text_box_theme(
+                                                                        "#text_box_40_horizcenter"), manager=MANAGER)
+
 
     def cat_setup(self): 
         """Sets up all the elements related to the cat """
@@ -195,12 +417,6 @@ class SpriteInspectScreen(Screens):
         self.cat_elements = {}
         
         self.the_cat = Cat.fetch_cat(game.switches['cat'])
-        
-        self.cat_elements["platform"] = pygame_gui.elements.UIImage(
-                scale(pygame.Rect((240, 200), (1120, 980))),
-                pygame.transform.scale(self.get_platform(), scale_dimentions((1120, 701))), 
-                manager=MANAGER)
-        self.set_background_visablity()
         
         # Gather list of current and previous life states
         # "young adult", "adult", and "senior adult" all look the same: collapse to adult
@@ -212,7 +428,7 @@ class SpriteInspectScreen(Screens):
             current_life_stage = self.the_cat.age
         
         self.valid_life_stages = []
-        for life_stage in SpriteInspectScreen.cat_life_stages:
+        for life_stage in BetaInspectScreen.cat_life_stages:
             self.valid_life_stages.append(life_stage)
             if life_stage == current_life_stage:
                 break
@@ -229,6 +445,10 @@ class SpriteInspectScreen(Screens):
         
         # Make the cat image
         self.make_cat_image()
+        if self.the_cat.pelt.name in ['Tortie', 'Calico']:
+            self.tortie_info_button.show()
+        else: 
+            self.tortie_info_button.hide()
         
         cat_name = str(self.the_cat.name)  # name
         if self.the_cat.dead:
@@ -245,18 +465,23 @@ class SpriteInspectScreen(Screens):
 
         self.cat_elements["cat_name"] = pygame_gui.elements.UITextBox(short_name,
                                                                       scale(pygame.Rect(
-                                                                        (800 - name_text_size.width, 120),
+                                                                        (480 - name_text_size.width, 300),
                                                                         (name_text_size.width * 2, 80))),
                                                                        object_id=get_text_box_theme(
                                                                         "#text_box_40_horizcenter"), manager=MANAGER)
+        self.cat_elements["info_column"] = pygame_gui.elements.UITextBox(self.generate_column_info(),
+                                                                     scale(pygame.Rect((850, 250), (700, 900))),
+                                                                     object_id=get_text_box_theme(
+                                                                         "#text_box_30_horizleft"),
+                                                                        )
         
         # Fullscreen
         if game.settings['fullscreen']:
-            x_pos = 745 - name_text_size.width//2
+            x_pos = 420 - name_text_size.width//2
         else:
-            x_pos = 740 - name_text_size.width
+            x_pos = 425 - name_text_size.width
         self.cat_elements["favourite_button"] = UIImageButton(scale(pygame.Rect
-                                                                ((x_pos, 127), (56, 56))),
+                                                                ((x_pos, 310), (56, 56))),
                                                               "",
                                                               object_id="#fav_cat",
                                                               manager=MANAGER,
@@ -264,7 +489,7 @@ class SpriteInspectScreen(Screens):
                                                               starting_height=2)
 
         self.cat_elements["not_favourite_button"] = UIImageButton(scale(pygame.Rect
-                                                                    ((x_pos, 127),
+                                                                    ((x_pos, 310),
                                                                         (56, 56))),
                                                                  "",
                                                                  object_id="#not_fav_cat",
@@ -277,8 +502,6 @@ class SpriteInspectScreen(Screens):
         else:
             self.cat_elements["favourite_button"].hide()
             self.cat_elements["not_favourite_button"].show()
-        
-        
         # Write the checkboxes. The text is set up in switch_screens.  
         self.update_checkboxes()
         
@@ -290,10 +513,6 @@ class SpriteInspectScreen(Screens):
         for ele in self.checkboxes:
             self.checkboxes[ele].kill()
         self.checkboxes = {}
-        
-        # "Show Platform"
-        self.make_one_checkbox((200, 1150), "platform_shown", self.platform_shown)
-        
         # "Show Scars"
         self.make_one_checkbox((600, 1150), "scars_shown", self.scars_shown, self.the_cat.pelt.scars)
         
@@ -342,7 +561,7 @@ class SpriteInspectScreen(Screens):
                                          no_not_working=self.override_not_working)
         
         self.cat_elements["cat_image"] = pygame_gui.elements.UIImage(
-            scale(pygame.Rect((450, 200),(700, 700))),
+            scale(pygame.Rect((110, 300),(700, 700))),
             pygame.transform.scale(self.cat_image, scale_dimentions((700, 700)))
         )
       
@@ -385,16 +604,6 @@ class SpriteInspectScreen(Screens):
         self.next_cat = next_cat
         self.previous_cat = previous_cat
     
-    def set_background_visablity(self):
-        if "platform" not in self.cat_elements:
-            return
-        
-        if self.platform_shown:
-            self.cat_elements["platform"].show()
-            self.cat_elements["platform"].disable()
-        else:
-            self.cat_elements["platform"].hide()
-    
     def exit_screen(self):
         self.back_button.kill()
         self.back_button = None
@@ -406,10 +615,6 @@ class SpriteInspectScreen(Screens):
         self.previous_life_stage = None
         self.next_life_stage.kill()
         self.next_life_stage = None
-        self.save_image_button.kill()
-        self.save_image_button = None
-        self.platform_shown_text.kill()
-        self.platform_shown_text = None
         self.code_info_shown_text.kill()
         self.code_info_shown_text = None
         self.scars_shown_text.kill()
@@ -451,57 +656,3 @@ class SpriteInspectScreen(Screens):
         else:
             self.previous_life_stage.enable()
         
-        
-    def get_platform(self):
-        the_cat = Cat.all_cats.get(game.switches['cat'],
-                                   game.clan.instructor)
-
-        light_dark = "light"
-        if game.settings["dark mode"]:
-            light_dark = "dark"
-
-        available_biome = ['Forest', 'Mountainous', 'Plains', 'Beach']
-        biome = game.clan.biome
-
-        if biome not in available_biome:
-            biome = available_biome[0]
-        if the_cat.age == 'newborn' or the_cat.not_working():
-            biome = 'nest'
-
-        biome = biome.lower()
-
-        platformsheet = pygame.image.load('resources/images/platforms.png').convert_alpha()
-        
-        order = ['beach', 'forest', 'mountainous', 'nest', 'plains', 'SC/DF']
-        
-        offset = 0
-        if light_dark == "light":
-            offset = 80
-        
-        if the_cat.df:
-            biome_platforms = platformsheet.subsurface(pygame.Rect(0, order.index('SC/DF') * 70, 640, 70))
-            return biome_platforms.subsurface(pygame.Rect(0 + offset, 0, 80, 70))
-        elif the_cat.dead or game.clan.instructor.ID == the_cat.ID:
-            biome_platforms = platformsheet.subsurface(pygame.Rect(0, order.index('SC/DF') * 70, 640, 70))
-            return biome_platforms.subsurface(pygame.Rect(160 + offset, 0, 80, 70))
-        else:
-            biome_platforms = platformsheet.subsurface(pygame.Rect(0, order.index(biome) * 70, 640, 70)).convert_alpha()
-            season_x = {
-                "greenleaf": 0 + offset,
-                "leafbare": 160 + offset,
-                "leaffall": 320 + offset,
-                "newleaf": 480 + offset
-            }
-            
-            
-            return biome_platforms.subsurface(pygame.Rect(
-                season_x.get(game.clan.current_season.lower(), season_x["greenleaf"]), 0, 80, 70))
-            
-    def generate_image_to_save(self):
-        """Generates the image to save, with platform if needed. """
-        if self.platform_shown:
-            full_image = self.get_platform()
-            full_image.blit(self.cat_image, (15, 0))
-            return full_image
-        else:
-            return self.cat_image
