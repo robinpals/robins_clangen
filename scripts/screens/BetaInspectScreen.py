@@ -32,7 +32,7 @@ class BetaInspectScreen(Screens):
         self.override_not_working_text = None
         self.sprite_elements = {}
         self.tortie_toggle = True
-        tortie_button_scroll = {}
+        self.tortie_button_scroll = {}
         
         #Image Settings: 
         self.code_info_shown = True
@@ -153,8 +153,7 @@ class BetaInspectScreen(Screens):
         
         self.next_life_stage = UIImageButton(scale(pygame.Rect((680, 1000), (76, 100))), "", object_id="#arrow_left_fancy",
                                              starting_height=2)
-        self.tortie_info_button =  pygame_gui.elements.UIButton(scale(pygame.Rect((1100, 315), (360, 60))), "(Click here for more info)", object_id="#tortie_info", 
-                                             starting_height=2,manager=MANAGER)
+        
         scroll_pos = None
         if "info_scroll_container" in self.tortie_button_scroll and \
                             self.tortie_button_scroll["info_scroll_container"].vert_scroll_bar:
@@ -165,13 +164,15 @@ class BetaInspectScreen(Screens):
 
         self.tortie_button_scroll[
             "info_scroll_container"] = pygame_gui.elements.UIScrollingContainer(
-            scale(pygame.Rect((780, 300), (311, 544))), manager=MANAGER)
+            scale(pygame.Rect((850, 250), (700, 900))), manager=MANAGER)
 
         self.tortie_button_scroll[
             "info_scroll_container"].set_scrollable_area_dimensions(
-            (311, 544))
+            (700, 900))
         self.tortie_button_scroll[
             "info_scroll_container"].horiz_scroll_bar.hide()
+        self.tortie_info_button =  pygame_gui.elements.UIButton(scale(pygame.Rect((1100, 315), (360, 60))), "(Click here for more info)", container=self.tortie_button_scroll["info_scroll_container"],object_id="#tortie_info", 
+                                             starting_height=2,manager=MANAGER)
         # Toggle Text:
         self.scars_shown_text = pygame_gui.elements.UITextBox("Show Scar(s)", scale(pygame.Rect((550, 1160), (290, 100))),
                                                               object_id=get_text_box_theme(
@@ -370,6 +371,7 @@ class BetaInspectScreen(Screens):
             self.cat_elements["info_column"].hide()
             self.cat_elements["info_column"] = pygame_gui.elements.UITextBox(self.generate_column_info(),
                                                                      scale(pygame.Rect((850, 250), (700, 900))),
+                                                                     container=self.tortie_button_scroll["info_scroll_container"],
                                                                      object_id=get_text_box_theme(
                                                                          "#text_box_30_horizleft"),
                                                                         )
@@ -379,6 +381,7 @@ class BetaInspectScreen(Screens):
             self.cat_elements["info_column"].hide()
             self.cat_elements["info_column"] = pygame_gui.elements.UITextBox(self.generate_tortie_column_info(),
                                                                      scale(pygame.Rect((850, 250), (700, 900))),
+                                                                     container=self.tortie_button_scroll["info_scroll_container"],
                                                                      object_id=get_text_box_theme(
                                                                          "#text_box_30_horizleft"),
                                                                         )
@@ -473,7 +476,7 @@ class BetaInspectScreen(Screens):
                                                                        object_id=get_text_box_theme(
                                                                         "#text_box_40_horizcenter"), manager=MANAGER)
         self.cat_elements["info_column"] = pygame_gui.elements.UITextBox(self.generate_column_info(),
-                                                                     scale(pygame.Rect((850, 250), (700, 900))),
+                                                                     scale(pygame.Rect((850, 250), (700, 900))),container=self.tortie_button_scroll["info_scroll_container"],
                                                                      object_id=get_text_box_theme(
                                                                          "#text_box_30_horizleft"),
                                                                         )
