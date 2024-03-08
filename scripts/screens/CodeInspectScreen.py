@@ -13,7 +13,7 @@ from scripts.game_structure.image_button import UIImageButton, UITextBoxTweaked
 from scripts.game_structure.game_essentials import game, MANAGER
 
 
-class BetaInspectScreen(Screens):
+class CodeInspectScreen(Screens):
     cat_life_stages = ["newborn", "kitten", "adolescent", "adult", "senior"]
     
     def __init__(self, name=None):
@@ -465,7 +465,7 @@ class BetaInspectScreen(Screens):
             current_life_stage = self.the_cat.age
         
         self.valid_life_stages = []
-        for life_stage in BetaInspectScreen.cat_life_stages:
+        for life_stage in CodeInspectScreen.cat_life_stages:
             self.valid_life_stages.append(life_stage)
             if life_stage == current_life_stage:
                 break

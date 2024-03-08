@@ -90,7 +90,7 @@ class SpriteInspectScreen(Screens):
                     self.code_info_shown = False
                 else:
                     self.code_info_shown = True
-                    self.change_screen('beta inspect screen')
+                    self.change_screen('code inspect screen')
 
                 
                 self.update_checkboxes()
