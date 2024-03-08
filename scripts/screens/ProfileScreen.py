@@ -176,9 +176,6 @@ class ProfileScreen(Screens):
             elif event.ui_element == self.inspect_button:
                 self.close_current_tab()
                 self.change_screen("sprite inspect screen")
-            elif event.ui_element == self.beta_inspect_button:
-                self.close_current_tab()
-                self.change_screen("beta inspect screen")
             elif event.ui_element == self.relations_tab_button:
                 self.toggle_relations_tab()
             elif event.ui_element == self.roles_tab_button:
@@ -400,9 +397,6 @@ class ProfileScreen(Screens):
         self.inspect_button = UIImageButton(scale(pygame.Rect((1482, 120),(68,68))), "", 
                                             object_id="#magnify_button",
                                             manager=MANAGER)
-        self.beta_inspect_button = UIImageButton(scale(pygame.Rect((1482, 200),(68,68))), "", 
-                                            object_id="#magnify_button",
-                                            manager=MANAGER)
         self.relations_tab_button = UIImageButton(scale(pygame.Rect((96, 840), (352, 60))), "",
                                                   object_id="#relations_tab_button", manager=MANAGER)
         self.roles_tab_button = UIImageButton(scale(pygame.Rect((448, 840), (352, 60))), "",
@@ -463,7 +457,6 @@ class ProfileScreen(Screens):
         self.placeholder_tab_3.kill()
         self.placeholder_tab_4.kill()
         self.inspect_button.kill()
-        self.beta_inspect_button.kill()
         self.close_current_tab()
 
     def build_profile(self):

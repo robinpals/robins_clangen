@@ -29,16 +29,15 @@ class BetaInspectScreen(Screens):
         self.code_info_shown_text = None
         self.scars_shown = None
         self.acc_shown_text = None
-        self.override_dead_lineart_text = None
         self.override_not_working_text = None
         self.sprite_elements = {}
         self.tortie_toggle = True
+        tortie_button_scroll = {}
         
         #Image Settings: 
-        self.code_info_shown = None
+        self.code_info_shown = True
         self.displayed_lifestage = None
         self.scars_shown = True
-        self.override_dead_lineart = False
         self.acc_shown = True
         self.override_not_working = False
         
@@ -85,9 +84,9 @@ class BetaInspectScreen(Screens):
             elif event.ui_element == self.checkboxes["code_info_shown"]:
                 if self.code_info_shown:
                     self.code_info_shown = False
+                    self.change_screen('sprite inspect screen')
                 else:
                     self.code_info_shown = True
-                    self.change_screen('beta inspect screen')
 
                 
                 self.update_checkboxes()
@@ -104,14 +103,6 @@ class BetaInspectScreen(Screens):
                     self.acc_shown = False
                 else:
                     self.acc_shown = True
-                
-                self.make_cat_image()
-                self.update_checkboxes()
-            elif event.ui_element == self.checkboxes["override_dead_lineart"]:
-                if self.override_dead_lineart:
-                    self.override_dead_lineart = False
-                else:
-                    self.override_dead_lineart = True
                 
                 self.make_cat_image()
                 self.update_checkboxes()
@@ -134,7 +125,8 @@ class BetaInspectScreen(Screens):
     
         return super().handle_event(event)
     
-    def screen_switches(self):        
+    def screen_switches(self):  
+        self.code_info_shown = True      
         self.next_cat_button = UIImageButton(scale(pygame.Rect((1244, 50), (306, 60))), "", object_id="#next_cat_button"
                                              , manager=MANAGER)
         self.previous_cat_button = UIImageButton(scale(pygame.Rect((50, 50), (306, 60))), "",
@@ -163,25 +155,37 @@ class BetaInspectScreen(Screens):
                                              starting_height=2)
         self.tortie_info_button =  pygame_gui.elements.UIButton(scale(pygame.Rect((1100, 315), (360, 60))), "(Click here for more info)", object_id="#tortie_info", 
                                              starting_height=2,manager=MANAGER)
+        scroll_pos = None
+        if "info_scroll_container" in self.tortie_button_scroll and \
+                            self.tortie_button_scroll["info_scroll_container"].vert_scroll_bar:
+                        scroll_pos = self.tortie_button_scroll["info_scroll_container"].vert_scroll_bar.start_percentage
+        if scroll_pos is not None:
+                        self.tortie_button_scroll["info_scroll_container"].vert_scroll_bar.set_scroll_from_start_percentage(
+                            scroll_pos)
 
+        self.tortie_button_scroll[
+            "info_scroll_container"] = pygame_gui.elements.UIScrollingContainer(
+            scale(pygame.Rect((780, 300), (311, 544))), manager=MANAGER)
+
+        self.tortie_button_scroll[
+            "info_scroll_container"].set_scrollable_area_dimensions(
+            (311, 544))
+        self.tortie_button_scroll[
+            "info_scroll_container"].horiz_scroll_bar.hide()
         # Toggle Text:
-        self.scars_shown_text = pygame_gui.elements.UITextBox("Show Scar(s)", scale(pygame.Rect((710, 1160), (290, 100))),
+        self.scars_shown_text = pygame_gui.elements.UITextBox("Show Scar(s)", scale(pygame.Rect((550, 1160), (290, 100))),
                                                               object_id=get_text_box_theme(
                                                                               "#text_box_34_horizcenter"), 
                                                                  starting_height=2)
-        self.acc_shown_text = pygame_gui.elements.UITextBox("Show Accessory", scale(pygame.Rect((1100, 1160), (290, 100))),
+        self.acc_shown_text = pygame_gui.elements.UITextBox("Show Accessory", scale(pygame.Rect((173, 1160), (290, 100))),
                                                             object_id=get_text_box_theme(
                                                                               "#text_box_34_horizcenter"), 
                                                             starting_height=2)
-        self.override_dead_lineart_text = pygame_gui.elements.UITextBox("Show as Living", scale(pygame.Rect((310, 1260), (290, 100))),
-                                                                        object_id=get_text_box_theme(
-                                                                              "#text_box_34_horizcenter"), 
-                                                                        starting_height=2)
-        self.override_not_working_text = pygame_gui.elements.UITextBox("Show as Healthy", scale(pygame.Rect((710, 1260), (290, 100))),
+        self.override_not_working_text = pygame_gui.elements.UITextBox("Show as Healthy", scale(pygame.Rect((180, 1260), (290, 100))),
                                                                  object_id=get_text_box_theme(
                                                                               "#text_box_34_horizcenter"), 
                                                                  starting_height=2)
-        self.code_info_shown_text = pygame_gui.elements.UITextBox("Show Code Info", scale(pygame.Rect((1100, 1260), (290, 100))),
+        self.code_info_shown_text = pygame_gui.elements.UITextBox("Show Code Info", scale(pygame.Rect((574, 1260), (290, 100))),
                                                                  object_id=get_text_box_theme(
                                                                               "#text_box_34_horizcenter"), 
                                                                  starting_height=2)
@@ -265,11 +269,11 @@ class BetaInspectScreen(Screens):
         if self.the_cat.pelt.scars:
             scar_count = len(self.the_cat.pelt.scars)
             if scar_count == 1:
-                output += "Scar: " + ', '.join(self.the_cat.pelt.scars)
+                output += "Scar: " + ', '.join(self.the_cat.pelt.scars) + "\n"
             elif scar_count > 1:
-                output += "Scars: " + ', '.join(self.the_cat.pelt.scars)
+                output += "Scars: " + ', '.join(self.the_cat.pelt.scars) + "\n"
         else:
-            output += "Scars: None"
+            output += "Scars: None" + "\n"
         if self.the_cat.pelt.reverse:
             output += "Reversed: True" + "\n"
         else:
@@ -343,9 +347,9 @@ class BetaInspectScreen(Screens):
         if self.the_cat.pelt.scars:
             scar_count = len(self.the_cat.pelt.scars)
             if scar_count == 1:
-                output += "Scar: " + ', '.join(self.the_cat.pelt.scars)
+                output += "Scar: " + ', '.join(self.the_cat.pelt.scars) + "\n"
             elif scar_count > 1:
-                output += "Scars: " + ', '.join(self.the_cat.pelt.scars)
+                output += "Scars: " + ', '.join(self.the_cat.pelt.scars) + "\n"
         else:
             output += "Scars: None"
         if self.the_cat.pelt.reverse:
@@ -439,7 +443,6 @@ class BetaInspectScreen(Screens):
         #Reset all the toggles
         self.lifestage = None
         self.scars_shown = True
-        self.override_dead_lineart = False
         self.acc_shown = True
         self.override_not_working = False
         
@@ -514,20 +517,16 @@ class BetaInspectScreen(Screens):
             self.checkboxes[ele].kill()
         self.checkboxes = {}
         # "Show Scars"
-        self.make_one_checkbox((600, 1150), "scars_shown", self.scars_shown, self.the_cat.pelt.scars)
+        self.make_one_checkbox((500, 1150), "scars_shown", self.scars_shown, self.the_cat.pelt.scars)
         
         # "Show accessories"
-        self.make_one_checkbox((1000, 1150), "acc_shown", self.acc_shown, self.the_cat.pelt.accessory)
-        
-        # "Show as living"
-        self.make_one_checkbox((200, 1250), "override_dead_lineart", self.override_dead_lineart, self.the_cat.dead,
-                               disabled_object_id="#checked_checkbox")
+        self.make_one_checkbox((100, 1150), "acc_shown", self.acc_shown, self.the_cat.pelt.accessory)
         
         # "Show as healthy"
-        self.make_one_checkbox((600, 1250), "override_not_working", self.override_not_working, self.the_cat.not_working(),
+        self.make_one_checkbox((100, 1250), "override_not_working", self.override_not_working, self.the_cat.not_working(),
                                disabled_object_id="#checked_checkbox")
         # "Show code info"
-        self.make_one_checkbox((1000, 1250), "code_info_shown", self.code_info_shown,
+        self.make_one_checkbox((500, 1250), "code_info_shown", self.code_info_shown,
                                disabled_object_id="#checked_checkbox")
         
     def make_one_checkbox(self, location:tuple, name:str, stored_bool: bool, cat_value_to_allow=True,
@@ -539,16 +538,16 @@ class BetaInspectScreen(Screens):
         if not cat_value_to_allow:
             self.checkboxes[name] = UIImageButton(scale(pygame.Rect(location, (102, 102))), "" ,
                                                             object_id = disabled_object_id,
-                                                            starting_height=2)
+                                                            starting_height=4)
             self.checkboxes[name].disable()
         elif stored_bool:
             self.checkboxes[name] = UIImageButton(scale(pygame.Rect(location, (102, 102))), "" ,
                                                             object_id = "#checked_checkbox",
-                                                            starting_height=2)
+                                                            starting_height=4)
         else:
             self.checkboxes[name] = UIImageButton(scale(pygame.Rect(location, (102, 102))), "" ,
                                                             object_id = "#unchecked_checkbox",
-                                                            starting_height=2)
+                                                            starting_height=4)
     
     def make_cat_image(self):
         """Makes the cat image """
@@ -557,7 +556,7 @@ class BetaInspectScreen(Screens):
         
         self.cat_image = generate_sprite(self.the_cat, life_state=self.valid_life_stages[self.displayed_life_stage], 
                                          scars_hidden=not self.scars_shown,
-                                         acc_hidden=not self.acc_shown, always_living=self.override_dead_lineart, 
+                                         acc_hidden=not self.acc_shown, always_living=False, 
                                          no_not_working=self.override_not_working)
         
         self.cat_elements["cat_image"] = pygame_gui.elements.UIImage(
@@ -613,16 +612,20 @@ class BetaInspectScreen(Screens):
         self.next_cat_button = None
         self.previous_life_stage.kill()
         self.previous_life_stage = None
+        self.tortie_info_button.kill()
+        self.tortie_info_button = None
         self.next_life_stage.kill()
         self.next_life_stage = None
+        self.sprite_box.kill()
+        self.sprite_box = None
+        self.info_box.kill()
+        self.info_box = None
         self.code_info_shown_text.kill()
         self.code_info_shown_text = None
         self.scars_shown_text.kill()
         self.scars_shown = None
         self.acc_shown_text.kill()
         self.acc_shown_text = None
-        self.override_dead_lineart_text.kill()
-        self.override_dead_lineart_text = None
         self.override_not_working_text.kill()
         self.override_not_working_text = None
         
@@ -632,6 +635,9 @@ class BetaInspectScreen(Screens):
         for ele in self.checkboxes:
             self.checkboxes[ele].kill()
         self.checkboxes = {}
+        for ele in self.sprite_elements:
+            self.sprite_elements[ele].kill()
+        self.sprite_elements = {}
         return super().exit_screen()
     
     def update_disabled_buttons(self):

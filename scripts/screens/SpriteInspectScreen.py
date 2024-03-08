@@ -36,7 +36,7 @@ class SpriteInspectScreen(Screens):
         
         #Image Settings: 
         self.platform_shown = None
-        self.code_info_shown = None
+        self.code_info_shown = False
         self.displayed_lifestage = None
         self.scars_shown = True
         self.override_dead_lineart = False
@@ -137,7 +137,8 @@ class SpriteInspectScreen(Screens):
     
         return super().handle_event(event)
     
-    def screen_switches(self):        
+    def screen_switches(self):  
+        self.code_info_shown = False      
         self.next_cat_button = UIImageButton(scale(pygame.Rect((1244, 50), (306, 60))), "", object_id="#next_cat_button"
                                              , manager=MANAGER)
         self.previous_cat_button = UIImageButton(scale(pygame.Rect((50, 50), (306, 60))), "",
