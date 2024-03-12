@@ -333,7 +333,7 @@ class ClanScreen(Screens):
                 else:
                     continue
  
-            if Cat.all_cats[x].status in ['apprentice', 'mediator apprentice', 'starteller apprentice']:
+            if Cat.all_cats[x].status in ['apprentice', 'mediator apprentice', 'starteller apprentice', 'defense apprentice']:
                 Cat.all_cats[x].placement = self.choose_nonoverlapping_positions(first_choices, all_dens,
                                                                                  [1, 50, 1, 1, 100, 100, 1])
             elif Cat.all_cats[x].status == 'deputy':
@@ -343,7 +343,7 @@ class ClanScreen(Screens):
             elif Cat.all_cats[x].status == 'elder':
                 Cat.all_cats[x].placement = self.choose_nonoverlapping_positions(first_choices, all_dens,
                                                                                  [1, 1, 2000, 1, 1, 1, 1])
-            elif Cat.all_cats[x].status == 'kitten':
+            elif Cat.all_cats[x].status in ['queen', 'kitten']:
                 Cat.all_cats[x].placement = self.choose_nonoverlapping_positions(first_choices, all_dens,
                                                                                  [60, 8, 1, 1, 1, 1, 1])
             elif Cat.all_cats[x].status in [
@@ -351,7 +351,7 @@ class ClanScreen(Screens):
             ]:
                 Cat.all_cats[x].placement = self.choose_nonoverlapping_positions(first_choices, all_dens,
                                                                                  [20, 20, 20, 400, 1, 1, 1])
-            elif Cat.all_cats[x].status in ['warrior', 'mediator', 'starteller']:
+            elif Cat.all_cats[x].status in ['warrior', 'mediator', 'starteller', 'defense', 'attack', 'hunt', 'guide']:
                 Cat.all_cats[x].placement = self.choose_nonoverlapping_positions(first_choices, all_dens,
                                                                                  [1, 1, 1, 1, 1, 60, 60])
             elif Cat.all_cats[x].status == "leader":
