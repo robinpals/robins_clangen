@@ -170,7 +170,14 @@ class BetaRoleScreen(Screens):
                 self.switch_defense.hide()
                 self.switch_attack.hide()
                 self.switch_hunt.hide()
-
+            elif event.ui_element == self.selected_cat_elements["favourite_button"]:
+                self.the_cat.favourite = False
+                self.selected_cat_elements["favourite_button"].hide()
+                self.selected_cat_elements["not_favourite_button"].show()
+            elif event.ui_element == self.selected_cat_elements["not_favourite_button"]:
+                self.the_cat.favourite = True
+                self.selected_cat_elements["favourite_button"].show()
+                self.selected_cat_elements["not_favourite_button"].hide()
             if game.switches['window_open']:
                 pass
         elif event.type == pygame.KEYDOWN and game.settings['keybinds']:
@@ -449,7 +456,32 @@ class BetaRoleScreen(Screens):
                                                                         (name_text_size.width * 2, 80))),
                                                                        object_id=get_text_box_theme(
                                                                         "#text_box_40_horizcenter"), manager=MANAGER)
+        if game.settings['fullscreen']:
+            x_pos = 400 - name_text_size.width//2
+        else:
+            x_pos = 405 - name_text_size.width
+        self.selected_cat_elements["favourite_button"] = UIImageButton(scale(pygame.Rect
+                                                                ((x_pos, 230), (56, 56))),
+                                                              "",
+                                                              object_id="#fav_cat",
+                                                              manager=MANAGER,
+                                                              tool_tip_text='Remove favorite status',
+                                                              starting_height=2)
 
+        self.selected_cat_elements["not_favourite_button"] = UIImageButton(scale(pygame.Rect
+                                                                    ((x_pos, 230),
+                                                                        (56, 56))),
+                                                                 "",
+                                                                 object_id="#not_fav_cat",
+                                                                 manager=MANAGER,
+                                                                 tool_tip_text='Mark as favorite',
+                                                                 starting_height=2)  
+        if self.the_cat.favourite:
+            self.selected_cat_elements["favourite_button"].show()
+            self.selected_cat_elements["not_favourite_button"].hide()
+        else:
+            self.selected_cat_elements["favourite_button"].hide()
+            self.selected_cat_elements["not_favourite_button"].show()
         text = f"{self.the_cat.moons} "
 
         if self.the_cat.moons == 1:
