@@ -435,11 +435,21 @@ class BetaRoleScreen(Screens):
         )
 
         name = str(self.the_cat.name)
-        short_name = shorten_text_to_fit(name, 300, 26)
-        self.selected_cat_elements["cat_name"] = pygame_gui.elements.UILabel(scale(pygame.Rect((250, 250), (350, -1))),
-                                                                             short_name,
-        
-                                                                             object_id=get_text_box_theme())
+        short_name = shorten_text_to_fit(name, 390, 40)
+        self.selected_cat_elements["cat_name"] = pygame_gui.elements.UITextBox(short_name,
+                                                                          scale(pygame.Rect((50, 120), (-1, 80))),
+                                                                          object_id=get_text_box_theme(
+                                                                              "#text_box_40_horizcenter"), manager=MANAGER)
+        name_text_size = self.selected_cat_elements["cat_name"].get_relative_rect()
+        self.selected_cat_elements["cat_name"].kill()
+
+        self.selected_cat_elements["cat_name"] = pygame_gui.elements.UITextBox(short_name,
+                                                                      scale(pygame.Rect(
+                                                                        (420 - name_text_size.width, 230),
+                                                                        (name_text_size.width * 2, 80))),
+                                                                       object_id=get_text_box_theme(
+                                                                        "#text_box_40_horizcenter"), manager=MANAGER)
+
         text = f"{self.the_cat.moons} "
 
         if self.the_cat.moons == 1:
