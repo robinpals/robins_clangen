@@ -18,11 +18,8 @@ from .EventsScreen import EventsScreen
 from .ChooseMateScreen import ChooseMateScreen
 from .ChooseMentorScreen import ChooseMentorScreen
 from .FamilyTreeScreen import FamilyTreeScreen
-from .OutsideClanScreen import OutsideClanScreen
 from .MediationScreen import MediationScreen
 from .ClanSettingsScreen import ClanSettingsScreen
-from .BetaRoleScreen import BetaRoleScreen
-from .CodeInspectScreen import CodeInspectScreen
 
 # ---------------------------------------------------------------------------- #
 #                                  UI RULES                                    #
@@ -54,8 +51,7 @@ profile_screen = ProfileScreen('profile screen')
 ceremony_screen = CeremonyScreen('ceremony screen')
 role_screen = RoleScreen('role screen')
 sprite_inspect_screen = SpriteInspectScreen("sprite inspect screen")
-beta_role_screen = BetaRoleScreen('beta role screen')
-beta_inspect_screen = CodeInspectScreen('code inspect screen')
+
 
 make_clan_screen = MakeClanScreen('make clan screen')
 
@@ -85,5 +81,3 @@ relationship_screen = RelationshipScreen('relationship screen')
 view_children_screen = FamilyTreeScreen('see kits screen')
 mediation_screen = MediationScreen("mediation screen")
 
-
-outside_clan_screen = OutsideClanScreen('other screen')

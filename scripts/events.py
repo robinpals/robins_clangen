@@ -640,12 +640,16 @@ class Events:
         # Proform a ceremony if needed
         for x in [lost_cat] + [Cat.fetch_cat(i) for i in additional_cats]:             
            
-            if x.status in ["apprentice", "medicine cat apprentice", "mediator apprentice", "kitten", "newborn"]: 
+            if x.status in ["apprentice", "medicine cat apprentice", "mediator apprentice", "starteller apprentice", "defense apprentice","kitten", "newborn"]: 
                 if x.moons >= 15:
                     if x.status == "medicine cat apprentice":
                         self.ceremony(x, "medicine cat")
                     elif x.status == "mediator apprentice":
                         self.ceremony(x, "mediator")
+                    elif x.status == "starteller apprentice":
+                        self.ceremony(x, "starteller")
+                    elif x.status == "defense apprentice":
+                        self.ceremony(x, "defense")
                     else:
                         self.ceremony(x, "warrior")
                 elif x.status in ["kitten", "newborn"] and x.moons >= 6:
@@ -1249,6 +1253,7 @@ class Events:
         mentor_type = {
             "medicine cat": ["medicine cat"],
             "warrior": ["warrior", "deputy", "leader", "elder", "defense", "attack", "hunt"],
+            "defense": ["defense"],
             "starteller": ["starteller"],
             "mediator": ["mediator"]
         }
@@ -1258,7 +1263,7 @@ class Events:
             possible_ceremonies.update(self.ceremony_id_by_tag[promoted_to])
 
             # Get ones for prepared status ----------------------------------------------
-            if promoted_to in ["warrior", "medicine cat", "mediator", "defense","attack","hunt"]:
+            if promoted_to in ["warrior", "medicine cat", "mediator", "starteller", "defense","attack","hunt"]:
                 possible_ceremonies = possible_ceremonies.intersection(
                     self.ceremony_id_by_tag[preparedness])
 

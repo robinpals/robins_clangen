@@ -193,7 +193,42 @@ class SkillPath(Enum):
         "fish-catcher", 
         "gold star fishercat"
     )
-    
+    RESOURCEFUL = (
+        "trys new things",
+        "resourceful",
+        "very resourceful",
+        "extremely resourceful"
+    )
+    RESILIENT = (
+        "scrappy",
+        "never gives up",
+        "resilient",
+        "always gets back up"
+    )
+    STRONG = (
+        "enjoys roughousing",
+        "strong",
+        "impressive strength",
+        "exceptionally strong"
+    )
+    TALENTED = (
+        "naturally gifted",
+        "gifted",
+        "very talented",
+        "jack of all trades"
+    )
+    SPEECH = (
+        "talks a lot",
+        "familiar with fox-speak",
+        "multilingual",
+        "listener of all voices"
+    )
+    TEAMWORK = (
+        "always helps others up",
+        "works well with others",
+        "team player",
+        "quality teammate"
+    )
     
     @staticmethod
     def get_random(exclude:list=()):
@@ -202,7 +237,7 @@ class SkillPath(Enum):
         uncommon_paths = [i for i in [SkillPath.GHOST, SkillPath.PROPHET, 
                           SkillPath.CLAIRVOYANT, SkillPath.DREAM,
                           SkillPath.OMEN, SkillPath.STAR, SkillPath.HEALER, 
-                          SkillPath.DARK]
+                          SkillPath.DARK, SkillPath.TALENTED, SkillPath.SPEECH]
                           if i not in exclude]
         
         
@@ -264,7 +299,13 @@ class Skill():
         SkillPath.FINDER: "finder",
         SkillPath.EXPLORER: "explorer",
         SkillPath.COMFORTER: "comforting",
-        SkillPath.FISHER: "fishing"
+        SkillPath.FISHER: "fishing",
+        SkillPath.RESOURCEFUL: "resourceful",
+        SkillPath.RESILIENT: "resilient",
+        SkillPath.STRONG: "strong",
+        SkillPath.TALENTED: "talented",
+        SkillPath.SPEECH: "multilingual",
+        SkillPath.TEAMWORK: "teamwork"
     }
     
     
@@ -409,7 +450,13 @@ class CatSkills:
         SkillPath.FINDER: SkillTypeFlag.OBSERVANT | SkillTypeFlag.SUPERNATURAL,
         SkillPath.EXPLORER: SkillTypeFlag.AGILE | SkillTypeFlag.OBSERVANT,
         SkillPath.COMFORTER: SkillTypeFlag.SOCIAL | SkillTypeFlag.OBSERVANT,
-        SkillPath.FISHER: SkillTypeFlag.AGILE
+        SkillPath.FISHER: SkillTypeFlag.AGILE,
+        SkillPath.RESOURCEFUL: SkillTypeFlag.SMART | SkillTypeFlag.OBSERVANT,
+        SkillPath.RESILIENT: SkillTypeFlag.STRONG,
+        SkillPath.STRONG: SkillTypeFlag.STRONG,
+        SkillPath.TALENTED: SkillTypeFlag.SMART,
+        SkillPath.SPEECH: SkillTypeFlag.SMART | SkillTypeFlag.SOCIAL | SkillTypeFlag.OBSERVANT,
+        SkillPath.TEAMWORK: SkillTypeFlag.SOCIAL
     }
     # pylint: enable=unsupported-binary-operation
     
