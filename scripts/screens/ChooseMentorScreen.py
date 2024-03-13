@@ -95,7 +95,7 @@ class ChooseMentorScreen(Screens):
                                                   "will not be listed as a former apprentice on their old mentor's "
                                                   "profile. Apprentices without a mentor will have one automatically "
                                                   "assigned next moon. An apprentice's mentor can have an influence on "
-                                                  "their trait and skill later in life.\nChoose your mentors wisely",
+                                                  "their trait and skill later in life.\nChoose your mentors wisely.",
                                                   scale(pygame.Rect((360, 105), (880, 185))),
                                                   object_id=get_text_box_theme("#text_box_22_horizcenter_spacing_95"),
                                                   manager=MANAGER)
@@ -278,13 +278,13 @@ class ChooseMentorScreen(Screens):
 
             if self.next_cat == 0 and check_cat.ID != self.the_cat.ID and check_cat.dead == self.the_cat.dead and \
                     check_cat.ID != game.clan.instructor.ID and not check_cat.exiled and check_cat.status in \
-                    ["apprentice", "medicine cat apprentice", "mediator apprentice", "starteller apprentice"] \
+                    ["apprentice", "medicine cat apprentice", "mediator apprentice", "starteller apprentice", "defense apprentice"] \
                     and check_cat.df == self.the_cat.df:
                 self.previous_cat = check_cat.ID
 
             elif self.next_cat == 1 and check_cat.ID != self.the_cat.ID and check_cat.dead == self.the_cat.dead and \
                     check_cat.ID != game.clan.instructor.ID and not check_cat.exiled and check_cat.status in \
-                    ["apprentice", "medicine cat apprentice", "mediator apprentice", "starteller apprentice"] \
+                    ["apprentice", "medicine cat apprentice", "mediator apprentice", "starteller apprentice", "defense apprentice"] \
                     and check_cat.df == self.the_cat.df:
                 self.next_cat = check_cat.ID
 
@@ -443,7 +443,7 @@ class ChooseMentorScreen(Screens):
         if self.the_cat.status == "apprentice":
             for cat in Cat.all_cats_list:
                 if not cat.dead and not cat.outside and cat.status in [
-                    'warrior', 'deputy', 'leader'
+                    'warrior', 'deputy', 'leader', 'defense', 'attack', 'hunt'
                 ]:
                     valid_mentors.append(cat)
         elif self.the_cat.status == "medicine cat apprentice":
@@ -457,6 +457,10 @@ class ChooseMentorScreen(Screens):
         elif self.the_cat.status == "starteller apprentice":
             for cat in Cat.all_cats_list:
                 if not cat.dead and not cat.outside and cat.status == 'starteller':
+                    valid_mentors.append(cat)
+        elif self.the_cat.status == "defense apprentice":
+            for cat in Cat.all_cats_list:
+                if not cat.dead and not cat.outside and cat.status == 'defense':
                     valid_mentors.append(cat)
 
         return valid_mentors

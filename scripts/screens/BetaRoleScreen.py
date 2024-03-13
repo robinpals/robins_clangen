@@ -26,6 +26,7 @@ class BetaRoleScreen(Screens):
     apprentice_options_visible = True
     role_text_buttons = {}
     scroll_options_size = ()
+    favorite_string = ""
     
 
     def handle_event(self, event):
@@ -174,10 +175,20 @@ class BetaRoleScreen(Screens):
                 self.the_cat.favourite = False
                 self.selected_cat_elements["favourite_button"].hide()
                 self.selected_cat_elements["not_favourite_button"].show()
+                self.update_selected_cat()
+                self.switch_defense_app.hide()
+                self.switch_defense.hide()
+                self.switch_attack.hide()
+                self.switch_hunt.hide()
             elif event.ui_element == self.selected_cat_elements["not_favourite_button"]:
                 self.the_cat.favourite = True
                 self.selected_cat_elements["favourite_button"].show()
                 self.selected_cat_elements["not_favourite_button"].hide()
+                self.update_selected_cat()
+                self.switch_defense_app.hide()
+                self.switch_defense.hide()
+                self.switch_attack.hide()
+                self.switch_hunt.hide()
             if game.switches['window_open']:
                 pass
         elif event.type == pygame.KEYDOWN and game.settings['keybinds']:
@@ -347,6 +358,14 @@ class BetaRoleScreen(Screens):
         self.update_apprentice_buttons()
         
         
+    def update_favorite_text(self):
+        self.favorite_string = ""
+        if self.the_cat.favourite:
+            self.favorite_string = "\n" + "<em>* favorited!</em>"
+        else:
+            self.favorite_string = ""
+            
+
     def disable_other_buttons(self):
         self.switch_starteller.disable()
         self.switch_med_cat.disable()
@@ -457,11 +476,11 @@ class BetaRoleScreen(Screens):
                                                                        object_id=get_text_box_theme(
                                                                         "#text_box_40_horizcenter"), manager=MANAGER)
         if game.settings['fullscreen']:
-            x_pos = 400 - name_text_size.width//2
+            x_pos = 370 - name_text_size.width//2
         else:
-            x_pos = 405 - name_text_size.width
+            x_pos = 375 - name_text_size.width
         self.selected_cat_elements["favourite_button"] = UIImageButton(scale(pygame.Rect
-                                                                ((x_pos, 230), (56, 56))),
+                                                                ((x_pos, 241), (56, 56))),
                                                               "",
                                                               object_id="#fav_cat",
                                                               manager=MANAGER,
@@ -469,7 +488,7 @@ class BetaRoleScreen(Screens):
                                                               starting_height=2)
 
         self.selected_cat_elements["not_favourite_button"] = UIImageButton(scale(pygame.Rect
-                                                                    ((x_pos, 230),
+                                                                    ((x_pos, 241),
                                                                         (56, 56))),
                                                                  "",
                                                                  object_id="#not_fav_cat",
@@ -496,11 +515,11 @@ class BetaRoleScreen(Screens):
         text += self.the_cat.skills.skill_string() + "\n"
 
         if self.the_cat.status == "attack":
-            text += f"currently: <b>runner</b>\n{self.the_cat.personality.trait}\n"
+            text += f"currently: <b>runner</b>"
         elif self.the_cat.status == "defense":
-            text += f"currently: <b>guard</b>\n{self.the_cat.personality.trait}\n"
+            text += f"currently: <b>guard</b>"
         elif self.the_cat.status == "hunt":
-            text+= f"currently: <b>hunter</b>\n{self.the_cat.personality.trait}\n"
+            text+= f"currently: <b>hunter</b>"
         else:
             text += f"currently: <b>{self.the_cat.status}</b>"
         text += "\n"
@@ -518,6 +537,8 @@ class BetaRoleScreen(Screens):
 
             text += ", ".join([str(Cat.fetch_cat(x).name) for x in
                                self.the_cat.apprentice if Cat.fetch_cat(x)])
+        self.update_favorite_text()
+        text += self.favorite_string
 
         self.selected_cat_elements["cat_details"] = UITextBoxTweaked(text, scale(pygame.Rect((145, 800), (500, -1))),
                                                                      object_id="#text_box_34_horizleft",
@@ -528,7 +549,6 @@ class BetaRoleScreen(Screens):
                                                                                                    (600, 350))),
                                                                                  object_id="#text_box_27_horizcenter_vertcenter_spacing95",
                                                                                  manager=MANAGER)
-
         main_dir = "resources/images/"
         paths = {
             "leader": "leader_icon.png",
