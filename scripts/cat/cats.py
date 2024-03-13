@@ -286,7 +286,7 @@ class Cat():
         # sex!?!??!?!?!??!?!?!?!??
         if self.gender is None:
             intersexchance = randint(1,500)
-            if intersexchance < 5 and example is False:
+            if intersexchance < 5:
                 self.gender = "intersex"
             else:
                 self.gender = choice(["female", "male"])
@@ -322,11 +322,13 @@ class Cat():
                 elif nb_chance == 1:
                     intergenderchance = randint(1,2)
                     if intergenderchance ==1:
-                        self.genderalign = "intergender"
+                        self.genderalign = choice(["trans male", "trans female"])
                     else:
                         self.genderalign = choice(nonbiney_list)
-                else:
+                else: 
                     self.genderalign = self.gender
+            else:
+                self.genderalign = self.gender
 
             """if self.genderalign in ["female", "trans female"]:
                 self.pronouns = [self.default_pronouns[1].copy()]

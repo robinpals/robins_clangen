@@ -25,6 +25,7 @@ class BetaRoleScreen(Screens):
     warrior_options_visible = True
     apprentice_options_visible = True
     role_text_buttons = {}
+    scroll_options_size = ()
     
 
     def handle_event(self, event):
@@ -41,6 +42,7 @@ class BetaRoleScreen(Screens):
                     self.update_apprentice_buttons()
                     self.kitten_disclaimer.hide()
                     self.update_available_roles()
+                    self.disable_other_buttons()
                 else:
                     print("invalid next cat", self.next_cat)
             elif event.ui_element == self.previous_cat_button:
@@ -53,6 +55,7 @@ class BetaRoleScreen(Screens):
                     self.update_apprentice_buttons()
                     self.kitten_disclaimer.hide()
                     self.update_available_roles()
+                    self.disable_other_buttons()
                 else:
                     print("invalid previous cat", self.previous_cat)
             elif event.ui_element == self.promote_leader:
@@ -179,6 +182,8 @@ class BetaRoleScreen(Screens):
 
     def screen_switches(self):
 
+        
+
         self.retire = UIImageButton(scale(pygame.Rect((250, 1300), (334, 72))), "",
                                     object_id="#retire_button",
                                     manager=MANAGER)
@@ -237,16 +242,18 @@ class BetaRoleScreen(Screens):
             "main_scroll_container"] = pygame_gui.elements.UIScrollingContainer(
             scale(pygame.Rect((780, 300), (311, 544))), manager=MANAGER)
 
+        self.scroll_options_size = self.role_text_buttons["main_scroll_container"].get_relative_rect()
+
         self.role_text_buttons[
             "main_scroll_container"].set_scrollable_area_dimensions(
-            (311, 544))
+            (311, self.scroll_options_size.height))
         self.role_text_buttons[
             "main_scroll_container"].horiz_scroll_bar.hide()
         self.switch_starteller = UIImageButton(scale(pygame.Rect((10, 70), (250, 72))), "starteller",
                                             object_id="#saved_clan",
                                             container=self.role_text_buttons["main_scroll_container"],
                                             manager=MANAGER)
-        
+       
         # LEADERSHIP
         self.promote_leader = UIImageButton(scale(pygame.Rect((775, 827), (320, 72))), "",
                                             object_id="#promote_leader_button",
@@ -295,8 +302,8 @@ class BetaRoleScreen(Screens):
                                          	object_id="#saved_clan",
                                             starting_height=2,
                                          	manager=MANAGER)
+
         
-        self.update_warrior_buttons()
 
         # In-TRAINING ROLES:
         self.switch_warrior_app = UIImageButton(scale(pygame.Rect((10, 0), (250, 72))), "warrior",
@@ -321,6 +328,7 @@ class BetaRoleScreen(Screens):
                                             object_id="#saved_clan",
                                             manager=MANAGER)
         
+        self.disable_other_buttons()
         self.update_apprentice_buttons()
         self.update_selected_cat()
         
@@ -436,13 +444,13 @@ class BetaRoleScreen(Screens):
             text += ", ".join([str(Cat.fetch_cat(x).name) for x in
                                self.the_cat.apprentice if Cat.fetch_cat(x)])
 
-        self.selected_cat_elements["cat_details"] = UITextBoxTweaked(text, scale(pygame.Rect((150, 800), (600, -1))),
+        self.selected_cat_elements["cat_details"] = UITextBoxTweaked(text, scale(pygame.Rect((145, 800), (500, -1))),
                                                                      object_id="#text_box_34_horizleft",
                                                                      manager=MANAGER)
 
         self.selected_cat_elements["role_blurb"] = pygame_gui.elements.UITextBox(self.get_role_blurb(),
-                                                                                 scale(pygame.Rect((800, 980),
-                                                                                                   (600, 300))),
+                                                                                 scale(pygame.Rect((800, 940),
+                                                                                                   (600, 350))),
                                                                                  object_id="#text_box_27_horizcenter_vertcenter_spacing95",
                                                                                  manager=MANAGER)
 
@@ -822,7 +830,7 @@ class BetaRoleScreen(Screens):
             self.switch_guide.disable()
             self.switch_defense.enable()
             self.switch_attack.enable()
-            self.switch_hunt.disable()
+            self.switch_hunt.enable()
             self.retire.enable()
         else:
             self.promote_leader.disable()

@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: ascii -*-
 import pygame
+import textwrap
 
 from ..game_structure.windows import SaveAsImage
 
@@ -59,7 +60,10 @@ class CodeInspectScreen(Screens):
                     game.switches["cat"] = self.next_cat
                     self.cat_setup()
                     self.get_sprite_number()
-                    self.update_column_text()
+                    if self.tortie_toggle:
+                        self.update_column_text()
+                    else:
+                        pass
                 else:
                     print("invalid next cat", self.next_cat)
             elif event.ui_element == self.previous_cat_button:
@@ -67,7 +71,10 @@ class CodeInspectScreen(Screens):
                     game.switches["cat"] = self.previous_cat
                     self.cat_setup()
                     self.get_sprite_number()
-                    self.update_column_text()
+                    if self.tortie_toggle:
+                        self.update_column_text()
+                    else:
+                        pass
                 else:
                     print("invalid previous cat", self.previous_cat)
             elif event.ui_element == self.next_life_stage:
@@ -131,6 +138,7 @@ class CodeInspectScreen(Screens):
 
 
     def screen_switches(self):  
+       
         self.code_info_shown = True      
         self.next_cat_button = UIImageButton(scale(pygame.Rect((1244, 50), (306, 60))), "", object_id="#next_cat_button"
                                              , manager=MANAGER)
@@ -201,23 +209,29 @@ class CodeInspectScreen(Screens):
                                                                  starting_height=2)
         self.cat_setup()
         self.get_sprite_number()
+        self.update_column_text()
         return super().screen_switches()
 
     def get_tortie_info(self):
         self.the_cat = Cat.fetch_cat(game.switches['cat'])
         tortie_info_string = ""
+        tortie_info_title = ""
+        
+        
         if self.the_cat.pelt.name not in ['Tortie', 'Calico']:
             return ""
-        tortie_info_string += "<b>TORTIE INFO -- </b>" + "\n"
-        tortie_info_string += "   Pelt Base Type: " + str(self.the_cat.pelt.tortiebase) + "\n"
-        tortie_info_string += "   Pelt Base Color: " + str(self.the_cat.pelt.colour) + "\n"
+        tortie_info_title += "<b>TORTIE INFO --</b>" + "\n"
+        tortie_info_string += "Pelt Base Type: " + str(self.the_cat.pelt.tortiebase) + "\n"
+        tortie_info_string += "Pelt Base Color: " + str(self.the_cat.pelt.colour) + "\n"
         tortie_count = len(self.the_cat.pelt.pattern)
         if tortie_count == 1:
-            tortie_info_string += "   Tortie Patch: " + ', '.join(self.the_cat.pelt.pattern) + "\n"
+            tortie_info_string += "Tortie Patch: " + ', '.join(self.the_cat.pelt.pattern) + "\n"
         elif tortie_count > 1:
-            tortie_info_string += "   Tortie Patches: " + ', '.join(self.the_cat.pelt.pattern) + "\n"
-        tortie_info_string += "   Tortie Patch Type: " + str(self.the_cat.pelt.tortiepattern) + "\n"
-        tortie_info_string += "   Tortie Patch Color: " + str(self.the_cat.pelt.tortiecolour) + "\n"
+            tortie_info_string += "Tortie Patches: " + ', '.join(self.the_cat.pelt.pattern) + "\n"
+        tortie_info_string += "Tortie Patch Type: " + str(self.the_cat.pelt.tortiepattern) + "\n"
+        tortie_info_string += "Tortie Patch Color: " + str(self.the_cat.pelt.tortiecolour) + "\n"
+        tortie_info_string = textwrap.indent(tortie_info_string, '   ')
+        tortie_info_string = tortie_info_title + tortie_info_string
         return tortie_info_string
 
     def generate_tortie_column_info(self):
@@ -328,7 +342,7 @@ class CodeInspectScreen(Screens):
         if not self.the_cat.pelt.eye_colour2:
                 output += "\n" + "Eye Color: " + str(self.the_cat.pelt.eye_colour) + "\n"
         elif self.the_cat.pelt.eye_colour2:
-            output += "\n" + "Eye Colors: "+ str(self.the_cat.pelt.eye_colour) + "and" + str(self.the_cat.pelt.eye_colour2) + "\n"
+            output += "\n" + "Eye Colors: "+ str(self.the_cat.pelt.eye_colour) + " and " + str(self.the_cat.pelt.eye_colour2) + "\n"
         output += "Skin: " + str(self.the_cat.pelt.skin) + "\n"
 
 
@@ -378,41 +392,70 @@ class CodeInspectScreen(Screens):
 
     def update_column_text(self):
         if self.tortie_toggle:
-            self.tortie_toggle = False
-            self.cat_elements["info_column"].hide()
-            self.tortie_info_button.hide()
-            self.cat_elements["info_column"] = pygame_gui.elements.UITextBox(self.generate_column_info(),
-                                                                     scale(pygame.Rect((0, 0), (700, -1))),
-                                                                     container=self.tortie_button_scroll["info_scroll_container"],
-                                                                     object_id=get_text_box_theme(
-                                                                         "#text_box_30_horizleft"),
-                                                                        )
-            self.tortie_info_button = pygame_gui.elements.UIButton(scale(pygame.Rect((250, 65), (360, 60))), "(Click here for more info)", container=self.tortie_button_scroll["info_scroll_container"],object_id="#tortie_info", 
-                                             starting_height=2,manager=MANAGER)
-            self.info_column_size = self.cat_elements["info_column"].get_relative_rect()
-            self.tortie_button_scroll[
-                "info_scroll_container"].set_scrollable_area_dimensions(
-                (700, self.info_column_size.height))
-            self.cat_elements["info_column"].show()
-            self.tortie_info_button.show()
+            if self.the_cat.pelt.name not in ["Tortie", "Calico"]:
+                self.tortie_info_button.hide()
+                self.cat_elements["info_column"].hide()
+                self.cat_elements["info_column"] = pygame_gui.elements.UITextBox(self.generate_column_info(),
+                                                                        scale(pygame.Rect((0, 0), (600, -1))),
+                                                                        container=self.tortie_button_scroll["info_scroll_container"],
+                                                                        object_id=get_text_box_theme(
+                                                                            "#text_box_30_horizleft"),
+                                                                            )
+                self.info_column_size = self.cat_elements["info_column"].get_relative_rect()
+                self.tortie_button_scroll[
+                    "info_scroll_container"].set_scrollable_area_dimensions(
+                    (700, self.info_column_size.height))
+            else:
+                self.cat_elements["info_column"].show()
+                self.tortie_toggle = False
+                self.cat_elements["info_column"].hide()
+                self.tortie_info_button.hide()
+                self.cat_elements["info_column"] = pygame_gui.elements.UITextBox(self.generate_column_info(),
+                                                                        scale(pygame.Rect((0, 0), (600, -1))),
+                                                                        container=self.tortie_button_scroll["info_scroll_container"],
+                                                                        object_id=get_text_box_theme(
+                                                                            "#text_box_30_horizleft"),
+                                                                            )
+                self.tortie_info_button = pygame_gui.elements.UIButton(scale(pygame.Rect((250, 65), (360, 60))), "(Click here for more info)", container=self.tortie_button_scroll["info_scroll_container"],object_id="#tortie_info", 
+                                                starting_height=2,manager=MANAGER)
+                self.info_column_size = self.cat_elements["info_column"].get_relative_rect()
+                self.tortie_button_scroll[
+                    "info_scroll_container"].set_scrollable_area_dimensions(
+                    (700, self.info_column_size.height))
+                self.cat_elements["info_column"].show()
+                self.tortie_info_button.show()
         else:
-            self.tortie_toggle = True
-            self.cat_elements["info_column"].hide()
-            self.tortie_info_button.hide()
-            self.cat_elements["info_column"] = pygame_gui.elements.UITextBox(self.generate_tortie_column_info(),
-                                                                     scale(pygame.Rect((0, 0), (700, -1))),
-                                                                     container=self.tortie_button_scroll["info_scroll_container"],
-                                                                     object_id=get_text_box_theme(
-                                                                         "#text_box_30_horizleft"),
-                                                                        )
-            self.tortie_info_button = pygame_gui.elements.UIButton(scale(pygame.Rect((250, 65), (360, 60))), "(Click again to close)", container=self.tortie_button_scroll["info_scroll_container"],object_id="#tortie_info", 
-                                             starting_height=2,manager=MANAGER)
-            self.info_column_size = self.cat_elements["info_column"].get_relative_rect()
-            self.tortie_button_scroll[
-                "info_scroll_container"].set_scrollable_area_dimensions(
-                (700, self.info_column_size.height))
-            self.cat_elements["info_column"].show()
-            self.tortie_info_button.show()
+            if self.the_cat.pelt.name not in ["Tortie", "Calico"]:
+                self.tortie_info_button.hide()
+                self.cat_elements["info_column"].hide()
+                self.cat_elements["info_column"] = pygame_gui.elements.UITextBox(self.generate_column_info(),
+                                                                        scale(pygame.Rect((0, 0), (600, -1))),
+                                                                        container=self.tortie_button_scroll["info_scroll_container"],
+                                                                        object_id=get_text_box_theme(
+                                                                            "#text_box_30_horizleft"),
+                                                                            )
+                self.info_column_size = self.cat_elements["info_column"].get_relative_rect()
+                self.tortie_button_scroll[
+                    "info_scroll_container"].set_scrollable_area_dimensions(
+                    (700, self.info_column_size.height))
+            else:
+                self.tortie_toggle = True
+                self.cat_elements["info_column"].hide()
+                self.tortie_info_button.hide()
+                self.cat_elements["info_column"] = pygame_gui.elements.UITextBox(self.generate_tortie_column_info(),
+                                                                        scale(pygame.Rect((0, 0), (600, -1))),
+                                                                        container=self.tortie_button_scroll["info_scroll_container"],
+                                                                        object_id=get_text_box_theme(
+                                                                            "#text_box_30_horizleft"),
+                                                                            )
+                self.tortie_info_button = pygame_gui.elements.UIButton(scale(pygame.Rect((250, 65), (360, 60))), "(Click again to close)", container=self.tortie_button_scroll["info_scroll_container"],object_id="#tortie_info", 
+                                                starting_height=2,manager=MANAGER)
+                self.info_column_size = self.cat_elements["info_column"].get_relative_rect()
+                self.tortie_button_scroll[
+                    "info_scroll_container"].set_scrollable_area_dimensions(
+                    (700, self.info_column_size.height))
+                self.cat_elements["info_column"].show()
+                self.tortie_info_button.show()
     
 
 

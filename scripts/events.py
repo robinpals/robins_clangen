@@ -67,8 +67,10 @@ class Events:
 
         if any(
                 str(cat.status) in {
-                    'leader', 'deputy', 'warrior', 'medicine cat',
-                    'medicine cat apprentice', 'apprentice', 'mediator',
+                    'leader', 'deputy', 'starteller', 'defense', 'attack', 'hunt', 'guide', 
+                    'queen', 'warrior', 'medicine cat',
+                    'medicine cat apprentice', 'starteller apprentice', 'defense apprentice',
+                    'apprentice', 'mediator',
                     'mediator apprentice'
                 } and not cat.dead and not cat.outside
                 for cat in Cat.all_cats.values()):
@@ -292,7 +294,7 @@ class Events:
         healthy_hunter = list(
             filter(
                 lambda c: c.status in
-                          ['warrior', 'apprentice', 'leader', 'deputy'] and not c.dead
+                          ['warrior', 'apprentice', 'leader', 'deputy', 'hunt'] and not c.dead
                           and not c.outside and not c.exiled and not c.not_working(),
                 Cat.all_cats.values()))
 
@@ -709,6 +711,13 @@ class Events:
                                 game.clan.med_cat_list[0])
                         else:
                             game.clan.medicine_cat = None
+                if game.clan.starteller:
+                    if game.clan.starteller.ID == cat.ID:
+                        if game.clan.starteller_list:  # If there are other med cats
+                            game.clan.starteller = Cat.fetch_cat(
+                                game.clan.starteller_list[0])
+                        else:
+                            game.clan.starteller = None
 
                 game.cat_to_fade.append(cat.ID)
                 cat.set_faded()
@@ -928,13 +937,15 @@ class Events:
         if not war_events or not enemy_clan:
             return
 
-        if not game.clan.leader or not game.clan.deputy or not game.clan.medicine_cat:
+        if not game.clan.leader or not game.clan.deputy or not game.clan.medicine_cat or not game.clan.starteller:
             for event in war_events:
                 if not game.clan.leader and "lead_name" in event:
                     war_events.remove(event)
                 if not game.clan.deputy and "dep_name" in event:
                     war_events.remove(event)
                 if not game.clan.medicine_cat and "med_name" in event:
+                    war_events.remove(event)
+                if not game.clan.starteller and "star_name" in event:
                     war_events.remove(event)
 
         event = random.choice(war_events)
@@ -1014,9 +1025,11 @@ class Events:
                 game.clan.deputy = cat
             if cat.status == 'medicine cat' and game.clan.medicine_cat is None:
                 game.clan.medicine_cat = cat
+            if cat.status == 'starteller' and game.clan.starteller is None:
+                game.clan.starteller = cat
 
             # retiring to elder den
-            if not cat.no_retire and cat.status in ['warrior', 'deputy'] and len(cat.apprentice) < 1 and cat.moons > 114:
+            if not cat.no_retire and cat.status in ['warrior', 'defense', 'attack', 'hunt' 'deputy'] and len(cat.apprentice) < 1 and cat.moons > 114:
                 # There is some variation in the age. 
                 if cat.moons > 140 or not int(random.random() * (-0.7 * cat.moons + 100)):
                     if cat.status == 'deputy':
@@ -1046,6 +1059,19 @@ class Events:
                     # check if a med cat app already exists
                     has_med_app = any(cat.status == "medicine cat apprentice"
                                       for cat in med_cat_list)
+                    starteller_list = [i for i in Cat.all_cats_list if
+                                    i.status in ["starteller", "starteller apprentice"] and not (
+                                            i.dead or i.outside)]
+                    # check if the medicine cat is an elder
+                    has_elder_star = [c for c in med_cat_list if c.age == 'senior' and c.status == "starteller"]
+
+                    very_old_star = [
+                        c for c in med_cat_list
+                        if c.moons >= 150 and c.status == "starteller"
+                    ]
+                    # check if a med cat app already exists
+                    has_star_app = any(cat.status == "starteller apprentice"
+                                      for cat in starteller_list)
 
                     # assign chance to become med app depending on current med cat and traits
                     chance = game.config["roles"]["base_medicine_app_chance"]
@@ -1067,7 +1093,11 @@ class Events:
                         chance = int(chance / 7.125)
                     elif has_med:
                         chance = int(chance * 2.22)
-
+                    chance = game.config["roles"]["base_starteller_app_chance"]
+                    if has_elder_star == starteller_list:
+                        chance = int(chance / 13.67)
+                    elif very_old_star == starteller_list:
+                        chance = int(chance / 14)
                     if cat.personality.trait in [
                         'altruistic', 'compassionate', 'empathetic',
                         'wise', 'faithful'
@@ -1081,6 +1111,10 @@ class Events:
 
                     if not has_med_app and not int(random.random() * chance):
                         self.ceremony(cat, 'medicine cat apprentice')
+                        self.ceremony_accessory = True
+                        self.gain_accessories(cat)
+                    elif not has_star_app and not int(random.random() * chance):
+                        self.ceremony(cat, 'starteller apprentice')
                         self.ceremony_accessory = True
                         self.gain_accessories(cat)
                     else:
@@ -1123,7 +1157,7 @@ class Events:
             # graduate
             if cat.status in [
                 "apprentice", "mediator apprentice",
-                "medicine cat apprentice", "starteller apprentice"
+                "medicine cat apprentice", "starteller apprentice", "defense apprentice"
             ]:
 
                 if game.clan.clan_settings["12_moon_graduation"]:
@@ -1162,6 +1196,10 @@ class Events:
 
                     elif cat.status == 'mediator apprentice':
                         self.ceremony(cat, 'mediator', preparedness)
+                        self.ceremony_accessory = True
+                        self.gain_accessories(cat)
+                    elif cat.status == 'defense apprentice':
+                        self.ceremony(cat, 'defense', preparedness)
                         self.ceremony_accessory = True
                         self.gain_accessories(cat)
 
@@ -1210,7 +1248,8 @@ class Events:
         living_parents = []
         mentor_type = {
             "medicine cat": ["medicine cat"],
-            "warrior": ["warrior", "deputy", "leader", "elder"],
+            "warrior": ["warrior", "deputy", "leader", "elder", "defense", "attack", "hunt"],
+            "starteller": ["starteller"],
             "mediator": ["mediator"]
         }
 
@@ -1219,7 +1258,7 @@ class Events:
             possible_ceremonies.update(self.ceremony_id_by_tag[promoted_to])
 
             # Get ones for prepared status ----------------------------------------------
-            if promoted_to in ["warrior", "medicine cat", "mediator"]:
+            if promoted_to in ["warrior", "medicine cat", "mediator", "defense","attack","hunt"]:
                 possible_ceremonies = possible_ceremonies.intersection(
                     self.ceremony_id_by_tag[preparedness])
 
@@ -1362,7 +1401,7 @@ class Events:
 
         # getting the random honor if it's needed
         random_honor = None
-        if promoted_to in ['warrior', 'mediator', 'medicine cat']:
+        if promoted_to in ['warrior', 'mediator', 'medicine cat', 'defense', 'attack', 'hunt']:
             resource_dir = "resources/dicts/events/ceremonies/"
             with open(f"{resource_dir}ceremony_traits.json",
                       encoding="ascii") as read_file:
@@ -1372,7 +1411,7 @@ class Events:
             except KeyError:
                 random_honor = "hard work"
 
-        if cat.status in ["warrior", "medicine cat", "mediator"]:
+        if cat.status in ["warrior", "medicine cat", "mediator", "defense","attack","hunt"]:
             History.add_app_ceremony(cat, random_honor)
 
         ceremony_tags, ceremony_text = self.CEREMONY_TXT[random.choice(
@@ -1497,7 +1536,7 @@ class Events:
         TODO: DOCS
         """
         if cat.status in [
-            "apprentice", "medicine cat apprentice", "mediator apprentice"
+            "apprentice", "medicine cat apprentice", "mediator apprentice", "defense apprentice", "starteller apprentice"
         ]:
 
             if cat.not_working() and int(random.random() * 3):
@@ -1507,6 +1546,8 @@ class Events:
                 return
 
             if cat.status == "medicine cat apprentice":
+                ran = game.config["graduation"]["base_med_app_timeskip_ex"]
+            elif cat.status == "starteller apprentice":
                 ran = game.config["graduation"]["base_med_app_timeskip_ex"]
             else:
                 ran = game.config["graduation"]["base_app_timeskip_ex"]
@@ -1573,7 +1614,7 @@ class Events:
         if possible_other_cats:
             other_cat = random.choice(possible_other_cats)
 
-            if cat.status in ["apprentice", "medicine cat apprentice"
+            if cat.status in ["apprentice", "medicine cat apprentice", "starteller apprentice", "defense apprentice"
                               ] and not int(random.random() * 3):
                 if cat.mentor is not None:
                     other_cat = Cat.fetch_cat(cat.mentor)
@@ -1657,7 +1698,7 @@ class Events:
         if possible_other_cats:
             other_cat = random.choice(possible_other_cats)
 
-            if cat.status in ["apprentice", "medicine cat apprentice"
+            if cat.status in ["apprentice", "medicine cat apprentice", "starteller apprentice", "defense apprentice"
                               ] and not int(random.random() * 3):
                 if cat.mentor is not None:
                     other_cat = Cat.fetch_cat(cat.mentor)
@@ -2035,10 +2076,10 @@ class Events:
                 elif cat.gender == "female":
                     cat.genderalign = "trans male"
                 else:
-                    cat.genderalign = choice(["trans male", "trans female"])
+                    cat.genderalign = random.choice(["trans male", "trans female"])
 
             else:
-                cat.genderalign = choice(nonbiney_list)
+                cat.genderalign = random.choice(nonbiney_list)
                 # cat.pronouns = [cat.default_pronouns[0].copy()]
 
             if cat.gender == 'male':
