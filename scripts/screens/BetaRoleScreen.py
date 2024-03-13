@@ -206,7 +206,7 @@ class BetaRoleScreen(Screens):
 
         
 
-        self.retire = UIImageButton(scale(pygame.Rect((250, 1300), (334, 72))), "",
+        self.retire = UIImageButton(scale(pygame.Rect((250, 1300), (334, 60))), "",
                                     object_id="#retire_button",
                                     manager=MANAGER)
 
@@ -271,8 +271,8 @@ class BetaRoleScreen(Screens):
             (311, self.scroll_options_size.height))
         self.role_text_buttons[
             "main_scroll_container"].horiz_scroll_bar.hide()
-        self.switch_starteller = UIImageButton(scale(pygame.Rect((10, 70), (250, 72))), "starteller",
-                                            object_id="#saved_clan",
+        self.switch_starteller = UIImageButton(scale(pygame.Rect((10, 40), (250, 40))), "starteller",
+                                            object_id="#invis_hover_button",
                                             container=self.role_text_buttons["main_scroll_container"],
                                             manager=MANAGER)
        
@@ -285,69 +285,69 @@ class BetaRoleScreen(Screens):
                                             manager=MANAGER)
 
         # ADULT CAT ROLES
-        self.switch_warrior = UIImageButton(scale(pygame.Rect((10, 0), (250, 72))), "warrior",
-                                            object_id="#saved_clan",
+        self.switch_warrior = UIImageButton(scale(pygame.Rect((10, 0), (250, 60))), "warrior",
+                                            object_id="#invis_hover_button",
                                             container=self.role_text_buttons["main_scroll_container"],
                                             manager=MANAGER)
         
         
-        # difference of 70 per 'level' (FOR ABOVE & BELOW, not counting leader & dep)
+        # difference of 40 per 'level' (FOR ABOVE & BELOW, not counting leader & dep)
         
-        self.switch_med_cat = UIImageButton(scale(pygame.Rect((10, 140), (250, 72))), "medicine cat",
-                                            object_id="#saved_clan",
+        self.switch_med_cat = UIImageButton(scale(pygame.Rect((10, 80), (250, 60))), "medicine cat",
+                                            object_id="#invis_hover_button",
                                             container=self.role_text_buttons["main_scroll_container"],
                                             manager=MANAGER)
-        self.switch_mediator = UIImageButton(scale(pygame.Rect((10, 210), (250, 72))), "mediator",
-                                            object_id="#saved_clan",
+        self.switch_mediator = UIImageButton(scale(pygame.Rect((10, 120), (250, 60))), "mediator",
+                                            object_id="#invis_hover_button",
                                             container=self.role_text_buttons["main_scroll_container"],
                                             manager=MANAGER)
-        self.switch_queen = UIImageButton(scale(pygame.Rect((10, 280), (250, 72))), "queen",
-                                         	object_id="#saved_clan",
+        self.switch_queen = UIImageButton(scale(pygame.Rect((10, 160), (250, 60))), "queen",
+                                         	object_id="#invis_hover_button",
                                             container=self.role_text_buttons["main_scroll_container"],
                                          	manager=MANAGER)
-        self.switch_guide = UIImageButton(scale(pygame.Rect((10, 350), (250, 72))), "guide",
-                                         	object_id="#saved_clan",
+        self.switch_guide = UIImageButton(scale(pygame.Rect((10, 200), (250, 60))), "guide",
+                                         	object_id="#invis_hover_button",
                                             container=self.role_text_buttons["main_scroll_container"],
                                          	manager=MANAGER)
        
 
         # WARRIOR DROPDOWN STUFF (difference of 70 per level)
-        self.switch_defense = UIImageButton(scale(pygame.Rect((1130, 300), (250, 72))), "guard",
-                                         	object_id="#saved_clan",
+        self.switch_defense = UIImageButton(scale(pygame.Rect((1130, 300), (250, 60))), "guard",
+                                         	object_id="#invis_hover_button",
                                             starting_height=2,
                                          	manager=MANAGER)
-        self.switch_attack = UIImageButton(scale(pygame.Rect((1130, 370), (250, 72))), "runner",
-                                         	object_id="#saved_clan",
+        self.switch_attack = UIImageButton(scale(pygame.Rect((1130, 370), (250, 60))), "runner",
+                                         	object_id="#invis_hover_button",
                                             starting_height=2,
                                          	manager=MANAGER)
-        self.switch_hunt = UIImageButton(scale(pygame.Rect((1130, 440), (250, 72))), "hunter",
-                                         	object_id="#saved_clan",
+        self.switch_hunt = UIImageButton(scale(pygame.Rect((1130, 440), (250, 60))), "hunter",
+                                         	object_id="#invis_hover_button",
                                             starting_height=2,
                                          	manager=MANAGER)
 
         
 
         # In-TRAINING ROLES:
-        self.switch_warrior_app = UIImageButton(scale(pygame.Rect((10, 0), (250, 72))), "warrior",
-                                                object_id="#saved_clan",
+        self.switch_warrior_app = UIImageButton(scale(pygame.Rect((10, 0), (250, 40))), "warrior",
+                                                object_id="#invis_hover_button",
                                                 container=self.role_text_buttons["main_scroll_container"],
                                                 manager=MANAGER)
-        self.switch_starteller_app = UIImageButton(scale(pygame.Rect((10, 70), (250, 72))), "starteller",
-                                         	object_id="#saved_clan",
+        self.switch_starteller_app = UIImageButton(scale(pygame.Rect((10, 70), (250, 40))), "starteller",
+                                         	object_id="#invis_hover_button",
                                             container=self.role_text_buttons["main_scroll_container"],
                                          	manager=MANAGER)
-        self.switch_med_app = UIImageButton(scale(pygame.Rect((10, 140), (250, 72))), "medicine cat",
-                                            object_id="#saved_clan",
+        self.switch_med_app = UIImageButton(scale(pygame.Rect((10, 140), (250, 40))), "medicine cat",
+                                            object_id="#invis_hover_button",
                                             container=self.role_text_buttons["main_scroll_container"],
                                             manager=MANAGER)
-        self.switch_mediator_app = UIImageButton(scale(pygame.Rect((10, 210), (250, 72))), "mediator",
-                                            object_id="#saved_clan",
+        self.switch_mediator_app = UIImageButton(scale(pygame.Rect((10, 210), (250, 40))), "mediator",
+                                            object_id="#invis_hover_button",
                                             container=self.role_text_buttons["main_scroll_container"],
                                             manager=MANAGER)
         
         # APP DROPDOWN STUFF
-        self.switch_defense_app = UIImageButton(scale(pygame.Rect((1130, 300), (250, 72))), "guard",
-                                            object_id="#saved_clan",
+        self.switch_defense_app = UIImageButton(scale(pygame.Rect((1130, 300), (250, 40))), "guard",
+                                            object_id="#invis_hover_button",
                                             manager=MANAGER)
         self.warrior_options_visible = True
         self.apprentice_options_visible = True
@@ -540,7 +540,7 @@ class BetaRoleScreen(Screens):
         self.update_favorite_text()
         text += self.favorite_string
 
-        self.selected_cat_elements["cat_details"] = UITextBoxTweaked(text, scale(pygame.Rect((145, 800), (500, -1))),
+        self.selected_cat_elements["cat_details"] = UITextBoxTweaked(text, scale(pygame.Rect((160, 800), (500, -1))),
                                                                      object_id="#text_box_34_horizleft",
                                                                      manager=MANAGER)
 
