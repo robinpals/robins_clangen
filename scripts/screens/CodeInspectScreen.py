@@ -284,6 +284,8 @@ class CodeInspectScreen(Screens):
             output += "blue-pink"
         elif tint_category == "pink_red":
             output += "pink-red"
+        elif tint_category == "none":
+            output += "none"
         else:
             output += "Hmm! Looks like this cat doesn't have a valid tint category. If their true tint also does not give a viable RGB code, please report as a bug!"
         output += "\n"
@@ -377,7 +379,7 @@ class CodeInspectScreen(Screens):
             elif scar_count > 1:
                 output += "Scars: " + ', '.join(self.the_cat.pelt.scars) + "\n"
         else:
-            output += "Scars: None"
+            output += "Scars: None" + "\n"
         if self.the_cat.pelt.reverse:
             output += "Reversed: True" + "\n"
         else:
