@@ -159,13 +159,13 @@ class Pelt():
                   "cherry", "kiwi", "new leaves", "cool air", "warm air", "popcorn", "pizza", "bear", "soap", "beans", "honeydew", "cantalope",
                   "chicken", "rabbit","sulphur", "copper", "acrid", "starch", "smoke",
                   "coconut","tangy", "minerals", "sugar", "maple"]
-    fun_physical = ["tall", "short", "tiny", "large", "huge", "uneven", "thin", "lanky", "burly", "muscular", "slim", "sleek", "softcoat", "plushcoat", "roughcoat",
-                    "lynx-like", "dusty", "clean", "oily", "silkycoat", "wirecoat", "curlycoat", "woolycoat", "warm", "cold", "giant", "runt", "flimsy",
-                    "strong", "kinked tail", "snaggle tooth", "crooked tooth", "no fangs", "no dewclaws", "many whiskers", "large nose", "short tail", "extra toe",
-                    "piercing gaze", "soft gaze", "sharp features", "soft features"]
+    fun_physical = ["tall", "short", "tiny", "large", "oddly regular", "huge", "uneven", "thin", "lanky", "burly", "muscular", "slim", "sleek", "soft coat", "plush coat", "rough coat",
+                    "lynx-like", "dusty", "clean", "oily", "silky coat", "wire coat", "curly coat", "wooly coat", "warm", "cold", "giant", "runt", "flimsy",
+                    "strong", "kinked tail", "snaggle tooth", "crooked tooth", "no fangs", "declawed", "many whiskers", "large nose", "short tail", "extra toe",
+                    "piercing gaze", "soft gaze", "sharp features", "soft features", "square features"]
     fun_random = ["terrified of spiders", "extremely loud", "loves the rain", "loves the snow" , "loves the sun", 
                   "loves the taste of kittypet food", "loves the taste of berries", "collects seashells", "collects feathers", "collects rocks", "collects gems", "collects flowers",
-                  "collects leaves", "has a silly smile", "not scared of bears", "not scared of twolegs", "terrified of mice", "running from the past", "easily amused", 
+                  "collects leaves", "has a silly smile", "constantly tired", "constantly hyper", "not scared of bears", "not scared of twolegs", "terrified of mice", "running from the past", "easily amused", 
                   "loves to sleep", "always sleepy", "always anxious", "over confident", "avid jogger", "frequent moonbather", "frequent sunbather", "watches cars", "watches birds",
                   "cloudwatcher", "finds herbs delicious", "collects cat toys", "likes to sing", "meows a lot", "loves to swim", "very quiet", "mews a lot", "has raspy meows",
                   "chatterbox", "collects fabric scraps", "takes long walks at night", "often steals", "pot-stirrer", "huge gossip", "very dramatic", "hates authority", "wants to live alone",
@@ -174,8 +174,8 @@ class Pelt():
                   "likes to have many friends", "likes to run", "has a favorite spot", "has a favorite color", "has a favorite snack", "always snacking", "likes to give gifts", "likes to get gifts",
                   "collects shiny metal", "friends with ravens", "friends with crows", "friends with pigeons", "strong moral compass", "morally flexible", "sneezes a lot", "has seasonal allergies",
                   "a little awkward", "very lovable", "likes to decorate", "lost in thought", "asks a lot of questions", "sits on hills", "relaxes on beaches", "meows like birds sing",
-                  "collects snake skins", "has a fast heartbeat", "has a slow heartbeat", "prefers nicknames", "steals twoleg food", "gets up to no good", "always plotting", "wants to overthrow power",
-                  "chases petals", "chases leaves", "chases cars", "would live on a boat", "hates summer", "hates winter", "thinks frogs are cool", "watchful eye", "doesn't like working",
+                  "collects snake skins", "has a fast heartbeat", "has a slow heartbeat", "has a unsteady heartbeat", "falls over a lot", "prefers nicknames", "steals twoleg food", "gets up to no good", "always plotting", "wants to overthrow power",
+                  "chases petals", "chases leaves", "chases cars", "would live on a boat", "hates greenleaf", "hates leaf-bare", "thinks frogs are cool", "watchful eye", "doesn't like working",
                   "loves their job", "likes their reflection", "collects bugs", "stargazer", "often annoying", "predicts the weather", "a bean", "often licks ice", "snow eater", "appreciates art",
                   "often steals honey", "collects pine needles", "very cute", "very pretty", "very charming", "very fast", "loves the moon", "has cold toes",
                   "often alone", "never alone", "steals kittypet treats", "always bored", "speaks slowly", "speaks too quickly", "easily entertained", "loves a good conversation",
@@ -187,7 +187,8 @@ class Pelt():
                   "hates silence", "drawn to others", "drawn to flowers", "likes to dig", "excellent nose", "falls a lot", "drawn to fire", "really mean", "really rude", "good vibes", "always positive",
                   "always negative", "a little offputting", "tends to obsess", "hates getting dirty", "hides from rain", "hides from sun", "ignores problems", "thinks out loud", "largely disinterested",
                   "way too invested", "always lucky", "complains a lot", "giver of compliments", "not very empathetic", "bleeding heart", "never angry", "frequently annoyed", "won't swim",
-                  "chirps at birds", "has a long tongue", "abrasive", "likes to chew", "collects sticks", "firestarter", "startles easily", "rarely phased", "always in a phase", "tracks the moon"]
+                  "chirps at birds", "has a long tongue", "abrasive", "likes to chew", "collects sticks", "firestarter", "startles easily", "rarely phased", "always in a phase", "tracks the moon", "has trouble fitting in",
+                  "fits in easily", "actively stays out of the norm", "keeps up with trends", "loves to accessorize", "is confused by trends", "hates anything on their pelt", "despises blue", "despises red"]
     """Holds all appearence information for a cat. """
     def __init__(self,
                  name:str="SingleColour",

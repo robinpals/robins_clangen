@@ -691,6 +691,10 @@ class ProfileScreen(Screens):
         # NEWLINE ----------
         output += "\n"
 
+        # SCENT
+        output += 'scent: ' + the_cat.pelt.fun_traits[0]
+        output += "\n"
+
         # PELT LENGTH
         output += 'fur length: ' + the_cat.pelt.length
         
@@ -867,9 +871,7 @@ class ProfileScreen(Screens):
         output += the_cat.pelt.fun_traits[2]
         output += "\n"
 
-        # SCENT
-        output += 'scent: ' + the_cat.pelt.fun_traits[0]
-        output += "\n"
+        
 
 
         # EXPERIENCE
@@ -1205,7 +1207,7 @@ class ProfileScreen(Screens):
         #First, just list the mentors:
         if self.the_cat.status in ['kitten', 'newborn']:
                 influence_history = 'This cat has not begun training.'
-        elif self.the_cat.status in ['apprentice', 'medicine cat apprentice', 'mediator apprentice', 'starteller apprentice']:
+        elif self.the_cat.status in ['apprentice', 'medicine cat apprentice', 'mediator apprentice', 'starteller apprentice', 'defense apprentice']:
             influence_history = 'This cat has not finished training.'
         else:
             valid_formor_mentors = [Cat.fetch_cat(i) for i in self.the_cat.former_mentor if 
