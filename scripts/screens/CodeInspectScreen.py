@@ -188,7 +188,7 @@ class CodeInspectScreen(Screens):
         self.tortie_button_scroll[
             "info_scroll_container"].horiz_scroll_bar.hide()
         
-        self.tortie_info_button =  pygame_gui.elements.UIButton(scale(pygame.Rect((250, 65), (360, 60))), "(Click here for more info)", container=self.tortie_button_scroll["info_scroll_container"],object_id="#tortie_info", 
+        self.tortie_info_button =  pygame_gui.elements.UIButton(scale(pygame.Rect((250, 65), (360, 60))), "(Click here for more info)", container=self.tortie_button_scroll["info_scroll_container"],object_id="#invis_button", 
                                              starting_height=2,manager=MANAGER)
         # Toggle Text:
         self.scars_shown_text = pygame_gui.elements.UITextBox("Show Scar(s)", scale(pygame.Rect((550, 1160), (290, 100))),
@@ -284,6 +284,8 @@ class CodeInspectScreen(Screens):
             output += "blue-pink"
         elif tint_category == "pink_red":
             output += "pink-red"
+        elif tint_category == "none":
+            output += "none"
         else:
             output += "Hmm! Looks like this cat doesn't have a valid tint category. If their true tint also does not give a viable RGB code, please report as a bug!"
         output += "\n"
@@ -377,7 +379,7 @@ class CodeInspectScreen(Screens):
             elif scar_count > 1:
                 output += "Scars: " + ', '.join(self.the_cat.pelt.scars) + "\n"
         else:
-            output += "Scars: None"
+            output += "Scars: None" + "\n"
         if self.the_cat.pelt.reverse:
             output += "Reversed: True" + "\n"
         else:
@@ -416,7 +418,7 @@ class CodeInspectScreen(Screens):
                                                                         object_id=get_text_box_theme(
                                                                             "#text_box_30_horizleft"),
                                                                             )
-                self.tortie_info_button = pygame_gui.elements.UIButton(scale(pygame.Rect((250, 65), (360, 60))), "(Click here for more info)", container=self.tortie_button_scroll["info_scroll_container"],object_id="#tortie_info", 
+                self.tortie_info_button = pygame_gui.elements.UIButton(scale(pygame.Rect((250, 65), (360, 60))), "(Click here for more info)", container=self.tortie_button_scroll["info_scroll_container"],object_id="#invis_button", 
                                                 starting_height=2,manager=MANAGER)
                 self.info_column_size = self.cat_elements["info_column"].get_relative_rect()
                 self.tortie_button_scroll[
@@ -448,7 +450,7 @@ class CodeInspectScreen(Screens):
                                                                         object_id=get_text_box_theme(
                                                                             "#text_box_30_horizleft"),
                                                                             )
-                self.tortie_info_button = pygame_gui.elements.UIButton(scale(pygame.Rect((250, 65), (360, 60))), "(Click again to close)", container=self.tortie_button_scroll["info_scroll_container"],object_id="#tortie_info", 
+                self.tortie_info_button = pygame_gui.elements.UIButton(scale(pygame.Rect((250, 65), (360, 60))), "(Click again to close)", container=self.tortie_button_scroll["info_scroll_container"],object_id="#invis_button", 
                                                 starting_height=2,manager=MANAGER)
                 self.info_column_size = self.cat_elements["info_column"].get_relative_rect()
                 self.tortie_button_scroll[
@@ -506,15 +508,25 @@ class CodeInspectScreen(Screens):
             current_life_stage = "adult"
         else:
             current_life_stage = self.the_cat.age
-        
+            
         self.valid_life_stages = []
-        for life_stage in CodeInspectScreen.cat_life_stages:
-            self.valid_life_stages.append(life_stage)
-            if life_stage == current_life_stage:
-                break
+        if game.clan.clan_settings["future sprites"]:
+            for life_stage in CodeInspectScreen.cat_life_stages:
+                self.valid_life_stages.append(life_stage)
+                if life_stage == current_life_stage:
+                    self.future_life_stages = len(self.cat_life_stages) - len(self.valid_life_stages)
+        else:
+            for life_stage in CodeInspectScreen.cat_life_stages:
+                self.valid_life_stages.append(life_stage)
+                if life_stage == current_life_stage:
+                    self.future_life_stages = len(self.cat_life_stages) - len(self.valid_life_stages)
+                    break
         
-        #Store the index of the currently displayed life stage. 
-        self.displayed_life_stage = len(self.valid_life_stages) - 1
+        #Store the index of the currently displayed life stage.
+        if game.clan.clan_settings["future sprites"]:
+            self.displayed_life_stage = len(self.valid_life_stages) - self.future_life_stages - 1
+        else:
+            self.displayed_life_stage = len(self.valid_life_stages) - 1
         
         #Reset all the toggles
         self.lifestage = None

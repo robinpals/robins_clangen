@@ -213,13 +213,23 @@ class SpriteInspectScreen(Screens):
             current_life_stage = self.the_cat.age
         
         self.valid_life_stages = []
-        for life_stage in SpriteInspectScreen.cat_life_stages:
-            self.valid_life_stages.append(life_stage)
-            if life_stage == current_life_stage:
-                break
+        if game.clan.clan_settings["future sprites"]:
+            for life_stage in SpriteInspectScreen.cat_life_stages:
+                self.valid_life_stages.append(life_stage)
+                if life_stage == current_life_stage:
+                    self.future_life_stages = len(self.cat_life_stages) - len(self.valid_life_stages)
+        else:
+            for life_stage in SpriteInspectScreen.cat_life_stages:
+                self.valid_life_stages.append(life_stage)
+                if life_stage == current_life_stage:
+                    self.future_life_stages = len(self.cat_life_stages) - len(self.valid_life_stages)
+                    break
         
-        #Store the index of the currently displayed life stage. 
-        self.displayed_life_stage = len(self.valid_life_stages) - 1
+        #Store the index of the currently displayed life stage.
+        if game.clan.clan_settings["future sprites"]:
+            self.displayed_life_stage = len(self.valid_life_stages) - self.future_life_stages - 1
+        else:
+            self.displayed_life_stage = len(self.valid_life_stages) - 1
         
         #Reset all the toggles
         self.lifestage = None
@@ -336,6 +346,7 @@ class SpriteInspectScreen(Screens):
         """Makes the cat image """
         if "cat_image" in self.cat_elements:
             self.cat_elements["cat_image"].kill()
+        
         
         self.cat_image = generate_sprite(self.the_cat, life_state=self.valid_life_stages[self.displayed_life_stage], 
                                          scars_hidden=not self.scars_shown,
