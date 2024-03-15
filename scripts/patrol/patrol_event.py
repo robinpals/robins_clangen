@@ -207,7 +207,6 @@ OLD
     border patrols - "border", "other_clan", "reputation",
 
     med patrols - "med_cat", "herb", "random_herbs", "many_herbs#"
-
     un-used for now - "npc", "gone_cat"
             
     death and gone tags -
@@ -287,6 +286,7 @@ OLD
     Border - bord
     Training - train
     Med Cat - med
+    Mediating - mediate
     If no specific type, pick one bc they gotta be categorized somewhere.  Make dupes in each type if you feel like 
     they all apply or some apply.
 
