@@ -53,6 +53,8 @@ class Cat():
         "elder",
         "queen",
         "apprentice",
+        "hunt apprentice",
+        "attack apprentice",
         "defense apprentice",
         "guide",
         "warrior",
@@ -271,7 +273,7 @@ class Cat():
                 self.age = 'kitten'
             elif status == 'elder':
                 self.age = 'senior'
-            elif status in ['apprentice', 'mediator apprentice', 'medicine cat apprentice', 'starteller apprentice', 'defense apprentice']:
+            elif status in ['apprentice', 'mediator apprentice', 'medicine cat apprentice', 'starteller apprentice', 'defense apprentice', 'attack apprentice', 'hunt apprentice']:
                 self.age = 'adolescent'
             else:
                 self.age = choice(['young adult', 'adult', 'adult', 'senior adult'])
@@ -743,6 +745,10 @@ class Cat():
         if self.status == 'apprentice':
             pass
         elif self.status == 'defense apprentice':
+            pass
+        elif self.status == 'attack apprentice':
+            pass
+        elif self.status == 'hunt apprentice':
             pass
         elif self.status == 'medicine cat apprentice':
             pass
@@ -1388,7 +1394,7 @@ class Cat():
         self.personality.set_kit(self.is_baby())
         # Upon age-change
 
-        if self.status in ['apprentice', 'mediator apprentice', 'medicine cat apprentice', 'starteller apprentice', 'defense apprentice']:
+        if self.status in ['apprentice', 'mediator apprentice', 'medicine cat apprentice', 'starteller apprentice', 'defense apprentice', 'attack apprentice', 'hunt apprentice']:
             self.update_mentor()
 
     def thoughts(self):
@@ -1937,7 +1943,7 @@ class Cat():
         
         #There are some special tasks we need to do for apprentice
         # Note that although you can unretire cats, they will be a full warrior/med_cat/mediator
-        if self.moons > 6 and self.status in ["apprentice", "medicine cat apprentice", "mediator apprentice", "starteller apprentice", "defense apprentice"]:
+        if self.moons > 6 and self.status in ["apprentice", "medicine cat apprentice", "mediator apprentice", "starteller apprentice", "defense apprentice", "attack apprentice", "hunt apprentice"]:
             _ment = Cat.fetch_cat(self.mentor) if self.mentor else None
             self.status_change("warrior") # Temp switch them to warrior, so the following step will work
             self.rank_change_traits_skill(_ment)
@@ -2070,6 +2076,10 @@ class Cat():
             return False
         if self.status == 'defense apprentice' and potential_mentor.status != 'defense':
             return False
+        if self.status == 'attack apprentice' and potential_mentor.status != 'attack':
+            return False
+        if self.status == 'hunt apprentice' and potential_mentor.status != 'hunt':
+            return False
         if self.status == 'apprentice' and potential_mentor.status not in [
             'leader', 'deputy', 'warrior', 'defense', 'attack', 'hunt'
         ]:
@@ -2122,7 +2132,9 @@ class Cat():
                                                                                                "mediator apprentice",
                                                                                                "medicine cat apprentice",
                                                                                                "starteller apprentice", 
-                                                                                               "defense apprentice"]
+                                                                                               "defense apprentice",
+                                                                                               "attack apprentice",
+                                                                                               "hunt apprentice"]
         if illegible_for_mentor:
             self.__remove_mentor()
             return
@@ -3297,7 +3309,7 @@ def create_example_cats():
             game.choose_cats[a] = Cat(status=choice(['defense', 'attack', 'hunt']), biome=None)
         else:
             game.choose_cats[a] = Cat(status=choice(
-                ['kitten', 'apprentice', 'defense', 'attack', 'hunt','defense', 'attack', 'hunt', 'elder']), biome=None)
+                ['kitten', 'defense apprentice','attack apprentice', 'hunt apprentice', 'defense', 'attack', 'hunt','defense', 'attack', 'hunt', 'elder']), biome=None)
         if game.choose_cats[a].moons >= 160:
             game.choose_cats[a].moons = choice(range(120, 155))
         elif game.choose_cats[a].moons == 0:

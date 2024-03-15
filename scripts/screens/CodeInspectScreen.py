@@ -556,7 +556,7 @@ class CodeInspectScreen(Screens):
 
         self.cat_elements["cat_name"] = pygame_gui.elements.UITextBox(short_name,
                                                                       scale(pygame.Rect(
-                                                                        (480 - name_text_size.width, 300),
+                                                                        (480 - name_text_size.width, 265),
                                                                         (name_text_size.width * 2, 80))),
                                                                        object_id=get_text_box_theme(
                                                                         "#text_box_40_horizcenter"), manager=MANAGER)
@@ -575,7 +575,7 @@ class CodeInspectScreen(Screens):
         else:
             x_pos = 425 - name_text_size.width
         self.cat_elements["favourite_button"] = UIImageButton(scale(pygame.Rect
-                                                                ((x_pos, 310), (56, 56))),
+                                                                ((x_pos, 275), (56, 56))),
                                                               "",
                                                               object_id="#fav_cat",
                                                               manager=MANAGER,
@@ -583,7 +583,7 @@ class CodeInspectScreen(Screens):
                                                               starting_height=2)
 
         self.cat_elements["not_favourite_button"] = UIImageButton(scale(pygame.Rect
-                                                                    ((x_pos, 310),
+                                                                    ((x_pos, 275),
                                                                         (56, 56))),
                                                                  "",
                                                                  object_id="#not_fav_cat",
@@ -651,7 +651,7 @@ class CodeInspectScreen(Screens):
                                          no_not_working=self.override_not_working)
         
         self.cat_elements["cat_image"] = pygame_gui.elements.UIImage(
-            scale(pygame.Rect((110, 300),(700, 700))),
+            scale(pygame.Rect((110, 310),(700, 700))),
             pygame.transform.scale(self.cat_image, scale_dimentions((700, 700)))
         )
       

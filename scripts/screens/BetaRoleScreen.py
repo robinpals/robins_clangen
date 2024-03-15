@@ -37,7 +37,7 @@ class BetaRoleScreen(Screens):
                 if isinstance(Cat.fetch_cat(self.next_cat), Cat):
                     game.switches["cat"] = self.next_cat
                     self.update_selected_cat()
-                    self.kitten_disclaimer.hide()
+                    self.invalid_disclaimer.hide()
                     self.update_available_roles()
                     self.warrior_options_visible = True
                     self.apprentice_options_visible = True
@@ -53,7 +53,7 @@ class BetaRoleScreen(Screens):
                 if isinstance(Cat.fetch_cat(self.previous_cat), Cat):
                     game.switches["cat"] = self.previous_cat
                     self.update_selected_cat()
-                    self.kitten_disclaimer.hide()
+                    self.invalid_disclaimer.hide()
                     self.update_available_roles()
                     self.warrior_options_visible = True
                     self.apprentice_options_visible = True
@@ -133,24 +133,40 @@ class BetaRoleScreen(Screens):
                 self.the_cat.status_change("defense apprentice", resort=True)
                 self.update_selected_cat()
                 self.disable_other_buttons()
+            elif event.ui_element == self.switch_attack_app:
+                self.apprentice_options_visible = True
+                self.the_cat.status_change("attack apprentice", resort=True)
+                self.update_selected_cat()
+                self.disable_other_buttons()
+            elif event.ui_element == self.switch_hunt_app:
+                self.apprentice_options_visible = True
+                self.the_cat.status_change("hunt apprentice", resort=True)
+                self.update_selected_cat()
+                self.disable_other_buttons()
             elif event.ui_element == self.switch_starteller_app:
                 if self.apprentice_options_visible == False:
                     self.switch_defense_app.hide()
                 self.the_cat.status_change("starteller apprentice", resort=True)
                 self.update_selected_cat()
                 self.switch_defense_app.hide()
+                self.switch_attack_app.hide()
+                self.switch_hunt_app.hide()
             elif event.ui_element == self.switch_med_app:
                 if self.apprentice_options_visible == False:
                     self.switch_defense_app.hide()
                 self.the_cat.status_change("medicine cat apprentice", resort=True)
                 self.update_selected_cat()
                 self.switch_defense_app.hide()
+                self.switch_attack_app.hide()
+                self.switch_hunt_app.hide()
             elif event.ui_element == self.switch_mediator_app:
                 if self.apprentice_options_visible == False:
                     self.switch_defense_app.hide()
                 self.the_cat.status_change("mediator apprentice", resort=True)
                 self.update_selected_cat()
                 self.switch_defense_app.hide()
+                self.switch_attack_app.hide()
+                self.switch_hunt_app.hide()
             elif event.ui_element == self.switch_queen:
                 if self.warrior_options_visible == False:
                     self.switch_defense.hide()
@@ -177,6 +193,8 @@ class BetaRoleScreen(Screens):
                 self.selected_cat_elements["not_favourite_button"].show()
                 self.update_selected_cat()
                 self.switch_defense_app.hide()
+                self.switch_attack_app.hide()
+                self.switch_hunt_app.hide()
                 self.switch_defense.hide()
                 self.switch_attack.hide()
                 self.switch_hunt.hide()
@@ -186,6 +204,8 @@ class BetaRoleScreen(Screens):
                 self.selected_cat_elements["not_favourite_button"].hide()
                 self.update_selected_cat()
                 self.switch_defense_app.hide()
+                self.switch_attack_app.hide()
+                self.switch_hunt_app.hide()
                 self.switch_defense.hide()
                 self.switch_attack.hide()
                 self.switch_hunt.hide()
@@ -206,7 +226,7 @@ class BetaRoleScreen(Screens):
 
         
 
-        self.retire = UIImageButton(scale(pygame.Rect((250, 1300), (334, 60))), "",
+        self.retire = UIImageButton(scale(pygame.Rect((250, 1300), (334, 72))), "",
                                     object_id="#retire_button",
                                     manager=MANAGER)
 
@@ -245,13 +265,13 @@ class BetaRoleScreen(Screens):
                                                                     "resources/images/role_section_labels.png").convert_alpha(),
                                                                 (800, 700))
                                                             )
-        self.kitten_disclaimer = pygame_gui.elements.UITextBox("This cat is either too young to change roles or their role is invalid.",
+        self.invalid_disclaimer = pygame_gui.elements.UITextBox("This cat is either too young to change roles or their role is invalid.",
                                                                                  scale(pygame.Rect((780, 40),
                                                                                                    (600, 300))),
                                                                                  object_id="#text_box_27_horizcenter_vertcenter_spacing95",
                                                                                  starting_height=2,
                                                                                  manager=MANAGER)
-        self.kitten_disclaimer.hide()
+        self.invalid_disclaimer.hide()
         scroll_pos = None
         if "main_scroll_container" in self.role_text_buttons and \
                             self.role_text_buttons["main_scroll_container"].vert_scroll_bar:
@@ -271,7 +291,7 @@ class BetaRoleScreen(Screens):
             (311, self.scroll_options_size.height))
         self.role_text_buttons[
             "main_scroll_container"].horiz_scroll_bar.hide()
-        self.switch_starteller = UIImageButton(scale(pygame.Rect((10, 40), (250, 40))), "starteller",
+        self.switch_starteller = UIImageButton(scale(pygame.Rect((10, 60), (250, 60))), "starteller",
                                             object_id="#invis_hover_button",
                                             container=self.role_text_buttons["main_scroll_container"],
                                             manager=MANAGER)
@@ -293,19 +313,19 @@ class BetaRoleScreen(Screens):
         
         # difference of 40 per 'level' (FOR ABOVE & BELOW, not counting leader & dep)
         
-        self.switch_med_cat = UIImageButton(scale(pygame.Rect((10, 80), (250, 60))), "medicine cat",
+        self.switch_med_cat = UIImageButton(scale(pygame.Rect((10, 120), (250, 60))), "medicine cat",
                                             object_id="#invis_hover_button",
                                             container=self.role_text_buttons["main_scroll_container"],
                                             manager=MANAGER)
-        self.switch_mediator = UIImageButton(scale(pygame.Rect((10, 120), (250, 60))), "mediator",
+        self.switch_mediator = UIImageButton(scale(pygame.Rect((10, 180), (250, 60))), "mediator",
                                             object_id="#invis_hover_button",
                                             container=self.role_text_buttons["main_scroll_container"],
                                             manager=MANAGER)
-        self.switch_queen = UIImageButton(scale(pygame.Rect((10, 160), (250, 60))), "queen",
+        self.switch_queen = UIImageButton(scale(pygame.Rect((10, 240), (250, 60))), "queen",
                                          	object_id="#invis_hover_button",
                                             container=self.role_text_buttons["main_scroll_container"],
                                          	manager=MANAGER)
-        self.switch_guide = UIImageButton(scale(pygame.Rect((10, 200), (250, 60))), "guide",
+        self.switch_guide = UIImageButton(scale(pygame.Rect((10, 300), (250, 60))), "guide",
                                          	object_id="#invis_hover_button",
                                             container=self.role_text_buttons["main_scroll_container"],
                                          	manager=MANAGER)
@@ -328,26 +348,35 @@ class BetaRoleScreen(Screens):
         
 
         # In-TRAINING ROLES:
-        self.switch_warrior_app = UIImageButton(scale(pygame.Rect((10, 0), (250, 40))), "warrior",
+        self.switch_warrior_app = UIImageButton(scale(pygame.Rect((10, 0), (250, 60))), "warrior",
                                                 object_id="#invis_hover_button",
                                                 container=self.role_text_buttons["main_scroll_container"],
                                                 manager=MANAGER)
-        self.switch_starteller_app = UIImageButton(scale(pygame.Rect((10, 70), (250, 40))), "starteller",
+        self.switch_starteller_app = UIImageButton(scale(pygame.Rect((10, 60), (250, 60))), "starteller",
                                          	object_id="#invis_hover_button",
                                             container=self.role_text_buttons["main_scroll_container"],
                                          	manager=MANAGER)
-        self.switch_med_app = UIImageButton(scale(pygame.Rect((10, 140), (250, 40))), "medicine cat",
+        self.switch_med_app = UIImageButton(scale(pygame.Rect((10, 120), (250, 60))), "medicine cat",
                                             object_id="#invis_hover_button",
                                             container=self.role_text_buttons["main_scroll_container"],
                                             manager=MANAGER)
-        self.switch_mediator_app = UIImageButton(scale(pygame.Rect((10, 210), (250, 40))), "mediator",
+        self.switch_mediator_app = UIImageButton(scale(pygame.Rect((10, 180), (250, 60))), "mediator",
                                             object_id="#invis_hover_button",
                                             container=self.role_text_buttons["main_scroll_container"],
                                             manager=MANAGER)
         
         # APP DROPDOWN STUFF
-        self.switch_defense_app = UIImageButton(scale(pygame.Rect((1130, 300), (250, 40))), "guard",
+        self.switch_defense_app = UIImageButton(scale(pygame.Rect((1130, 300), (250, 60))), "guard",
                                             object_id="#invis_hover_button",
+                                            starting_height=2,
+                                            manager=MANAGER)
+        self.switch_attack_app = UIImageButton(scale(pygame.Rect((1130, 360), (250, 60))), "runner",
+                                            object_id="#invis_hover_button",
+                                            starting_height=2,
+                                            manager=MANAGER)
+        self.switch_hunt_app = UIImageButton(scale(pygame.Rect((1130, 420), (250, 60))), "hunter",
+                                            object_id="#invis_hover_button",
+                                            starting_height=2,
                                             manager=MANAGER)
         self.warrior_options_visible = True
         self.apprentice_options_visible = True
@@ -358,6 +387,84 @@ class BetaRoleScreen(Screens):
         self.update_apprentice_buttons()
         
         
+    def update_warrior_abrv(self):
+        self.the_cat = Cat.fetch_cat(game.switches['cat'])
+        if self.the_cat.status == "defense":
+            self.switch_warrior.hide()
+            self.switch_warrior.kill()
+            self.switch_warrior = UIImageButton(scale(pygame.Rect((10, 0), (250, 60))), "warrior (G)",
+                                            object_id="#invis_hover_button",
+                                            container=self.role_text_buttons["main_scroll_container"],
+                                            starting_height=2,
+                                            manager=MANAGER)
+            self.switch_warrior.show()
+        elif self.the_cat.status == "attack":
+            self.switch_warrior.hide()
+            self.switch_warrior.kill()
+            self.switch_warrior = UIImageButton(scale(pygame.Rect((10, 0), (250, 60))), "warrior (R)",
+                                            object_id="#invis_hover_button",
+                                            container=self.role_text_buttons["main_scroll_container"],
+                                            manager=MANAGER)
+        elif self.the_cat.status == "hunt":
+            self.switch_warrior.hide()
+            self.switch_warrior.kill()
+            self.switch_warrior = UIImageButton(scale(pygame.Rect((10, 0), (250, 60))), "warrior (H)",
+                                            object_id="#invis_hover_button",
+                                            container=self.role_text_buttons["main_scroll_container"],
+                                            starting_height=2,
+                                            manager=MANAGER)
+            self.switch_warrior.show()
+        elif self.the_cat.status in ['apprentice','medicine cat apprentice', 'mediator apprentice', 'starteller apprentice']:
+            self.switch_warrior.hide()
+            self.switch_warrior.kill()
+            self.switch_warrior_app = UIImageButton(scale(pygame.Rect((10, 0), (250, 60))), "warrior",
+                                                object_id="#invis_hover_button",
+                                                container=self.role_text_buttons["main_scroll_container"],
+                                                starting_height=2,
+                                                manager=MANAGER)
+        elif self.the_cat.status == "defense apprentice":
+            self.switch_warrior.hide()
+            self.switch_warrior.kill()
+            self.switch_warrior_app.hide()
+            self.switch_warrior_app.kill()
+            self.switch_warrior_app = UIImageButton(scale(pygame.Rect((10, 0), (250, 60))), "warrior (G)",
+                                                object_id="#invis_hover_button",
+                                                container=self.role_text_buttons["main_scroll_container"],
+                                                starting_height=2,
+                                                manager=MANAGER)
+            self.switch_warrior_app.show()
+        elif self.the_cat.status == "attack apprentice":
+            self.switch_warrior.hide()
+            self.switch_warrior.kill()
+            self.switch_warrior_app.hide()
+            self.switch_warrior_app.kill()
+            self.switch_warrior_app = UIImageButton(scale(pygame.Rect((10, 0), (250, 60))), "warrior (R)",
+                                                object_id="#invis_hover_button",
+                                                container=self.role_text_buttons["main_scroll_container"],
+                                                starting_height=2,
+                                                manager=MANAGER)
+            self.switch_warrior_app.show()
+        elif self.the_cat.status == "hunt apprentice":
+            self.switch_warrior.hide()
+            self.switch_warrior.kill()
+            self.switch_warrior_app.hide()
+            self.switch_warrior_app.kill()
+            self.switch_warrior_app = UIImageButton(scale(pygame.Rect((10, 0), (250, 60))), "warrior (H)",
+                                                object_id="#invis_hover_button",
+                                                container=self.role_text_buttons["main_scroll_container"],
+                                                starting_height=2,
+                                                manager=MANAGER)
+            self.switch_warrior_app.show()
+        else:
+            self.switch_warrior.hide()
+            self.switch_warrior.kill()
+            self.switch_warrior = UIImageButton(scale(pygame.Rect((10, 0), (250, 60))), "warrior",
+                                            object_id="#invis_hover_button",
+                                            container=self.role_text_buttons["main_scroll_container"],
+                                            starting_height=2,
+                                            manager=MANAGER)
+            self.switch_warrior.show()
+
     def update_favorite_text(self):
         self.favorite_string = ""
         if self.the_cat.favourite:
@@ -397,6 +504,12 @@ class BetaRoleScreen(Screens):
             self.switch_med_app.disable()
         elif self.the_cat.status == "mediator apprentice":
             self.switch_mediator_app.disable()
+        elif self.the_cat.status == "defense apprentice":
+            self.switch_defense_app.disable()
+        elif self.the_cat.status == "attack apprentice":
+            self.switch_attack_app.disable()
+        elif self.the_cat.status == "hunt apprentice":
+            self.switch_hunt_app.disable()
 
 
     def update_warrior_buttons(self):
@@ -430,6 +543,8 @@ class BetaRoleScreen(Screens):
         if self.apprentice_options_visible: # hide the dropdown when its already shown
             self.apprentice_options_visible = False
             self.switch_defense_app.hide()
+            self.switch_attack_app.hide()
+            self.switch_hunt_app.hide()
             self.switch_starteller_app.enable()
             self.switch_med_app.enable()
             self.switch_mediator_app.enable()
@@ -439,6 +554,8 @@ class BetaRoleScreen(Screens):
         else: # show the dropdown when its already hidden
             self.apprentice_options_visible = True 
             self.switch_defense_app.show()
+            self.switch_attack_app.show()
+            self.switch_hunt_app.show()
             self.switch_starteller_app.disable()
             self.switch_med_app.disable()
             self.switch_mediator_app.disable()
@@ -454,7 +571,7 @@ class BetaRoleScreen(Screens):
             return
 
         self.selected_cat_elements["cat_image"] = pygame_gui.elements.UIImage(
-            scale(pygame.Rect((170, 250), (500, 500))),
+            scale(pygame.Rect((180, 290), (480, 480))),
             pygame.transform.scale(
                 self.the_cat.sprite, (200, 200)),
             manager=MANAGER
@@ -471,16 +588,16 @@ class BetaRoleScreen(Screens):
 
         self.selected_cat_elements["cat_name"] = pygame_gui.elements.UITextBox(short_name,
                                                                       scale(pygame.Rect(
-                                                                        (420 - name_text_size.width, 230),
+                                                                        (440 - name_text_size.width, 230),
                                                                         (name_text_size.width * 2, 80))),
                                                                        object_id=get_text_box_theme(
                                                                         "#text_box_40_horizcenter"), manager=MANAGER)
         if game.settings['fullscreen']:
-            x_pos = 370 - name_text_size.width//2
+            x_pos = 390 - name_text_size.width//2
         else:
-            x_pos = 375 - name_text_size.width
+            x_pos = 395 - name_text_size.width
         self.selected_cat_elements["favourite_button"] = UIImageButton(scale(pygame.Rect
-                                                                ((x_pos, 241), (56, 56))),
+                                                                ((x_pos, 240), (56, 56))),
                                                               "",
                                                               object_id="#fav_cat",
                                                               manager=MANAGER,
@@ -488,7 +605,7 @@ class BetaRoleScreen(Screens):
                                                               starting_height=2)
 
         self.selected_cat_elements["not_favourite_button"] = UIImageButton(scale(pygame.Rect
-                                                                    ((x_pos, 241),
+                                                                    ((x_pos, 240),
                                                                         (56, 56))),
                                                                  "",
                                                                  object_id="#not_fav_cat",
@@ -501,6 +618,7 @@ class BetaRoleScreen(Screens):
         else:
             self.selected_cat_elements["favourite_button"].hide()
             self.selected_cat_elements["not_favourite_button"].show()
+        self.update_warrior_abrv()
         text = f"{self.the_cat.moons} "
 
         if self.the_cat.moons == 1:
@@ -516,8 +634,14 @@ class BetaRoleScreen(Screens):
 
         if self.the_cat.status == "attack":
             text += f"currently: <b>runner</b>"
+        elif self.the_cat.status == "attack apprentice":
+            text += f"currently: <b>runner's apprentice</b>"
         elif self.the_cat.status == "defense":
             text += f"currently: <b>guard</b>"
+        elif self.the_cat.status == "defense apprentice":
+            text += f"currently: <b>guard's apprentice</b>"
+        elif self.the_cat.status == "hunt apprentice":
+            text += f"currently: <b>hunter's apprentice</b>"
         elif self.the_cat.status == "hunt":
             text+= f"currently: <b>hunter</b>"
         else:
@@ -540,7 +664,7 @@ class BetaRoleScreen(Screens):
         self.update_favorite_text()
         text += self.favorite_string
 
-        self.selected_cat_elements["cat_details"] = UITextBoxTweaked(text, scale(pygame.Rect((160, 800), (500, -1))),
+        self.selected_cat_elements["cat_details"] = UITextBoxTweaked(text, scale(pygame.Rect((150, 800), (500, -1))),
                                                                      object_id="#text_box_34_horizleft",
                                                                      manager=MANAGER)
 
@@ -563,7 +687,9 @@ class BetaRoleScreen(Screens):
             "defense": "defense_icon.png",
             "defense apprentice": "defense_icon.png",
             "attack": "attack_icon.png",
+            "attack apprentice": "attack_icon.png",
             "hunt": "hunt_icon.png",
+            "hunt apprentice": "hunt_icon.png",
             "apprentice": "warrior_app_icon.png",
             "queen": "queen_icon.png",
             "guide": "guide_icon.png",
@@ -619,6 +745,8 @@ class BetaRoleScreen(Screens):
             self.switch_med_app.enable()
             self.switch_warrior_app.enable()
             self.switch_defense_app.enable()
+            self.switch_attack_app.enable()
+            self.switch_hunt_app.enable()
             self.switch_mediator_app.enable()
             self.switch_starteller_app.enable()
         elif self.the_cat.status == "warrior":
@@ -676,6 +804,8 @@ class BetaRoleScreen(Screens):
             self.switch_med_app.enable()
             self.switch_warrior_app.enable()
             self.switch_defense_app.disable()
+            self.switch_attack_app.enable()
+            self.switch_hunt_app.enable()
             self.switch_mediator_app.enable()
             self.switch_starteller_app.enable()
         elif self.the_cat.status == "attack":
@@ -701,6 +831,19 @@ class BetaRoleScreen(Screens):
             self.switch_attack.disable()
             self.switch_hunt.enable()
             self.retire.enable()
+        elif self.the_cat.status == "attack apprentice":
+            self.promote_leader.disable()
+            self.promote_deputy.disable()
+            self.update_available_roles()
+
+            # In-TRAINING ROLES:
+            self.switch_med_app.enable()
+            self.switch_warrior_app.enable()
+            self.switch_defense_app.enable()
+            self.switch_attack_app.disable()
+            self.switch_hunt_app.enable()
+            self.switch_mediator_app.enable()
+            self.switch_starteller_app.enable()
         elif self.the_cat.status == "hunt":
             # LEADERSHIP
             if leader_invalid:
@@ -724,6 +867,19 @@ class BetaRoleScreen(Screens):
             self.switch_attack.enable()
             self.switch_hunt.disable()
             self.retire.enable()
+        elif self.the_cat.status == "hunt apprentice":
+            self.promote_leader.disable()
+            self.promote_deputy.disable()
+            self.update_available_roles()
+
+            # In-TRAINING ROLES:
+            self.switch_med_app.enable()
+            self.switch_warrior_app.enable()
+            self.switch_defense_app.enable()
+            self.switch_attack_app.enable()
+            self.switch_hunt_app.disable()
+            self.switch_mediator_app.enable()
+            self.switch_starteller_app.enable()
         elif self.the_cat.status == "deputy":
             if leader_invalid:
                 self.promote_leader.enable()
@@ -734,11 +890,11 @@ class BetaRoleScreen(Screens):
             self.update_available_roles()
             # ADULT CAT ROLES
             self.switch_warrior.enable()
-            self.switch_med_cat.disable()
-            self.switch_mediator.disable()
-            self.switch_starteller.disable()
-            self.switch_queen.disable()
-            self.switch_guide.disable()
+            self.switch_med_cat.enable()
+            self.switch_mediator.enable()
+            self.switch_starteller.enable()
+            self.switch_queen.enable()
+            self.switch_guide.enable()
             self.switch_defense.enable()
             self.switch_attack.enable()
             self.switch_hunt.enable()
@@ -888,6 +1044,8 @@ class BetaRoleScreen(Screens):
             self.switch_med_app.enable()
             self.switch_warrior_app.enable()
             self.switch_defense_app.enable()
+            self.switch_attack_app.enable()
+            self.switch_hunt_app.enable()
             self.switch_mediator_app.enable()
             self.switch_starteller_app.disable()
 
@@ -899,6 +1057,8 @@ class BetaRoleScreen(Screens):
             self.switch_med_app.disable()
             self.switch_warrior_app.enable()
             self.switch_defense_app.enable()
+            self.switch_attack_app.enable()
+            self.switch_hunt_app.enable()
             self.switch_mediator_app.enable()
             self.switch_starteller_app.enable()
         elif self.the_cat.status == "mediator apprentice":
@@ -909,6 +1069,8 @@ class BetaRoleScreen(Screens):
             self.switch_med_app.enable()
             self.switch_warrior_app.enable()
             self.switch_defense_app.enable()
+            self.switch_attack_app.enable()
+            self.switch_hunt_app.enable()
             self.switch_mediator_app.disable()
             self.switch_starteller_app.enable()
             
@@ -918,11 +1080,11 @@ class BetaRoleScreen(Screens):
             self.update_available_roles()
             # ADULT CAT ROLES
             self.switch_warrior.enable()
-            self.switch_med_cat.disable()
-            self.switch_mediator.disable()
-            self.switch_starteller.disable()
-            self.switch_queen.disable()
-            self.switch_guide.disable()
+            self.switch_med_cat.enable()
+            self.switch_mediator.enable()
+            self.switch_starteller.enable()
+            self.switch_queen.enable()
+            self.switch_guide.enable()
             self.switch_defense.enable()
             self.switch_attack.enable()
             self.switch_hunt.enable()
@@ -947,12 +1109,15 @@ class BetaRoleScreen(Screens):
             self.switch_med_app.disable()
             self.switch_warrior_app.disable()
             self.switch_defense_app.disable()
+            self.switch_attack_app.disable()
+            self.switch_hunt_app.disable()
             self.switch_mediator_app.disable()
             self.switch_starteller_app.disable()
+            print("else clause activated in update_disabled_buttons")
         
     def update_available_roles(self):
         self.the_cat = Cat.fetch_cat(game.switches['cat'])
-        if self.the_cat.status in ['apprentice','medicine cat apprentice', 'mediator apprentice', 'starteller apprentice', 'defense apprentice']:
+        if self.the_cat.status in ['apprentice','medicine cat apprentice', 'mediator apprentice', 'starteller apprentice', 'defense apprentice', 'attack apprentice', 'hunt apprentice']:
             self.switch_warrior.hide()
             self.switch_med_cat.hide()
             self.switch_mediator.hide()
@@ -968,7 +1133,9 @@ class BetaRoleScreen(Screens):
             self.switch_mediator_app.show()
             self.switch_starteller_app.show()
             self.switch_defense_app.show()
-        elif self.the_cat.status in ['warrior','defense','attack','hunt','starteller','guide','queen','mediator','medicine cat']:
+            self.switch_attack_app.show()
+            self.switch_hunt_app.show()
+        elif self.the_cat.status in ['warrior','defense','attack','hunt','starteller','guide','queen','mediator','medicine cat', 'elder', 'leader', 'deputy']:
             self.switch_warrior.show()
             self.switch_med_cat.show()
             self.switch_mediator.show()
@@ -984,6 +1151,8 @@ class BetaRoleScreen(Screens):
             self.switch_mediator_app.hide()
             self.switch_starteller_app.hide()
             self.switch_defense_app.hide()
+            self.switch_attack_app.hide()
+            self.switch_hunt_app.hide()
         else:
             self.switch_warrior.hide()
             self.switch_med_cat.hide()
@@ -999,9 +1168,12 @@ class BetaRoleScreen(Screens):
             self.switch_mediator_app.hide()
             self.switch_starteller_app.hide()
             self.switch_defense_app.hide()
+            self.switch_attack_app.hide()
+            self.switch_hunt_app.hide()
+            self.retire.hide()
             self.role_text_buttons[
                 "main_scroll_container"].hide()
-            self.kitten_disclaimer.show()
+            self.invalid_disclaimer.show()
 
     
     def get_role_blurb(self):
@@ -1077,6 +1249,20 @@ class BetaRoleScreen(Screens):
                      f"to represent the path their paws take towards adulthood. "
         elif self.the_cat.status == "defense apprentice":
             output = f"{self.the_cat.name} is an <b>DEFENSE apprentice</b>, in training to become a warrior. " \
+                     f"Kits can be made warrior apprentices at six moons of age, where they will learn how " \
+                     f"to hunt and fight for their Clan. Typically, the training of an apprentice is entrusted " \
+                     f"to an single warrior - their mentor. To build character, apprentices are often assigned " \
+                     f"the unpleasant and grunt tasks of Clan life. Apprentices take the suffix \"paw\", " \
+                     f"to represent the path their paws take towards adulthood. "
+        elif self.the_cat.status == "attack apprentice":
+            output = f"{self.the_cat.name} is an <b>ATTACK apprentice</b>, in training to become a warrior. " \
+                     f"Kits can be made warrior apprentices at six moons of age, where they will learn how " \
+                     f"to hunt and fight for their Clan. Typically, the training of an apprentice is entrusted " \
+                     f"to an single warrior - their mentor. To build character, apprentices are often assigned " \
+                     f"the unpleasant and grunt tasks of Clan life. Apprentices take the suffix \"paw\", " \
+                     f"to represent the path their paws take towards adulthood. "
+        elif self.the_cat.status == "hunt apprentice":
+            output = f"{self.the_cat.name} is an <b>HUNT apprentice</b>, in training to become a warrior. " \
                      f"Kits can be made warrior apprentices at six moons of age, where they will learn how " \
                      f"to hunt and fight for their Clan. Typically, the training of an apprentice is entrusted " \
                      f"to an single warrior - their mentor. To build character, apprentices are often assigned " \
@@ -1197,6 +1383,10 @@ class BetaRoleScreen(Screens):
         del self.switch_warrior_app
         self.switch_defense_app.kill()
         del self.switch_defense_app
+        self.switch_attack_app.kill()
+        del self.switch_attack_app
+        self.switch_hunt_app.kill()
+        del self.switch_hunt_app
         self.switch_mediator_app.kill()
         del self.switch_mediator_app
         self.switch_queen.kill()
@@ -1215,8 +1405,8 @@ class BetaRoleScreen(Screens):
         del self.switch_defense
         self.switch_attack.kill()
         del self.switch_attack
-        self.kitten_disclaimer.kill()
-        del self.kitten_disclaimer
+        self.invalid_disclaimer.kill()
+        del self.invalid_disclaimer
         self.switch_hunt.kill()
         del self.switch_hunt
         for ele in self.selected_cat_elements:

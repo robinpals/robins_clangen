@@ -3873,6 +3873,20 @@
             }
         }
     },
+    "#commune_spirits_button": {
+        "prototype": "#image_button",
+        "images": {
+            "normal_image": {
+                "path": "resources/images/buttons/commune_spirits.png"
+            },
+            "hovered_image": {
+                "path": "resources/images/buttons/commune_spirits_hover.png"
+            },
+            "selected_image": {
+                "path": "resources/images/buttons/commune_spirits_hover.png"
+            }
+        }
+    },
     "#recruit_button": {
         "prototype": "#image_button",
         "images": {
