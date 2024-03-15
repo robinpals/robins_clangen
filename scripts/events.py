@@ -70,7 +70,7 @@ class Events:
                     'leader', 'deputy', 'starteller', 'defense', 'attack', 'hunt', 'guide', 
                     'queen', 'warrior', 'medicine cat',
                     'medicine cat apprentice', 'starteller apprentice', 'defense apprentice',
-                    'attack apprentice', 'apprentice', 'mediator',
+                    'attack apprentice', 'hunt apprentice', 'apprentice', 'mediator',
                     'mediator apprentice'
                 } and not cat.dead and not cat.outside
                 for cat in Cat.all_cats.values()):
@@ -640,7 +640,7 @@ class Events:
         # Proform a ceremony if needed
         for x in [lost_cat] + [Cat.fetch_cat(i) for i in additional_cats]:             
            
-            if x.status in ["apprentice", "medicine cat apprentice", "mediator apprentice", "starteller apprentice", "defense apprentice","attack apprentice", "kitten", "newborn"]: 
+            if x.status in ["apprentice", "medicine cat apprentice", "mediator apprentice", "starteller apprentice", "defense apprentice","attack apprentice", "hunt apprentice", "kitten", "newborn"]: 
                 if x.moons >= 15:
                     if x.status == "medicine cat apprentice":
                         self.ceremony(x, "medicine cat")
@@ -652,6 +652,8 @@ class Events:
                         self.ceremony(x, "defense")
                     elif x.status == "attack apprentice":
                         self.ceremony(x, "attack")
+                    elif x.status == "hunt apprentice":
+                        self.ceremony(x, "hunt")
                     else:
                         self.ceremony(x, "warrior")
                 elif x.status in ["kitten", "newborn"] and x.moons >= 6:
@@ -1163,7 +1165,7 @@ class Events:
             # graduate
             if cat.status in [
                 "apprentice", "mediator apprentice",
-                "medicine cat apprentice", "starteller apprentice", "defense apprentice", "attack apprentice"
+                "medicine cat apprentice", "starteller apprentice", "defense apprentice", "attack apprentice", "hunt apprentice"
             ]:
 
                 if game.clan.clan_settings["12_moon_graduation"]:
@@ -1210,6 +1212,10 @@ class Events:
                         self.gain_accessories(cat)
                     elif cat.status == 'attack apprentice':
                         self.ceremony(cat, 'attack', preparedness)
+                        self.ceremony_accessory = True
+                        self.gain_accessories(cat)
+                    elif cat.status == 'hunt apprentice':
+                        self.ceremony(cat, 'hunt', preparedness)
                         self.ceremony_accessory = True
                         self.gain_accessories(cat)
 
@@ -1547,7 +1553,7 @@ class Events:
         TODO: DOCS
         """
         if cat.status in [
-            "apprentice", "medicine cat apprentice", "mediator apprentice", "defense apprentice", "attack apprentice", "starteller apprentice"
+            "apprentice", "medicine cat apprentice", "mediator apprentice", "defense apprentice", "attack apprentice", "hunt apprentice", "starteller apprentice"
         ]:
 
             if cat.not_working() and int(random.random() * 3):
@@ -1625,7 +1631,7 @@ class Events:
         if possible_other_cats:
             other_cat = random.choice(possible_other_cats)
 
-            if cat.status in ["apprentice", "medicine cat apprentice", "starteller apprentice", "defense apprentice", "attack apprentice"
+            if cat.status in ["apprentice", "medicine cat apprentice", "starteller apprentice", "defense apprentice", "attack apprentice", "hunt apprentice"
                               ] and not int(random.random() * 3):
                 if cat.mentor is not None:
                     other_cat = Cat.fetch_cat(cat.mentor)
@@ -1709,7 +1715,7 @@ class Events:
         if possible_other_cats:
             other_cat = random.choice(possible_other_cats)
 
-            if cat.status in ["apprentice", "medicine cat apprentice", "starteller apprentice", "defense apprentice", "attack apprentice"
+            if cat.status in ["apprentice", "medicine cat apprentice", "starteller apprentice", "defense apprentice", "attack apprentice", "hunt apprentice"
                               ] and not int(random.random() * 3):
                 if cat.mentor is not None:
                     other_cat = Cat.fetch_cat(cat.mentor)

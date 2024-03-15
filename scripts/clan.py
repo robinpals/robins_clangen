@@ -194,7 +194,7 @@ class Clan():
         created in the 'clan created' screen, not every time
         the program starts
         """
-        self.instructor = Cat(status=choice(["apprentice", "mediator apprentice", "medicine cat apprentice",  "defense apprentice", "attack apprentice", "warrior", "defense", "attack", "hunt", 
+        self.instructor = Cat(status=choice(["apprentice", "mediator apprentice", "medicine cat apprentice",  "defense apprentice", "attack apprentice", "hunt apprentice", "warrior", "defense", "attack", "hunt", 
                                              "medicine cat", "leader", "mediator", "deputy", "starteller", "elder", "starteller apprentice", "queen"]),
                               )
         self.instructor.dead = True
@@ -700,7 +700,7 @@ class Clan():
                 game.clan.add_cat(game.clan.instructor)
         else:
             game.clan.instructor = Cat(
-                status=choice(["warrior", "warrior", "elder"]))
+                status=choice(["defense", "attack", "hunt","defense", "attack", "hunt","elder"]))
             # update_sprite(game.clan.instructor)
             game.clan.instructor.dead = True
             game.clan.add_cat(game.clan.instructor)
@@ -801,7 +801,7 @@ class Clan():
             game.clan.add_cat(game.clan.instructor)
         else:
             game.clan.instructor = Cat(
-                status=choice(["warrior", "warrior", "elder"]))
+                status=choice(["defense", "attack", "hunt","defense", "attack", "hunt", "elder"]))
             # update_sprite(game.clan.instructor)
             game.clan.instructor.dead = True
             game.clan.add_cat(game.clan.instructor)

@@ -1058,7 +1058,7 @@ class MakeClanScreen(Screens):
 
         self.elements['select_cat'] = UIImageButton(scale(pygame.Rect((520, 684), (612, 116))),
                                                     "",
-                                                    object_id="#aid_clan_button",
+                                                    object_id="#commune_spirits_button",
                                                     starting_height=2,
                                                     visible=False,
                                                     manager=MANAGER)

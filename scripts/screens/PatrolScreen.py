@@ -85,11 +85,11 @@ class PatrolScreen(Screens):
                 self.current_patrol.remove(self.selected_cat)
             else:
                 self.current_patrol.append(self.selected_cat)
-            if ((self.selected_cat.status in ['attack'] for cat in self.current_patrol)):
+            if ((self.selected_cat.status in ['attack', 'attack apprentice'] for cat in self.current_patrol)):
                 self.patrol_type = 'border'
             else:
                 self.patrol_type = 'general'
-            if ((self.selected_cat.status in ['hunt'] for cat in self.current_patrol)):
+            if ((self.selected_cat.status in ['hunt', 'hunt apprentice'] for cat in self.current_patrol)):
                 self.patrol_type = 'hunting'
             else:
                 self.patrol_type = 'general'
@@ -286,19 +286,19 @@ class PatrolScreen(Screens):
                     self.elements['herb'].disable()
                     if self.patrol_type == 'med':
                         self.patrol_type = 'general'
-                if any((cat.status in ['attack'] for cat in self.current_patrol)):
+                if any((cat.status in ['attack', 'attack apprentice'] for cat in self.current_patrol)):
                     self.elements['mouse'].disable()
                     self.elements['claws'].enable()
                     self.elements['paw'].enable()
                     self.elements['herb'].disable()
-                if any((cat.status in ['hunt'] for cat in self.current_patrol)):
+                if any((cat.status in ['hunt', 'hunt apprentice'] for cat in self.current_patrol)):
                     self.elements['mouse'].enable()
                     self.elements['claws'].disable()
                     self.elements['paw'].enable()
                     self.elements['herb'].disable()
-                if self.patrol_type == 'general' and any((cat.status in ['attack'] for cat in self.current_patrol)):
+                if self.patrol_type == 'general' and any((cat.status in ['attack', 'attack apprentice'] for cat in self.current_patrol)):
                     self.patrol_type = 'border'
-                if self.patrol_type == 'general' and any((cat.status in ['hunt'] for cat in self.current_patrol)):
+                if self.patrol_type == 'general' and any((cat.status in ['hunt', 'hunt apprentice'] for cat in self.current_patrol)):
                     self.patrol_type = 'hunting'
                 if self.patrol_type == 'general':
                     text = 'random patrol type'
