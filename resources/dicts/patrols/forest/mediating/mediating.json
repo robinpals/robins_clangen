@@ -1,6 +1,6 @@
 [
     {
-        "patrol_id": "fst_bord_dog1",
+        "patrol_id": "fst_mediate_dog1",
         "biome": [
             "Any"
         ],
@@ -8,10 +8,10 @@
             "Any"
         ],
         "types": [
-            "border"
+            "mediating"
         ],
         "tags": [],
-        "patrol_art": "bord_general_intro",
+        "patrol_art": "mediate_general_intro",
         "min_cats": 1,
         "max_cats": 1,
         "min_max_status": {},
@@ -172,7 +172,7 @@
         ]
     },
     {
-        "patrol_id": "fst_bord_dog2",
+        "patrol_id": "fst_mediate_dog2",
         "biome": [
             "Any"
         ],
@@ -180,13 +180,13 @@
             "Any"
         ],
         "types": [
-            "border"
+            "mediating"
         ],
         "tags": [
             "patrol_rel",
             "pos_fail"
         ],
-        "patrol_art": "bord_general_intro",
+        "patrol_art": "mediate_general_intro",
         "min_cats": 2,
         "max_cats": 3,
         "min_max_status": {},
@@ -415,7 +415,7 @@
         ]
     },
     {
-        "patrol_id": "fst_bord_dog3",
+        "patrol_id": "fst_mediate_dog3",
         "biome": [
             "Any"
         ],
@@ -423,13 +423,13 @@
             "Any"
         ],
         "types": [
-            "border"
+            "mediating"
         ],
         "tags": [
             "patrol_rel",
             "pos_fail"
         ],
-        "patrol_art": "bord_general_intro",
+        "patrol_art": "mediate_general_intro",
         "min_cats": 4,
         "max_cats": 6,
         "min_max_status": {},
@@ -658,7 +658,7 @@
         ]
     },
     {
-        "patrol_id": "fst_bord_smalldog1",
+        "patrol_id": "fst_mediate_smalldog1",
         "biome": [
             "Any"
         ],
@@ -666,10 +666,10 @@
             "Any"
         ],
         "types": [
-            "border"
+            "mediating"
         ],
         "tags": [],
-        "patrol_art": "bord_general_intro",
+        "patrol_art": "mediate_general_intro",
         "min_cats": 1,
         "max_cats": 1,
         "min_max_status": {},
@@ -838,7 +838,7 @@
         ]
     },
     {
-        "patrol_id": "fst_bord_smalldog2",
+        "patrol_id": "fst_mediate_smalldog2",
         "biome": [
             "Any"
         ],
@@ -846,10 +846,10 @@
             "Any"
         ],
         "types": [
-            "border"
+            "mediating"
         ],
         "tags": [],
-        "patrol_art": "bord_general_intro",
+        "patrol_art": "mediate_general_intro",
         "min_cats": 2,
         "max_cats": 3,
         "min_max_status": {},
@@ -958,7 +958,7 @@
         ]
     },
     {
-        "patrol_id": "fst_bord_smalldog3",
+        "patrol_id": "fst_mediate_smalldog3",
         "biome": [
             "Any"
         ],
@@ -966,10 +966,10 @@
             "Any"
         ],
         "types": [
-            "border"
+            "mediating"
         ],
         "tags": [],
-        "patrol_art": "bord_general_intro",
+        "patrol_art": "mediate_general_intro",
         "min_cats": 4,
         "max_cats": 6,
         "min_max_status": {},

@@ -3,7 +3,7 @@
     "patrol_id": "forest_bord_candy",
     "biome": ["forest"],
     "season": ["leaf-fall"],
-    "types": ["border"],
+    "types": ["mediating"],
     "tags": ["halloween"],
     "patrol_art": "tryingcandy_INTRO",
     "min_cats": 2,

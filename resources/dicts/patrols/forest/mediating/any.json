@@ -1,11 +1,11 @@
 [
     {
-        "patrol_id": "fst_bord_rogue1",
+        "patrol_id": "fst_mediate_rogue1",
         "biome": ["forest"],
         "season": ["Any"],
-        "types": ["border"],
+        "types": ["mediating"],
         "tags": [],
-        "patrol_art": "bord_general_intro",
+        "patrol_art": "mediate_general_intro",
         "min_cats": 4,
         "max_cats": 6,
         "min_max_status": {},
@@ -109,12 +109,12 @@
         ]
     },
     {
-        "patrol_id": "fst_bord_rogue2",
+        "patrol_id": "fst_mediate_rogue2",
         "biome": ["forest"],
         "season": ["Any"],
-        "types": ["border"],
+        "types": ["mediating"],
         "tags": [],
-        "patrol_art": "bord_general_intro",
+        "patrol_art": "mediate_general_intro",
         "min_cats": 1,
         "max_cats": 1,
         "min_max_status": {},
@@ -191,12 +191,12 @@
         ]
     },
     {
-        "patrol_id": "fst_bord_rogue3",
+        "patrol_id": "fst_mediate_rogue3",
         "biome": ["forest"],
         "season": ["Any"],
-        "types": ["border"],
+        "types": ["mediating"],
         "tags": [],
-        "patrol_art": "bord_general_intro",
+        "patrol_art": "mediate_general_intro",
         "min_cats": 4,
         "max_cats": 6,
         "min_max_status": {},
@@ -328,12 +328,12 @@
         ]
     },
     {
-        "patrol_id": "fst_bord_sett1",
+        "patrol_id": "fst_mediate_sett1",
         "biome": ["forest"],
         "season": ["Any"],
-        "types": ["border"],
+        "types": ["mediating"],
         "tags": [],
-        "patrol_art": "fst_bord_sett",
+        "patrol_art": "fst_mediate_sett",
         "min_cats": 1,
         "max_cats": 1,
         "min_max_status": {},
@@ -421,12 +421,12 @@
         ]
     },
     {
-        "patrol_id": "fst_bord_sett2",
+        "patrol_id": "fst_mediate_sett2",
         "biome": ["forest"],
         "season": ["Any"],
-        "types": ["border"],
+        "types": ["mediating"],
         "tags": [],
-        "patrol_art": "fst_bord_sett",
+        "patrol_art": "fst_mediate_sett",
         "min_cats": 3,
         "max_cats": 4,
         "min_max_status": {},
@@ -572,12 +572,12 @@
         ]
     },
     {
-        "patrol_id": "fst_bord_sett3",
+        "patrol_id": "fst_mediate_sett3",
         "biome": ["forest"],
         "season": ["Any"],
-        "types": ["border"],
+        "types": ["mediating"],
         "tags": [],
-        "patrol_art": "fst_bord_sett",
+        "patrol_art": "fst_mediate_sett",
         "min_cats": 5,
         "max_cats": 6,
         "min_max_status": {},
@@ -723,12 +723,12 @@
         ]
     },
     {
-        "patrol_id": "fst_bord_trackrogue1",
+        "patrol_id": "fst_mediate_trackrogue1",
         "biome": ["forest"],
         "season": ["Any"],
-        "types": ["border"],
+        "types": ["mediating"],
         "tags": [],
-        "patrol_art": "gen_bord_trackrogue",
+        "patrol_art": "gen_mediate_trackrogue",
         "min_cats": 1,
         "max_cats": 1,
         "min_max_status": {},
@@ -820,12 +820,12 @@
         ]
     },
     {
-        "patrol_id": "fst_bord_trackrogue2",
+        "patrol_id": "fst_mediate_trackrogue2",
         "biome": ["forest"],
         "season": ["Any"],
-        "types": ["border"],
+        "types": ["mediating"],
         "tags": [],
-        "patrol_art": "gen_bord_trackrogue",
+        "patrol_art": "gen_mediate_trackrogue",
         "min_cats": 1,
         "max_cats": 1,
         "min_max_status": {},
@@ -917,12 +917,12 @@
         ]
     },
     {
-        "patrol_id": "fst_bord_trackrogue3",
+        "patrol_id": "fst_mediate_trackrogue3",
         "biome": ["forest"],
         "season": ["Any"],
-        "types": ["border"],
+        "types": ["mediating"],
         "tags": [],
-        "patrol_art": "gen_bord_trackrogue",
+        "patrol_art": "gen_mediate_trackrogue",
         "min_cats": 1,
         "max_cats": 1,
         "min_max_status": {
@@ -1005,12 +1005,12 @@
         ]
     },
     {
-        "patrol_id": "fst_bord_trackrogue4",
+        "patrol_id": "fst_mediate_trackrogue4",
         "biome": ["forest"],
         "season": ["Any"],
-        "types": ["border"],
+        "types": ["mediating"],
         "tags": [],
-        "patrol_art": "gen_bord_trackrogue",
+        "patrol_art": "gen_mediate_trackrogue",
         "min_cats": 2,
         "max_cats": 2,
         "min_max_status": {},
@@ -1150,12 +1150,12 @@
         ]
     },
     {
-        "patrol_id": "fst_bord_trackrogue5",
+        "patrol_id": "fst_mediate_trackrogue5",
         "biome": ["forest"],
         "season": ["Any"],
-        "types": ["border"],
+        "types": ["mediating"],
         "tags": [],
-        "patrol_art": "gen_bord_trackrogue",
+        "patrol_art": "gen_mediate_trackrogue",
         "min_cats": 2,
         "max_cats": 2,
         "min_max_status": {},
@@ -1295,12 +1295,12 @@
         ]
     },
     {
-        "patrol_id": "fst_bord_trackrogue6",
+        "patrol_id": "fst_mediate_trackrogue6",
         "biome": ["forest"],
         "season": ["Any"],
-        "types": ["border"],
+        "types": ["mediating"],
         "tags": [],
-        "patrol_art": "gen_bord_trackrogue",
+        "patrol_art": "gen_mediate_trackrogue",
         "min_cats": 2,
         "max_cats": 2,
         "min_max_status": {
@@ -1413,12 +1413,12 @@
         ]
     },
     {
-        "patrol_id": "fst_bord_trackrogue7",
+        "patrol_id": "fst_mediate_trackrogue7",
         "biome": ["forest"],
         "season": ["Any"],
-        "types": ["border"],
+        "types": ["mediating"],
         "tags": [],
-        "patrol_art": "gen_bord_trackrogue",
+        "patrol_art": "gen_mediate_trackrogue",
         "min_cats": 3,
         "max_cats": 6,
         "min_max_status": {},
@@ -1536,12 +1536,12 @@
         ]
     },
     {
-        "patrol_id": "fst_bord_trackrogue8",
+        "patrol_id": "fst_mediate_trackrogue8",
         "biome": ["forest"],
         "season": ["Any"],
-        "types": ["border"],
+        "types": ["mediating"],
         "tags": [],
-        "patrol_art": "gen_bord_trackrogue",
+        "patrol_art": "gen_mediate_trackrogue",
         "min_cats": 3,
         "max_cats": 6,
         "min_max_status": {},
@@ -1659,12 +1659,12 @@
         ]
     },
     {
-        "patrol_id": "fst_bord_trackrogue9",
+        "patrol_id": "fst_mediate_trackrogue9",
         "biome": ["forest"],
         "season": ["Any"],
-        "types": ["border"],
+        "types": ["mediating"],
         "tags": [],
-        "patrol_art": "gen_bord_trackrogue",
+        "patrol_art": "gen_mediate_trackrogue",
         "min_cats": 2,
         "max_cats": 2,
         "min_max_status": {
@@ -1755,12 +1755,12 @@
         ]
     },
     {
-        "patrol_id": "fst_bord_story1",
+        "patrol_id": "fst_mediate_story1",
         "biome": ["forest"],
         "season": ["Any"],
-        "types": ["border"],
+        "types": ["mediating"],
         "tags": [],
-        "patrol_art": "gen_bord_story",
+        "patrol_art": "gen_mediate_story",
         "min_cats": 3,
         "max_cats": 6,
         "min_max_status": {},
@@ -1861,10 +1861,10 @@
         ]
     },
     {
-        "patrol_id": "fst_bord_flatwoods1",
+        "patrol_id": "fst_mediate_flatwoods1",
         "biome": ["forest"],
         "season": ["Any"],
-        "types": ["border"],
+        "types": ["mediating"],
         "tags": ["halloween"],
         "patrol_art": "flatwoods_INTRO",
         "min_cats": 2,
@@ -1896,10 +1896,10 @@
         ]
     },
     {
-        "patrol_id": "fst_bord_bigfoot",
+        "patrol_id": "fst_mediate_bigfoot",
         "biome": ["Any"],
         "season": ["Any"],
-        "types": ["border"],
+        "types": ["mediating"],
         "tags": ["halloween"],
         "patrol_art": "bigfoot_INTRO",
         "min_cats": 2,
@@ -1925,10 +1925,10 @@
         ]
     },
     {
-        "patrol_id": "fst_bord_doverdemon",
+        "patrol_id": "fst_mediate_doverdemon",
         "biome": ["forest"],
         "season": ["Any"],
-        "types": ["border"],
+        "types": ["mediating"],
         "tags": ["halloween"],
         "patrol_art": "doverdemon_INTRO",
         "min_cats": 1,

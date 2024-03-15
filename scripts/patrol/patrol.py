@@ -761,7 +761,7 @@ class Patrol():
             self.MEDIATING_SZN = ujson.loads(read_file.read())
         self.MEDIATING = None
         with open(f"{resource_dir}{biome_dir}mediating/any.json", 'r', encoding='ascii') as read_file:
-            self.MEDIATing = ujson.loads(read_file.read())
+            self.MEDIATING = ujson.loads(read_file.read())
         # NEW CAT #
         self.NEW_CAT = None
         with open(f"{resource_dir}new_cat.json", 'r', encoding='ascii') as read_file:
@@ -900,7 +900,8 @@ class Patrol():
             elif "border" in self.patrol_event.types:
                 file_name = 'bord'
             elif "mediating" in self.patrol_event.types:
-                file_name = 'mediate'
+                file_name = 'train'
+            # temporary until i get a general intro for mediating made:D
             else:
                 file_name = 'train'
             
