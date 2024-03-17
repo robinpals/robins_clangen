@@ -255,13 +255,15 @@ class PatrolOutcome():
         for kitty in patrol.patrol_cats:
             # First, the blanet requirments
             if "app" in self.can_have_stat \
-                    and kitty.status not in ['apprentice', "medicine cat apprentice"]:
+                    and kitty.status not in ['apprentice', "medicine cat apprentice", "mediator apprentice", "starteller apprentice", "defense apprentice", "attack apprentice", "hunt apprentice"]:
                 continue
             
-            if "adult" in self.can_have_stat and kitty.status in ['apprentice', "medicine cat apprentice"]:
+            if "adult" in self.can_have_stat and kitty.status in ['apprentice', "medicine cat apprentice", "mediator apprentice", "starteller apprentice", "defense apprentice", "attack apprentice", "hunt apprentice"]:
                 continue
             
-            if "healer" in self.can_have_stat and kitty.status not in ["medicine cat", "medicine cat apprentice"]:
+            if "healer" in self.can_have_stat and kitty.status not in ["medicine cat", "medicine cat apprentice", "starteller", "starteller apprentice"]:
+                continue
+            if "mediator" in self.can_have_stat and kitty.status not in ["mediator", "mediator apprentice"]:
                 continue
                 
             # Then, move on the the specfic requirements. 
@@ -340,7 +342,7 @@ class PatrolOutcome():
 
         if gained_exp or app_exp:
             for cat in patrol.patrol_cats:
-                if cat.status in ["apprentice", "medicine cat apprentice"]:
+                if cat.status in ["apprentice", "medicine cat apprentice", "starteller apprentice", "defense apprentice", "attack apprentice", "hunt apprentice", "mediator apprentice"]:
                     cat.experience = cat.experience + app_exp
                 else:
                     cat.experience = cat.experience + gained_exp
@@ -903,7 +905,7 @@ class PatrolOutcome():
             # TODO: make this less ugly
             for index in mate_indexes:
                 if index in in_patrol_cats:
-                    if in_patrol_cats[index] in ("apprentice", "medicine cat apprentice"):
+                    if in_patrol_cats[index] in ("apprentice", "medicine cat apprentice", "starteller apprentice", "defense apprentice", "attack apprentice", "hunt apprentice", "mediator apprentice"):
                         print("Can't give apprentices mates")
                         continue
                     
@@ -948,7 +950,8 @@ class PatrolOutcome():
             
             if match.group(1) in ("newborn", "kitten", "elder", "apprentice", "warrior", 
                                   "mediator apprentice", "mediator", "medicine cat apprentice", 
-                                  "medicine cat"):
+                                  "medicine cat", "starteller", "starteller apprentice", "defense", "attack", "hunt",
+                                  "defense apprentice", "attack apprentice", "hunt apprentice"):
                 status = match.group(1)
                 break
         

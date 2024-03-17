@@ -227,7 +227,9 @@ class Patrol():
         possible_patrols = []
         # this next one is needed for Classic specifically
         patrol_type = "med" if ['medicine cat', 'medicine cat apprentice', 'starteller', 'starteller apprentice'] in self.patrol_status_list else patrol_type
+        patrol_type = "mediating" if ['mediator', 'mediator apprentice'] in self.patrol_status_list else patrol_type
         patrol_type = choice("hunting", "training") if ['hunt'] in self.patrol_status_list else patrol_type
+        patrol_type = choice("border", "training") if ['attack'] in self.patrol_status_list else patrol_type
         patrol_size = len(self.patrol_cats)
         reputation = game.clan.reputation  # reputation with outsiders
         other_clan = self.other_clan
@@ -281,10 +283,13 @@ class Patrol():
         possible_patrols.extend(self.generate_patrol_events(self.TRAINING_SZN))
         possible_patrols.extend(self.generate_patrol_events(self.MEDCAT))
         possible_patrols.extend(self.generate_patrol_events(self.MEDCAT_SZN))
+        possible_patrols.extend(self.generate_patrol_events(self.MEDIATING))
+        possible_patrols.extend(self.generate_patrol_events(self.MEDIATING_SZN))
         possible_patrols.extend(self.generate_patrol_events(self.HUNTING_GEN))
         possible_patrols.extend(self.generate_patrol_events(self.BORDER_GEN))
         possible_patrols.extend(self.generate_patrol_events(self.TRAINING_GEN))
         possible_patrols.extend(self.generate_patrol_events(self.MEDCAT_GEN))
+        possible_patrols.extend(self.generate_patrol_events(self.MEDIATING_GEN))
 
         if game_setting_disaster:
             dis_chance = int(random.getrandbits(3))  # disaster patrol chance
@@ -587,6 +592,8 @@ class Patrol():
                     continue
                 elif 'herb_gathering' not in patrol.types and patrol_type == 'med':
                     continue
+                elif 'mediating' not in patrol.types and patrol_type == 'mediating':
+                    continue
 
             # cruel season tag check
             if "cruel_season" in patrol.tags:
@@ -748,6 +755,13 @@ class Patrol():
         self.MEDCAT = None
         with open(f"{resource_dir}{biome_dir}med/any.json", 'r', encoding='ascii') as read_file:
             self.MEDCAT = ujson.loads(read_file.read())
+        # MEDIATING #
+        self.MEDIATING_SZN = None
+        with open(f"{resource_dir}{biome_dir}mediating/{leaf}.json", 'r', encoding='ascii') as read_file:
+            self.MEDIATING_SZN = ujson.loads(read_file.read())
+        self.MEDIATING = None
+        with open(f"{resource_dir}{biome_dir}mediating/any.json", 'r', encoding='ascii') as read_file:
+            self.MEDIATING = ujson.loads(read_file.read())
         # NEW CAT #
         self.NEW_CAT = None
         with open(f"{resource_dir}new_cat.json", 'r', encoding='ascii') as read_file:
@@ -784,6 +798,9 @@ class Patrol():
         self.MEDCAT_GEN = None
         with open(f"{resource_dir}general/medcat.json", 'r', encoding='ascii') as read_file:
             self.MEDCAT_GEN = ujson.loads(read_file.read())
+        self.MEDIATING_GEN = None
+        with open(f"{resource_dir}general/mediating.json", 'r', encoding='ascii') as read_file:
+            self.MEDIATING_GEN = ujson.loads(read_file.read())
 
     def balance_hunting(self, possible_patrols: list):
         """Filter the incoming hunting patrol list to balance the different kinds of hunting patrols.
@@ -882,6 +899,9 @@ class Patrol():
                 file_name = 'hunt'
             elif "border" in self.patrol_event.types:
                 file_name = 'bord'
+            elif "mediating" in self.patrol_event.types:
+                file_name = 'train'
+            # temporary until i get a general intro for mediating made:D
             else:
                 file_name = 'train'
             

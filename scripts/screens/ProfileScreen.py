@@ -870,6 +870,7 @@ class ProfileScreen(Screens):
 
         # CAT SKILLS
         output += the_cat.skills.skill_string()
+        print(the_cat.skills.primary.get_short_skill())
         # NEWLINE ----------
         output += "\n"
 

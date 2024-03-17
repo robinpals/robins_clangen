@@ -5,7 +5,7 @@ import ujson
 from scripts.housekeeping.datadir import get_save_dir
 
 from scripts.game_structure.game_essentials import game
-
+from scripts.cat.skills import CatSkills
 
 class Name():
     if os.path.exists('resources/dicts/names/names.json'):
@@ -53,6 +53,9 @@ class Name():
                         elif ':' in new_name:
                             _tmp = new_name.split(':')
                             names_dict["special_suffixes"][_tmp[0]] = _tmp[1]
+        if os.path.exists('resources/dicts/names/skill_reference.json'):
+            with open('resources/dicts/names/skill_reference.json') as read_file_:
+                skill_name_ref = ujson.loads(read_file_.read())
 
     def __init__(self,
                  status="warrior",
@@ -62,6 +65,16 @@ class Name():
                  eyes=None,
                  pelt=None,
                  tortiepattern=None,
+                 pattern=None,
+                 white_patches=None,
+                 points=None,
+                 scent=None,
+                 build=None,
+                 fun_info=None,
+                 primary_skill=None,
+                 secondary_skill=None,
+                 trait=None,
+
                  biome=None,
                  specsuffix_hidden=False,
                  load_existing_name=False):
@@ -73,13 +86,13 @@ class Name():
         name_fixpref = False
         # Set prefix
         if prefix is None:
-            self.give_prefix(eyes, colour, biome)
+            self.give_prefix(eyes, colour, pelt, tortiepattern, pattern, white_patches, points, scent, build, fun_info, primary_skill, secondary_skill, trait, biome)
             # needed for random dice when we're changing the Prefix
             name_fixpref = True
 
         # Set suffix
         if self.suffix is None:
-            self.give_suffix(pelt, biome, tortiepattern)
+            self.give_suffix(eyes, colour,biome)
             if name_fixpref and self.prefix is None:
                 # needed for random dice when we're changing the Prefix
                 name_fixpref = False
@@ -106,9 +119,9 @@ class Name():
 
                 # check if random die was for prefix
                 if name_fixpref:
-                    self.give_prefix(eyes, colour, biome)
+                    self.give_prefix(eyes, colour, pelt, tortiepattern, pattern, white_patches, points, scent, build, fun_info, primary_skill, secondary_skill, trait, biome)
                 else:
-                    self.give_suffix(pelt, biome, tortiepattern)
+                    self.give_suffix(eyes, colour, biome)
 
                 nono_name = self.prefix + self.suffix
                 possible_three_letter = (self.prefix[-2:] + self.suffix[0], self.prefix[-1] + self.suffix[:2])
@@ -121,29 +134,76 @@ class Name():
                 i += 1
 
     # Generate possible prefix
-    def give_prefix(self, eyes, colour, biome):
+    def give_prefix(self, eyes, colour, pelt, tortiepattern, pattern, white_patches, points, scent, build, fun_info, primary_skill, secondary_skill, trait, biome):
         # decided in game config: cat_name_controls
-        if game.config["cat_name_controls"]["always_name_after_appearance"]:
-            named_after_appearance = True
+        if game.config["cat_name_controls"]["always_name_after_appearance"] or game.config["cat_name_controls"]["always_name_after_appearance"]:
+            if game.config["cat_name_controls"]["always_name_after_appearance"]:
+                named_after_appearance = True
+            if game.config["cat_name_controls"]["always_name_after_traits"]:
+                named_after_traits = True
         else:
             named_after_appearance = not random.getrandbits(2)  # Chance for True is '1/4'
-
-        named_after_biome_ = not random.getrandbits(3)  # chance for True is 1/8
-
+            named_after_traits = not random.getrandbits(2)  # Chance for True is '1/4'
+            named_after_biome = not random.getrandbits(3)  # Chance for True is '1/8'
+            
         # Add possible prefix categories to list.
         possible_prefix_categories = []
-        if game.config["cat_name_controls"]["allow_eye_names"]: # game config: cat_name_controls
-            if eyes in self.names_dict["eye_prefixes"]:
-                possible_prefix_categories.append(self.names_dict["eye_prefixes"][eyes])
-        if colour in self.names_dict["colour_prefixes"]:
-            possible_prefix_categories.append(self.names_dict["colour_prefixes"][colour])
-        if biome is not None and biome in self.names_dict["biome_prefixes"]:
-            possible_prefix_categories.append(self.names_dict["biome_prefixes"][biome])
+        if named_after_appearance:
+            if game.config["cat_name_controls"]["allow_eye_names"]: # game config: cat_name_controls
+                if eyes in self.names_dict["eye_prefixes"]:
+                    possible_prefix_categories.append(self.names_dict["eye_prefixes"][eyes])
+            if pelt in self.names_dict["pelt_prefixes"]:
+                possible_prefix_categories.append(self.names_dict["pelt_prefixes"][pelt])
+            if pelt in ["Tortie", "Calico"] and tortiepattern in self.names_dict["tortie_pattern_prefixes"][tortiepattern]:
+                possible_prefix_categories.append(self.names_dict["tortie_pattern_prefixes"][tortiepattern])
+            if pelt in ["Tortie", "Calico"] and pattern in self.names_dict["pattern_prefixes"][pattern]:
+                possible_prefix_categories.append(self.names_dict["pattern_prefixes"][pattern])
+            if white_patches in self.names_dict["white_patches_prefixes"]:
+                possible_prefix_categories.append(self.names_dict["white_patches_prefixes"][white_patches])
+            if points in self.names_dict["points_prefixes"]:
+                possible_prefix_categories.append(self.names_dict["points_prefixes"][colour])
+            if scent in self.names_dict["scent_prefixes"]:
+                possible_prefix_categories.append(self.names_dict["scent_prefixes"][scent])
+            if build in self.names_dict["build_prefixes"]:
+                possible_prefix_categories.append(self.names_dict["build_prefixes"][build])
+            
+                possible_prefix_categories.append(self.names_dict["trait_prefixes"][trait])
+            if colour in self.names_dict["colour_prefixes"]:
+                possible_prefix_categories.append(self.names_dict["colour_prefixes"][colour])
+            if biome is not None and biome in self.names_dict["biome_prefixes"]:
+                possible_prefix_categories.append(self.names_dict["biome_prefixes"][biome])
+        elif named_after_traits:
+            if fun_info in self.names_dict["fun_info_prefixes"]:
+                possible_prefix_categories.append(self.names_dict["fun_info_prefixes"][fun_info])
+            if primary_skill in self.names_dict["primary_skill_prefixes"]:
+                possible_prefix_categories.append(self.names_dict["primary_skill_prefixes"][primary_skill])
+            if secondary_skill in self.names_dict["secondary_skill_prefixes"]:
+                possible_prefix_categories.append(self.names_dict["secondary_skill_prefixes"][secondary_skill])
         # Choose appearance-based prefix if possible and named_after_appearance because True.
-        if named_after_appearance and possible_prefix_categories and not named_after_biome_:
+        elif named_after_traits:
+            if fun_info in self.names_dict["fun_info_prefixes"]:
+                possible_prefix_categories.append(self.names_dict["fun_info_prefixes"][fun_info])
+            if primary_skill is not None: # there's gotta be a better way to do this....
+                i_need_this_for_some_reason = None
+                if primary_skill.skill in self.skill_name_ref:
+                    i_need_this_for_some_reason = self.skill_name_ref[primary_skill.skill]
+                    primary_path = ' '.join([str(elem) for i,elem in enumerate(i_need_this_for_some_reason)])
+                if primary_path in self.names_dict["skill_prefixes"]:
+                    possible_prefix_categories.append(self.names_dict["skill_prefixes"][primary_path])
+            if secondary_skill is not None:
+                i_need_this_for_some_reason_ = None
+                if secondary_skill.skill in self.skill_name_ref:
+                    i_need_this_for_some_reason_ = self.skill_name_ref[secondary_skill.skill]
+                    secondary_path = ' '.join([str(elem) for i,elem in enumerate(i_need_this_for_some_reason_)])
+                if secondary_path in self.names_dict["skill_prefixes"]:
+                    possible_prefix_categories.append(self.names_dict["skill_prefixes"][secondary_path])
+                possible_prefix_categories.append(self.names_dict["secondary_skill_prefixes"][secondary_skill])
+            if trait in self.names_dict["trait_prefixes"]:
+                possible_prefix_categories.append(self.names_dict["trait_prefixes"][trait])
+        elif named_after_appearance and possible_prefix_categories and not named_after_biome:
             prefix_category = random.choice(possible_prefix_categories)
             self.prefix = random.choice(prefix_category)
-        elif named_after_biome_ and possible_prefix_categories:
+        elif named_after_biome and possible_prefix_categories:
             prefix_category = random.choice(possible_prefix_categories)
             self.prefix = random.choice(prefix_category)
         else:
