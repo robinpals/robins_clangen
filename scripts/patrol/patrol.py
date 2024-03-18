@@ -226,7 +226,8 @@ class Patrol():
 
         possible_patrols = []
         # this next one is needed for Classic specifically
-        patrol_type = "med" if ['medicine cat', 'medicine cat apprentice', 'starteller', 'starteller apprentice'] in self.patrol_status_list else patrol_type
+        patrol_type = "star" if ['starteller', 'starteller apprentice'] in self.patrol_status_list else patrol_type
+        patrol_type = "med" if ['medicine cat', 'medicine cat apprentice'] in self.patrol_status_list else patrol_type
         patrol_type = "mediating" if ['mediator', 'mediator apprentice'] in self.patrol_status_list else patrol_type
         patrol_type = choice("hunting", "training") if ['hunt'] in self.patrol_status_list else patrol_type
         patrol_type = choice("border", "training") if ['attack'] in self.patrol_status_list else patrol_type
@@ -285,11 +286,14 @@ class Patrol():
         possible_patrols.extend(self.generate_patrol_events(self.MEDCAT_SZN))
         possible_patrols.extend(self.generate_patrol_events(self.MEDIATING))
         possible_patrols.extend(self.generate_patrol_events(self.MEDIATING_SZN))
+        possible_patrols.extend(self.generate_patrol_events(self.STAR))
+        possible_patrols.extend(self.generate_patrol_events(self.STAR_SZN))
         possible_patrols.extend(self.generate_patrol_events(self.HUNTING_GEN))
         possible_patrols.extend(self.generate_patrol_events(self.BORDER_GEN))
         possible_patrols.extend(self.generate_patrol_events(self.TRAINING_GEN))
         possible_patrols.extend(self.generate_patrol_events(self.MEDCAT_GEN))
         possible_patrols.extend(self.generate_patrol_events(self.MEDIATING_GEN))
+        possible_patrols.extend(self.generate_patrol_events(self.STAR_GEN))
 
         if game_setting_disaster:
             dis_chance = int(random.getrandbits(3))  # disaster patrol chance
@@ -594,6 +598,8 @@ class Patrol():
                     continue
                 elif 'mediating' not in patrol.types and patrol_type == 'mediating':
                     continue
+                elif 'star' not in patrol.types and patrol_type == 'star':
+                    continue
 
             # cruel season tag check
             if "cruel_season" in patrol.tags:
@@ -762,6 +768,13 @@ class Patrol():
         self.MEDIATING = None
         with open(f"{resource_dir}{biome_dir}mediating/any.json", 'r', encoding='ascii') as read_file:
             self.MEDIATING = ujson.loads(read_file.read())
+        # STAR #
+        self.STAR_SZN = None
+        with open(f"{resource_dir}{biome_dir}star/{leaf}.json", 'r', encoding='ascii') as read_file:
+            self.STAR_SZN = ujson.loads(read_file.read())
+        self.STAR = None
+        with open(f"{resource_dir}{biome_dir}star/any.json", 'r', encoding='ascii') as read_file:
+            self.STAR = ujson.loads(read_file.read())
         # NEW CAT #
         self.NEW_CAT = None
         with open(f"{resource_dir}new_cat.json", 'r', encoding='ascii') as read_file:
@@ -801,6 +814,9 @@ class Patrol():
         self.MEDIATING_GEN = None
         with open(f"{resource_dir}general/mediating.json", 'r', encoding='ascii') as read_file:
             self.MEDIATING_GEN = ujson.loads(read_file.read())
+        self.STAR_GEN = None
+        with open(f"{resource_dir}general/star.json", 'r', encoding='ascii') as read_file:
+            self.STAR_GEN = ujson.loads(read_file.read())
 
     def balance_hunting(self, possible_patrols: list):
         """Filter the incoming hunting patrol list to balance the different kinds of hunting patrols.
@@ -901,6 +917,8 @@ class Patrol():
                 file_name = 'bord'
             elif "mediating" in self.patrol_event.types:
                 file_name = 'train'
+            elif "star" in self.patrol_event.types:
+                file_name = 'med'
             # temporary until i get a general intro for mediating made:D
             else:
                 file_name = 'train'
