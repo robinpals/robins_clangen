@@ -387,6 +387,13 @@ class Cat():
                              self.pelt.eye_colour,
                              self.pelt.name,
                              self.pelt.tortiepattern,
+                             self.pelt.pattern,
+                             white_patches=self.pelt.white_patches,
+                             vitiligo=self.pelt.vitiligo,
+                             points=self.pelt.points,
+                             trait=self.personality.trait,
+                             primary=self.skills.primary,
+                             secondary=self.skills.secondary,
                              biome=biome,
                              specsuffix_hidden=self.specsuffix_hidden,
                              load_existing_name=loading_cat)

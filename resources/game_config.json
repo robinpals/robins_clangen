@@ -278,11 +278,14 @@
 	},
 	"cat_name_controls": {
 		"always_name_after_appearance": false,
+        "always_name_after_traits": false,
 		"allow_eye_names": true,
 		"comment": [
 			"Set always_name_after_appearance to true if you always want cats named after the color of their pelt.",
 			"This overrides the chances of it otherwise. If cats can't find a pelt color, they will choose from normal_prefixes",
 			"So as not to cause an error - false by default",
+            "always_name_after_traits will always name cats after their personality or skills. This overrides the normal name generation",
+            "If set to true alongside always_name_after_appearance, cats will be named after either one",
 			"allow_eye_names allows cats to be named after the color of their eyes - true by default"
 		]
 	},
