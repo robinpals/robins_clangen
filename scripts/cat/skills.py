@@ -179,7 +179,7 @@ class SkillPath(Enum):
         "explores the camp",
         "knowledgable explorer",
         "finder of territory",
-        "wise wandering soul"
+        "wandering soul"
         )
     COMFORTER = (
         "gentle voice",
@@ -194,7 +194,7 @@ class SkillPath(Enum):
         "gold star fishercat"
     )
     RESOURCEFUL = (
-        "trys new things",
+        "tries new things",
         "resourceful",
         "very resourceful",
         "extremely resourceful"
@@ -217,7 +217,7 @@ class SkillPath(Enum):
         "very talented",
         "jack of all trades"
     )
-    SPEECH = (
+    LANGUAGE = (
         "talks a lot",
         "familiar with fox-speak",
         "multilingual",
@@ -237,7 +237,7 @@ class SkillPath(Enum):
         uncommon_paths = [i for i in [SkillPath.GHOST, SkillPath.PROPHET, 
                           SkillPath.CLAIRVOYANT, SkillPath.DREAM,
                           SkillPath.OMEN, SkillPath.STAR, SkillPath.HEALER, 
-                          SkillPath.DARK, SkillPath.TALENTED, SkillPath.SPEECH]
+                          SkillPath.DARK, SkillPath.TALENTED, SkillPath.LANGUAGE]
                           if i not in exclude]
         
         
@@ -304,7 +304,7 @@ class Skill():
         SkillPath.RESILIENT: "resilient",
         SkillPath.STRONG: "strong",
         SkillPath.TALENTED: "talented",
-        SkillPath.SPEECH: "multilingual",
+        SkillPath.LANGUAGE: "multilingual",
         SkillPath.TEAMWORK: "teamwork"
     }
     
@@ -469,7 +469,7 @@ class CatSkills:
         SkillPath.RESILIENT: SkillTypeFlag.STRONG,
         SkillPath.STRONG: SkillTypeFlag.STRONG,
         SkillPath.TALENTED: SkillTypeFlag.SMART,
-        SkillPath.SPEECH: SkillTypeFlag.SMART | SkillTypeFlag.SOCIAL | SkillTypeFlag.OBSERVANT,
+        SkillPath.LANGUAGE: SkillTypeFlag.SMART | SkillTypeFlag.SOCIAL | SkillTypeFlag.OBSERVANT,
         SkillPath.TEAMWORK: SkillTypeFlag.SOCIAL
     }
     # pylint: enable=unsupported-binary-operation

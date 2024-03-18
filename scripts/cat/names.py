@@ -5,7 +5,6 @@ import ujson
 from scripts.housekeeping.datadir import get_save_dir
 
 from scripts.game_structure.game_essentials import game
-from scripts.cat.cats import CatSkills
 
 class Name():
     if os.path.exists('resources/dicts/names/names.json'):
@@ -66,12 +65,10 @@ class Name():
                  eyes=None,
                  pelt=None,
                  tortiepattern=None, # this is actually tortie_pelt in jsons
-                 pattern=None,
                  biome=None,
                  trait=None,
                  primary=None, # skill 1
                  secondary=None, # skill 2
-                 white_patches=None,
                  vitiligo=None,
                  points=None,
                  specsuffix_hidden=False,
@@ -84,13 +81,13 @@ class Name():
         name_fixpref = False
         # Set prefix
         if prefix is None:
-            self.give_prefix(eyes, colour, pelt, tortiepattern, pattern, trait, white_patches, vitiligo, points, primary, secondary)
+            self.give_prefix(eyes, colour, pelt, tortiepattern, trait, vitiligo, points, primary, secondary)
             # needed for random dice when we're changing the Prefix
             name_fixpref = True
 
         # Set suffix
         if self.suffix is None:
-            self.give_suffix(eyes, colour, pelt, tortiepattern, pattern, trait, white_patches, vitiligo, points, primary, secondary)
+            self.give_suffix(eyes, colour, pelt, tortiepattern, trait, vitiligo, points, primary, secondary)
             if name_fixpref and self.prefix is None:
                 # needed for random dice when we're changing the Prefix
                 name_fixpref = False
@@ -117,9 +114,9 @@ class Name():
 
                 # check if random die was for prefix
                 if name_fixpref:
-                    self.give_prefix(eyes, colour, pelt, tortiepattern, pattern, trait, white_patches, vitiligo, points, primary, secondary)
+                    self.give_prefix(eyes, colour, pelt, tortiepattern, trait, vitiligo, points, primary, secondary)
                 else:
-                    self.give_suffix(eyes, colour, pelt, tortiepattern, pattern, trait, white_patches, vitiligo, points, primary, secondary)
+                    self.give_suffix(eyes, colour, pelt, tortiepattern, trait, vitiligo, points, primary, secondary)
 
                 nono_name = self.prefix + self.suffix
                 possible_three_letter = (self.prefix[-2:] + self.suffix[0], self.prefix[-1] + self.suffix[:2])
@@ -132,7 +129,7 @@ class Name():
                 i += 1
 
     # Generate possible prefix
-    def give_prefix(self, eyes, colour, pelt, tortiepattern, pattern, trait, white_patches, vitiligo, points, primary, secondary):
+    def give_prefix(self, eyes, colour, pelt, tortiepattern,trait,  vitiligo, points, primary, secondary):
         # decided in game config: cat_name_controls
         # the chance system may be rewritten
         if game.config["cat_name_controls"]["always_name_after_appearance"] or game.config["cat_name_controls"]["always_name_after_appearance"]:
@@ -152,6 +149,8 @@ class Name():
                     possible_prefix_categories.append(self.names_dict["eye_prefixes"][eyes])
             if colour in self.names_dict["colour_prefixes"]:
                 possible_prefix_categories.append(self.names_dict["colour_prefixes"][colour])
+            if pelt in ["Tortie", "Calico"] and tortiepattern in self.names_dict["tortie_pelt_prefixes"]:
+                possible_prefix_categories.append(self.names_dict["tortie_pelt_prefixes"][tortiepattern]) # this just checks the pelt color, not the pattern
             if pelt in self.names_dict["pelt_prefixes"]:
                 possible_prefix_categories.append(self.names_dict["pelt_prefixes"][pelt])
             if vitiligo is not None and vitiligo in self.names_dict["marking_prefixes"]:
@@ -177,17 +176,17 @@ class Name():
                 if secondary_path in self.names_dict["skill_prefixes"]:
                     possible_prefix_categories.append(self.names_dict["skill_prefixes"][secondary_path])
         
-        ##if game.config["cat_name_controls"]["restrict_biome_names"]:
-        ##    all_biome_prefixes = []
-        ##    for m in range(len(self.names_dict["biome_prefixes"])):
-        ##        for n in range(len(self.names_dict["biome_prefixes"][m])):
-        ##            all_biome_prefixes.append(self.names_dict["biome_prefixes"][m][n])
-        ##    
-        ##    bad_biome_prefixes = [i for i in all_biome_prefixes if i not in self.names_dict["biome_prefixes"][biome]]
-        ##
-        ##    if self.prefix in bad_biome_prefixes:
-        ##        self.give_prefix(eyes, colour, pelt, biome, tortiepattern, pattern, trait) # I have a feeling this will result in an endless loop in some cases... see if there's a better way
-        ##    
+        """if game.config["cat_name_controls"]["restrict_biome_names"]:
+           all_biome_prefixes = []
+           for m in range(len(self.names_dict["biome_prefixes"])):
+               for n in range(len(self.names_dict["biome_prefixes"][m])):
+                  all_biome_prefixes.append(self.names_dict["biome_prefixes"][m][n])
+           
+           bad_biome_prefixes = [i for i in all_biome_prefixes if i not in self.names_dict["biome_prefixes"][biome]]
+        
+            if self.prefix in bad_biome_prefixes:
+                self.give_prefix(eyes, colour, pelt, biome, tortiepattern, pattern, trait) # I have a feeling this will result in an endless loop in some cases... see if there's a better way
+            """
                         
         if possible_prefix_categories:
             prefix_category = random.choice(possible_prefix_categories)
@@ -196,7 +195,7 @@ class Name():
             self.prefix = random.choice(self.names_dict["normal_prefixes"])
 
     # Generate possible suffix
-    def give_suffix(self, eyes, colour, pelt, tortiepattern, pattern, trait, white_patches, vitiligo, points, primary, secondary):
+    def give_suffix(self, eyes, colour, pelt, tortiepattern, trait, vitiligo, points, primary, secondary):
     
         if game.config["cat_name_controls"]["always_name_after_appearance"] or game.config["cat_name_controls"]["always_name_after_appearance"]:
             if game.config["cat_name_controls"]["always_name_after_appearance"]:
@@ -218,6 +217,8 @@ class Name():
                 possible_suffix_categories.append(self.names_dict["colour_suffixes"][colour])
             if pelt in self.names_dict["pelt_suffixes"]:
                 possible_suffix_categories.append(self.names_dict["pelt_suffixes"][pelt])
+            if pelt in ["Tortie", "Calico"] and tortiepattern in self.names_dict["tortie_pelt_suffixes"]:
+                possible_suffix_categories.append(self.names_dict["tortie_pelt_suffixes"][tortiepattern]) # this just checks the pelt color, not the pattern
             if vitiligo is not None and vitiligo in self.names_dict["marking_suffixes"]:
                 possible_suffix_categories.append(self.names_dict["marking_suffixes"][vitiligo])
             if points is not None and points in self.names_dict["marking_suffixes"]:

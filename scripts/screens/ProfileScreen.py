@@ -870,7 +870,6 @@ class ProfileScreen(Screens):
 
         # CAT SKILLS
         output += the_cat.skills.skill_string()
-        print(the_cat.skills.primary.get_short_skill())
         # NEWLINE ----------
         output += "\n"
 
@@ -1720,10 +1719,16 @@ class ProfileScreen(Screens):
                                               , manager=MANAGER)
             self.change_mentor_button = UIImageButton(scale(pygame.Rect((452, 972), (344, 72))), "",
                                                       starting_height=2, object_id="#change_mentor_button", manager=MANAGER)
-            self.manage_beta_roles = UIImageButton(scale(pygame.Rect((452, 1044), (344, 72))),
+            self.manage_beta_roles = UIImageButton(scale(pygame.Rect((452, 900), (344, 72))),
                                               "", object_id="#manage_roles_button",
                                               starting_height=2
                                               , manager=MANAGER)
+            if game.clan.clan_settings["see_old_role_screen"]:
+                self.manage_roles.show()
+                self.manage_beta_roles.hide()
+            else:
+                self.manage_roles.hide()
+                self.manage_beta_roles.show()
             self.update_disabled_buttons_and_text()
 
     def toggle_personal_tab(self):

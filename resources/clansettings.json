@@ -91,6 +91,11 @@
             "Allow warriors and elders to choose to become mediators",
             "Warriors and elders will have a chance to become mediators upon timeskip.",
             false
+        ],
+        "see_old_role_screen": [
+            "Use the original role screen instead of the modded role screen",
+            "When going to the role screen, it will use the original code rather than the revamped modded version.",
+            false
         ]
     },
     "relation": {
