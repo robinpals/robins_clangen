@@ -633,6 +633,22 @@ class ClearingScreen(Screens):
         feeding_order = game.prey_config["feeding_order"]
         for status in feeding_order:
             amount = prey_requirement[status]
+            if status == "defense apprentice":
+                status = "guard's apprentice"
+            elif status == "attack apprentice":
+                status = "runner's apprentice"
+            elif status == "hunt apprentice":
+                status = "hunter's apprentice"
+            elif status == "defense":
+                status = "guard"
+            elif status == "attack":
+                status = "runner"
+            elif status == "hunt":
+                status = "hunter"
+            elif status == "queen/pregnant":
+                status = "pregnant queen"
+            elif status == "queen":
+                status = "perma-queen"
             self.additional_text["condition_increase"] = pygame_gui.elements.UITextBox(
                 f"{n}. {status}: {amount} prey",
                 scale(pygame.Rect((x_val, n * 45 + 55), (1000, 78))),

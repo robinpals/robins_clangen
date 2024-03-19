@@ -328,6 +328,7 @@ class PatrolScreen(Screens):
                 self.elements['claws'].enable()
                 self.elements['herb'].enable()
                 self.elements['mediate_paw'].enable()
+                self.elements['star_herb'].enable()
 
                 self.elements['info'].kill()  # clearing the text before displaying new text
 
@@ -590,8 +591,21 @@ class PatrolScreen(Screens):
                                                       object_id="#start_patrol_button", manager=MANAGER)
         self.elements['patrol_start'].disable()
 
+        # add prey information
+        if game.clan.game_mode != 'classic' and game.clan.clan_settings["freshkill"]:
+            current_amount =  round(game.clan.freshkill_pile.total_amount,2)
+            self.elements['current_prey'] = pygame_gui.elements.UITextBox(
+                f"current prey: {current_amount}", scale(pygame.Rect((450, 1330), (400, 800))),
+                object_id=get_text_box_theme("#text_box_30_horizcenter"), manager=MANAGER
+            )
+            needed_amount = round(game.clan.freshkill_pile.amount_food_needed(),2)
+            self.elements['needed_prey'] = pygame_gui.elements.UITextBox(
+                f"needed prey: {needed_amount}", scale(pygame.Rect((750, 1330), (400, 800))),
+                object_id=get_text_box_theme("#text_box_30_horizcenter"), manager=MANAGER
+            )
         self.update_cat_images_buttons()
         self.update_button()
+
 
     def run_patrol_start(self):
         """Runs patrol start. To be run in a seperate thread.  """

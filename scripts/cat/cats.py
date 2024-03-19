@@ -3322,7 +3322,6 @@ def create_example_cats():
         for scar in game.choose_cats[a].pelt.scars:
             if scar in not_allowed:
                 game.choose_cats[a].pelt.scars.remove(scar)
-    
         #update_sprite(game.choose_cats[a])
     
 

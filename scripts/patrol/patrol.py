@@ -611,9 +611,9 @@ class Patrol():
             else:
                 filtered_patrols.append(patrol)
 
-        # I'll get to that later, hahah TODO
-        #if patrol_type == 'hunting':
-        #    filtered_patrols = self.balance_hunting(filtered_patrols)
+        # make sure the hunting patrols are balanced
+        if patrol_type == 'hunting':
+            filtered_patrols = self.balance_hunting(filtered_patrols)
 
         return filtered_patrols, romantic_patrols
 
@@ -834,64 +834,54 @@ class Patrol():
         """
         filtered_patrols = []
 
-        # get first what kind of hunting type which will be chosen
-        patrol_type = ["fighting", "injury", "prey", "prey", "more_prey", "less_prey", "all"]
-        needed_tags = []
-        not_allowed_tag = None
-        chosen_tag = choice(patrol_type)
-        # add different tags which should be in the patrol
-        if chosen_tag == "all":
-            return possible_patrols
-        if chosen_tag == "fighting":
-            needed_tags.append("fighting")
-            needed_tags.append("death")
-        elif chosen_tag == "injury":
-            needed_tags.append("injury")
-            needed_tags.append("blunt_force_injury")
-            needed_tags.append("big_bite_injury")
-            needed_tags.append("small_bite_injury")
-            needed_tags.append("minor_injury")
-            needed_tags.append("cold_injury")
-            needed_tags.append("hot_injury")
-        elif chosen_tag in ["less_prey", "prey"]:
-            if chosen_tag == "prey":
-                not_allowed_tag = "death"
-            prey_types = ["small_prey", "medium_prey", "large_prey", "huge_prey"]
-            for prey_type in prey_types:
-                if chosen_tag == "less_prey" and prey_type in ["large_prey", "huge_prey"]:
-                    continue
-                needed_tags.append(f"{prey_type}")
-                if prey_type != "small_prey":
-                    needed_tags.append(f"{prey_type}0")
-                    needed_tags.append(f"{prey_type}1")
-                    needed_tags.append(f"{prey_type}2")
-                    needed_tags.append(f"{prey_type}3")
-        elif chosen_tag == "more_prey":
-            not_allowed_tag = "death"
-            needed_tags.append("large_prey")
-            needed_tags.append("huge_prey")
-            needed_tags.append("huge_prey0")
-            needed_tags.append("huge_prey1")
-            needed_tags.append("huge_prey2")
-            needed_tags.append("huge_prey3")
+        # get first what kind of prey size which will be chosen
+        biome = game.clan.biome
+        season = game.clan.current_season
+        possible_prey_size = []
+        idx = 0
+        prey_size = ["very_small", "small", "medium", "large", "huge"]
+        for amount in PATROL_BALANCE[biome][season]:
+            possible_prey_size.extend(repeat(prey_size[idx],amount))
+            idx += 1
+        chosen_prey_size = choice(possible_prey_size)
+        print(f"chosen filter prey size: {chosen_prey_size}")
 
-        # filter all possible patrol depending on the needed tags
-        # one of the mentioned tags should be in the patrol tag
+        # filter all possible patrol depending on the needed prey size
         for patrol in possible_patrols:
-            for tag in needed_tags:
-                if tag in patrol.tags:
-                    # if there is a tag set, check if this tag is not in the current patrol
-                    if not_allowed_tag and not_allowed_tag not in patrol.tags:
-                        filtered_patrols.append(patrol)
-                        break
-                    # when there is no tag set, add the patrol
-                    elif not not_allowed_tag:
-                        filtered_patrols.append(patrol)
-                        break
+            for adaption, needed_weight in PATROL_WEIGHT_ADAPTION.items():
+                if needed_weight[0] <= patrol.weight < needed_weight[1]:
+                    # get the amount of class sizes which can be increased
+                    increment = int(adaption.split("_")[0])
+                    new_idx = prey_size.index(chosen_prey_size) + increment
+                    # check that the increment does not lead to a overflow
+                    new_idx = new_idx if new_idx < len(prey_size) else len(prey_size)-1
+                    chosen_prey_size = deepcopy(prey_size[new_idx])
+
+            # now count the outcomes + prey size
+            prey_types = {}
+            for outcome in patrol.success_outcomes:
+                # ignore skill or trait outcomes
+                if outcome.stat_trait or outcome.stat_skill:
+                    continue
+                if outcome.prey:
+                    if outcome.prey[0] in prey_types:
+                        prey_types[outcome.prey[0]] += 1
+                    else:
+                        prey_types[outcome.prey[0]] = 1
+            
+            # get the prey size with the most outcomes
+            most_prey_size = ""
+            max_occurrences = 0
+            for size, amount in prey_types.items():
+                if amount >= max_occurrences and most_prey_size != chosen_prey_size:
+                    most_prey_size = size
+
+            if chosen_prey_size == most_prey_size:
+                filtered_patrols.append(patrol)
 
         # if the filtering results in an empty list, don't filter and return whole possible patrols
         if len(filtered_patrols) <= 0:
-            print("WARNING: filtering to balance out the hunting, didn't work.")
+            print("---- WARNING ---- filtering to balance out the hunting, didn't work.")
             filtered_patrols = possible_patrols
         return filtered_patrols
 
@@ -1109,7 +1099,8 @@ class Patrol():
 #                               PATROL CLASS END                               #
 # ---------------------------------------------------------------------------- #
 
-
+PATROL_WEIGHT_ADAPTION = game.prey_config["patrol_weight_adaption"]
+PATROL_BALANCE = game.prey_config["patrol_balance"]
 
 # ---------------------------------------------------------------------------- #
 #                              GENERAL INFORMATION                             #
