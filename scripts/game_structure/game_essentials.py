@@ -619,6 +619,8 @@ def load_manager(res: tuple):
             {'name': 'notosans', 'point_size': 30, 'style': 'bold'},
             {'name': 'notosans', 'point_size': 26, 'style': 'bold'},
             {'name': 'notosans', 'point_size': 22, 'style': 'bold'},
+            {'name': 'notosans', 'point_size': 17, 'style': 'bold'},
+            {'name': 'notosans', 'point_size': 14, 'style': 'bold'}
         ])
 
     else:
@@ -635,7 +637,9 @@ def load_manager(res: tuple):
             {'name': 'notosans', 'point_size': 13, 'style': 'bold'},
             {'name': 'notosans', 'point_size': 15, 'style': 'bold'},
             {'name': 'notosans', 'point_size': 13, 'style': 'italic'},
-            {'name': 'notosans', 'point_size': 15, 'style': 'italic'}
+            {'name': 'notosans', 'point_size': 15, 'style': 'italic'},
+            {'name': 'notosans', 'point_size': 17, 'style': 'bold'},
+            {'name': 'notosans', 'point_size': 14, 'style': 'bold'}
         ])
         
     manager.get_theme().load_theme('resources/theme/windows.json')
