@@ -844,7 +844,7 @@ class Cat():
     def rank_change_traits_skill(self, mentor):
         """Updates trait and skill upon ceremony"""  
 
-        if self.status in ["warrior", "medicine cat", "mediator", "starteller", "defense"]:
+        if self.status in ["warrior", "medicine cat", "mediator", "starteller", "defense", "attack", "hunt"]:
             # Give a couple doses of mentor influence:
             if mentor:
                 max = randint(0, 2)
@@ -2079,11 +2079,11 @@ class Cat():
             return False
         if self.status == 'starteller apprentice' and potential_mentor.status != 'starteller':
             return False
-        if self.status == 'defense apprentice' and potential_mentor.status != 'defense':
+        if self.status == 'defense apprentice' and potential_mentor.status not in ['defense', 'leader', 'deputy']:
             return False
-        if self.status == 'attack apprentice' and potential_mentor.status != 'attack':
+        if self.status == 'attack apprentice' and potential_mentor.status not in ['attack', 'leader', 'deputy']:
             return False
-        if self.status == 'hunt apprentice' and potential_mentor.status != 'hunt':
+        if self.status == 'hunt apprentice' and potential_mentor.status not in ['hunt', 'leader', 'deputy']:
             return False
         if self.status == 'apprentice' and potential_mentor.status not in [
             'leader', 'deputy', 'warrior', 'defense', 'attack', 'hunt'
@@ -3322,7 +3322,6 @@ def create_example_cats():
         for scar in game.choose_cats[a].pelt.scars:
             if scar in not_allowed:
                 game.choose_cats[a].pelt.scars.remove(scar)
-    
         #update_sprite(game.choose_cats[a])
     
 
