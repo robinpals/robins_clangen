@@ -79,6 +79,12 @@ class AllegiancesScreen(Screens):
             output += " <em>(specializes in defense)</em>"
         elif cat.status == "hunt":
             output += " <em>(specializes in hunting)</em>"
+        elif cat.status == "attack apprentice":
+            output += " <em>(specializes in attack)</em>"
+        elif cat.status == "defense apprentice":
+            output += " <em>(specializes in defense)</em>"
+        elif cat.status == "hunt apprentice":
+            output += " <em>(specializes in hunting)</em>"
         else:
             output += ""
         if len(cat.apprentice) > 0:
@@ -99,6 +105,7 @@ class AllegiancesScreen(Screens):
         living_warriors = []
         living_apprentices = []
         living_queens = []
+        living_guides = []
         living_kits = []
         living_elders = []
         for cat in living_cats:
@@ -110,10 +117,12 @@ class AllegiancesScreen(Screens):
                 living_warriors.append(cat)
             elif cat.status == "mediator":
                 living_mediators.append(cat)
-            elif cat.status in ["apprentice", "medicine cat apprentice", "mediator apprentice", "starteller apprentice"]:
+            elif cat.status in ["apprentice", "medicine cat apprentice", "mediator apprentice", "starteller apprentice", "defense apprentice", "attack apprentice", "hunt apprentice"]:
                 living_apprentices.append(cat)
             elif cat.status == "queen":
                 living_queens.append(cat)
+            elif cat.status == "guide":
+                living_guides.append(cat)
             elif cat.status in ["kitten", "newborn"]:
                 living_kits.append(cat)
             elif cat.status == "elder":
@@ -171,17 +180,7 @@ class AllegiancesScreen(Screens):
             _box[1] = "\n".join([self.generate_one_entry(i) for i in living_mediators])
             outputs.append(_box)
             
-        # QUEEN BOX:
         
-        if living_queens:
-            _box = ["", ""]
-            if len(living_queens) == 1:
-                _box[0] = '<b><u>QUEEN</u></b>'
-            else:
-                _box[0] = '<b><u>QUEENS</u></b>'
-            
-            _box[1] = "\n".join([self.generate_one_entry(i) for i in living_queens])
-            outputs.append(_box)
 
          # Warrior Box:
         if living_warriors:
@@ -204,7 +203,29 @@ class AllegiancesScreen(Screens):
             
             _box[1] = "\n".join([self.generate_one_entry(i) for i in living_apprentices])
             outputs.append(_box)
-    
+    # QUEEN BOX:
+        
+        if living_guides:
+            _box = ["", ""]
+            if len(living_guides) == 1:
+                _box[0] = '<b><u>GUIDE</u></b>'
+            else:
+                _box[0] = '<b><u>GUIDES</u></b>'
+            
+            _box[1] = "\n".join([self.generate_one_entry(i) for i in living_guides])
+            outputs.append(_box)
+    # QUEEN BOX:
+        
+        if living_queens:
+            _box = ["", ""]
+            if len(living_queens) == 1:
+                _box[0] = '<b><u>QUEEN</u></b>'
+            else:
+                _box[0] = '<b><u>QUEENS</u></b>'
+            
+            _box[1] = "\n".join([self.generate_one_entry(i) for i in living_queens])
+            outputs.append(_box)
+
      # Kit Box:
         if living_kits:
             _box = ["", ""]

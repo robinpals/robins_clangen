@@ -22,7 +22,13 @@ import os
 import threading
 
 from importlib.util import find_spec
-
+print("Special thanks to @a.corn (Acorn), @maggiethemink, and @landsborough for their respective mods featured in this mod! This couldn't have been possible without them. Also, thanks to Kori (@kori.y), Risen (@deadgirlrisen) and Key (@keyraven) for helping me every step of the way through this mod. All of the people mentioned here have been absolutely amazing during this experience, and I am deeply grateful for their help and feedback on this mod. Send love to them and all the other developers on the Clangen server! <3")
+## Special thanks to @a.corn (Acorn), @maggiethemink, and @landsborough for their respective mods featured in this mod!
+## This couldn't have been possible without them. Also, thanks to Kori (@kori.y), Risen (@deadgirlrisen).
+## and Key (@keyraven) for helping me every step of the way through this mod.
+## All of the people mentioned here have been absolutely amazing during this experience,
+## and I am deeply grateful for their help and feedback on this mod.
+## Send love to them and all the other developers on the Clangen server! <3
 if not getattr(sys, 'frozen', False):
     requiredModules = [
         "ujson",
@@ -253,6 +259,7 @@ loading_thread = threading.Thread(target=load_data)
 loading_thread.start()
 
 loading_animation()
+
 
 # The loading thread should be done by now. This line
 # is just for safety. Plus some cleanup. 
