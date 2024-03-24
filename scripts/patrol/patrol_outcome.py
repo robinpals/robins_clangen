@@ -261,7 +261,7 @@ class PatrolOutcome():
             if "adult" in self.can_have_stat and kitty.status in ['apprentice', "medicine cat apprentice", "mediator apprentice", "starteller apprentice", "defense apprentice", "attack apprentice", "hunt apprentice"]:
                 continue
             
-            if "healer" in self.can_have_stat and kitty.status not in ["medicine cat", "medicine cat apprentice", "starteller", "starteller apprentice"]:
+            if "healer" in self.can_have_stat and kitty.status not in ["medicine cat", "medicine cat apprentice"]:
                 continue
             if "mediator" in self.can_have_stat and kitty.status not in ["mediator", "mediator apprentice"]:
                 continue
