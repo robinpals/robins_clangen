@@ -48,7 +48,8 @@
     "green_teal", 
     "teal_blue", 
     "blue_pink", 
-    "pink_red", 
+    "pink_red",
+    "monochrome",
     "none"
   ]
 }

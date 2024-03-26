@@ -1021,10 +1021,16 @@ class Pelt():
             r = 255
             g = 245
             b = random.randint(245,255)
+        elif self.tint_category == "monochrome":
+            r = random.randint(80,255)
+            g = r
+            b = r
         elif self.tint_category == "none":
             r = 255
             g = 255
             b = 255
+        # add desaturated versions. maybe MAYBE like light_desat_red_yellow, desat_red_yellow, dark_desat_red_yellow, but debatable.
+        # just do desat_and then all the tint categories. excluding mono ofc
         true_tint = [r,g,b]
         return true_tint
     def init_tint(self):

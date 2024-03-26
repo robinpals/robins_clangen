@@ -284,6 +284,8 @@ class CodeInspectScreen(Screens):
             output += "blue-pink"
         elif tint_category == "pink_red":
             output += "pink-red"
+        elif tint_category == "monochrome":
+            output += "monochrome"
         elif tint_category == "none":
             output += "none"
         else:
@@ -364,6 +366,8 @@ class CodeInspectScreen(Screens):
             output += "blue-pink"
         elif tint_category == "pink_red":
             output += "pink-red"
+        elif tint_category == "monochrome":
+            output += "monochrome"
         elif tint_category == "none":
             output += "none"
         else:
