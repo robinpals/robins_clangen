@@ -997,6 +997,7 @@ class Pelt():
         r = 0
         g = 0
         b = 0
+        # vibrant tints
         if self.tint_category == "red_yellow":
             r = 255
             g = random.randint(245,255)
@@ -1021,10 +1022,41 @@ class Pelt():
             r = 255
             g = 245
             b = random.randint(245,255)
+        # desaturated tints
+        elif self.tint_category == "desat_red_yellow":
+            r = 201
+            g = random.randint(167,201)
+            b = 167
+        elif self.tint_category == "desat_yellow_green":
+            r = random.randint(193,217)
+            g = 217
+            b = 193
+        elif self.tint_category == "desat_green_teal":
+            r = 193
+            g = 217
+            b = random.randint(193,217)
+        elif self.tint_category == "desat_teal_blue":
+            r = 167
+            g = random.randint(167,201)
+            b = 201
+        elif self.tint_category == "desat_blue_pink":
+            r = random.randint(167,201)
+            g = 167
+            b = 201
+        elif self.tint_category == "desat_pink_red":
+            r = 201
+            g = 167
+            b = random.randint(167,201)
+        # misc tints
+        elif self.tint_category == "monochrome":
+            r = random.randint(80,255)
+            g = r
+            b = r
         elif self.tint_category == "none":
             r = 255
             g = 255
             b = 255
+        #since the tints are a multiply layer, making the none tint pure white makes it invisible
         true_tint = [r,g,b]
         return true_tint
     def init_tint(self):

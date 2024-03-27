@@ -69,8 +69,6 @@ class Name():
                  trait=None,
                  primary=None, # skill 1
                  secondary=None, # skill 2
-                 vitiligo=None,
-                 points=None,
                  specsuffix_hidden=False,
                  load_existing_name=False):
         self.status = status
@@ -81,13 +79,13 @@ class Name():
         name_fixpref = False
         # Set prefix
         if prefix is None:
-            self.give_prefix(eyes, colour, pelt, tortiepattern, trait, vitiligo, points, primary, secondary)
+            self.give_prefix(eyes, colour, pelt, tortiepattern, trait, primary, secondary)
             # needed for random dice when we're changing the Prefix
             name_fixpref = True
 
         # Set suffix
         if self.suffix is None:
-            self.give_suffix(eyes, colour, pelt, tortiepattern, trait, vitiligo, points, primary, secondary)
+            self.give_suffix(eyes, colour, pelt, tortiepattern, trait, primary, secondary)
             if name_fixpref and self.prefix is None:
                 # needed for random dice when we're changing the Prefix
                 name_fixpref = False
@@ -114,9 +112,9 @@ class Name():
 
                 # check if random die was for prefix
                 if name_fixpref:
-                    self.give_prefix(eyes, colour, pelt, tortiepattern, trait, vitiligo, points, primary, secondary)
+                    self.give_prefix(eyes, colour, pelt, tortiepattern, trait,primary, secondary)
                 else:
-                    self.give_suffix(eyes, colour, pelt, tortiepattern, trait, vitiligo, points, primary, secondary)
+                    self.give_suffix(eyes, colour, pelt, tortiepattern, trait, primary, secondary)
 
                 nono_name = self.prefix + self.suffix
                 possible_three_letter = (self.prefix[-2:] + self.suffix[0], self.prefix[-1] + self.suffix[:2])
@@ -129,7 +127,7 @@ class Name():
                 i += 1
 
     # Generate possible prefix
-    def give_prefix(self, eyes, colour, pelt, tortiepattern,trait,  vitiligo, points, primary, secondary):
+    def give_prefix(self, eyes, colour, pelt, tortiepattern,trait,  primary, secondary):
         # decided in game config: cat_name_controls
         # the chance system may be rewritten
         if game.config["cat_name_controls"]["always_name_after_appearance"] or game.config["cat_name_controls"]["always_name_after_appearance"]:
@@ -153,10 +151,7 @@ class Name():
                 possible_prefix_categories.append(self.names_dict["tortie_pelt_prefixes"][tortiepattern]) # this just checks the pelt color, not the pattern
             if pelt in self.names_dict["pelt_prefixes"]:
                 possible_prefix_categories.append(self.names_dict["pelt_prefixes"][pelt])
-            if vitiligo is not None and vitiligo in self.names_dict["marking_prefixes"]:
-                possible_prefix_categories.append(self.names_dict["marking_prefixes"][vitiligo])
-            if points is not None and points in self.names_dict["marking_prefixes"]:
-                possible_prefix_categories.append(self.names_dict["marking_prefixes"][points])
+            
             
         elif named_after_traits:
             if trait in self.names_dict["trait_prefixes"]:
@@ -195,7 +190,7 @@ class Name():
             self.prefix = random.choice(self.names_dict["normal_prefixes"])
 
     # Generate possible suffix
-    def give_suffix(self, eyes, colour, pelt, tortiepattern, trait, vitiligo, points, primary, secondary):
+    def give_suffix(self, eyes, colour, pelt, tortiepattern, trait, primary, secondary):
     
         if game.config["cat_name_controls"]["always_name_after_appearance"] or game.config["cat_name_controls"]["always_name_after_appearance"]:
             if game.config["cat_name_controls"]["always_name_after_appearance"]:
@@ -219,10 +214,6 @@ class Name():
                 possible_suffix_categories.append(self.names_dict["pelt_suffixes"][pelt])
             if pelt in ["Tortie", "Calico"] and tortiepattern in self.names_dict["tortie_pelt_suffixes"]:
                 possible_suffix_categories.append(self.names_dict["tortie_pelt_suffixes"][tortiepattern]) # this just checks the pelt color, not the pattern
-            if vitiligo is not None and vitiligo in self.names_dict["marking_suffixes"]:
-                possible_suffix_categories.append(self.names_dict["marking_suffixes"][vitiligo])
-            if points is not None and points in self.names_dict["marking_suffixes"]:
-                possible_suffix_categories.append(self.names_dict["marking_suffixes"][points])
             
         elif named_after_traits_:
             if trait in self.names_dict["trait_suffixes"]:

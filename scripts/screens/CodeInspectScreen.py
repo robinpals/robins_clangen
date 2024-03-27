@@ -272,6 +272,8 @@ class CodeInspectScreen(Screens):
         output += "\n" + "<b>Extra info! (such as tints, scars, etc)</b>"+ "\n"
         output += "Tint Category: " 
         tint_category = self.the_cat.pelt.tint_category
+        # there's gotta be a better way to do this..
+        # vibrant 
         if tint_category == "red_yellow":
             output += "red-yellow"
         elif tint_category == "yellow_green":
@@ -284,6 +286,22 @@ class CodeInspectScreen(Screens):
             output += "blue-pink"
         elif tint_category == "pink_red":
             output += "pink-red"
+        # desat
+        elif tint_category == "desat_red_yellow":
+            output += "desaturated red-yellow"
+        elif tint_category == "desat_yellow_green":
+            output += "desaturated yellow-green"
+        elif tint_category == "desat_green_teal":
+            output += "desaturated green-teal"
+        elif tint_category == "desat_teal_blue":
+            output += "desaturated teal-blue"
+        elif tint_category == "desat_blue_pink":
+            output += "desaturated blue-pink"
+        elif tint_category == "desat_pink_red":
+            output += "desaturated pink-red"
+        # misc
+        elif tint_category == "monochrome":
+            output += "monochrome"
         elif tint_category == "none":
             output += "none"
         else:
@@ -352,6 +370,7 @@ class CodeInspectScreen(Screens):
         output += "\n" + "<b>Extra info! (such as tints, scars, etc)</b>"+ "\n"
         output += "Tint Category: " 
         tint_category = self.the_cat.pelt.tint_category
+        #vibrant
         if tint_category == "red_yellow":
             output += "red-yellow"
         elif tint_category == "yellow_green":
@@ -364,6 +383,22 @@ class CodeInspectScreen(Screens):
             output += "blue-pink"
         elif tint_category == "pink_red":
             output += "pink-red"
+        # desat
+        elif tint_category == "desat_red_yellow":
+            output += "desaturated red-yellow"
+        elif tint_category == "desat_yellow_green":
+            output += "desaturated yellow-green"
+        elif tint_category == "desat_green_teal":
+            output += "desaturated green-teal"
+        elif tint_category == "desat_teal_blue":
+            output += "desaturated teal-blue"
+        elif tint_category == "desat_blue_pink":
+            output += "desaturated blue-pink"
+        elif tint_category == "desat_pink_red":
+            output += "desaturated pink-red"
+        #misc 
+        elif tint_category == "monochrome":
+            output += "monochrome"
         elif tint_category == "none":
             output += "none"
         else:

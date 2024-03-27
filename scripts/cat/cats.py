@@ -387,8 +387,6 @@ class Cat():
                              self.pelt.eye_colour,
                              self.pelt.name,
                              self.pelt.tortiepattern,
-                             vitiligo=self.pelt.vitiligo,
-                             points=self.pelt.points,
                              trait=self.personality.trait,
                              primary=self.skills.primary,
                              secondary=self.skills.secondary,
