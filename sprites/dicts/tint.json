@@ -49,6 +49,12 @@
     "teal_blue", 
     "blue_pink", 
     "pink_red",
+    "desat_red_yellow", 
+    "desat_yellow_green", 
+    "desat_green_teal", 
+    "desat_teal_blue", 
+    "desat_blue_pink", 
+    "desat_pink_red",
     "monochrome",
     "none"
   ]
