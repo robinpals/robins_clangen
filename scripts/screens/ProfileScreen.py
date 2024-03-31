@@ -727,21 +727,21 @@ class ProfileScreen(Screens):
         if the_cat.dead:
             output += str(the_cat.moons)
             if the_cat.moons == 1:
-                output += ' moon (in life)\n'
+                output += ' moon (in life --' + str(round(the_cat.moons / 12, 1)) + ' years)\n'
             elif the_cat.moons != 1:
-                output += ' moons (in life)\n'
+                output += ' moons (in life --' + str(round(the_cat.moons / 12, 1)) + ' years)\n'
 
             output += str(the_cat.dead_for)
             if the_cat.dead_for == 1:
-                output += ' moon (in death)'
+                output += ' moon (in death --' + str(round(the_cat.moons / 12, 1)) + ' years)'
             elif the_cat.dead_for != 1:
-                output += ' moons (in death)'
+                output += ' moons (in death --' + str(round(the_cat.moons / 12, 1)) + ' years)'
         else:
             output += str(the_cat.moons)
             if the_cat.moons == 1:
-                output += ' moon'
+                output += ' moon (' + str(round(the_cat.moons / 12, 1)) + ' years)'
             elif the_cat.moons != 1:
-                output += ' moons'
+                output += ' moons (' + str(round(the_cat.moons / 12, 1)) + ' years)'
 
         # MATE
         if len(the_cat.mate) > 0:

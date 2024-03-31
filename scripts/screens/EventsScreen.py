@@ -261,9 +261,9 @@ class EventsScreen(Screens):
         self.events_frame.disable()
         # Set text for Clan age
         if game.clan.age == 1:
-            self.clan_age.set_text(f'Clan age: {game.clan.age} moon')
+            self.clan_age.set_text(f'Clan age: {game.clan.age} moon ({round(game.clan.age / 12)} years)')
         if game.clan.age != 1:
-            self.clan_age.set_text(f'Clan age: {game.clan.age} moons')
+            self.clan_age.set_text(f'Clan age: {game.clan.age} moons ({round(game.clan.age / 12)} years)')
 
         self.timeskip_button = UIImageButton(scale(pygame.Rect((620, 436), (360, 60))), "", object_id="#timeskip_button"
                                              , manager=MANAGER)
@@ -526,9 +526,9 @@ class EventsScreen(Screens):
 
         self.season.set_text(f'Current season: {game.clan.current_season}')
         if game.clan.age == 1:
-            self.clan_age.set_text(f'Clan age: {game.clan.age} moon')
+            self.clan_age.set_text(f'Clan age: {game.clan.age} moon ({round(game.clan.age / 12)} years)')
         if game.clan.age != 1:
-            self.clan_age.set_text(f'Clan age: {game.clan.age} moons')
+            self.clan_age.set_text(f'Clan age: {game.clan.age} moons ({round(game.clan.age / 12)} years)')
 
         for ele in self.display_events_elements:
             self.display_events_elements[ele].kill()

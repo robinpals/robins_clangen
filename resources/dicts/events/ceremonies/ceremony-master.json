@@ -2777,6 +2777,2307 @@
     ],
     "(previous_mentor) gathers the Clan for a meeting. {PRONOUN/(previous_mentor)/subject/CAP} {VERB/(previous_mentor)/have/has} spent many moons training (old_name), and it's time for {PRONOUN/m_c/object} to be granted {PRONOUN/m_c/poss} warrior name. (previous_mentor) gives {PRONOUN/m_c/object} the name m_c and honors {PRONOUN/m_c/poss} r_h."
   ],
+  "defense_0": [
+    [
+      "defense",
+      "prepared",
+      "general_mentor",
+      "general_parents",
+      "general_leader",
+      "general_backstory",
+      "all_traits"
+    ],
+    "c_n welcomes m_c as a new guard, honoring {PRONOUN/m_c/poss} r_h."
+  ],
+  "defense_0_a": [
+    [
+      "defense",
+      "unprepared",
+      "general_mentor",
+      "general_parents",
+      "general_leader",
+      "general_backstory",
+      "all_traits"
+    ],
+    "Although {PRONOUN/m_c/poss} training has been long, (old_name) has failed to master the skills needed of a guard. However, {PRONOUN/m_c/subject} {VERB/m_c/are/is} getting too old to stay in the apprentices den. The mood is tense and awkward as {PRONOUN/m_c/subject} {VERB/m_c/are/is} named m_c and honored for {PRONOUN/m_c/poss} r_h. "
+  ],
+  "defense_0_b": [
+    [
+      "defense",
+      "early",
+      "general_mentor",
+      "general_parents",
+      "general_leader",
+      "general_backstory",
+      "all_traits"
+    ],
+    "(old_name) has excelled at every task placed before {PRONOUN/m_c/object}. Despite {PRONOUN/m_c/poss} young age, {PRONOUN/m_c/subject} {VERB/m_c/are/is} more than ready to be a guard. {PRONOUN/m_c/subject/CAP} {VERB/m_c/are/is} given the name m_c, honoring {PRONOUN/m_c/poss} r_h. "
+  ],
+  "defense_1": [
+    [
+      "defense",
+      "prepared",
+      "general_mentor",
+      "general_parents",
+      "yes_leader",
+      "general_backstory",
+      "all_traits"
+    ],
+    "l_n calls the Clan to a meeting and declares (old_name) to be a guard. {PRONOUN/m_c/subject/CAP} {VERB/m_c/are/is} now called m_c and are celebrated for {PRONOUN/m_c/poss} r_h."
+  ],
+  "defense_2": [
+    [
+      "defense",
+      "prepared",
+      "general_mentor",
+      "general_parents",
+      "yes_leader",
+      "general_backstory",
+      "all_traits"
+    ],
+    "l_n stands above the Clan and proclaims that (old_name) shall now be known as m_c, honoring {PRONOUN/m_c/poss} r_h."
+  ],
+  "defense_3": [
+    [
+      "defense",
+      "prepared",
+      "general_mentor",
+      "general_parents",
+      "yes_leader",
+      "general_backstory",
+      "all_traits"
+    ],
+    "l_n rests {PRONOUN/l_n/poss} muzzle on m_c's head and declares {PRONOUN/m_c/object} to be a full guard of c_n, honoring {PRONOUN/m_c/poss} r_h."
+  ],
+  "defense_4": [
+    [
+      "defense",
+      "prepared",
+      "general_mentor",
+      "general_parents",
+      "yes_leader",
+      "general_backstory",
+      "all_traits"
+    ],
+    "l_n has been following the progress of (old_name) for moons, and feels that it is finally time for {PRONOUN/m_c/object} to get {PRONOUN/m_c/poss} guard name. {PRONOUN/m_c/subject/CAP} {VERB/m_c/are/is} granted the name m_c in honor of {PRONOUN/m_c/poss} r_h."
+  ],
+  "defense_5": [
+    [
+      "defense",
+      "prepared",
+      "dead_mentor",
+      "general_parents",
+      "yes_leader",
+      "general_backstory",
+      "all_traits"
+    ],
+    "(old_name) stands before the leader. {PRONOUN/m_c/subject/CAP} should be happier, but as {PRONOUN/m_c/subject}{VERB/m_c/'re/'s} given {PRONOUN/m_c/poss} guard name, m_c in honor of {PRONOUN/m_c/poss} r_h, {PRONOUN/m_c/subject} {VERB/m_c/cast/casts} a look to the crowd. {PRONOUN/m_c/subject/CAP} {VERB/m_c/wish/wishes} that (deadmentor) could be there to see {PRONOUN/m_c/object} now."
+  ],
+  "defense_6": [
+    [
+      "defense",
+      "prepared",
+      "alive_mentor",
+      "general_parents",
+      "general_leader",
+      "general_backstory",
+      "all_traits"
+    ],
+    "(previous_mentor) sits in the crowd, chest puffed out in pride as {PRONOUN/(previous_mentor)/subject} {VERB/(previous_mentor)/watch/watches} (old_name) be named m_c, and honored for {PRONOUN/m_c/poss} r_h. {PRONOUN/(previous_mentor)/subject/CAP} {VERB/(previous_mentor)/consider/considers} {PRONOUN/(previous_mentor)/self} lucky to have been able to train such an amazing young cat, and look forward to seeing the defense {PRONOUN/m_c/subject} {VERB/m_c/become/becomes}."
+  ],
+  "defense_7": [
+    [
+      "defense",
+      "prepared",
+      "alive_mentor",
+      "general_parents",
+      "yes_leader",
+      "general_backstory",
+      "all_traits"
+    ],
+    "(previous_mentor) gives (old_name) a friendly nudge when the leader calls the young cat's name. {PRONOUN/(previous_mentor)/subject/CAP} {VERB/(previous_mentor)/watch/watches} with pride as (old_name) steps forward to receive {PRONOUN/m_c/poss} new name, m_c, and {VERB/m_c/are/is} honored for {PRONOUN/m_c/poss} r_h."
+  ],
+  "defense_8": [
+    [
+      "defense",
+      "prepared",
+      "general_mentor",
+      "general_parents",
+      "general_leader",
+      "general_backstory",
+      "adventurous",
+      "oblivious"
+    ],
+    "(old_name) sits in front of the Clan, eager to receive {PRONOUN/m_c/poss} name, but {PRONOUN/m_c/poss} focus seems somewhere else, somewhere beyond the horizon. {PRONOUN/m_c/subject/CAP} barely {VERB/m_c/seem/seems} to be paying attention as {PRONOUN/m_c/subject}{VERB/m_c/'re/'s} named m_c after {PRONOUN/m_c/poss} r_h."
+  ],
+  "defense_9": [
+    [
+      "defense",
+      "prepared",
+      "general_mentor",
+      "general_parents",
+      "general_leader",
+      "general_backstory",
+      "compassionate"
+    ],
+    "l_n gazes down proudly upon (old_name). {PRONOUN/m_c/subject/CAP} {VERB/m_c/had/has} spent {PRONOUN/m_c/poss} whole apprenticeship helping the Clan, and so {PRONOUN/m_c/subject} {VERB/m_c/are/is} named m_c after {PRONOUN/m_c/poss} r_h."
+  ],
+  "defense_10": [
+    [
+      "defense",
+      "prepared",
+      "general_mentor",
+      "general_parents",
+      "yes_leader",
+      "general_backstory",
+      "ambitious"
+    ],
+    "(old_name)'s eyes gleam as {PRONOUN/m_c/subject} {VERB/m_c/stare/stares} up at l_n, vowing silently to {PRONOUN/m_c/self} to one day be up there. {PRONOUN/m_c/subject/CAP} {VERB/m_c/are/is} named m_c after {PRONOUN/m_c/poss} r_h."
+  ],
+  "defense_11": [
+    [
+      "defense",
+      "prepared",
+      "general_mentor",
+      "general_parents",
+      "yes_leader",
+      "general_backstory",
+      "bloodthirsty"
+    ],
+    "Although (old_name)'s eagerness to fight has left l_n a little worried before, {PRONOUN/l_n/subject} {VERB/m_c/know/knows} that the Clan can count on (old_name)'s bravery and sharp claws when they need them the most. In honor of {PRONOUN/m_c/poss} r_h, (old_name) is given the name m_c."
+  ],
+  "defense_12": [
+    [
+      "defense",
+      "prepared",
+      "general_mentor",
+      "general_parents",
+      "yes_leader",
+      "general_backstory",
+      "bold",
+      "arrogant",
+      "cunning"
+    ],
+    "(old_name) stands tall and puffs out {PRONOUN/m_c/poss} chest as l_n announces {PRONOUN/m_c/subject} {VERB/m_c/are/is} ready for {PRONOUN/m_c/poss} guard name. {PRONOUN/m_c/subject/CAP} {VERB/m_c/are/is} given the name m_c after {PRONOUN/m_c/poss} r_h."
+  ],
+  "defense_13": [
+    [
+      "defense",
+      "prepared",
+      "general_mentor",
+      "general_parents",
+      "yes_leader",
+      "general_backstory",
+      "calm",
+      "cunning"
+    ],
+    "(old_name) sits before the Clan, ears pricked forward and gaze calm as l_n addresses the Clan. {PRONOUN/m_c/subject/CAP} {VERB/m_c/bow/bows} {PRONOUN/m_c/poss} head as {PRONOUN/m_c/subject} {VERB/m_c/are/is} named m_c after {PRONOUN/m_c/poss} r_h."
+  ],
+  "defense_14": [
+    [
+      "defense",
+      "prepared",
+      "general_mentor",
+      "general_parents",
+      "yes_leader",
+      "general_backstory",
+      "careful"
+    ],
+    "(old_name) sits neatly in front of l_n as {PRONOUN/l_n/subject} {VERB/l_n/talk/talks} about how well (old_name) did in {PRONOUN/m_c/poss} assessment. {PRONOUN/m_c/subject/CAP} {VERB/m_c/are/is} named m_c after {PRONOUN/m_c/poss} r_h."
+  ],
+  "defense_15": [
+    [
+      "defense",
+      "prepared",
+      "general_mentor",
+      "general_parents",
+      "yes_leader",
+      "general_backstory",
+      "charismatic",
+      "flamboyant",
+      "rebellious"
+    ],
+    "(old_name) holds {PRONOUN/m_c/poss} head high as l_n announces it is time for {PRONOUN/m_c/object} to be given {PRONOUN/m_c/poss} defense name. {PRONOUN/m_c/subject/CAP} {VERB/m_c/are/is} named m_c in honor of {PRONOUN/m_c/poss} r_h, and the Clan explodes into loud cheers."
+  ],
+  "defense_16": [
+    [
+      "defense",
+      "prepared",
+      "general_mentor",
+      "general_parents",
+      "yes_leader",
+      "general_backstory",
+      "childish",
+      "oblivious"
+    ],
+    "(old_name) barely seems to be paying attention, attention focused on a fluttering leaf. l_n has to repeat {PRONOUN/m_c/poss} name a few times before {PRONOUN/m_c/subject} finally {VERB/m_c/pay/pays} attention long enough to give {PRONOUN/m_c/poss} vow. Sighing, the leader names {PRONOUN/m_c/object} m_c after {PRONOUN/m_c/poss} r_h."
+  ],
+  "defense_17": [
+    [
+      "defense",
+      "prepared",
+      "general_mentor",
+      "general_parents",
+      "yes_leader",
+      "general_backstory",
+      "childish"
+    ],
+    "While l_n is not quite sure that (old_name) has outgrown {PRONOUN/m_c/poss} childish quirks or {PRONOUN/m_c/poss} love of pranks, {PRONOUN/l_n/subject} {VERB/l_n/welcome/welcomes} {PRONOUN/m_c/object} as a full defense to the Clan and naming {PRONOUN/m_c/object} m_c after {PRONOUN/m_c/poss} lightheartedness and r_h."
+  ],
+  "defense_18": [
+    [
+      "defense",
+      "prepared",
+      "general_mentor",
+      "general_parents",
+      "yes_leader",
+      "general_backstory",
+      "cold",
+      "grumpy",
+      "gloomy"
+    ],
+    "(old_name) remains completely quiet as l_n names {PRONOUN/m_c/object} m_c after {PRONOUN/m_c/poss} r_h. Before anyone can congratulate {PRONOUN/m_c/object}, however, {PRONOUN/m_c/subject} {VERB/m_c/turn/turns} and walks away without a word to do {PRONOUN/m_c/poss} silent vigil."
+  ],
+  "defense_19": [
+    [
+      "defense",
+      "prepared",
+      "general_mentor",
+      "general_parents",
+      "yes_leader",
+      "general_backstory",
+      "cold",
+      "cunning",
+      "gloomy"
+    ],
+    "(old_name) stares at l_n as {PRONOUN/l_n/subject} {VERB/l_n/speak/speaks}. l_n is sure it doesn't mean anything, but (old_name)'s lack of enthusiasm worries {PRONOUN/l_n/object}. Brushing past it, l_n gives {PRONOUN/m_c/object} the name m_c after {PRONOUN/m_c/poss} r_h."
+  ],
+  "defense_20": [
+    [
+      "defense",
+      "prepared",
+      "general_mentor",
+      "general_parents",
+      "yes_leader",
+      "general_backstory",
+      "compassionate"
+    ],
+    "(old_name) was so busy helping another cat {PRONOUN/m_c/subject} {VERB/m_c/were/was} nearly late for {PRONOUN/m_c/poss} own defense ceremony. {PRONOUN/m_c/subject/CAP} rush to sit down, and l_n gazes proudly down at {PRONOUN/m_c/object} as {PRONOUN/l_n/subject} {VERB/l_n/name/names} {PRONOUN/m_c/object} m_c after {PRONOUN/m_c/poss} r_h."
+  ],
+  "defense_21": [
+    [
+      "defense",
+      "prepared",
+      "general_mentor",
+      "general_parents",
+      "yes_leader",
+      "general_backstory",
+      "compassionate",
+      "loving"
+    ],
+    "l_n has always thought (old_name) had a kind heart, knowing that {PRONOUN/m_c/subject} {VERB/m_c/are/is} ready for times of peace, but doesn't know how that heart will serve in war. Nevertheless, {PRONOUN/l_n/subject} {VERB/l_n/name/names} {PRONOUN/m_c/object} m_c after {PRONOUN/m_c/poss} r_h."
+  ],
+  "defense_22": [
+    [
+      "defense",
+      "prepared",
+      "general_mentor",
+      "general_parents",
+      "yes_leader",
+      "general_backstory",
+      "confident",
+      "arrogant"
+    ],
+    "(old_name) soaks up all of the attention as {PRONOUN/m_c/subject} {VERB/m_c/stand/stands} before {PRONOUN/m_c/poss} Clan, eager for {PRONOUN/m_c/poss} new name. l_n gives {PRONOUN/m_c/object} the name m_c after {PRONOUN/m_c/poss} r_h."
+  ],
+  "defense_23": [
+    [
+      "defense",
+      "prepared",
+      "general_mentor",
+      "general_parents",
+      "yes_leader",
+      "general_backstory",
+      "daring",
+      "grumpy"
+    ],
+    "(old_name) looks up at the leader with pride. {PRONOUN/m_c/subject/CAP} knew all that hard work - proving {PRONOUN/m_c/subject} {VERB/m_c/were/was} the best apprentice in the Clan - was worth it, even if it caused {PRONOUN/m_c/object} a lot of trouble. {PRONOUN/m_c/subject/CAP} {VERB/m_c/hold/holds} {PRONOUN/m_c/poss} head high as {PRONOUN/m_c/subject}{VERB/m_c/'re/'s} named m_c after {PRONOUN/m_c/poss} r_h."
+  ],
+  "defense_24": [
+    [
+      "defense",
+      "prepared",
+      "general_mentor",
+      "general_parents",
+      "yes_leader",
+      "general_backstory",
+      "daring"
+    ],
+    "(old_name) sits with a determined look on {PRONOUN/m_c/poss} face before the Clan. l_n is worried that {PRONOUN/m_c/poss} refusal to back down and tendency to jump headfirst into danger will end poorly for {PRONOUN/m_c/object}, and hopes that sitting vigil overnight will change that. (old_name) is named m_c after {PRONOUN/m_c/poss} r_h."
+  ],
+  "defense_25": [
+    [
+      "defense",
+      "prepared",
+      "general_mentor",
+      "general_parents",
+      "yes_leader",
+      "general_backstory",
+      "compassionate"
+    ],
+    "(old_name) purrs as {PRONOUN/m_c/subject} {VERB/m_c/feel/feels} the joy and pride of {PRONOUN/m_c/poss} Clanmates wash over {PRONOUN/m_c/object}. l_n looks down upon {PRONOUN/m_c/object}, eyes glowing with pride as well as {PRONOUN/l_n/subject} {VERB/l_n/name/names} {PRONOUN/m_c/object} m_c after {PRONOUN/m_c/poss} r_h."
+  ],
+  "defense_26": [
+    [
+      "defense",
+      "prepared",
+      "general_mentor",
+      "general_parents",
+      "yes_leader",
+      "general_backstory",
+      "faithful"
+    ],
+    "(old_name)'s eyes glimmer while l_n talks about {PRONOUN/m_c/poss} accomplishments. {PRONOUN/m_c/poss} gaze isn't focused on the leader, however, but the stars shining behind {PRONOUN/l_n/object}. As {PRONOUN/m_c/subject} {VERB/m_c/are/is} given the name m_c, {PRONOUN/m_c/object} {VERB/m_c/wonder/wonders} if StarClan honors {PRONOUN/m_c/poss} r_h, too."
+  ],
+  "defense_27": [
+    [
+      "defense",
+      "prepared",
+      "general_mentor",
+      "general_parents",
+      "yes_leader",
+      "general_backstory",
+      "faithful"
+    ],
+    "As l_n gives (old_name) the name m_c, {PRONOUN/l_n/subject} {VERB/l_n/swear/swears} that {PRONOUN/l_n/subject} {VERB/l_n/see/sees} some starry cats yowling their support amongst {PRONOUN/l_n/poss} other Clanmates."
+  ],
+  "defense_28": [
+    [
+      "defense",
+      "prepared",
+      "general_mentor",
+      "general_parents",
+      "yes_leader",
+      "general_backstory",
+      "fierce",
+      "grumpy"
+    ],
+    "(old_name) sits in front of the leader, tail twitching back and forth as {PRONOUN/m_c/subject} {VERB/m_c/await/awaits} {PRONOUN/m_c/poss} defense name. {PRONOUN/m_c/subject/CAP}{VERB/m_c/'re/'s} eager for this ceremony to be done so {PRONOUN/m_c/subject} can go back to work and make sure the Clan is safe. Finally, l_n looks down upon {PRONOUN/m_c/object} and names {PRONOUN/m_c/object} m_c after {PRONOUN/m_c/poss} r_h."
+  ],
+  "defense_29": [
+    [
+      "defense",
+      "prepared",
+      "general_mentor",
+      "general_parents",
+      "yes_leader",
+      "general_backstory",
+      "insecure"
+    ],
+    "{PRONOUN/m_c/poss/CAP} training is done already? (old_name) isn't entirely sure if {PRONOUN/m_c/subject}{VERB/m_c/'re/'s} quite as ready to be a defense as the leader claims {PRONOUN/m_c/object} to be. {PRONOUN/m_c/poss/CAP} voice trembles when {PRONOUN/m_c/subject} {VERB/m_c/take/takes} {PRONOUN/m_c/poss} vow. As {PRONOUN/m_c/subject}{VERB/m_c/'re/'s} renamed to m_c, in honor of {PRONOUN/m_c/poss} r_h, {PRONOUN/m_c/subject} can't help but wonder if that is truly something that describes {PRONOUN/m_c/object}."
+  ],
+  "defense_30": [
+    [
+      "defense",
+      "prepared",
+      "general_mentor",
+      "general_parents",
+      "yes_leader",
+      "general_backstory",
+      "lonesome",
+      "gloomy"
+    ],
+    "(old_name), now m_c, named so for {PRONOUN/m_c/poss} r_h, can only awkwardly thank {PRONOUN/m_c/poss} Clanmates as {PRONOUN/m_c/subject} {VERB/m_c/weave/weaves} through the crowd of purring cats. Once the meeting comes to a close, {PRONOUN/m_c/subject} {VERB/m_c/slink/slinks} out of camp to be alone for a while."
+  ],
+  "defense_31": [
+    [
+      "defense",
+	    "prepared",
+      "alive_mentor",
+      "general_parents",
+      "yes_leader",
+      "general_backstory",
+      "loving",
+      "sincere"
+    ],
+    "(old_name) is overjoyed to finally be a defense. After l_n renames {PRONOUN/m_c/object} and honors {PRONOUN/m_c/poss} r_h, m_c nuzzles (previous_mentor), thanking {PRONOUN/(previous_mentor)/object} for {PRONOUN/(previous_mentor)/poss} guidance."
+  ],
+  "defense_32": [
+    [
+      "defense",
+      "prepared",
+      "general_mentor",
+      "general_parents",
+      "yes_leader",
+      "general_backstory",
+      "loyal"
+    ],
+    "(old_name) looks around at {PRONOUN/m_c/poss} Clanmates with adoration while l_n announces that {PRONOUN/m_c/poss} new name will be m_c after {PRONOUN/m_c/poss} r_h. m_c is happy to be a defense now, but mostly {PRONOUN/m_c/subject} just {VERB/m_c/want/wants} to celebrate with {PRONOUN/m_c/poss} Clan, whether it's for {PRONOUN/m_c/object} or not."
+  ],
+  "defense_33": [
+    [
+      "defense",
+      "prepared",
+      "general_mentor",
+      "general_parents",
+      "yes_leader",
+      "general_backstory",
+      "nervous"
+    ],
+    "(old_name) fidgets nervously as {PRONOUN/m_c/subject} {VERB/m_c/step/steps} forward in front of the Clan. This is an important moment, so {PRONOUN/m_c/subject} {VERB/m_c/try/tries} not to hide {PRONOUN/m_c/poss} face from the crowd as l_n gives {PRONOUN/m_c/object} the name m_c in honor of {PRONOUN/m_c/poss} r_h. {PRONOUN/m_c/subject/CAP} quickly {VERB/m_c/scurry/scurries} back into the crowd once the ceremony is done, silently hoping that this will be the last ceremony {PRONOUN/m_c/subject} ever {VERB/m_c/have/has}."
+  ],
+  "defense_34": [
+    [
+      "defense",
+      "prepared",
+      "general_mentor",
+      "general_parents",
+      "yes_leader",
+      "general_backstory",
+      "nervous"
+    ],
+    "As (old_name) nervously approaches {PRONOUN/m_c/poss} leader, l_n can't help but feel {PRONOUN/m_c/poss} hesitance might cost {PRONOUN/m_c/object} {PRONOUN/m_c/poss} life in battle. Steeling {PRONOUN/l_n/self} against {PRONOUN/l_n/poss} doubts, l_n gives (old_name) the name m_c to honor {PRONOUN/m_c/poss} r_h."
+  ],
+  "defense_35": [
+    [
+      "defense",
+      "prepared",
+      "general_mentor",
+      "general_parents",
+      "yes_leader",
+      "general_backstory",
+      "compassionate"
+    ],
+    "(old_name) sits unbothered as l_n rattles on through the long, formal words of the defense ceremony. {PRONOUN/l_n/subject/CAP} {VERB/l_n/give/gives} (old_name) the name m_c, honoring {PRONOUN/m_c/poss} r_h. m_c has no complaints about the long vigil {PRONOUN/m_c/subject} must sit that night."
+  ],
+  "defense_36": [
+    [
+      "defense",
+      "prepared",
+      "general_mentor",
+      "general_parents",
+      "yes_leader",
+      "general_backstory",
+      "playful"
+    ],
+    "(old_name) bounces up to the front of the Clan, full of excitement. {PRONOUN/m_c/subject/CAP} {VERB/m_c/try/tries} to take this somewhat seriously, but {PRONOUN/m_c/subject} still {VERB/m_c/crack/cracks} a joke over something the leader says. l_n gently scolds {PRONOUN/m_c/object} for it, but can't help purring along as {PRONOUN/l_n/subject} {VERB/l_n/name/names} {PRONOUN/m_c/object} m_c after {PRONOUN/m_c/poss} r_h."
+  ],
+  "defense_37": [
+    [
+      "defense",
+      "prepared",
+      "general_mentor",
+      "general_parents",
+      "yes_leader",
+      "general_backstory",
+      "responsible"
+    ],
+    "(old_name) has shown more maturity than most cats {PRONOUN/m_c/poss} age, always offering to take on the worst apprentice jobs first, and counting the prey in the pile to know just how much to catch on patrol. l_n was tempted to make {PRONOUN/m_c/object} a defense sooner, but now will have to do. {PRONOUN/l_n/subject/CAP} {VERB/l_n/name/names} {PRONOUN/m_c/object} m_c after {PRONOUN/m_c/poss} r_h."
+  ],
+  "defense_38": [
+    [
+      "defense",
+      "prepared",
+      "general_mentor",
+      "general_parents",
+      "yes_leader",
+      "general_backstory",
+      "righteous",
+      "sincere"
+    ],
+    "(old_name) stands tall before the Clan, gaze determined as l_n says {PRONOUN/m_c/subject} {VERB/m_c/are/is} ready for {PRONOUN/m_c/poss} defense name. (old_name) takes the vow seriously, and promises to always do what is best for everyone. Gaze proud, l_n names {PRONOUN/m_c/object} m_c after {PRONOUN/m_c/poss} r_h."
+  ],
+  "defense_39": [
+    [
+      "defense",
+      "prepared",
+      "general_mentor",
+      "general_parents",
+      "yes_leader",
+      "general_backstory",
+      "shameless",
+      "sincere"
+    ],
+    "(old_name) is still messy after tussling with someone else, and doesn't even bother to groom {PRONOUN/m_c/self} before trotting up to the front of the crowd. {PRONOUN/m_c/subject/CAP} {VERB/m_c/are/is} named m_c, and honored for {PRONOUN/m_c/poss} r_h."
+  ],
+  "defense_40": [
+    [
+      "defense",
+      "prepared",
+      "general_mentor",
+      "general_parents",
+      "yes_leader",
+      "general_backstory",
+      "sneaky"
+    ],
+    "(old_name) pads forward silently before sitting in front of {PRONOUN/m_c/poss} leader. {PRONOUN/m_c/subject/CAP} {VERB/m_c/remain/remains} as quiet as {PRONOUN/m_c/poss} steps forward for l_n to name {PRONOUN/m_c/object} m_c and honor {PRONOUN/m_c/poss} r_h."
+  ],
+  "defense_41": [
+    [
+      "defense",
+      "prepared",
+      "general_mentor",
+      "general_parents",
+      "yes_leader",
+      "general_backstory",
+      "strange"
+    ],
+    "(old_name) is nearly late for {PRONOUN/m_c/poss} ceremony, having been double checking something for reasons no one knows. l_n remains patient as (old_name) sits down in front of {PRONOUN/l_n/object}. l_n names {PRONOUN/m_c/object} m_c, honoring {PRONOUN/m_c/poss} r_h."
+  ],
+  "defense_42": [
+    [
+      "defense",
+      "prepared",
+      "general_mentor",
+      "general_parents",
+      "yes_leader",
+      "general_backstory",
+      "strict"
+    ],
+    "(old_name) grumbles to {PRONOUN/m_c/self} as l_n changes just a single word in the ceremony. But {PRONOUN/m_c/subject} {VERB/m_c/know/knows} better than to correct {PRONOUN/l_n/object} during such an important ceremony. {PRONOUN/m_c/subject/CAP} can speak to l_n about it later. For now, {PRONOUN/m_c/subject} {VERB/m_c/listen/listens} as {PRONOUN/m_c/subject} {VERB/m_c/are/is} given the name m_c, and {VERB/m_c/are/is} honored for {PRONOUN/m_c/poss} r_h."
+  ],
+  "defense_43": [
+    [
+      "defense",
+      "prepared",
+      "general_mentor",
+      "general_parents",
+      "yes_leader",
+      "general_backstory",
+      "thoughtful"
+    ],
+    "l_n hops up onto the meeting spot to find that (old_name) has set moss along it in preparation for the meeting so that l_n can be more comfortable through the long ceremony. Purring, l_n gives {PRONOUN/m_c/object} the name m_c for {PRONOUN/m_c/poss} r_h."
+  ],
+  "defense_44": [
+    [
+      "defense",
+      "prepared",
+      "general_mentor",
+      "general_parents",
+      "yes_leader",
+      "general_backstory",
+      "thoughtful",
+      "wise",
+      "cunning"
+    ],
+    "l_n almost feels intimidated by the knowledge (old_name) has gathered in {PRONOUN/m_c/poss} months of training and feels confident when {PRONOUN/l_n/subject} {VERB/l_n/name/names} {PRONOUN/m_c/object} m_c in honor of {PRONOUN/m_c/poss} r_h."
+  ],
+  "defense_45": [
+    [
+      "defense",
+      "prepared",
+      "general_mentor",
+      "general_parents",
+      "yes_leader",
+      "general_backstory",
+      "troublesome",
+      "rebellious"
+    ],
+    "(old_name)'s penchant for getting into, and even starting, trouble has almost made l_n hold back on making {PRONOUN/m_c/object} a defense. However, l_n can tell that (old_name) has been trying really hard lately to make up for it, and it would feel cruel to make {PRONOUN/m_c/object} wait any longer. So, l_n names {PRONOUN/m_c/object} m_c in honor of {PRONOUN/m_c/poss} r_h."
+  ],
+  "defense_46": [
+    [
+      "defense",
+      "prepared",
+      "general_mentor",
+      "general_parents",
+      "yes_leader",
+      "general_backstory",
+      "vengeful"
+    ],
+    "As (old_name) takes {PRONOUN/m_c/poss} vow and is named m_c after {PRONOUN/m_c/poss} r_h, {PRONOUN/m_c/poss} thoughts are less on protecting the Clan, and more so on ensuring that anyone who harms it will pay in kind."
+  ],
+  "defense_47": [
+    [
+      "defense",
+      "prepared",
+      "general_mentor",
+      "general_parents",
+      "yes_leader",
+      "general_backstory",
+      "wise",
+      "cunning"
+    ],
+    "(old_name)'s advice has helped many cats throughout {PRONOUN/m_c/poss} days as an apprentice. Even l_n has sought {PRONOUN/m_c/object} out at times. l_n has no doubts in {PRONOUN/l_n/poss} mind that (old_name) is ready to be a defense, and names {PRONOUN/m_c/object} m_c, honoring {PRONOUN/m_c/poss} r_h."
+  ],
+  "defense_48": [
+    [
+      "defense",
+      "prepared",
+      "general_mentor",
+      "general_parents",
+      "no_leader",
+      "general_backstory",
+      "all_traits"
+    ],
+    "c_n rallies around (old_name) in celebration. Even without a leader, life must go on, and (old_name) has proven {PRONOUN/m_c/subject} {VERB/m_c/are/is} ready for {PRONOUN/m_c/poss} defense name. (old_name) is allowed to choose {PRONOUN/m_c/poss} own suffix, and {PRONOUN/m_c/subject} {VERB/m_c/name/names} {PRONOUN/m_c/self} m_c. The Clan cheers for the new defense, honoring {PRONOUN/m_c/poss} r_h."
+  ],
+  "defense_49": [
+    [
+      "defense",
+      "prepared",
+      "general_mentor",
+      "general_parents",
+      "no_leader",
+      "general_backstory",
+      "all_traits"
+    ],
+    "(old_name) sits with {PRONOUN/m_c/poss} Clan, purring as {PRONOUN/m_c/subject}{VERB/m_c/'re/'s} congratulated on finishing {PRONOUN/m_c/poss} training. When given the option to choose {PRONOUN/m_c/poss} name, however, (old_name) can't really think of a suffix, and asks {PRONOUN/m_c/poss} Clanmates for some suggestions. After hearing a few ideas, (old_name) decides to be named m_c. The Clan cheers {PRONOUN/m_c/poss} new name, and honors {PRONOUN/m_c/object} for {PRONOUN/m_c/poss} r_h."
+  ],
+  "defense_50": [
+    [
+      "defense",
+      "prepared",
+      "dead_mentor",
+      "general_parents",
+      "no_leader",
+      "general_backstory",
+      "all_traits"
+    ],
+    "Leader or no leader, c_n needs more defenses, and (old_name) has been working incredibly hard lately. The Clan agrees that {PRONOUN/m_c/subject} should be made a defense. As {PRONOUN/m_c/subject} {VERB/m_c/are/is} named m_c, honoring {PRONOUN/m_c/poss} r_h, m_c wishes that (deadmentor) could be there to cheer for {PRONOUN/m_c/object}."
+  ],
+  "defense_51": [
+    [
+      "defense",
+      "prepared",
+      "dead_mentor",
+      "general_parents",
+      "no_leader",
+      "general_backstory",
+      "all_traits"
+    ],
+    "They don't care if there's no leader; the Clan knows that (old_name) is deserving of {PRONOUN/m_c/poss} full name. They gather to hold a ceremony for (old_name), and name {PRONOUN/m_c/object} m_c, honoring {PRONOUN/m_c/poss} r_h. m_c is proud of {PRONOUN/m_c/self}, though a part of {PRONOUN/m_c/object} still wishes that (deadmentor) was still there to see {PRONOUN/m_c/object}."
+  ],
+  "defense_52": [
+    [
+      "defense",
+      "prepared",
+      "alive_mentor",
+      "general_parents",
+      "no_leader",
+      "general_backstory",
+      "all_traits"
+    ],
+    "Leader or no leader, c_n needs more defenses, and (old_name) has been working incredibly hard lately. The Clan agrees that {PRONOUN/m_c/subject} should be made a defense. They gather around the apprentice, and (previous_mentor) is nudged forward to do the honor of giving {PRONOUN/m_c/object} {PRONOUN/m_c/poss} name. Purring in pride for {PRONOUN/(previous_mentor)/poss} apprentice, (previous_mentor) rests {PRONOUN/(previous_mentor)/poss} muzzle on (old_name)'s head, and names {PRONOUN/m_c/object} m_c, honoring {PRONOUN/m_c/poss} r_h."
+  ],
+  "defense_53": [
+    [
+      "defense",
+	    "prepared",
+      "alive_mentor",
+      "general_parents",
+      "no_leader",
+      "general_backstory",
+      "all_traits"
+    ],
+    "{PRONOUN/(previous_mentor)/subject/CAP} {VERB/(previous_mentor)/don't/doesn't} care if there's no leader; (previous_mentor) knows that (old_name) is deserving of {PRONOUN/m_c/poss} full name. {PRONOUN/(previous_mentor)/subject/CAP} {VERB/(previous_mentor)/gather/gathers} the Clan to hold a ceremony for (old_name), and names {PRONOUN/m_c/object} m_c, honoring {PRONOUN/m_c/poss} r_h."
+  ],
+  "defense_54": [
+    [
+      "defense",
+      "prepared",
+      "general_mentor",
+      "alive1_parents",
+      "general_leader",
+      "general_backstory",
+      "all_traits"
+    ],
+    "p1 can hardly believe how quickly time has passed since (old_name) was a kit. It still feels like just yesterday that {PRONOUN/m_c/subject} {VERB/m_c/were/was} tumbling around the nursery, chasing after a mossball or some other cat's tail. Misty-eyed with pride and joy, p1 throws {PRONOUN/p1/poss} head back and tries to cheer the loudest as (old_name) is named m_c and honored for {PRONOUN/m_c/poss} r_h."
+  ],
+  "defense_55": [
+    [
+      "defense",
+      "prepared",
+      "general_mentor",
+      "alive1_parents",
+      "general_leader",
+      "general_backstory",
+      "all_traits"
+    ],
+    "As the Clan cheers for the new defense, m_c, p1 purrs loudly. {PRONOUN/p1/poss/CAP} kit is finally a defense! A new journey has begun for m_c, and p1 knows that m_c's r_h will lead {PRONOUN/m_c/object} through anything."
+  ],
+  "defense_56": [
+    [
+      "defense",
+      "prepared",
+      "general_mentor",
+      "alive2_parents",
+      "general_leader",
+      "general_backstory",
+      "all_traits"
+    ],
+    "p1 and p2's eyes meet, and they purr with pride as (old_name) steps forward to receive {PRONOUN/m_c/poss} new name, m_c, and {VERB/m_c/are/is} honored for {PRONOUN/m_c/poss} r_h."
+  ],
+  "defense_57": [
+    [
+      "defense",
+      "prepared",
+      "general_mentor",
+      "dead2_parents",
+      "general_leader",
+      "general_backstory",
+      "all_traits"
+    ],
+    "Are dead_par1 and dead_par2 watching from StarClan? (old_name) wonders this as {PRONOUN/m_c/subject} {VERB/m_c/step/steps} in front of the Clan. {PRONOUN/m_c/subject/CAP} {VERB/m_c/hope/hopes} so. {PRONOUN/m_c/subject/CAP} truly {VERB/m_c/do/does}. As {PRONOUN/m_c/subject} {VERB/m_c/are/is} given the name m_c in honor of {PRONOUN/m_c/poss} r_h, m_c hopes that {PRONOUN/m_c/poss} parents are there, cheering with their Clanmates in the stars for their kit."
+  ],
+  "defense_58": [
+    [
+      "defense",
+      "prepared",
+      "general_mentor",
+      "dead2_parents",
+      "general_leader",
+      "clanborn",
+      "all_traits"
+    ],
+    "(old_name) tries to keep {PRONOUN/m_c/poss} head high as {PRONOUN/m_c/subject} {VERB/m_c/step/steps} forward, and {VERB/m_c/are/is} given the name m_c in honor of {PRONOUN/m_c/poss} r_h. It doesn't seem fair. dead_par1 and dead_par2 should be here with {PRONOUN/m_c/object}! They promised they would! m_c looks to the stars, and {PRONOUN/m_c/poss} anger and frustration vanishes. It feels as though the stars are brighter, and {PRONOUN/m_c/subject} {VERB/m_c/know/knows} that, even if they cannot be there in body, {PRONOUN/m_c/poss} parents are there in spirit."
+  ],
+  "defense_59": [
+    [
+      "defense",
+      "prepared",
+      "alive_leader_mentor",
+      "general_parents",
+      "yes_leader",
+      "general_backstory",
+      "all_traits"
+    ],
+    "(previous_mentor) gathers the Clan for a meeting. {PRONOUN/(previous_mentor)/subject/CAP} {VERB/(previous_mentor)/have/has} spent many moons training (old_name), and it's time for {PRONOUN/m_c/object} to be granted {PRONOUN/m_c/poss} defense name. (previous_mentor) gives {PRONOUN/m_c/object} the name m_c and honors {PRONOUN/m_c/poss} r_h."
+  ],
+  "attack_0": [
+    [
+      "attack",
+      "prepared",
+      "general_mentor",
+      "general_parents",
+      "general_leader",
+      "general_backstory",
+      "all_traits"
+    ],
+    "c_n welcomes m_c as a new runner, honoring {PRONOUN/m_c/poss} r_h."
+  ],
+  "attack_0_a": [
+    [
+      "attack",
+      "unprepared",
+      "general_mentor",
+      "general_parents",
+      "general_leader",
+      "general_backstory",
+      "all_traits"
+    ],
+    "Although {PRONOUN/m_c/poss} training has been long, (old_name) has failed to master the skills needed of a runner. However, {PRONOUN/m_c/subject} {VERB/m_c/are/is} getting too old to stay in the apprentices den. The mood is tense and awkward as {PRONOUN/m_c/subject} {VERB/m_c/are/is} named m_c and honored for {PRONOUN/m_c/poss} r_h. "
+  ],
+  "attack_0_b": [
+    [
+      "attack",
+      "early",
+      "general_mentor",
+      "general_parents",
+      "general_leader",
+      "general_backstory",
+      "all_traits"
+    ],
+    "(old_name) has excelled at every task placed before {PRONOUN/m_c/object}. Despite {PRONOUN/m_c/poss} young age, {PRONOUN/m_c/subject} {VERB/m_c/are/is} more than ready to be a runner. {PRONOUN/m_c/subject/CAP} {VERB/m_c/are/is} given the name m_c, honoring {PRONOUN/m_c/poss} r_h. "
+  ],
+  "attack_1": [
+    [
+      "attack",
+      "prepared",
+      "general_mentor",
+      "general_parents",
+      "yes_leader",
+      "general_backstory",
+      "all_traits"
+    ],
+    "l_n calls the Clan to a meeting and declares (old_name) to be a runner. {PRONOUN/m_c/subject/CAP} {VERB/m_c/are/is} now called m_c and are celebrated for {PRONOUN/m_c/poss} r_h."
+  ],
+  "attack_2": [
+    [
+      "attack",
+      "prepared",
+      "general_mentor",
+      "general_parents",
+      "yes_leader",
+      "general_backstory",
+      "all_traits"
+    ],
+    "l_n stands above the Clan and proclaims that (old_name) shall now be known as m_c, honoring {PRONOUN/m_c/poss} r_h."
+  ],
+  "attack_3": [
+    [
+      "attack",
+      "prepared",
+      "general_mentor",
+      "general_parents",
+      "yes_leader",
+      "general_backstory",
+      "all_traits"
+    ],
+    "l_n rests {PRONOUN/l_n/poss} muzzle on m_c's head and declares {PRONOUN/m_c/object} to be a full runner of c_n, honoring {PRONOUN/m_c/poss} r_h."
+  ],
+  "attack_4": [
+    [
+      "attack",
+      "prepared",
+      "general_mentor",
+      "general_parents",
+      "yes_leader",
+      "general_backstory",
+      "all_traits"
+    ],
+    "l_n has been following the progress of (old_name) for moons, and feels that it is finally time for {PRONOUN/m_c/object} to get {PRONOUN/m_c/poss} runner name. {PRONOUN/m_c/subject/CAP} {VERB/m_c/are/is} granted the name m_c in honor of {PRONOUN/m_c/poss} r_h."
+  ],
+  "attack_5": [
+    [
+      "attack",
+      "prepared",
+      "dead_mentor",
+      "general_parents",
+      "yes_leader",
+      "general_backstory",
+      "all_traits"
+    ],
+    "(old_name) stands before the leader. {PRONOUN/m_c/subject/CAP} should be happier, but as {PRONOUN/m_c/subject}{VERB/m_c/'re/'s} given {PRONOUN/m_c/poss} runner name, m_c in honor of {PRONOUN/m_c/poss} r_h, {PRONOUN/m_c/subject} {VERB/m_c/cast/casts} a look to the crowd. {PRONOUN/m_c/subject/CAP} {VERB/m_c/wish/wishes} that (deadmentor) could be there to see {PRONOUN/m_c/object} now."
+  ],
+  "attack_6": [
+    [
+      "attack",
+      "prepared",
+      "alive_mentor",
+      "general_parents",
+      "general_leader",
+      "general_backstory",
+      "all_traits"
+    ],
+    "(previous_mentor) sits in the crowd, chest puffed out in pride as {PRONOUN/(previous_mentor)/subject} {VERB/(previous_mentor)/watch/watches} (old_name) be named m_c, and honored for {PRONOUN/m_c/poss} r_h. {PRONOUN/(previous_mentor)/subject/CAP} {VERB/(previous_mentor)/consider/considers} {PRONOUN/(previous_mentor)/self} lucky to have been able to train such an amazing young cat, and look forward to seeing the attack {PRONOUN/m_c/subject} {VERB/m_c/become/becomes}."
+  ],
+  "attack_7": [
+    [
+      "attack",
+      "prepared",
+      "alive_mentor",
+      "general_parents",
+      "yes_leader",
+      "general_backstory",
+      "all_traits"
+    ],
+    "(previous_mentor) gives (old_name) a friendly nudge when the leader calls the young cat's name. {PRONOUN/(previous_mentor)/subject/CAP} {VERB/(previous_mentor)/watch/watches} with pride as (old_name) steps forward to receive {PRONOUN/m_c/poss} new name, m_c, and {VERB/m_c/are/is} honored for {PRONOUN/m_c/poss} r_h."
+  ],
+  "attack_8": [
+    [
+      "attack",
+      "prepared",
+      "general_mentor",
+      "general_parents",
+      "general_leader",
+      "general_backstory",
+      "adventurous",
+      "oblivious"
+    ],
+    "(old_name) sits in front of the Clan, eager to receive {PRONOUN/m_c/poss} name, but {PRONOUN/m_c/poss} focus seems somewhere else, somewhere beyond the horizon. {PRONOUN/m_c/subject/CAP} barely {VERB/m_c/seem/seems} to be paying attention as {PRONOUN/m_c/subject}{VERB/m_c/'re/'s} named m_c after {PRONOUN/m_c/poss} r_h."
+  ],
+  "attack_9": [
+    [
+      "attack",
+      "prepared",
+      "general_mentor",
+      "general_parents",
+      "general_leader",
+      "general_backstory",
+      "compassionate"
+    ],
+    "l_n gazes down proudly upon (old_name). {PRONOUN/m_c/subject/CAP} {VERB/m_c/had/has} spent {PRONOUN/m_c/poss} whole apprenticeship helping the Clan, and so {PRONOUN/m_c/subject} {VERB/m_c/are/is} named m_c after {PRONOUN/m_c/poss} r_h."
+  ],
+  "attack_10": [
+    [
+      "attack",
+      "prepared",
+      "general_mentor",
+      "general_parents",
+      "yes_leader",
+      "general_backstory",
+      "ambitious"
+    ],
+    "(old_name)'s eyes gleam as {PRONOUN/m_c/subject} {VERB/m_c/stare/stares} up at l_n, vowing silently to {PRONOUN/m_c/self} to one day be up there. {PRONOUN/m_c/subject/CAP} {VERB/m_c/are/is} named m_c after {PRONOUN/m_c/poss} r_h."
+  ],
+  "attack_11": [
+    [
+      "attack",
+      "prepared",
+      "general_mentor",
+      "general_parents",
+      "yes_leader",
+      "general_backstory",
+      "bloodthirsty"
+    ],
+    "Although (old_name)'s eagerness to fight has left l_n a little worried before, {PRONOUN/l_n/subject} {VERB/m_c/know/knows} that the Clan can count on (old_name)'s bravery and sharp claws when they need them the most. In honor of {PRONOUN/m_c/poss} r_h, (old_name) is given the name m_c."
+  ],
+  "attack_12": [
+    [
+      "attack",
+      "prepared",
+      "general_mentor",
+      "general_parents",
+      "yes_leader",
+      "general_backstory",
+      "bold",
+      "arrogant",
+      "cunning"
+    ],
+    "(old_name) stands tall and puffs out {PRONOUN/m_c/poss} chest as l_n announces {PRONOUN/m_c/subject} {VERB/m_c/are/is} ready for {PRONOUN/m_c/poss} runner name. {PRONOUN/m_c/subject/CAP} {VERB/m_c/are/is} given the name m_c after {PRONOUN/m_c/poss} r_h."
+  ],
+  "attack_13": [
+    [
+      "attack",
+      "prepared",
+      "general_mentor",
+      "general_parents",
+      "yes_leader",
+      "general_backstory",
+      "calm",
+      "cunning"
+    ],
+    "(old_name) sits before the Clan, ears pricked forward and gaze calm as l_n addresses the Clan. {PRONOUN/m_c/subject/CAP} {VERB/m_c/bow/bows} {PRONOUN/m_c/poss} head as {PRONOUN/m_c/subject} {VERB/m_c/are/is} named m_c after {PRONOUN/m_c/poss} r_h."
+  ],
+  "attack_14": [
+    [
+      "attack",
+      "prepared",
+      "general_mentor",
+      "general_parents",
+      "yes_leader",
+      "general_backstory",
+      "careful"
+    ],
+    "(old_name) sits neatly in front of l_n as {PRONOUN/l_n/subject} {VERB/l_n/talk/talks} about how well (old_name) did in {PRONOUN/m_c/poss} assessment. {PRONOUN/m_c/subject/CAP} {VERB/m_c/are/is} named m_c after {PRONOUN/m_c/poss} r_h."
+  ],
+  "attack_15": [
+    [
+      "attack",
+      "prepared",
+      "general_mentor",
+      "general_parents",
+      "yes_leader",
+      "general_backstory",
+      "charismatic",
+      "flamboyant",
+      "rebellious"
+    ],
+    "(old_name) holds {PRONOUN/m_c/poss} head high as l_n announces it is time for {PRONOUN/m_c/object} to be given {PRONOUN/m_c/poss} attack name. {PRONOUN/m_c/subject/CAP} {VERB/m_c/are/is} named m_c in honor of {PRONOUN/m_c/poss} r_h, and the Clan explodes into loud cheers."
+  ],
+  "attack_16": [
+    [
+      "attack",
+      "prepared",
+      "general_mentor",
+      "general_parents",
+      "yes_leader",
+      "general_backstory",
+      "childish",
+      "oblivious"
+    ],
+    "(old_name) barely seems to be paying attention, attention focused on a fluttering leaf. l_n has to repeat {PRONOUN/m_c/poss} name a few times before {PRONOUN/m_c/subject} finally {VERB/m_c/pay/pays} attention long enough to give {PRONOUN/m_c/poss} vow. Sighing, the leader names {PRONOUN/m_c/object} m_c after {PRONOUN/m_c/poss} r_h."
+  ],
+  "attack_17": [
+    [
+      "attack",
+      "prepared",
+      "general_mentor",
+      "general_parents",
+      "yes_leader",
+      "general_backstory",
+      "childish"
+    ],
+    "While l_n is not quite sure that (old_name) has outgrown {PRONOUN/m_c/poss} childish quirks or {PRONOUN/m_c/poss} love of pranks, {PRONOUN/l_n/subject} {VERB/l_n/welcome/welcomes} {PRONOUN/m_c/object} as a full attack to the Clan and naming {PRONOUN/m_c/object} m_c after {PRONOUN/m_c/poss} lightheartedness and r_h."
+  ],
+  "attack_18": [
+    [
+      "attack",
+      "prepared",
+      "general_mentor",
+      "general_parents",
+      "yes_leader",
+      "general_backstory",
+      "cold",
+      "grumpy",
+      "gloomy"
+    ],
+    "(old_name) remains completely quiet as l_n names {PRONOUN/m_c/object} m_c after {PRONOUN/m_c/poss} r_h. Before anyone can congratulate {PRONOUN/m_c/object}, however, {PRONOUN/m_c/subject} {VERB/m_c/turn/turns} and walks away without a word to do {PRONOUN/m_c/poss} silent vigil."
+  ],
+  "attack_19": [
+    [
+      "attack",
+      "prepared",
+      "general_mentor",
+      "general_parents",
+      "yes_leader",
+      "general_backstory",
+      "cold",
+      "cunning",
+      "gloomy"
+    ],
+    "(old_name) stares at l_n as {PRONOUN/l_n/subject} {VERB/l_n/speak/speaks}. l_n is sure it doesn't mean anything, but (old_name)'s lack of enthusiasm worries {PRONOUN/l_n/object}. Brushing past it, l_n gives {PRONOUN/m_c/object} the name m_c after {PRONOUN/m_c/poss} r_h."
+  ],
+  "attack_20": [
+    [
+      "attack",
+      "prepared",
+      "general_mentor",
+      "general_parents",
+      "yes_leader",
+      "general_backstory",
+      "compassionate"
+    ],
+    "(old_name) was so busy helping another cat {PRONOUN/m_c/subject} {VERB/m_c/were/was} nearly late for {PRONOUN/m_c/poss} own attack ceremony. {PRONOUN/m_c/subject/CAP} rush to sit down, and l_n gazes proudly down at {PRONOUN/m_c/object} as {PRONOUN/l_n/subject} {VERB/l_n/name/names} {PRONOUN/m_c/object} m_c after {PRONOUN/m_c/poss} r_h."
+  ],
+  "attack_21": [
+    [
+      "attack",
+      "prepared",
+      "general_mentor",
+      "general_parents",
+      "yes_leader",
+      "general_backstory",
+      "compassionate",
+      "loving"
+    ],
+    "l_n has always thought (old_name) had a kind heart, knowing that {PRONOUN/m_c/subject} {VERB/m_c/are/is} ready for times of peace, but doesn't know how that heart will serve in war. Nevertheless, {PRONOUN/l_n/subject} {VERB/l_n/name/names} {PRONOUN/m_c/object} m_c after {PRONOUN/m_c/poss} r_h."
+  ],
+  "attack_22": [
+    [
+      "attack",
+      "prepared",
+      "general_mentor",
+      "general_parents",
+      "yes_leader",
+      "general_backstory",
+      "confident",
+      "arrogant"
+    ],
+    "(old_name) soaks up all of the attention as {PRONOUN/m_c/subject} {VERB/m_c/stand/stands} before {PRONOUN/m_c/poss} Clan, eager for {PRONOUN/m_c/poss} new name. l_n gives {PRONOUN/m_c/object} the name m_c after {PRONOUN/m_c/poss} r_h."
+  ],
+  "attack_23": [
+    [
+      "attack",
+      "prepared",
+      "general_mentor",
+      "general_parents",
+      "yes_leader",
+      "general_backstory",
+      "daring",
+      "grumpy"
+    ],
+    "(old_name) looks up at the leader with pride. {PRONOUN/m_c/subject/CAP} knew all that hard work - proving {PRONOUN/m_c/subject} {VERB/m_c/were/was} the best apprentice in the Clan - was worth it, even if it caused {PRONOUN/m_c/object} a lot of trouble. {PRONOUN/m_c/subject/CAP} {VERB/m_c/hold/holds} {PRONOUN/m_c/poss} head high as {PRONOUN/m_c/subject}{VERB/m_c/'re/'s} named m_c after {PRONOUN/m_c/poss} r_h."
+  ],
+  "attack_24": [
+    [
+      "attack",
+      "prepared",
+      "general_mentor",
+      "general_parents",
+      "yes_leader",
+      "general_backstory",
+      "daring"
+    ],
+    "(old_name) sits with a determined look on {PRONOUN/m_c/poss} face before the Clan. l_n is worried that {PRONOUN/m_c/poss} refusal to back down and tendency to jump headfirst into danger will end poorly for {PRONOUN/m_c/object}, and hopes that sitting vigil overnight will change that. (old_name) is named m_c after {PRONOUN/m_c/poss} r_h."
+  ],
+  "attack_25": [
+    [
+      "attack",
+      "prepared",
+      "general_mentor",
+      "general_parents",
+      "yes_leader",
+      "general_backstory",
+      "compassionate"
+    ],
+    "(old_name) purrs as {PRONOUN/m_c/subject} {VERB/m_c/feel/feels} the joy and pride of {PRONOUN/m_c/poss} Clanmates wash over {PRONOUN/m_c/object}. l_n looks down upon {PRONOUN/m_c/object}, eyes glowing with pride as well as {PRONOUN/l_n/subject} {VERB/l_n/name/names} {PRONOUN/m_c/object} m_c after {PRONOUN/m_c/poss} r_h."
+  ],
+  "attack_26": [
+    [
+      "attack",
+      "prepared",
+      "general_mentor",
+      "general_parents",
+      "yes_leader",
+      "general_backstory",
+      "faithful"
+    ],
+    "(old_name)'s eyes glimmer while l_n talks about {PRONOUN/m_c/poss} accomplishments. {PRONOUN/m_c/poss} gaze isn't focused on the leader, however, but the stars shining behind {PRONOUN/l_n/object}. As {PRONOUN/m_c/subject} {VERB/m_c/are/is} given the name m_c, {PRONOUN/m_c/object} {VERB/m_c/wonder/wonders} if StarClan honors {PRONOUN/m_c/poss} r_h, too."
+  ],
+  "attack_27": [
+    [
+      "attack",
+      "prepared",
+      "general_mentor",
+      "general_parents",
+      "yes_leader",
+      "general_backstory",
+      "faithful"
+    ],
+    "As l_n gives (old_name) the name m_c, {PRONOUN/l_n/subject} {VERB/l_n/swear/swears} that {PRONOUN/l_n/subject} {VERB/l_n/see/sees} some starry cats yowling their support amongst {PRONOUN/l_n/poss} other Clanmates."
+  ],
+  "attack_28": [
+    [
+      "attack",
+      "prepared",
+      "general_mentor",
+      "general_parents",
+      "yes_leader",
+      "general_backstory",
+      "fierce",
+      "grumpy"
+    ],
+    "(old_name) sits in front of the leader, tail twitching back and forth as {PRONOUN/m_c/subject} {VERB/m_c/await/awaits} {PRONOUN/m_c/poss} attack name. {PRONOUN/m_c/subject/CAP}{VERB/m_c/'re/'s} eager for this ceremony to be done so {PRONOUN/m_c/subject} can go back to work and make sure the Clan is safe. Finally, l_n looks down upon {PRONOUN/m_c/object} and names {PRONOUN/m_c/object} m_c after {PRONOUN/m_c/poss} r_h."
+  ],
+  "attack_29": [
+    [
+      "attack",
+      "prepared",
+      "general_mentor",
+      "general_parents",
+      "yes_leader",
+      "general_backstory",
+      "insecure"
+    ],
+    "{PRONOUN/m_c/poss/CAP} training is done already? (old_name) isn't entirely sure if {PRONOUN/m_c/subject}{VERB/m_c/'re/'s} quite as ready to be a attack as the leader claims {PRONOUN/m_c/object} to be. {PRONOUN/m_c/poss/CAP} voice trembles when {PRONOUN/m_c/subject} {VERB/m_c/take/takes} {PRONOUN/m_c/poss} vow. As {PRONOUN/m_c/subject}{VERB/m_c/'re/'s} renamed to m_c, in honor of {PRONOUN/m_c/poss} r_h, {PRONOUN/m_c/subject} can't help but wonder if that is truly something that describes {PRONOUN/m_c/object}."
+  ],
+  "attack_30": [
+    [
+      "attack",
+      "prepared",
+      "general_mentor",
+      "general_parents",
+      "yes_leader",
+      "general_backstory",
+      "lonesome",
+      "gloomy"
+    ],
+    "(old_name), now m_c, named so for {PRONOUN/m_c/poss} r_h, can only awkwardly thank {PRONOUN/m_c/poss} Clanmates as {PRONOUN/m_c/subject} {VERB/m_c/weave/weaves} through the crowd of purring cats. Once the meeting comes to a close, {PRONOUN/m_c/subject} {VERB/m_c/slink/slinks} out of camp to be alone for a while."
+  ],
+  "attack_31": [
+    [
+      "attack",
+	    "prepared",
+      "alive_mentor",
+      "general_parents",
+      "yes_leader",
+      "general_backstory",
+      "loving",
+      "sincere"
+    ],
+    "(old_name) is overjoyed to finally be a attack. After l_n renames {PRONOUN/m_c/object} and honors {PRONOUN/m_c/poss} r_h, m_c nuzzles (previous_mentor), thanking {PRONOUN/(previous_mentor)/object} for {PRONOUN/(previous_mentor)/poss} guidance."
+  ],
+  "attack_32": [
+    [
+      "attack",
+      "prepared",
+      "general_mentor",
+      "general_parents",
+      "yes_leader",
+      "general_backstory",
+      "loyal"
+    ],
+    "(old_name) looks around at {PRONOUN/m_c/poss} Clanmates with adoration while l_n announces that {PRONOUN/m_c/poss} new name will be m_c after {PRONOUN/m_c/poss} r_h. m_c is happy to be a attack now, but mostly {PRONOUN/m_c/subject} just {VERB/m_c/want/wants} to celebrate with {PRONOUN/m_c/poss} Clan, whether it's for {PRONOUN/m_c/object} or not."
+  ],
+  "attack_33": [
+    [
+      "attack",
+      "prepared",
+      "general_mentor",
+      "general_parents",
+      "yes_leader",
+      "general_backstory",
+      "nervous"
+    ],
+    "(old_name) fidgets nervously as {PRONOUN/m_c/subject} {VERB/m_c/step/steps} forward in front of the Clan. This is an important moment, so {PRONOUN/m_c/subject} {VERB/m_c/try/tries} not to hide {PRONOUN/m_c/poss} face from the crowd as l_n gives {PRONOUN/m_c/object} the name m_c in honor of {PRONOUN/m_c/poss} r_h. {PRONOUN/m_c/subject/CAP} quickly {VERB/m_c/scurry/scurries} back into the crowd once the ceremony is done, silently hoping that this will be the last ceremony {PRONOUN/m_c/subject} ever {VERB/m_c/have/has}."
+  ],
+  "attack_34": [
+    [
+      "attack",
+      "prepared",
+      "general_mentor",
+      "general_parents",
+      "yes_leader",
+      "general_backstory",
+      "nervous"
+    ],
+    "As (old_name) nervously approaches {PRONOUN/m_c/poss} leader, l_n can't help but feel {PRONOUN/m_c/poss} hesitance might cost {PRONOUN/m_c/object} {PRONOUN/m_c/poss} life in battle. Steeling {PRONOUN/l_n/self} against {PRONOUN/l_n/poss} doubts, l_n gives (old_name) the name m_c to honor {PRONOUN/m_c/poss} r_h."
+  ],
+  "attack_35": [
+    [
+      "attack",
+      "prepared",
+      "general_mentor",
+      "general_parents",
+      "yes_leader",
+      "general_backstory",
+      "compassionate"
+    ],
+    "(old_name) sits unbothered as l_n rattles on through the long, formal words of the attack ceremony. {PRONOUN/l_n/subject/CAP} {VERB/l_n/give/gives} (old_name) the name m_c, honoring {PRONOUN/m_c/poss} r_h. m_c has no complaints about the long vigil {PRONOUN/m_c/subject} must sit that night."
+  ],
+  "attack_36": [
+    [
+      "attack",
+      "prepared",
+      "general_mentor",
+      "general_parents",
+      "yes_leader",
+      "general_backstory",
+      "playful"
+    ],
+    "(old_name) bounces up to the front of the Clan, full of excitement. {PRONOUN/m_c/subject/CAP} {VERB/m_c/try/tries} to take this somewhat seriously, but {PRONOUN/m_c/subject} still {VERB/m_c/crack/cracks} a joke over something the leader says. l_n gently scolds {PRONOUN/m_c/object} for it, but can't help purring along as {PRONOUN/l_n/subject} {VERB/l_n/name/names} {PRONOUN/m_c/object} m_c after {PRONOUN/m_c/poss} r_h."
+  ],
+  "attack_37": [
+    [
+      "attack",
+      "prepared",
+      "general_mentor",
+      "general_parents",
+      "yes_leader",
+      "general_backstory",
+      "responsible"
+    ],
+    "(old_name) has shown more maturity than most cats {PRONOUN/m_c/poss} age, always offering to take on the worst apprentice jobs first, and counting the prey in the pile to know just how much to catch on patrol. l_n was tempted to make {PRONOUN/m_c/object} a attack sooner, but now will have to do. {PRONOUN/l_n/subject/CAP} {VERB/l_n/name/names} {PRONOUN/m_c/object} m_c after {PRONOUN/m_c/poss} r_h."
+  ],
+  "attack_38": [
+    [
+      "attack",
+      "prepared",
+      "general_mentor",
+      "general_parents",
+      "yes_leader",
+      "general_backstory",
+      "righteous",
+      "sincere"
+    ],
+    "(old_name) stands tall before the Clan, gaze determined as l_n says {PRONOUN/m_c/subject} {VERB/m_c/are/is} ready for {PRONOUN/m_c/poss} attack name. (old_name) takes the vow seriously, and promises to always do what is best for everyone. Gaze proud, l_n names {PRONOUN/m_c/object} m_c after {PRONOUN/m_c/poss} r_h."
+  ],
+  "attack_39": [
+    [
+      "attack",
+      "prepared",
+      "general_mentor",
+      "general_parents",
+      "yes_leader",
+      "general_backstory",
+      "shameless",
+      "sincere"
+    ],
+    "(old_name) is still messy after tussling with someone else, and doesn't even bother to groom {PRONOUN/m_c/self} before trotting up to the front of the crowd. {PRONOUN/m_c/subject/CAP} {VERB/m_c/are/is} named m_c, and honored for {PRONOUN/m_c/poss} r_h."
+  ],
+  "attack_40": [
+    [
+      "attack",
+      "prepared",
+      "general_mentor",
+      "general_parents",
+      "yes_leader",
+      "general_backstory",
+      "sneaky"
+    ],
+    "(old_name) pads forward silently before sitting in front of {PRONOUN/m_c/poss} leader. {PRONOUN/m_c/subject/CAP} {VERB/m_c/remain/remains} as quiet as {PRONOUN/m_c/poss} steps forward for l_n to name {PRONOUN/m_c/object} m_c and honor {PRONOUN/m_c/poss} r_h."
+  ],
+  "attack_41": [
+    [
+      "attack",
+      "prepared",
+      "general_mentor",
+      "general_parents",
+      "yes_leader",
+      "general_backstory",
+      "strange"
+    ],
+    "(old_name) is nearly late for {PRONOUN/m_c/poss} ceremony, having been double checking something for reasons no one knows. l_n remains patient as (old_name) sits down in front of {PRONOUN/l_n/object}. l_n names {PRONOUN/m_c/object} m_c, honoring {PRONOUN/m_c/poss} r_h."
+  ],
+  "attack_42": [
+    [
+      "attack",
+      "prepared",
+      "general_mentor",
+      "general_parents",
+      "yes_leader",
+      "general_backstory",
+      "strict"
+    ],
+    "(old_name) grumbles to {PRONOUN/m_c/self} as l_n changes just a single word in the ceremony. But {PRONOUN/m_c/subject} {VERB/m_c/know/knows} better than to correct {PRONOUN/l_n/object} during such an important ceremony. {PRONOUN/m_c/subject/CAP} can speak to l_n about it later. For now, {PRONOUN/m_c/subject} {VERB/m_c/listen/listens} as {PRONOUN/m_c/subject} {VERB/m_c/are/is} given the name m_c, and {VERB/m_c/are/is} honored for {PRONOUN/m_c/poss} r_h."
+  ],
+  "attack_43": [
+    [
+      "attack",
+      "prepared",
+      "general_mentor",
+      "general_parents",
+      "yes_leader",
+      "general_backstory",
+      "thoughtful"
+    ],
+    "l_n hops up onto the meeting spot to find that (old_name) has set moss along it in preparation for the meeting so that l_n can be more comfortable through the long ceremony. Purring, l_n gives {PRONOUN/m_c/object} the name m_c for {PRONOUN/m_c/poss} r_h."
+  ],
+  "attack_44": [
+    [
+      "attack",
+      "prepared",
+      "general_mentor",
+      "general_parents",
+      "yes_leader",
+      "general_backstory",
+      "thoughtful",
+      "wise",
+      "cunning"
+    ],
+    "l_n almost feels intimidated by the knowledge (old_name) has gathered in {PRONOUN/m_c/poss} months of training and feels confident when {PRONOUN/l_n/subject} {VERB/l_n/name/names} {PRONOUN/m_c/object} m_c in honor of {PRONOUN/m_c/poss} r_h."
+  ],
+  "attack_45": [
+    [
+      "attack",
+      "prepared",
+      "general_mentor",
+      "general_parents",
+      "yes_leader",
+      "general_backstory",
+      "troublesome",
+      "rebellious"
+    ],
+    "(old_name)'s penchant for getting into, and even starting, trouble has almost made l_n hold back on making {PRONOUN/m_c/object} a attack. However, l_n can tell that (old_name) has been trying really hard lately to make up for it, and it would feel cruel to make {PRONOUN/m_c/object} wait any longer. So, l_n names {PRONOUN/m_c/object} m_c in honor of {PRONOUN/m_c/poss} r_h."
+  ],
+  "attack_46": [
+    [
+      "attack",
+      "prepared",
+      "general_mentor",
+      "general_parents",
+      "yes_leader",
+      "general_backstory",
+      "vengeful"
+    ],
+    "As (old_name) takes {PRONOUN/m_c/poss} vow and is named m_c after {PRONOUN/m_c/poss} r_h, {PRONOUN/m_c/poss} thoughts are less on protecting the Clan, and more so on ensuring that anyone who harms it will pay in kind."
+  ],
+  "attack_47": [
+    [
+      "attack",
+      "prepared",
+      "general_mentor",
+      "general_parents",
+      "yes_leader",
+      "general_backstory",
+      "wise",
+      "cunning"
+    ],
+    "(old_name)'s advice has helped many cats throughout {PRONOUN/m_c/poss} days as an apprentice. Even l_n has sought {PRONOUN/m_c/object} out at times. l_n has no doubts in {PRONOUN/l_n/poss} mind that (old_name) is ready to be a attack, and names {PRONOUN/m_c/object} m_c, honoring {PRONOUN/m_c/poss} r_h."
+  ],
+  "attack_48": [
+    [
+      "attack",
+      "prepared",
+      "general_mentor",
+      "general_parents",
+      "no_leader",
+      "general_backstory",
+      "all_traits"
+    ],
+    "c_n rallies around (old_name) in celebration. Even without a leader, life must go on, and (old_name) has proven {PRONOUN/m_c/subject} {VERB/m_c/are/is} ready for {PRONOUN/m_c/poss} attack name. (old_name) is allowed to choose {PRONOUN/m_c/poss} own suffix, and {PRONOUN/m_c/subject} {VERB/m_c/name/names} {PRONOUN/m_c/self} m_c. The Clan cheers for the new attack, honoring {PRONOUN/m_c/poss} r_h."
+  ],
+  "attack_49": [
+    [
+      "attack",
+      "prepared",
+      "general_mentor",
+      "general_parents",
+      "no_leader",
+      "general_backstory",
+      "all_traits"
+    ],
+    "(old_name) sits with {PRONOUN/m_c/poss} Clan, purring as {PRONOUN/m_c/subject}{VERB/m_c/'re/'s} congratulated on finishing {PRONOUN/m_c/poss} training. When given the option to choose {PRONOUN/m_c/poss} name, however, (old_name) can't really think of a suffix, and asks {PRONOUN/m_c/poss} Clanmates for some suggestions. After hearing a few ideas, (old_name) decides to be named m_c. The Clan cheers {PRONOUN/m_c/poss} new name, and honors {PRONOUN/m_c/object} for {PRONOUN/m_c/poss} r_h."
+  ],
+  "attack_50": [
+    [
+      "attack",
+      "prepared",
+      "dead_mentor",
+      "general_parents",
+      "no_leader",
+      "general_backstory",
+      "all_traits"
+    ],
+    "Leader or no leader, c_n needs more attacks, and (old_name) has been working incredibly hard lately. The Clan agrees that {PRONOUN/m_c/subject} should be made a attack. As {PRONOUN/m_c/subject} {VERB/m_c/are/is} named m_c, honoring {PRONOUN/m_c/poss} r_h, m_c wishes that (deadmentor) could be there to cheer for {PRONOUN/m_c/object}."
+  ],
+  "attack_51": [
+    [
+      "attack",
+      "prepared",
+      "dead_mentor",
+      "general_parents",
+      "no_leader",
+      "general_backstory",
+      "all_traits"
+    ],
+    "They don't care if there's no leader; the Clan knows that (old_name) is deserving of {PRONOUN/m_c/poss} full name. They gather to hold a ceremony for (old_name), and name {PRONOUN/m_c/object} m_c, honoring {PRONOUN/m_c/poss} r_h. m_c is proud of {PRONOUN/m_c/self}, though a part of {PRONOUN/m_c/object} still wishes that (deadmentor) was still there to see {PRONOUN/m_c/object}."
+  ],
+  "attack_52": [
+    [
+      "attack",
+      "prepared",
+      "alive_mentor",
+      "general_parents",
+      "no_leader",
+      "general_backstory",
+      "all_traits"
+    ],
+    "Leader or no leader, c_n needs more attacks, and (old_name) has been working incredibly hard lately. The Clan agrees that {PRONOUN/m_c/subject} should be made a attack. They gather around the apprentice, and (previous_mentor) is nudged forward to do the honor of giving {PRONOUN/m_c/object} {PRONOUN/m_c/poss} name. Purring in pride for {PRONOUN/(previous_mentor)/poss} apprentice, (previous_mentor) rests {PRONOUN/(previous_mentor)/poss} muzzle on (old_name)'s head, and names {PRONOUN/m_c/object} m_c, honoring {PRONOUN/m_c/poss} r_h."
+  ],
+  "attack_53": [
+    [
+      "attack",
+	    "prepared",
+      "alive_mentor",
+      "general_parents",
+      "no_leader",
+      "general_backstory",
+      "all_traits"
+    ],
+    "{PRONOUN/(previous_mentor)/subject/CAP} {VERB/(previous_mentor)/don't/doesn't} care if there's no leader; (previous_mentor) knows that (old_name) is deserving of {PRONOUN/m_c/poss} full name. {PRONOUN/(previous_mentor)/subject/CAP} {VERB/(previous_mentor)/gather/gathers} the Clan to hold a ceremony for (old_name), and names {PRONOUN/m_c/object} m_c, honoring {PRONOUN/m_c/poss} r_h."
+  ],
+  "attack_54": [
+    [
+      "attack",
+      "prepared",
+      "general_mentor",
+      "alive1_parents",
+      "general_leader",
+      "general_backstory",
+      "all_traits"
+    ],
+    "p1 can hardly believe how quickly time has passed since (old_name) was a kit. It still feels like just yesterday that {PRONOUN/m_c/subject} {VERB/m_c/were/was} tumbling around the nursery, chasing after a mossball or some other cat's tail. Misty-eyed with pride and joy, p1 throws {PRONOUN/p1/poss} head back and tries to cheer the loudest as (old_name) is named m_c and honored for {PRONOUN/m_c/poss} r_h."
+  ],
+  "attack_55": [
+    [
+      "attack",
+      "prepared",
+      "general_mentor",
+      "alive1_parents",
+      "general_leader",
+      "general_backstory",
+      "all_traits"
+    ],
+    "As the Clan cheers for the new attack, m_c, p1 purrs loudly. {PRONOUN/p1/poss/CAP} kit is finally a attack! A new journey has begun for m_c, and p1 knows that m_c's r_h will lead {PRONOUN/m_c/object} through anything."
+  ],
+  "attack_56": [
+    [
+      "attack",
+      "prepared",
+      "general_mentor",
+      "alive2_parents",
+      "general_leader",
+      "general_backstory",
+      "all_traits"
+    ],
+    "p1 and p2's eyes meet, and they purr with pride as (old_name) steps forward to receive {PRONOUN/m_c/poss} new name, m_c, and {VERB/m_c/are/is} honored for {PRONOUN/m_c/poss} r_h."
+  ],
+  "attack_57": [
+    [
+      "attack",
+      "prepared",
+      "general_mentor",
+      "dead2_parents",
+      "general_leader",
+      "general_backstory",
+      "all_traits"
+    ],
+    "Are dead_par1 and dead_par2 watching from StarClan? (old_name) wonders this as {PRONOUN/m_c/subject} {VERB/m_c/step/steps} in front of the Clan. {PRONOUN/m_c/subject/CAP} {VERB/m_c/hope/hopes} so. {PRONOUN/m_c/subject/CAP} truly {VERB/m_c/do/does}. As {PRONOUN/m_c/subject} {VERB/m_c/are/is} given the name m_c in honor of {PRONOUN/m_c/poss} r_h, m_c hopes that {PRONOUN/m_c/poss} parents are there, cheering with their Clanmates in the stars for their kit."
+  ],
+  "attack_58": [
+    [
+      "attack",
+      "prepared",
+      "general_mentor",
+      "dead2_parents",
+      "general_leader",
+      "clanborn",
+      "all_traits"
+    ],
+    "(old_name) tries to keep {PRONOUN/m_c/poss} head high as {PRONOUN/m_c/subject} {VERB/m_c/step/steps} forward, and {VERB/m_c/are/is} given the name m_c in honor of {PRONOUN/m_c/poss} r_h. It doesn't seem fair. dead_par1 and dead_par2 should be here with {PRONOUN/m_c/object}! They promised they would! m_c looks to the stars, and {PRONOUN/m_c/poss} anger and frustration vanishes. It feels as though the stars are brighter, and {PRONOUN/m_c/subject} {VERB/m_c/know/knows} that, even if they cannot be there in body, {PRONOUN/m_c/poss} parents are there in spirit."
+  ],
+  "attack_59": [
+    [
+      "attack",
+      "prepared",
+      "alive_leader_mentor",
+      "general_parents",
+      "yes_leader",
+      "general_backstory",
+      "all_traits"
+    ],
+    "(previous_mentor) gathers the Clan for a meeting. {PRONOUN/(previous_mentor)/subject/CAP} {VERB/(previous_mentor)/have/has} spent many moons training (old_name), and it's time for {PRONOUN/m_c/object} to be granted {PRONOUN/m_c/poss} attack name. (previous_mentor) gives {PRONOUN/m_c/object} the name m_c and honors {PRONOUN/m_c/poss} r_h."
+  ],
+  "hunt_0": [
+    [
+      "hunt",
+      "prepared",
+      "general_mentor",
+      "general_parents",
+      "general_leader",
+      "general_backstory",
+      "all_traits"
+    ],
+    "c_n welcomes m_c as a new hunter, honoring {PRONOUN/m_c/poss} r_h."
+  ],
+  "hunt_0_a": [
+    [
+      "hunt",
+      "unprepared",
+      "general_mentor",
+      "general_parents",
+      "general_leader",
+      "general_backstory",
+      "all_traits"
+    ],
+    "Although {PRONOUN/m_c/poss} training has been long, (old_name) has failed to master the skills needed of a hunter. However, {PRONOUN/m_c/subject} {VERB/m_c/are/is} getting too old to stay in the apprentices den. The mood is tense and awkward as {PRONOUN/m_c/subject} {VERB/m_c/are/is} named m_c and honored for {PRONOUN/m_c/poss} r_h. "
+  ],
+  "hunt_0_b": [
+    [
+      "hunt",
+      "early",
+      "general_mentor",
+      "general_parents",
+      "general_leader",
+      "general_backstory",
+      "all_traits"
+    ],
+    "(old_name) has excelled at every task placed before {PRONOUN/m_c/object}. Despite {PRONOUN/m_c/poss} young age, {PRONOUN/m_c/subject} {VERB/m_c/are/is} more than ready to be a hunter. {PRONOUN/m_c/subject/CAP} {VERB/m_c/are/is} given the name m_c, honoring {PRONOUN/m_c/poss} r_h. "
+  ],
+  "hunt_1": [
+    [
+      "hunt",
+      "prepared",
+      "general_mentor",
+      "general_parents",
+      "yes_leader",
+      "general_backstory",
+      "all_traits"
+    ],
+    "l_n calls the Clan to a meeting and declares (old_name) to be a hunter. {PRONOUN/m_c/subject/CAP} {VERB/m_c/are/is} now called m_c and are celebrated for {PRONOUN/m_c/poss} r_h."
+  ],
+  "hunt_2": [
+    [
+      "hunt",
+      "prepared",
+      "general_mentor",
+      "general_parents",
+      "yes_leader",
+      "general_backstory",
+      "all_traits"
+    ],
+    "l_n stands above the Clan and proclaims that (old_name) shall now be known as m_c, honoring {PRONOUN/m_c/poss} r_h."
+  ],
+  "hunt_3": [
+    [
+      "hunt",
+      "prepared",
+      "general_mentor",
+      "general_parents",
+      "yes_leader",
+      "general_backstory",
+      "all_traits"
+    ],
+    "l_n rests {PRONOUN/l_n/poss} muzzle on m_c's head and declares {PRONOUN/m_c/object} to be a full hunter of c_n, honoring {PRONOUN/m_c/poss} r_h."
+  ],
+  "hunt_4": [
+    [
+      "hunt",
+      "prepared",
+      "general_mentor",
+      "general_parents",
+      "yes_leader",
+      "general_backstory",
+      "all_traits"
+    ],
+    "l_n has been following the progress of (old_name) for moons, and feels that it is finally time for {PRONOUN/m_c/object} to get {PRONOUN/m_c/poss} hunter name. {PRONOUN/m_c/subject/CAP} {VERB/m_c/are/is} granted the name m_c in honor of {PRONOUN/m_c/poss} r_h."
+  ],
+  "hunt_5": [
+    [
+      "hunt",
+      "prepared",
+      "dead_mentor",
+      "general_parents",
+      "yes_leader",
+      "general_backstory",
+      "all_traits"
+    ],
+    "(old_name) stands before the leader. {PRONOUN/m_c/subject/CAP} should be happier, but as {PRONOUN/m_c/subject}{VERB/m_c/'re/'s} given {PRONOUN/m_c/poss} hunter name, m_c in honor of {PRONOUN/m_c/poss} r_h, {PRONOUN/m_c/subject} {VERB/m_c/cast/casts} a look to the crowd. {PRONOUN/m_c/subject/CAP} {VERB/m_c/wish/wishes} that (deadmentor) could be there to see {PRONOUN/m_c/object} now."
+  ],
+  "hunt_6": [
+    [
+      "hunt",
+      "prepared",
+      "alive_mentor",
+      "general_parents",
+      "general_leader",
+      "general_backstory",
+      "all_traits"
+    ],
+    "(previous_mentor) sits in the crowd, chest puffed out in pride as {PRONOUN/(previous_mentor)/subject} {VERB/(previous_mentor)/watch/watches} (old_name) be named m_c, and honored for {PRONOUN/m_c/poss} r_h. {PRONOUN/(previous_mentor)/subject/CAP} {VERB/(previous_mentor)/consider/considers} {PRONOUN/(previous_mentor)/self} lucky to have been able to train such an amazing young cat, and look forward to seeing the hunt {PRONOUN/m_c/subject} {VERB/m_c/become/becomes}."
+  ],
+  "hunt_7": [
+    [
+      "hunt",
+      "prepared",
+      "alive_mentor",
+      "general_parents",
+      "yes_leader",
+      "general_backstory",
+      "all_traits"
+    ],
+    "(previous_mentor) gives (old_name) a friendly nudge when the leader calls the young cat's name. {PRONOUN/(previous_mentor)/subject/CAP} {VERB/(previous_mentor)/watch/watches} with pride as (old_name) steps forward to receive {PRONOUN/m_c/poss} new name, m_c, and {VERB/m_c/are/is} honored for {PRONOUN/m_c/poss} r_h."
+  ],
+  "hunt_8": [
+    [
+      "hunt",
+      "prepared",
+      "general_mentor",
+      "general_parents",
+      "general_leader",
+      "general_backstory",
+      "adventurous",
+      "oblivious"
+    ],
+    "(old_name) sits in front of the Clan, eager to receive {PRONOUN/m_c/poss} name, but {PRONOUN/m_c/poss} focus seems somewhere else, somewhere beyond the horizon. {PRONOUN/m_c/subject/CAP} barely {VERB/m_c/seem/seems} to be paying attention as {PRONOUN/m_c/subject}{VERB/m_c/'re/'s} named m_c after {PRONOUN/m_c/poss} r_h."
+  ],
+  "hunt_9": [
+    [
+      "hunt",
+      "prepared",
+      "general_mentor",
+      "general_parents",
+      "general_leader",
+      "general_backstory",
+      "compassionate"
+    ],
+    "l_n gazes down proudly upon (old_name). {PRONOUN/m_c/subject/CAP} {VERB/m_c/had/has} spent {PRONOUN/m_c/poss} whole apprenticeship helping the Clan, and so {PRONOUN/m_c/subject} {VERB/m_c/are/is} named m_c after {PRONOUN/m_c/poss} r_h."
+  ],
+  "hunt_10": [
+    [
+      "hunt",
+      "prepared",
+      "general_mentor",
+      "general_parents",
+      "yes_leader",
+      "general_backstory",
+      "ambitious"
+    ],
+    "(old_name)'s eyes gleam as {PRONOUN/m_c/subject} {VERB/m_c/stare/stares} up at l_n, vowing silently to {PRONOUN/m_c/self} to one day be up there. {PRONOUN/m_c/subject/CAP} {VERB/m_c/are/is} named m_c after {PRONOUN/m_c/poss} r_h."
+  ],
+  "hunt_11": [
+    [
+      "hunt",
+      "prepared",
+      "general_mentor",
+      "general_parents",
+      "yes_leader",
+      "general_backstory",
+      "bloodthirsty"
+    ],
+    "Although (old_name)'s eagerness to fight has left l_n a little worried before, {PRONOUN/l_n/subject} {VERB/m_c/know/knows} that the Clan can count on (old_name)'s bravery and sharp claws when they need them the most. In honor of {PRONOUN/m_c/poss} r_h, (old_name) is given the name m_c."
+  ],
+  "hunt_12": [
+    [
+      "hunt",
+      "prepared",
+      "general_mentor",
+      "general_parents",
+      "yes_leader",
+      "general_backstory",
+      "bold",
+      "arrogant",
+      "cunning"
+    ],
+    "(old_name) stands tall and puffs out {PRONOUN/m_c/poss} chest as l_n announces {PRONOUN/m_c/subject} {VERB/m_c/are/is} ready for {PRONOUN/m_c/poss} hunter name. {PRONOUN/m_c/subject/CAP} {VERB/m_c/are/is} given the name m_c after {PRONOUN/m_c/poss} r_h."
+  ],
+  "hunt_13": [
+    [
+      "hunt",
+      "prepared",
+      "general_mentor",
+      "general_parents",
+      "yes_leader",
+      "general_backstory",
+      "calm",
+      "cunning"
+    ],
+    "(old_name) sits before the Clan, ears pricked forward and gaze calm as l_n addresses the Clan. {PRONOUN/m_c/subject/CAP} {VERB/m_c/bow/bows} {PRONOUN/m_c/poss} head as {PRONOUN/m_c/subject} {VERB/m_c/are/is} named m_c after {PRONOUN/m_c/poss} r_h."
+  ],
+  "hunt_14": [
+    [
+      "hunt",
+      "prepared",
+      "general_mentor",
+      "general_parents",
+      "yes_leader",
+      "general_backstory",
+      "careful"
+    ],
+    "(old_name) sits neatly in front of l_n as {PRONOUN/l_n/subject} {VERB/l_n/talk/talks} about how well (old_name) did in {PRONOUN/m_c/poss} assessment. {PRONOUN/m_c/subject/CAP} {VERB/m_c/are/is} named m_c after {PRONOUN/m_c/poss} r_h."
+  ],
+  "hunt_15": [
+    [
+      "hunt",
+      "prepared",
+      "general_mentor",
+      "general_parents",
+      "yes_leader",
+      "general_backstory",
+      "charismatic",
+      "flamboyant",
+      "rebellious"
+    ],
+    "(old_name) holds {PRONOUN/m_c/poss} head high as l_n announces it is time for {PRONOUN/m_c/object} to be given {PRONOUN/m_c/poss} hunt name. {PRONOUN/m_c/subject/CAP} {VERB/m_c/are/is} named m_c in honor of {PRONOUN/m_c/poss} r_h, and the Clan explodes into loud cheers."
+  ],
+  "hunt_16": [
+    [
+      "hunt",
+      "prepared",
+      "general_mentor",
+      "general_parents",
+      "yes_leader",
+      "general_backstory",
+      "childish",
+      "oblivious"
+    ],
+    "(old_name) barely seems to be paying attention, attention focused on a fluttering leaf. l_n has to repeat {PRONOUN/m_c/poss} name a few times before {PRONOUN/m_c/subject} finally {VERB/m_c/pay/pays} attention long enough to give {PRONOUN/m_c/poss} vow. Sighing, the leader names {PRONOUN/m_c/object} m_c after {PRONOUN/m_c/poss} r_h."
+  ],
+  "hunt_17": [
+    [
+      "hunt",
+      "prepared",
+      "general_mentor",
+      "general_parents",
+      "yes_leader",
+      "general_backstory",
+      "childish"
+    ],
+    "While l_n is not quite sure that (old_name) has outgrown {PRONOUN/m_c/poss} childish quirks or {PRONOUN/m_c/poss} love of pranks, {PRONOUN/l_n/subject} {VERB/l_n/welcome/welcomes} {PRONOUN/m_c/object} as a full hunt to the Clan and naming {PRONOUN/m_c/object} m_c after {PRONOUN/m_c/poss} lightheartedness and r_h."
+  ],
+  "hunt_18": [
+    [
+      "hunt",
+      "prepared",
+      "general_mentor",
+      "general_parents",
+      "yes_leader",
+      "general_backstory",
+      "cold",
+      "grumpy",
+      "gloomy"
+    ],
+    "(old_name) remains completely quiet as l_n names {PRONOUN/m_c/object} m_c after {PRONOUN/m_c/poss} r_h. Before anyone can congratulate {PRONOUN/m_c/object}, however, {PRONOUN/m_c/subject} {VERB/m_c/turn/turns} and walks away without a word to do {PRONOUN/m_c/poss} silent vigil."
+  ],
+  "hunt_19": [
+    [
+      "hunt",
+      "prepared",
+      "general_mentor",
+      "general_parents",
+      "yes_leader",
+      "general_backstory",
+      "cold",
+      "cunning",
+      "gloomy"
+    ],
+    "(old_name) stares at l_n as {PRONOUN/l_n/subject} {VERB/l_n/speak/speaks}. l_n is sure it doesn't mean anything, but (old_name)'s lack of enthusiasm worries {PRONOUN/l_n/object}. Brushing past it, l_n gives {PRONOUN/m_c/object} the name m_c after {PRONOUN/m_c/poss} r_h."
+  ],
+  "hunt_20": [
+    [
+      "hunt",
+      "prepared",
+      "general_mentor",
+      "general_parents",
+      "yes_leader",
+      "general_backstory",
+      "compassionate"
+    ],
+    "(old_name) was so busy helping another cat {PRONOUN/m_c/subject} {VERB/m_c/were/was} nearly late for {PRONOUN/m_c/poss} own hunt ceremony. {PRONOUN/m_c/subject/CAP} rush to sit down, and l_n gazes proudly down at {PRONOUN/m_c/object} as {PRONOUN/l_n/subject} {VERB/l_n/name/names} {PRONOUN/m_c/object} m_c after {PRONOUN/m_c/poss} r_h."
+  ],
+  "hunt_21": [
+    [
+      "hunt",
+      "prepared",
+      "general_mentor",
+      "general_parents",
+      "yes_leader",
+      "general_backstory",
+      "compassionate",
+      "loving"
+    ],
+    "l_n has always thought (old_name) had a kind heart, knowing that {PRONOUN/m_c/subject} {VERB/m_c/are/is} ready for times of peace, but doesn't know how that heart will serve in war. Nevertheless, {PRONOUN/l_n/subject} {VERB/l_n/name/names} {PRONOUN/m_c/object} m_c after {PRONOUN/m_c/poss} r_h."
+  ],
+  "hunt_22": [
+    [
+      "hunt",
+      "prepared",
+      "general_mentor",
+      "general_parents",
+      "yes_leader",
+      "general_backstory",
+      "confident",
+      "arrogant"
+    ],
+    "(old_name) soaks up all of the attention as {PRONOUN/m_c/subject} {VERB/m_c/stand/stands} before {PRONOUN/m_c/poss} Clan, eager for {PRONOUN/m_c/poss} new name. l_n gives {PRONOUN/m_c/object} the name m_c after {PRONOUN/m_c/poss} r_h."
+  ],
+  "hunt_23": [
+    [
+      "hunt",
+      "prepared",
+      "general_mentor",
+      "general_parents",
+      "yes_leader",
+      "general_backstory",
+      "daring",
+      "grumpy"
+    ],
+    "(old_name) looks up at the leader with pride. {PRONOUN/m_c/subject/CAP} knew all that hard work - proving {PRONOUN/m_c/subject} {VERB/m_c/were/was} the best apprentice in the Clan - was worth it, even if it caused {PRONOUN/m_c/object} a lot of trouble. {PRONOUN/m_c/subject/CAP} {VERB/m_c/hold/holds} {PRONOUN/m_c/poss} head high as {PRONOUN/m_c/subject}{VERB/m_c/'re/'s} named m_c after {PRONOUN/m_c/poss} r_h."
+  ],
+  "hunt_24": [
+    [
+      "hunt",
+      "prepared",
+      "general_mentor",
+      "general_parents",
+      "yes_leader",
+      "general_backstory",
+      "daring"
+    ],
+    "(old_name) sits with a determined look on {PRONOUN/m_c/poss} face before the Clan. l_n is worried that {PRONOUN/m_c/poss} refusal to back down and tendency to jump headfirst into danger will end poorly for {PRONOUN/m_c/object}, and hopes that sitting vigil overnight will change that. (old_name) is named m_c after {PRONOUN/m_c/poss} r_h."
+  ],
+  "hunt_25": [
+    [
+      "hunt",
+      "prepared",
+      "general_mentor",
+      "general_parents",
+      "yes_leader",
+      "general_backstory",
+      "compassionate"
+    ],
+    "(old_name) purrs as {PRONOUN/m_c/subject} {VERB/m_c/feel/feels} the joy and pride of {PRONOUN/m_c/poss} Clanmates wash over {PRONOUN/m_c/object}. l_n looks down upon {PRONOUN/m_c/object}, eyes glowing with pride as well as {PRONOUN/l_n/subject} {VERB/l_n/name/names} {PRONOUN/m_c/object} m_c after {PRONOUN/m_c/poss} r_h."
+  ],
+  "hunt_26": [
+    [
+      "hunt",
+      "prepared",
+      "general_mentor",
+      "general_parents",
+      "yes_leader",
+      "general_backstory",
+      "faithful"
+    ],
+    "(old_name)'s eyes glimmer while l_n talks about {PRONOUN/m_c/poss} accomplishments. {PRONOUN/m_c/poss} gaze isn't focused on the leader, however, but the stars shining behind {PRONOUN/l_n/object}. As {PRONOUN/m_c/subject} {VERB/m_c/are/is} given the name m_c, {PRONOUN/m_c/object} {VERB/m_c/wonder/wonders} if StarClan honors {PRONOUN/m_c/poss} r_h, too."
+  ],
+  "hunt_27": [
+    [
+      "hunt",
+      "prepared",
+      "general_mentor",
+      "general_parents",
+      "yes_leader",
+      "general_backstory",
+      "faithful"
+    ],
+    "As l_n gives (old_name) the name m_c, {PRONOUN/l_n/subject} {VERB/l_n/swear/swears} that {PRONOUN/l_n/subject} {VERB/l_n/see/sees} some starry cats yowling their support amongst {PRONOUN/l_n/poss} other Clanmates."
+  ],
+  "hunt_28": [
+    [
+      "hunt",
+      "prepared",
+      "general_mentor",
+      "general_parents",
+      "yes_leader",
+      "general_backstory",
+      "fierce",
+      "grumpy"
+    ],
+    "(old_name) sits in front of the leader, tail twitching back and forth as {PRONOUN/m_c/subject} {VERB/m_c/await/awaits} {PRONOUN/m_c/poss} hunt name. {PRONOUN/m_c/subject/CAP}{VERB/m_c/'re/'s} eager for this ceremony to be done so {PRONOUN/m_c/subject} can go back to work and make sure the Clan is safe. Finally, l_n looks down upon {PRONOUN/m_c/object} and names {PRONOUN/m_c/object} m_c after {PRONOUN/m_c/poss} r_h."
+  ],
+  "hunt_29": [
+    [
+      "hunt",
+      "prepared",
+      "general_mentor",
+      "general_parents",
+      "yes_leader",
+      "general_backstory",
+      "insecure"
+    ],
+    "{PRONOUN/m_c/poss/CAP} training is done already? (old_name) isn't entirely sure if {PRONOUN/m_c/subject}{VERB/m_c/'re/'s} quite as ready to be a hunt as the leader claims {PRONOUN/m_c/object} to be. {PRONOUN/m_c/poss/CAP} voice trembles when {PRONOUN/m_c/subject} {VERB/m_c/take/takes} {PRONOUN/m_c/poss} vow. As {PRONOUN/m_c/subject}{VERB/m_c/'re/'s} renamed to m_c, in honor of {PRONOUN/m_c/poss} r_h, {PRONOUN/m_c/subject} can't help but wonder if that is truly something that describes {PRONOUN/m_c/object}."
+  ],
+  "hunt_30": [
+    [
+      "hunt",
+      "prepared",
+      "general_mentor",
+      "general_parents",
+      "yes_leader",
+      "general_backstory",
+      "lonesome",
+      "gloomy"
+    ],
+    "(old_name), now m_c, named so for {PRONOUN/m_c/poss} r_h, can only awkwardly thank {PRONOUN/m_c/poss} Clanmates as {PRONOUN/m_c/subject} {VERB/m_c/weave/weaves} through the crowd of purring cats. Once the meeting comes to a close, {PRONOUN/m_c/subject} {VERB/m_c/slink/slinks} out of camp to be alone for a while."
+  ],
+  "hunt_31": [
+    [
+      "hunt",
+	    "prepared",
+      "alive_mentor",
+      "general_parents",
+      "yes_leader",
+      "general_backstory",
+      "loving",
+      "sincere"
+    ],
+    "(old_name) is overjoyed to finally be a hunt. After l_n renames {PRONOUN/m_c/object} and honors {PRONOUN/m_c/poss} r_h, m_c nuzzles (previous_mentor), thanking {PRONOUN/(previous_mentor)/object} for {PRONOUN/(previous_mentor)/poss} guidance."
+  ],
+  "hunt_32": [
+    [
+      "hunt",
+      "prepared",
+      "general_mentor",
+      "general_parents",
+      "yes_leader",
+      "general_backstory",
+      "loyal"
+    ],
+    "(old_name) looks around at {PRONOUN/m_c/poss} Clanmates with adoration while l_n announces that {PRONOUN/m_c/poss} new name will be m_c after {PRONOUN/m_c/poss} r_h. m_c is happy to be a hunt now, but mostly {PRONOUN/m_c/subject} just {VERB/m_c/want/wants} to celebrate with {PRONOUN/m_c/poss} Clan, whether it's for {PRONOUN/m_c/object} or not."
+  ],
+  "hunt_33": [
+    [
+      "hunt",
+      "prepared",
+      "general_mentor",
+      "general_parents",
+      "yes_leader",
+      "general_backstory",
+      "nervous"
+    ],
+    "(old_name) fidgets nervously as {PRONOUN/m_c/subject} {VERB/m_c/step/steps} forward in front of the Clan. This is an important moment, so {PRONOUN/m_c/subject} {VERB/m_c/try/tries} not to hide {PRONOUN/m_c/poss} face from the crowd as l_n gives {PRONOUN/m_c/object} the name m_c in honor of {PRONOUN/m_c/poss} r_h. {PRONOUN/m_c/subject/CAP} quickly {VERB/m_c/scurry/scurries} back into the crowd once the ceremony is done, silently hoping that this will be the last ceremony {PRONOUN/m_c/subject} ever {VERB/m_c/have/has}."
+  ],
+  "hunt_34": [
+    [
+      "hunt",
+      "prepared",
+      "general_mentor",
+      "general_parents",
+      "yes_leader",
+      "general_backstory",
+      "nervous"
+    ],
+    "As (old_name) nervously approaches {PRONOUN/m_c/poss} leader, l_n can't help but feel {PRONOUN/m_c/poss} hesitance might cost {PRONOUN/m_c/object} {PRONOUN/m_c/poss} life in battle. Steeling {PRONOUN/l_n/self} against {PRONOUN/l_n/poss} doubts, l_n gives (old_name) the name m_c to honor {PRONOUN/m_c/poss} r_h."
+  ],
+  "hunt_35": [
+    [
+      "hunt",
+      "prepared",
+      "general_mentor",
+      "general_parents",
+      "yes_leader",
+      "general_backstory",
+      "compassionate"
+    ],
+    "(old_name) sits unbothered as l_n rattles on through the long, formal words of the hunt ceremony. {PRONOUN/l_n/subject/CAP} {VERB/l_n/give/gives} (old_name) the name m_c, honoring {PRONOUN/m_c/poss} r_h. m_c has no complaints about the long vigil {PRONOUN/m_c/subject} must sit that night."
+  ],
+  "hunt_36": [
+    [
+      "hunt",
+      "prepared",
+      "general_mentor",
+      "general_parents",
+      "yes_leader",
+      "general_backstory",
+      "playful"
+    ],
+    "(old_name) bounces up to the front of the Clan, full of excitement. {PRONOUN/m_c/subject/CAP} {VERB/m_c/try/tries} to take this somewhat seriously, but {PRONOUN/m_c/subject} still {VERB/m_c/crack/cracks} a joke over something the leader says. l_n gently scolds {PRONOUN/m_c/object} for it, but can't help purring along as {PRONOUN/l_n/subject} {VERB/l_n/name/names} {PRONOUN/m_c/object} m_c after {PRONOUN/m_c/poss} r_h."
+  ],
+  "hunt_37": [
+    [
+      "hunt",
+      "prepared",
+      "general_mentor",
+      "general_parents",
+      "yes_leader",
+      "general_backstory",
+      "responsible"
+    ],
+    "(old_name) has shown more maturity than most cats {PRONOUN/m_c/poss} age, always offering to take on the worst apprentice jobs first, and counting the prey in the pile to know just how much to catch on patrol. l_n was tempted to make {PRONOUN/m_c/object} a hunt sooner, but now will have to do. {PRONOUN/l_n/subject/CAP} {VERB/l_n/name/names} {PRONOUN/m_c/object} m_c after {PRONOUN/m_c/poss} r_h."
+  ],
+  "hunt_38": [
+    [
+      "hunt",
+      "prepared",
+      "general_mentor",
+      "general_parents",
+      "yes_leader",
+      "general_backstory",
+      "righteous",
+      "sincere"
+    ],
+    "(old_name) stands tall before the Clan, gaze determined as l_n says {PRONOUN/m_c/subject} {VERB/m_c/are/is} ready for {PRONOUN/m_c/poss} hunt name. (old_name) takes the vow seriously, and promises to always do what is best for everyone. Gaze proud, l_n names {PRONOUN/m_c/object} m_c after {PRONOUN/m_c/poss} r_h."
+  ],
+  "hunt_39": [
+    [
+      "hunt",
+      "prepared",
+      "general_mentor",
+      "general_parents",
+      "yes_leader",
+      "general_backstory",
+      "shameless",
+      "sincere"
+    ],
+    "(old_name) is still messy after tussling with someone else, and doesn't even bother to groom {PRONOUN/m_c/self} before trotting up to the front of the crowd. {PRONOUN/m_c/subject/CAP} {VERB/m_c/are/is} named m_c, and honored for {PRONOUN/m_c/poss} r_h."
+  ],
+  "hunt_40": [
+    [
+      "hunt",
+      "prepared",
+      "general_mentor",
+      "general_parents",
+      "yes_leader",
+      "general_backstory",
+      "sneaky"
+    ],
+    "(old_name) pads forward silently before sitting in front of {PRONOUN/m_c/poss} leader. {PRONOUN/m_c/subject/CAP} {VERB/m_c/remain/remains} as quiet as {PRONOUN/m_c/poss} steps forward for l_n to name {PRONOUN/m_c/object} m_c and honor {PRONOUN/m_c/poss} r_h."
+  ],
+  "hunt_41": [
+    [
+      "hunt",
+      "prepared",
+      "general_mentor",
+      "general_parents",
+      "yes_leader",
+      "general_backstory",
+      "strange"
+    ],
+    "(old_name) is nearly late for {PRONOUN/m_c/poss} ceremony, having been double checking something for reasons no one knows. l_n remains patient as (old_name) sits down in front of {PRONOUN/l_n/object}. l_n names {PRONOUN/m_c/object} m_c, honoring {PRONOUN/m_c/poss} r_h."
+  ],
+  "hunt_42": [
+    [
+      "hunt",
+      "prepared",
+      "general_mentor",
+      "general_parents",
+      "yes_leader",
+      "general_backstory",
+      "strict"
+    ],
+    "(old_name) grumbles to {PRONOUN/m_c/self} as l_n changes just a single word in the ceremony. But {PRONOUN/m_c/subject} {VERB/m_c/know/knows} better than to correct {PRONOUN/l_n/object} during such an important ceremony. {PRONOUN/m_c/subject/CAP} can speak to l_n about it later. For now, {PRONOUN/m_c/subject} {VERB/m_c/listen/listens} as {PRONOUN/m_c/subject} {VERB/m_c/are/is} given the name m_c, and {VERB/m_c/are/is} honored for {PRONOUN/m_c/poss} r_h."
+  ],
+  "hunt_43": [
+    [
+      "hunt",
+      "prepared",
+      "general_mentor",
+      "general_parents",
+      "yes_leader",
+      "general_backstory",
+      "thoughtful"
+    ],
+    "l_n hops up onto the meeting spot to find that (old_name) has set moss along it in preparation for the meeting so that l_n can be more comfortable through the long ceremony. Purring, l_n gives {PRONOUN/m_c/object} the name m_c for {PRONOUN/m_c/poss} r_h."
+  ],
+  "hunt_44": [
+    [
+      "hunt",
+      "prepared",
+      "general_mentor",
+      "general_parents",
+      "yes_leader",
+      "general_backstory",
+      "thoughtful",
+      "wise",
+      "cunning"
+    ],
+    "l_n almost feels intimidated by the knowledge (old_name) has gathered in {PRONOUN/m_c/poss} months of training and feels confident when {PRONOUN/l_n/subject} {VERB/l_n/name/names} {PRONOUN/m_c/object} m_c in honor of {PRONOUN/m_c/poss} r_h."
+  ],
+  "hunt_45": [
+    [
+      "hunt",
+      "prepared",
+      "general_mentor",
+      "general_parents",
+      "yes_leader",
+      "general_backstory",
+      "troublesome",
+      "rebellious"
+    ],
+    "(old_name)'s penchant for getting into, and even starting, trouble has almost made l_n hold back on making {PRONOUN/m_c/object} a hunt. However, l_n can tell that (old_name) has been trying really hard lately to make up for it, and it would feel cruel to make {PRONOUN/m_c/object} wait any longer. So, l_n names {PRONOUN/m_c/object} m_c in honor of {PRONOUN/m_c/poss} r_h."
+  ],
+  "hunt_46": [
+    [
+      "hunt",
+      "prepared",
+      "general_mentor",
+      "general_parents",
+      "yes_leader",
+      "general_backstory",
+      "vengeful"
+    ],
+    "As (old_name) takes {PRONOUN/m_c/poss} vow and is named m_c after {PRONOUN/m_c/poss} r_h, {PRONOUN/m_c/poss} thoughts are less on protecting the Clan, and more so on ensuring that anyone who harms it will pay in kind."
+  ],
+  "hunt_47": [
+    [
+      "hunt",
+      "prepared",
+      "general_mentor",
+      "general_parents",
+      "yes_leader",
+      "general_backstory",
+      "wise",
+      "cunning"
+    ],
+    "(old_name)'s advice has helped many cats throughout {PRONOUN/m_c/poss} days as an apprentice. Even l_n has sought {PRONOUN/m_c/object} out at times. l_n has no doubts in {PRONOUN/l_n/poss} mind that (old_name) is ready to be a hunt, and names {PRONOUN/m_c/object} m_c, honoring {PRONOUN/m_c/poss} r_h."
+  ],
+  "hunt_48": [
+    [
+      "hunt",
+      "prepared",
+      "general_mentor",
+      "general_parents",
+      "no_leader",
+      "general_backstory",
+      "all_traits"
+    ],
+    "c_n rallies around (old_name) in celebration. Even without a leader, life must go on, and (old_name) has proven {PRONOUN/m_c/subject} {VERB/m_c/are/is} ready for {PRONOUN/m_c/poss} hunt name. (old_name) is allowed to choose {PRONOUN/m_c/poss} own suffix, and {PRONOUN/m_c/subject} {VERB/m_c/name/names} {PRONOUN/m_c/self} m_c. The Clan cheers for the new hunt, honoring {PRONOUN/m_c/poss} r_h."
+  ],
+  "hunt_49": [
+    [
+      "hunt",
+      "prepared",
+      "general_mentor",
+      "general_parents",
+      "no_leader",
+      "general_backstory",
+      "all_traits"
+    ],
+    "(old_name) sits with {PRONOUN/m_c/poss} Clan, purring as {PRONOUN/m_c/subject}{VERB/m_c/'re/'s} congratulated on finishing {PRONOUN/m_c/poss} training. When given the option to choose {PRONOUN/m_c/poss} name, however, (old_name) can't really think of a suffix, and asks {PRONOUN/m_c/poss} Clanmates for some suggestions. After hearing a few ideas, (old_name) decides to be named m_c. The Clan cheers {PRONOUN/m_c/poss} new name, and honors {PRONOUN/m_c/object} for {PRONOUN/m_c/poss} r_h."
+  ],
+  "hunt_50": [
+    [
+      "hunt",
+      "prepared",
+      "dead_mentor",
+      "general_parents",
+      "no_leader",
+      "general_backstory",
+      "all_traits"
+    ],
+    "Leader or no leader, c_n needs more hunts, and (old_name) has been working incredibly hard lately. The Clan agrees that {PRONOUN/m_c/subject} should be made a hunt. As {PRONOUN/m_c/subject} {VERB/m_c/are/is} named m_c, honoring {PRONOUN/m_c/poss} r_h, m_c wishes that (deadmentor) could be there to cheer for {PRONOUN/m_c/object}."
+  ],
+  "hunt_51": [
+    [
+      "hunt",
+      "prepared",
+      "dead_mentor",
+      "general_parents",
+      "no_leader",
+      "general_backstory",
+      "all_traits"
+    ],
+    "They don't care if there's no leader; the Clan knows that (old_name) is deserving of {PRONOUN/m_c/poss} full name. They gather to hold a ceremony for (old_name), and name {PRONOUN/m_c/object} m_c, honoring {PRONOUN/m_c/poss} r_h. m_c is proud of {PRONOUN/m_c/self}, though a part of {PRONOUN/m_c/object} still wishes that (deadmentor) was still there to see {PRONOUN/m_c/object}."
+  ],
+  "hunt_52": [
+    [
+      "hunt",
+      "prepared",
+      "alive_mentor",
+      "general_parents",
+      "no_leader",
+      "general_backstory",
+      "all_traits"
+    ],
+    "Leader or no leader, c_n needs more hunts, and (old_name) has been working incredibly hard lately. The Clan agrees that {PRONOUN/m_c/subject} should be made a hunt. They gather around the apprentice, and (previous_mentor) is nudged forward to do the honor of giving {PRONOUN/m_c/object} {PRONOUN/m_c/poss} name. Purring in pride for {PRONOUN/(previous_mentor)/poss} apprentice, (previous_mentor) rests {PRONOUN/(previous_mentor)/poss} muzzle on (old_name)'s head, and names {PRONOUN/m_c/object} m_c, honoring {PRONOUN/m_c/poss} r_h."
+  ],
+  "hunt_53": [
+    [
+      "hunt",
+	    "prepared",
+      "alive_mentor",
+      "general_parents",
+      "no_leader",
+      "general_backstory",
+      "all_traits"
+    ],
+    "{PRONOUN/(previous_mentor)/subject/CAP} {VERB/(previous_mentor)/don't/doesn't} care if there's no leader; (previous_mentor) knows that (old_name) is deserving of {PRONOUN/m_c/poss} full name. {PRONOUN/(previous_mentor)/subject/CAP} {VERB/(previous_mentor)/gather/gathers} the Clan to hold a ceremony for (old_name), and names {PRONOUN/m_c/object} m_c, honoring {PRONOUN/m_c/poss} r_h."
+  ],
+  "hunt_54": [
+    [
+      "hunt",
+      "prepared",
+      "general_mentor",
+      "alive1_parents",
+      "general_leader",
+      "general_backstory",
+      "all_traits"
+    ],
+    "p1 can hardly believe how quickly time has passed since (old_name) was a kit. It still feels like just yesterday that {PRONOUN/m_c/subject} {VERB/m_c/were/was} tumbling around the nursery, chasing after a mossball or some other cat's tail. Misty-eyed with pride and joy, p1 throws {PRONOUN/p1/poss} head back and tries to cheer the loudest as (old_name) is named m_c and honored for {PRONOUN/m_c/poss} r_h."
+  ],
+  "hunt_55": [
+    [
+      "hunt",
+      "prepared",
+      "general_mentor",
+      "alive1_parents",
+      "general_leader",
+      "general_backstory",
+      "all_traits"
+    ],
+    "As the Clan cheers for the new hunt, m_c, p1 purrs loudly. {PRONOUN/p1/poss/CAP} kit is finally a hunt! A new journey has begun for m_c, and p1 knows that m_c's r_h will lead {PRONOUN/m_c/object} through anything."
+  ],
+  "hunt_56": [
+    [
+      "hunt",
+      "prepared",
+      "general_mentor",
+      "alive2_parents",
+      "general_leader",
+      "general_backstory",
+      "all_traits"
+    ],
+    "p1 and p2's eyes meet, and they purr with pride as (old_name) steps forward to receive {PRONOUN/m_c/poss} new name, m_c, and {VERB/m_c/are/is} honored for {PRONOUN/m_c/poss} r_h."
+  ],
+  "hunt_57": [
+    [
+      "hunt",
+      "prepared",
+      "general_mentor",
+      "dead2_parents",
+      "general_leader",
+      "general_backstory",
+      "all_traits"
+    ],
+    "Are dead_par1 and dead_par2 watching from StarClan? (old_name) wonders this as {PRONOUN/m_c/subject} {VERB/m_c/step/steps} in front of the Clan. {PRONOUN/m_c/subject/CAP} {VERB/m_c/hope/hopes} so. {PRONOUN/m_c/subject/CAP} truly {VERB/m_c/do/does}. As {PRONOUN/m_c/subject} {VERB/m_c/are/is} given the name m_c in honor of {PRONOUN/m_c/poss} r_h, m_c hopes that {PRONOUN/m_c/poss} parents are there, cheering with their Clanmates in the stars for their kit."
+  ],
+  "hunt_58": [
+    [
+      "hunt",
+      "prepared",
+      "general_mentor",
+      "dead2_parents",
+      "general_leader",
+      "clanborn",
+      "all_traits"
+    ],
+    "(old_name) tries to keep {PRONOUN/m_c/poss} head high as {PRONOUN/m_c/subject} {VERB/m_c/step/steps} forward, and {VERB/m_c/are/is} given the name m_c in honor of {PRONOUN/m_c/poss} r_h. It doesn't seem fair. dead_par1 and dead_par2 should be here with {PRONOUN/m_c/object}! They promised they would! m_c looks to the stars, and {PRONOUN/m_c/poss} anger and frustration vanishes. It feels as though the stars are brighter, and {PRONOUN/m_c/subject} {VERB/m_c/know/knows} that, even if they cannot be there in body, {PRONOUN/m_c/poss} parents are there in spirit."
+  ],
+  "hunt_59": [
+    [
+      "hunt",
+      "prepared",
+      "alive_leader_mentor",
+      "general_parents",
+      "yes_leader",
+      "general_backstory",
+      "all_traits"
+    ],
+    "(previous_mentor) gathers the Clan for a meeting. {PRONOUN/(previous_mentor)/subject/CAP} {VERB/(previous_mentor)/have/has} spent many moons training (old_name), and it's time for {PRONOUN/m_c/object} to be granted {PRONOUN/m_c/poss} hunt name. (previous_mentor) gives {PRONOUN/m_c/object} the name m_c and honors {PRONOUN/m_c/poss} r_h."
+  ],
   "mediator_0": [
     [
       "mediator",
