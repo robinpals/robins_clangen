@@ -726,22 +726,58 @@ class ProfileScreen(Screens):
         output += "\n"
         if the_cat.dead:
             output += str(the_cat.moons)
+
+            years = round((the_cat.moons / 12.0), 1)
+            if float(years).is_integer():
+                years = int(years)
+            years_word = ""
+            if years == 1:
+                years = 1
+                years_word += 'year'
+            else:
+                years_word += 'years'
+            years_total = str(years) + " " + years_word
+
             if the_cat.moons == 1:
-                output += ' moon (in life --' + str(round(the_cat.moons / 12, 1)) + ' years)\n'
+                output += f" moon ({years_total} in life)\n"
             elif the_cat.moons != 1:
-                output += ' moons (in life --' + str(round(the_cat.moons / 12, 1)) + ' years)\n'
+                output += f" moons ({years_total} in life)\n"
 
             output += str(the_cat.dead_for)
+
+            years_dead = round((the_cat.dead_for / 12.0), 1)
+            if float(years).is_integer():
+                years = int(years)
+            years_dead_word = ""
+            if years_dead == 1:
+                years_dead = 1
+                years_dead_word += 'year'
+            else:
+                years_dead_word += 'years'
+            years_total_dead = str(years_dead) + " " + years_dead_word
+
             if the_cat.dead_for == 1:
-                output += ' moon (in death --' + str(round(the_cat.moons / 12, 1)) + ' years)'
+                output += f" moon ({years_total_dead} in death)\n"
             elif the_cat.dead_for != 1:
-                output += ' moons (in death --' + str(round(the_cat.moons / 12, 1)) + ' years)'
+                output += f" moon ({years_total_dead} in death)\n"
         else:
             output += str(the_cat.moons)
+            years = round((the_cat.moons / 12.0), 1)
+            if float(years).is_integer():
+                years = int(years)
+            years_word = ""
+            if years == 1:
+                years = 1
+                years_word += 'year'
+   
+            else:
+                years_word += 'years'
+            years_total = str(years) + " " + years_word
             if the_cat.moons == 1:
-                output += ' moon (' + str(round(the_cat.moons / 12, 1)) + ' years)'
+                output += f" moon ({years_total})"
             elif the_cat.moons != 1:
-                output += ' moons (' + str(round(the_cat.moons / 12, 1)) + ' years)'
+                output += f" moons ({years_total})"
+
 
         # MATE
         if len(the_cat.mate) > 0:
