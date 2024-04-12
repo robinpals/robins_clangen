@@ -119,8 +119,10 @@ class CodeInspectScreen(Screens):
             elif event.ui_element == self.checkboxes["override_not_working"]:
                 if self.override_not_working:
                     self.override_not_working = False
+                    self.get_sprite_number()
                 else:
                     self.override_not_working = True
+                    self.get_sprite_number()
                 
                 self.make_cat_image()
                 self.update_checkboxes()
@@ -503,6 +505,14 @@ class CodeInspectScreen(Screens):
         self.sprite_elements = {}
         if self.displayed_life_stage == 0:
             sprite_number = 20
+        elif self.the_cat.pelt.paralyzed and self.displayed_life_stage in [3, 4]:
+            sprite_number = self.the_cat.pelt.cat_sprites['para_adult']
+        elif self.the_cat.pelt.paralyzed and self.displayed_life_stage in [1, 2]:
+            sprite_number = 17
+        elif self.the_cat.not_working() and self.displayed_life_stage in [1, 2] and not self.override_not_working:
+            sprite_number = 19
+        elif self.the_cat.not_working() and self.displayed_life_stage in [3, 4] and not self.override_not_working:
+            sprite_number = 18 
         elif self.displayed_life_stage == 1:
             sprite_number = self.the_cat.pelt.cat_sprites['kitten']
         elif self.displayed_life_stage == 2:
@@ -511,14 +521,7 @@ class CodeInspectScreen(Screens):
             sprite_number = self.the_cat.pelt.cat_sprites['adult']
         elif self.displayed_life_stage == 4:
             sprite_number = self.the_cat.pelt.cat_sprites['senior']
-        elif self.the_cat.pelt.paralyzed:
-            sprite_number = self.the_cat.pelt.cat_sprites['para_adult']
-        elif self.the_cat.pelt.paralyzed and self.displayed_life_stage in [1, 2]:
-            sprite_number = 17
-        elif self.the_cat.not_working() and self.displayed_life_stage in [1, 2]:
-            sprite_number = 19
-        elif self.the_cat.not_working() and self.displayed_life_stage in [3, 4]:
-            sprite_number = 18 
+
         self.sprite_elements["sprite_number_string"] = pygame_gui.elements.UITextBox("Sprite " + str(sprite_number),
                                                                       scale(pygame.Rect(
                                                                         (370, 1000),
