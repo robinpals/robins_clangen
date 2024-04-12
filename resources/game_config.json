@@ -305,7 +305,10 @@
 			"medicine cat apprentice": 30,
 			"apprentice": 25,
 			"mediator apprentice": 25,
-			"starteller apprentice": 40
+			"starteller apprentice": 40,
+			"defense apprentice": 25,
+			"attack apprentice": 25,
+			"hunt apprentice": 25
 		},
 		"min_graduating_age": 10
 	},
